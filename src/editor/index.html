@@ -1,0 +1,115 @@
+<title>Editor «Las 3 IAs»</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Sala de muntatge fosca (un sol tema, triat a propòsit): vídeo a l'esquerra, revisió a la dreta; en mòbil, apilat. */
+:root {
+  color-scheme: dark;
+  --bg: #0f1012;
+  --surface: #17181b;
+  --surface-2: #1f2125;
+  --line: #2c2f35;
+  --fg: #ecebe8;
+  --muted: #9a9ca3;
+  --accent: #ff5a36;
+  --accent-ink: #1a0b06;
+  --ok: #49c58b;
+  --warn: #e9b44c;
+  --seg-eina: #3a4a63;
+  --seg-extra: #4d3f63;
+  --seg-ganxo: #5b4a36;
+  --font-ui: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --r: 10px;
+}
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-ui); font-size: 14px; line-height: 1.45; padding: 0 16px; }
+button, input, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#root { max-width: 1440px; margin: 0 auto; padding-block: 16px 32px; }
+
+.app { display: flex; flex-direction: column; gap: 14px; }
+.bar { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; }
+.bar-title { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.eyebrow { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { margin: 0; font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; text-wrap: balance; }
+.bar-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.chip { font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line); color: var(--muted); }
+.chip-ok { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, transparent); }
+.chip-warn { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 45%, transparent); }
+.btn { border: 1px solid var(--line); background: var(--surface-2); padding: 8px 14px; border-radius: 8px; font-weight: 500; }
+.btn:hover:not(:disabled) { border-color: var(--muted); }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn-primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+.btn-ghost { background: transparent; justify-self: start; }
+.message { margin: 0; padding: 8px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); }
+
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 400px); gap: 16px; align-items: start; }
+@media (max-width: 960px) { .layout { grid-template-columns: minmax(0, 1fr); } }
+
+.stage { display: flex; flex-direction: column; gap: 10px; min-width: 0; position: sticky; top: env(safe-area-inset-top, 0px); }
+@media (max-width: 960px) { .stage { position: static; } }
+.player-wrap { border-radius: var(--r); overflow: hidden; background: #000; border: 1px solid var(--line); max-width: 100%; }
+.stage-meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; color: var(--muted); font-size: 12px; }
+.tc { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+.timeline { position: relative; height: 64px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; cursor: pointer; overflow: hidden; }
+.tl-row { position: absolute; left: 0; right: 0; }
+.tl-overlays { top: 8px; height: 14px; }
+.tl-segments { top: 26px; height: 18px; }
+.tl-ov { position: absolute; top: 0; height: 14px; border: 0; padding: 0; border-radius: 3px; background: var(--accent); min-width: 3px; }
+.tl-ov.is-off { background: transparent; outline: 1px dashed var(--muted); outline-offset: -1px; }
+.tl-ov.is-selected { box-shadow: 0 0 0 2px var(--fg); }
+.tl-seg { position: absolute; top: 0; height: 18px; border-right: 1px solid var(--bg); background: var(--seg-eina); }
+.tl-extra { background: var(--seg-extra); }
+.tl-ganxo, .tl-tancament { background: var(--seg-ganxo); }
+.tl-seg.is-selected { box-shadow: inset 0 0 0 2px var(--fg); }
+.tl-head { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--fg); pointer-events: none; transform: translateX(-1px); }
+.tl-ticks { position: absolute; left: 0; right: 0; bottom: 2px; height: 14px; pointer-events: none; }
+.tl-ticks span { position: absolute; font-family: var(--font-mono); font-size: 10px; color: var(--muted); padding-left: 3px; border-left: 1px solid var(--line); }
+.legend { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; color: var(--muted); font-size: 12px; }
+.lg { display: inline-block; width: 12px; height: 8px; border-radius: 2px; vertical-align: middle; }
+.lg-ov { background: var(--accent); } .lg-eina { background: var(--seg-eina); } .lg-extra { background: var(--seg-extra); } .lg-ganxo { background: var(--seg-ganxo); }
+
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); min-width: 0; display: flex; flex-direction: column; }
+.tabs { display: flex; border-bottom: 1px solid var(--line); }
+.tab { flex: 1; background: transparent; border: 0; padding: 12px 8px; color: var(--muted); font-weight: 500; border-bottom: 2px solid transparent; }
+.tab.is-active { color: var(--fg); border-bottom-color: var(--accent); }
+.list { list-style: none; margin: 0; padding: 8px; display: flex; flex-direction: column; gap: 6px; max-height: calc(100vh - 160px); overflow-y: auto; }
+@media (max-width: 960px) { .list { max-height: none; } }
+.card { border: 1px solid transparent; border-radius: 8px; background: var(--surface-2); }
+.card.is-open { border-color: var(--line); }
+.card.is-off .sum, .card.is-off .type { opacity: .45; text-decoration: line-through; }
+.card-head { display: flex; align-items: center; gap: 8px; padding: 6px 8px 6px 4px; }
+.card-main { flex: 1; min-width: 0; display: grid; grid-template-columns: auto auto minmax(0, 1fr); align-items: baseline; gap: 8px; text-align: left; background: transparent; border: 0; padding: 4px; }
+.card-main .tc { color: var(--muted); font-size: 12px; }
+.type { font-size: 11px; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+.sum { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card.is-open .sum { white-space: normal; }
+.quote { color: var(--fg); }
+.card-body { display: grid; gap: 12px; padding: 4px 12px 14px; }
+
+.toggle { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 3px 10px 3px 4px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.toggle-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--line); }
+.toggle.is-on { color: var(--fg); }
+.toggle.is-on .toggle-dot { background: var(--ok); }
+
+.field { display: grid; gap: 4px; }
+.field-label { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.field input, .field textarea { width: 100%; box-sizing: border-box; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 8px 10px; resize: vertical; }
+.field textarea { font-family: var(--font-mono); font-size: 13px; }
+.field-hint { font-size: 12px; color: var(--muted); }
+.nudges { display: flex; flex-wrap: wrap; gap: 12px; }
+.nudge { display: grid; gap: 4px; }
+.nudge-row { display: flex; align-items: center; gap: 4px; }
+.nudge-row button { background: var(--bg); border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px; font-family: var(--font-mono); font-size: 12px; }
+.nudge-value { min-width: 64px; text-align: center; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.reason { margin: 0; color: var(--muted); display: grid; gap: 2px; }
+.notes { padding: 14px; display: grid; gap: 12px; }
+.help { margin: 0; color: var(--muted); font-size: 13px; max-width: 60ch; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+<div id="root"><p style="color:#9a9ca3">Carregant el vídeo…</p></div>
+<script src="./editor.js"></script>

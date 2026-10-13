@@ -79,6 +79,9 @@ def split_silences(src, a, b):
 
 
 # ---------- Segments ----------
+# Revisions de l'editor: un range amb keep=false es talla sencer; un recurs amb enabled=false no es pinta.
+active_overlays = [o for o in edl["overlays"] if o.get("enabled", True)]
+
 segments = []
 for r in edl["ranges"]:
     src = sources[r["source"]]
@@ -90,13 +93,18 @@ for r in edl["ranges"]:
                                  for k in ("fromMs", "toMs") if pa + 500 < p[k] < pb - 500]})
         for ca, cb in zip(cuts, cuts[1:]):
             segments.append({"range": r["id"], "source": r["source"], "inMs": ca, "outMs": cb, "block": r["block"],
-                             "preferredScale": r.get("scale")})
+                             "preferredScale": r.get("scale"), "keep": r.get("keep", True)})
+
+# L'editor necessita també els trossos tallats (per poder-los recuperar); el muntatge només els conservats.
+all_segments = segments
+for s in all_segments:
+    s["trimBefore"] = ms_to_frame(s["inMs"])
+    s["durationInFrames"] = ms_to_frame(s["outMs"]) - s["trimBefore"]
+segments = [s for s in all_segments if s["keep"]]
 
 out = 0
 prev_scale = None
 for s in segments:
-    s["trimBefore"] = ms_to_frame(s["inMs"])
-    s["durationInFrames"] = ms_to_frame(s["outMs"]) - s["trimBefore"]
     s["fromFrame"] = out
     out += s["durationInFrames"]
     punch = next((p for p in edl.get("punchIns", []) if p["source"] == s["source"]
@@ -204,7 +212,7 @@ for i, w in enumerate(caption_words):
     cur.append(w)
 flush()
 
-hook = next((o for o in edl["overlays"] if o["type"] == "HookText"), None)
+hook = next((o for o in active_overlays if o["type"] == "HookText"), None)
 hook_end = (hook["atOutputMs"] + hook["durationMs"]) if hook and hook.get("hideCaptions") else -1
 
 captions = []
@@ -225,8 +233,9 @@ for k, p in enumerate(pages):
 
 # ---------- Recursos ----------
 overlays = []
-for o in edl["overlays"]:
+for o in active_overlays:
     at = o["atOutputMs"] if "atOutputMs" in o else src_to_out_ms(o["source"], o["anchorMs"])
+    at = max(0, at + o.get("offsetMs", 0))
     f0 = ms_to_frame(at)
     overlays.append({"id": o["id"], "type": o["type"], "fromFrame": f0,
                      "durationInFrames": min(ms_to_frame(at + o["durationMs"]) - f0, total_frames - f0), "props": o["props"]})
@@ -282,6 +291,27 @@ render = {
     "overlays": overlays,
 }
 (work / "render.json").write_text(json.dumps(render, ensure_ascii=False, indent=1))
+
+# Dades per a l'editor de vista prèvia (src/editor): tot ancorat a l'original perquè el navegador
+# pugui recalcular la línia de temps quan es treu un tall o es mou un recurs.
+editor = {
+    "fps": FPS, "width": edl["video"]["width"], "height": edl["video"]["height"],
+    "title": edl.get("title", {}).get("chosen", ""),
+    "theme": edl["video"].get("theme", {}),
+    "sources": {n: {"gainDb": round(g, 2)} for n, g in gains.items()},
+    "ranges": [{"id": r["id"], "source": r["source"], "block": r["block"], "captions": r["captions"], "reason": r["reason"],
+                "keep": r.get("keep", True)} for r in edl["ranges"]],
+    "segments": [{"range": s["range"], "source": s["source"], "trimBefore": s["trimBefore"],
+                  "durationInFrames": s["durationInFrames"], "scale": s.get("scale", 1.0),
+                  "originX": s.get("originX", edl["video"]["width"] / 2), "originY": s.get("originY", edl["video"]["height"] * 0.4)}
+                 for s in all_segments],
+    "overlays": [{"id": o["id"], "type": o["type"], "props": o["props"], "reason": o.get("reason", ""),
+                  "anchor": None if "atOutputMs" in o else {"source": o["source"], "ms": o["anchorMs"]},
+                  "atOutputMs": o.get("atOutputMs"), "durationMs": o["durationMs"], "offsetMs": o.get("offsetMs", 0),
+                  "enabled": o.get("enabled", True)}
+                 for o in edl["overlays"]],
+}
+(work / "editor.json").write_text(json.dumps(editor, ensure_ascii=False, indent=1))
 
 lines = [f"Durada final: {total_frames / FPS:.2f} s ({total_frames} fotogrames a {FPS} fps)",
          f"Segments: {len(segments)} · Pàgines de subtítol: {len(captions)} · Recursos: {len(overlays)}",

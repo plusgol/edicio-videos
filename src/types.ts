@@ -7,6 +7,8 @@ export type RenderSegment = {
   scale: number;
   originX: number;
   originY: number;
+  // Només a l'editor: l'àudio surt de cada tros (igualat en dB) en lloc de voice.wav.
+  volumeDb?: number;
 };
 
 export type CaptionPage = {
@@ -30,6 +32,8 @@ export type RenderPlan = {
   height: number;
   durationInFrames: number;
   voice: string;
+  // Editor de vista prèvia: àudio de cada segment en lloc de la veu muntada (que no sap res dels canvis).
+  audioFromSegments?: boolean;
   theme: {mode?: 'light' | 'dark'; accent?: string};
   segments: RenderSegment[];
   captions: CaptionPage[];

@@ -1,4 +1,5 @@
-import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
+import {AbsoluteFill, Audio, Sequence} from 'remotion';
+import {resolveSrc} from './media';
 import {COLOR} from '../brand/estil';
 import {CameraSegment} from './components/CameraSegment';
 import {Captions} from './components/Captions';
@@ -13,7 +14,7 @@ export const Video: React.FC<{plan: RenderPlan | null}> = ({plan}) => {
     <AbsoluteFill style={{backgroundColor: COLOR.ink}}>
       {plan.segments.map((s) => (
         <Sequence key={s.fromFrame} from={s.fromFrame} durationInFrames={s.durationInFrames} premountFor={30}>
-          <CameraSegment segment={s} />
+          <CameraSegment segment={s} audible={plan.audioFromSegments} />
         </Sequence>
       ))}
       <Captions pages={plan.captions} />
@@ -23,7 +24,7 @@ export const Video: React.FC<{plan: RenderPlan | null}> = ({plan}) => {
         </Sequence>
       ))}
       {/* Veu muntada a part (scripts/munta.py): sense clics als talls i ja normalitzada. */}
-      <Audio src={staticFile(plan.voice)} />
+      {plan.audioFromSegments ? null : <Audio src={resolveSrc(plan.voice)} />}
     </AbsoluteFill>
   );
 };

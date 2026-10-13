@@ -12,6 +12,7 @@
     "@remotion/fonts": "4.0.528",
     "@remotion/google-fonts": "4.0.528",
     "@remotion/layout-utils": "4.0.528",
+    "@remotion/player": "4.0.528",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "culori": "4.0.2",
@@ -23,6 +24,8 @@
   "devDependencies": {
     "@types/culori": "4.0.1",
     "@types/react": "19.2.2",
+    "@types/react-dom": "19.2.2",
+    "esbuild": "0.25.10",
     "typescript": "5.9.3"
   }
 }

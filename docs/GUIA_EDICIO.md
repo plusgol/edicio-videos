@@ -3,6 +3,8 @@
 
 ---
 
+> **Actualització (13/10/2026):** el format principal és **YouTube llarg, horitzontal 16:9**, com els referents, i no el vertical. Les seccions 8–10 (layouts, zones segures i subtítols en 9:16) s'apliquen només als Shorts. Per a YouTube, el llenguatge visual són rètols de secció numerats i insercions gràfiques de snapcn a pantalla completa (vegeu `.claude/skills/editar-video/SKILL.md`), i els subtítols no es cremen al vídeo.
+
 ## 0. Què m'has demanat (perquè quedi clar que ho he entès)
 
 1. Vols que **Claude editi els teus vídeos automàticament amb Remotion**.

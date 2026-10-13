@@ -2,8 +2,7 @@ import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import {COLOR} from '../brand/estil';
 import {CameraSegment} from './components/CameraSegment';
 import {Captions} from './components/Captions';
-import {HookText} from './components/HookText';
-import {ToolLabel} from './components/ToolLabel';
+import {OverlayView} from './Overlays';
 import type {RenderPlan} from './types';
 
 export const Video: React.FC<{plan: RenderPlan | null}> = ({plan}) => {
@@ -20,7 +19,7 @@ export const Video: React.FC<{plan: RenderPlan | null}> = ({plan}) => {
       <Captions pages={plan.captions} />
       {plan.overlays.map((o) => (
         <Sequence key={o.id} from={o.fromFrame} durationInFrames={o.durationInFrames} layout="none">
-          {o.type === 'HookText' ? <HookText {...o.props} /> : <ToolLabel {...o.props} />}
+          <OverlayView overlay={o} theme={plan.theme} />
         </Sequence>
       ))}
       {/* Veu muntada a part (scripts/munta.py): sense clics als talls i ja normalitzada. */}

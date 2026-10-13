@@ -1,12 +1,12 @@
-"""Converteix una gravació horitzontal en vertical 1080×1920 seguint la cara.
+"""Reenquadra una gravació a la mida de sortida (16:9 per a YouTube o 9:16 per a Shorts) seguint la cara.
 
-Ús: python3 -I scripts/vertical.py <entrada.mp4> <sortida.mp4> <track.json> [fps=30]
+Ús: python3 -I scripts/reencuadra.py <entrada.mp4> <sortida.mp4> <track.json> [fps=30] [AMPLExALT=1920x1080]
 Variable opcional YUNET_MODEL: ruta a face_detection_yunet_2023mar.onnx (opencv/opencv_zoo).
 Amb YuNet la detecció és molt més fiable en plans contrapicats i amb ulleres; sense, es fa servir Haar.
 
 - Detecta la cara a cada fotograma, omple els buits i suavitza el recorregut
   (Gaussiana de ~0,7 s) perquè el retall es mogui com una càmera tranquil·la, no a batzegades.
-- Retalla a 9:16 amb l'altura completa i escala amb lanczos. No toca el color.
+- Retalla a la proporció de sortida amb tota l'altura (o tota l'amplada si cal) i escala amb lanczos. No toca el color.
 - Escriu track.json amb la posició de la cara (en coordenades de sortida) per fotograma,
   que Remotion fa servir per ancorar els canvis d'escala als ulls.
 """
@@ -20,7 +20,7 @@ import numpy as np
 
 src, dst, track_path = sys.argv[1:4]
 FPS = int(sys.argv[4]) if len(sys.argv) > 4 else 30
-OUT_W, OUT_H = 1080, 1920
+OUT_W, OUT_H = map(int, (sys.argv[5] if len(sys.argv) > 5 else "1920x1080").split("x"))
 
 cap = cv2.VideoCapture(src)
 src_fps = cap.get(cv2.CAP_PROP_FPS)
@@ -94,26 +94,31 @@ def smooth(a, sigma):
 sigma = 0.7 * FPS
 cx, cy, fh = smooth(cx, sigma), smooth(cy, sigma), smooth(fh, sigma)
 
+crop_h = H
 crop_w = int(round(H * OUT_W / OUT_H))
+if crop_w > W:  # l'origen és més estret que la sortida: tota l'amplada i es retalla l'altura
+    crop_w, crop_h = W, int(round(W * OUT_H / OUT_W))
 crop_w -= crop_w % 2
+crop_h -= crop_h % 2
 x0 = np.clip(cx - crop_w / 2, 0, W - crop_w)
-k = OUT_H / H
+y0 = np.clip(cy - crop_h * 0.4, 0, H - crop_h)
+k = OUT_H / crop_h
 
 ff = subprocess.Popen(
-    ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{crop_w}x{H}", "-r", str(FPS), "-i", "-",
+    ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{crop_w}x{crop_h}", "-r", str(FPS), "-i", "-",
      "-vf", f"scale={OUT_W}:{OUT_H}:flags=lanczos", "-c:v", "libx264", "-preset", "slow", "-crf", "14",
      "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-an", dst],
     stdin=subprocess.PIPE,
 )
 for i, f in enumerate(frames):
-    xi = int(round(x0[i]))
-    ff.stdin.write(np.ascontiguousarray(f[:, xi:xi + crop_w]).tobytes())
+    xi, yi = int(round(x0[i])), int(round(y0[i]))
+    ff.stdin.write(np.ascontiguousarray(f[yi:yi + crop_h, xi:xi + crop_w]).tobytes())
 ff.stdin.close()
 ff.wait()
 
 track = [
-    {"x": round(float((cx[i] - x0[i]) * k), 1), "y": round(float(cy[i] * k), 1), "faceH": round(float(fh[i] * k), 1)}
+    {"x": round(float((cx[i] - x0[i]) * k), 1), "y": round(float((cy[i] - y0[i]) * k), 1), "faceH": round(float(fh[i] * k), 1)}
     for i in range(n_out)
 ]
 json.dump({"fps": FPS, "width": OUT_W, "height": OUT_H, "sourceUpscale": round(k, 2), "frames": track}, open(track_path, "w"))
-print(f"{n_out} fotogrames → {dst} (ampliació ×{k:.2f} des de {crop_w}×{H})")
+print(f"{n_out} fotogrames → {dst} (ampliació ×{k:.2f} des de {crop_w}×{crop_h})")

@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Repositori per editar els vídeos de marca personal de l'usuari (IA + negocis, en castellà, format vertical) amb Remotion.
+Repositori per editar els vídeos de marca personal de l'usuari (IA + negocis, en castellà) amb Remotion. **Format principal: YouTube llarg, horitzontal 16:9**, amb insercions gràfiques de snapcn (`src/vendor/snapcn`).
 
 - Abans d'editar res, carrega la skill `editar-video` i llegeix `docs/GUIA_EDICIO.md`.
 - Tots els valors visuals i de temps surten de `brand/estil.ts`. No posis números màgics als components.

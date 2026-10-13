@@ -8,13 +8,26 @@ description: Edita un vídeo vertical de marca personal (IA + negocis, en castel
 Llegeix `docs/GUIA_EDICIO.md` sencera la primera vegada. Aquest fitxer és el resum operatiu. Si hi ha conflicte, mana la guia.
 
 ## Identitat
-Marca personal sobre IA i negocis. Vídeos verticals (1080×1920, 30 fps) en castellà, d'entre 60 i 180 s.
-**Estil:** natural, clar, ben editat, no saturat. La persona al centre. Les pantalles són proves, no decoració.
-**Fórmula:** presència d'Alex DiLorenzo + demostració i orientació de mirada de Kallaway − decoració de tots dos.
+Marca personal sobre IA i negocis, en castellà. **Format principal: YouTube llarg, horitzontal 1920×1080 a 30 fps** (com els referents). Els Shorts o Reels (1080×1920, amb subtítols cremats) són un format secundari, i només es fan si l'usuari els demana.
+**Estil:** el de Kallaway i Alex DiLorenzo. La persona fa de pla base i, cada 5–15 s, hi ha una inserció gràfica a pantalla completa que visualitza el que diu: rètol de secció, terminal, xifra, canvi de text, flux d'agent o frase clau. Ha de ser net i amb un sol accent, sense saturar.
+**Fórmula:** pla base + rètols de secció numerats (01, 02, 03) + insercions de snapcn que il·lustren cada idea + rètols inferiors per a les mencions secundàries.
+
+## Insercions gràfiques (snapcn, `src/vendor/snapcn`)
+Són components de [snapcn](https://snapcn.dev) amb llicència MIT, copiats al projecte. A l'EDL es declaren com a `overlays` amb `type` = nom del component i `props`. `src/Overlays.tsx` els pinta a pantalla completa amb el tema de l'EDL (`video.theme`: mode i accent).
+| Necessitat | Component |
+|---|---|
+| Ganxo / rètol de secció («01 / OpenCode») / xifra («1.000 $ / en APIs») | `PunchLines` (`script` amb `/` per a línies i `\|` per a targetes; `fontSize` 120–160) |
+| Eina de terminal o llista de models/ordres | `TerminalSimulator` (`intro`, `lines` de ≤ 24 caràcters; necessita ~5–6 s) |
+| Canvi d'una dada («Plan de 100 €» → «Plan de 20 €») | `TextSwap` |
+| Frase clau amb una paraula marcada | `TextHighlight` (`preset: "marker"`) |
+| Flux o automatització pas a pas (n8n, agents) | `AgentSteps` (`scale` ~1,8 en 1080p) |
+| Prompt que s'escriu en un xat | `PromptSend`, `AnswerStream` |
+| Gravació de pantalla real | `ScreenRecording` (crop + zoom automàtic) |
+Si una inserció mostra una interfície **il·lustrativa** (un terminal, un xat), el `reason` ho ha de dir i no pot presentar-se com una captura real. Abans de fer servir un component nou, prova'l al banc `Galeria` (`npx remotion still src/index.ts Galeria …`).
 
 ## Flux obligatori (eines reals del repositori)
 0. **Una sola vegada:** `npm install`, `python3 -m pip install -r requirements.txt` i `scripts/models.sh` (Parakeet per transcriure + YuNet per a la cara).
-1. **Ingesta i preparació:** `scripts/prepara.sh projectes/<nom>`. Fa `ffprobe`, extreu els WAV (16 kHz per transcriure, 48 kHz per mesclar), transcriu amb marques per paraula (`work/<presa>.transcript.json`) i genera la versió vertical 1080×1920 amb seguiment de cara (`work/<presa>.vertical.mp4` + `track.json`). Els originals de `input/` no es toquen mai.
+1. **Ingesta i preparació:** `scripts/prepara.sh projectes/<nom>`. Fa `ffprobe`, extreu els WAV (16 kHz per transcriure, 48 kHz per mesclar), transcriu amb marques per paraula (`work/<presa>.transcript.json`) i reenquadra amb seguiment de cara a 1920×1080 (`work/<presa>.1920x1080.mp4` + `.track.json`; per a Shorts, `scripts/prepara.sh projectes/<nom> 1080x1920`). Els originals de `input/` no es toquen mai.
 2. **Comprova la transcripció.** El model es pot saltar frases en trossos sorollosos. Busca buits de més d'1 s amb energia de veu i retranscriu aquella finestra sola. Si cal, contrasta-ho amb un segon model (Whisper small via sherpa-onnx). Les paraules recuperades van a `asrPatches` de l'EDL. Corregeix els noms amb `brand/glossari.json`. **No inventis mencions.**
 3. **Marques verbals:** «corta» retira la presa anterior fins a l'inici de la frase. Una pausa de ≥ 2 s seguida de la mateixa frase indica una repetició: queda't amb l'última presa completa. «marca» assenyala la frase com a candidata a èmfasi. Elimina sempre les paraules de marca.
 4. **Pla:** escriu `projectes/<nom>/edl.json` (model: `projectes/ias-que-uso/edl.json`).
@@ -48,11 +61,12 @@ Si una demo no existeix, deixa cara + etiqueta i afegeix `pending` a l'EDL. **No
 - `HookText` (4–8 paraules) visible des del fotograma 0 durant 2,5–3,5 s. Mentre es veu, amaga el subtítol si diu el mateix.
 - Opcional: una prova real de 0,8–1,5 s dins dels primers 3 s.
 
-## Layouts permesos (no n'inventis d'altres)
+## Layouts permesos en vertical (Shorts; no n'inventis d'altres)
 `CARA`, `CARA_ETIQUETA`, `SPLIT` (demo a dalt ~1080×1000, cara a baix, subtítols a la unió), `DEMO_COMPLETA` (≤ 6–10 s), `FOCUS` (màscara del 55–65 % + rectangle), `FRASE_CLAU` (≤ 1–2 per vídeo), `PASSOS` (només si el discurs descriu etapes).
 
 ## Text
-- Zona segura: x 60–940, y 220–1500. Subtítols a L1/L2 amb el centre a y ≈ 1250–1350.
+- **YouTube 16:9:** sense subtítols cremats (`video.captions: false`; van com a CC a YouTube). El text en pantalla són els rètols de secció, les insercions i els rètols inferiors.
+- **Shorts 9:16:** zona segura: x 60–940, y 220–1500. Subtítols a L1/L2 amb el centre a y ≈ 1250–1350.
 - Subtítols: font i mides de `brand/estil.ts`. 3–6 paraules per pàgina, per blocs de sentit. ≤ 2 línies, ≤ 30 caràcters per línia, sense punts finals, i durada mínima de ~0,7 s. **Sense karaoke ni rebots.** Com a molt una paraula en color d'accent per pàgina, i amb motiu.
 - Etiqueta d'eina: `Nom · funció de 3–6 paraules`. Entrada de 6–7 fotogrames (opacitat + 16–24 px), es queda 2–3,5 s i surt en 4–5 fotogrames.
 - No dupliquis la mateixa frase alhora a la veu, al subtítol i en una targeta.
@@ -65,7 +79,7 @@ Si una demo no existeix, deixa cara + etiqueta i afegeix `pending` a l'EDL. **No
 
 ## Moviment
 Tall directe per defecte. Fes servir `spring({damping: 200})` o `Easing.out(Easing.cubic)`. Tot ha de dependre de `useCurrentFrame()`: res de CSS transitions, timers ni aleatorietat sense llavor.
-**Prohibit:** zooms periòdics, rebots, glitch, flaixos, sacsejades, partícules, neó, halos, xifres gegants, signes de moneda, desenfocar la persona, separadors complets per a cada eina, *whooshes*, *risers*.
+**Prohibit:** zooms periòdics sobre la cara, glitch, flaixos, sacsejades, partícules, neó, halos, pluja de signes de moneda, desenfocar la persona, *whooshes*, *risers*. Les animacions pròpies dels components de snapcn sí que estan permeses: són el llenguatge visual del canal.
 
 ## Temps (sense errors acumulats)
 Calcula els límits de cada segment en fotogrames sobre el temps acumulat (`Math.round(ms*fps/1000)`). La durada és la diferència entre els límits. Tota posició de recurs es deriva de `sourceMsToOutputFrame()`. Recalcula-ho tot després de cada canvi de tall.
@@ -82,4 +96,5 @@ El títol, el text del ganxo i la primera frase s'han de reforçar entre ells. *
 - Components: `CameraSegment` (`OffthreadVideo` muted + `trimBefore`, escala ancorada als ulls), `Captions`, `HookText` i `ToolLabel`. Tot el disseny surt de `brand/estil.ts`.
 - La veu és un únic `<Audio>` amb `work/voice.wav`. Els clips de vídeo van sempre `muted`.
 - Font Inter local (`@fontsource/inter` + `@remotion/fonts`): el render no depèn de Google Fonts.
-- **En plans tancats (selfie)**, el ganxo i les etiquetes van al terç inferior, a sobre dels subtítols (`LABEL.top`), mai a dalt sobre els ulls.
+- En horitzontal, `ToolLabel` és un rètol inferior esquerre. En vertical i amb plans tancats (selfie), va al terç inferior, a sobre dels subtítols, mai a dalt sobre els ulls.
+- En aquest entorn al núvol, el render necessita `--ignore-certificate-errors` (Google Fonts passa per un proxy). Al teu ordinador no cal.

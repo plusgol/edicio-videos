@@ -10,12 +10,18 @@
     "@fontsource/inter": "5.2.8",
     "@remotion/cli": "4.0.528",
     "@remotion/fonts": "4.0.528",
+    "@remotion/google-fonts": "4.0.528",
     "@remotion/layout-utils": "4.0.528",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "culori": "4.0.2",
     "react": "19.2.0",
     "react-dom": "19.2.0",
-    "remotion": "4.0.528"
+    "remotion": "4.0.528",
+    "tailwind-merge": "3.5.0"
   },
   "devDependencies": {
+    "@types/culori": "4.0.1",
     "@types/react": "19.2.2",
     "typescript": "5.9.3"
   }

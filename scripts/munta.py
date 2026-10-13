@@ -208,6 +208,9 @@ hook = next((o for o in edl["overlays"] if o["type"] == "HookText"), None)
 hook_end = (hook["atOutputMs"] + hook["durationMs"]) if hook and hook.get("hideCaptions") else -1
 
 captions = []
+# Subtítols cremats: sí per a Shorts/Reels; per a YouTube llarg es desactiven (video.captions = false) i van com a CC.
+if not edl["video"].get("captions", True):
+    pages = []
 for k, p in enumerate(pages):
     start = p[0]["outMs"]
     last_end = p[-1]["outMs"] + max(250, 70 * len(p[-1]["text"]))
@@ -271,6 +274,7 @@ final = loudness(work / "voice.wav")
 render = {
     "fps": FPS, "width": edl["video"]["width"], "height": edl["video"]["height"], "durationInFrames": total_frames,
     "voice": "work/voice.wav",
+    "theme": edl["video"].get("theme", {}),
     "segments": [{"src": sources[s["source"]]["video"], "fromFrame": s["fromFrame"], "durationInFrames": s["durationInFrames"],
                   "trimBefore": s["trimBefore"], "scale": s["scale"], "originX": s["originX"], "originY": s["originY"]}
                  for s in segments],

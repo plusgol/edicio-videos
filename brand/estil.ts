@@ -1,9 +1,10 @@
 // Tokens de marca i d'edició. Font única de veritat per a tots els components.
 // Els valors són punts de partida (vegeu docs/GUIA_EDICIO.md); ajusta'ls després de veure'ls al mòbil.
 
+// Per defecte YouTube llarg 16:9. Per a Shorts/Reels: 1080×1920 i subtítols activats a l'EDL.
 export const VIDEO = {
-  width: 1080,
-  height: 1920,
+  width: 1920,
+  height: 1080,
   fps: 30,
 } as const;
 

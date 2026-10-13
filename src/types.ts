@@ -15,9 +15,14 @@ export type CaptionPage = {
   words: {text: string; highlight: boolean}[];
 };
 
-export type Overlay =
-  | {id: string; type: 'HookText'; fromFrame: number; durationInFrames: number; props: {text: string}}
-  | {id: string; type: 'ToolLabel'; fromFrame: number; durationInFrames: number; props: {badge?: string; name: string; fn: string}};
+// type: HookText, ToolLabel (propis) o un component de snapcn (PunchLines, TerminalSimulator, TextSwap, TextHighlight, AgentSteps).
+export type Overlay = {
+  id: string;
+  type: string;
+  fromFrame: number;
+  durationInFrames: number;
+  props: Record<string, unknown>;
+};
 
 export type RenderPlan = {
   fps: number;
@@ -25,6 +30,7 @@ export type RenderPlan = {
   height: number;
   durationInFrames: number;
   voice: string;
+  theme: {mode?: 'light' | 'dark'; accent?: string};
   segments: RenderSegment[];
   captions: CaptionPage[];
   overlays: Overlay[];

@@ -8,7 +8,33 @@
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "lib": ["DOM", "ES2022"]
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2022"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/lib/snap-cn-ui": [
+        "src/vendor/snapcn/snap-cn-ui/core/index.ts"
+      ],
+      "@/components/snap-cn/input": [
+        "src/vendor/snapcn/snap-cn-ui/input/index.tsx"
+      ],
+      "@/components/snap-cn/caret": [
+        "src/vendor/snapcn/snap-cn-ui/caret/index.tsx"
+      ],
+      "@/lib/utils": [
+        "src/lib/utils.ts"
+      ],
+      "@/components/snap-cn/*": [
+        "src/vendor/snapcn/snap-cn/*/index.tsx"
+      ]
+    }
   },
-  "include": ["src", "brand", "remotion.config.ts"]
+  "include": [
+    "src",
+    "brand",
+    "remotion.config.ts"
+  ]
 }

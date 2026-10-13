@@ -1,6 +1,6 @@
 # edicio-videos
 
-Edició automàtica de vídeos verticals de marca personal (IA + negocis, en castellà) amb **Claude Code + Remotion**.
+Edició automàtica de vídeos de marca personal (IA + negocis, en castellà) per a **YouTube (16:9)**, i opcionalment Shorts, amb **Claude Code + Remotion + snapcn**.
 
 **Estil:** natural, clar, ben editat i sense saturar. La presència d'Alex DiLorenzo + la demostració de Kallaway − la decoració dels dos.
 
@@ -39,7 +39,8 @@ Per previsualitzar i retocar a mà: `npx remotion studio src/index.ts --public-d
 | Ruta | Què fa |
 |---|---|
 | `scripts/transcriu.py` | Transcripció local amb marques per paraula (sherpa-onnx + Parakeet TDT v3) |
-| `scripts/vertical.py` | Converteix a vertical 1080×1920 seguint la cara (YuNet) i desa la posició dels ulls |
+| `scripts/reencuadra.py` | Reenquadra a 1920×1080 (o 1080×1920 per a Shorts) seguint la cara (YuNet) i desa la posició dels ulls |
+| `src/vendor/snapcn` | Components de snapcn (MIT) per a les insercions gràfiques; banc de proves a la composició `Galeria` |
 | `scripts/munta.py` | EDL → `render.json` (fotogrames) + `voice.wav` (veu neta, −16 LUFS). Tot el càlcul de temps és aquí |
 | `src/` | Projecte Remotion: `CameraSegment`, `Captions`, `HookText`, `ToolLabel` |
 | `brand/estil.ts` | Totes les mides, colors i temps |
@@ -47,4 +48,4 @@ Per previsualitzar i retocar a mà: `npx remotion studio src/index.ts --public-d
 ## Vídeos
 | Projecte | Estat |
 |---|---|
-| `projectes/ias-que-uso` | Primer muntatge (84,6 s) fet amb la versió de WhatsApp. Pendent: arxiu original i escolta |
+| `projectes/ias-que-uso` | v2 per a YouTube 16:9 (84,6 s) amb insercions de snapcn, feta amb la versió de WhatsApp. Pendent: arxiu original i escolta |

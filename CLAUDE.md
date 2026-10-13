@@ -1,8 +1,9 @@
 # CLAUDE.md
 
-Repositori per editar els vídeos de marca personal de l'usuari (IA + negocis, en castellà) amb Remotion. **Format principal: YouTube llarg, horitzontal 16:9**, amb insercions gràfiques de snapcn (`src/vendor/snapcn`).
+Repositori per editar els vídeos de marca personal de l'usuari (IA + negocis, en castellà) amb Remotion. **Format principal: YouTube llarg, horitzontal 16:9. Estil: el d'Alex DiLorenzo (`docs/ESTIL_ALEX.md`)**, amb components propis a `src/alex/` (i snapcn a `src/vendor/snapcn` com a reserva).
 
-- Abans d'editar res, carrega la skill `editar-video` i llegeix `docs/GUIA_EDICIO.md`.
+- Abans d'editar res, carrega la skill `editar-video` i llegeix `docs/ESTIL_ALEX.md` (l'estil manat) i `docs/GUIA_EDICIO.md` (criteris generals: on hi hagi conflicte, mana ESTIL_ALEX).
+- Abans del render final, publica l'editor de vista prèvia (`scripts/editor.sh`) perquè l'usuari revisi, i aplica la seva revisió (`scripts/aplica_revisio.py`).
 - Tots els valors visuals i de temps surten de `brand/estil.ts`. No posis números màgics als components.
 - Els originals de `projectes/*/input/` no es modifiquen mai.
 - Cada recurs de l'EDL porta un `reason`. Si no en té cap de comprensible, es retira.

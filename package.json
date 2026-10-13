@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "@fontsource/inter": "5.2.8",
+    "@lobehub/fluent-emoji-3d": "1.1.0",
+    "@lobehub/icons-static-svg": "1.95.1",
     "@remotion/cli": "4.0.528",
     "@remotion/fonts": "4.0.528",
     "@remotion/google-fonts": "4.0.528",

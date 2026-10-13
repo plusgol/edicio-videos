@@ -1,46 +1,32 @@
 # Informe — «En 90 segundos: las 3 IAs que uso de verdad»
 
-**v2 (YouTube 16:9)** · 84,6 s · 1920×1080 · 30 fps
-**Material:** dues preses de WhatsApp (832×464, 60 fps): `curt` (19,6 s) i `llarg` (1:42,6)
+**v3 (estil Alex DiLorenzo)** · 79,6 s · 1920×1080 · 30 fps · −16 LUFS (mesurat al vídeo final)
+**Editor de vista prèvia:** https://claude.ai/artifact/NzDzykDZDd2yxDP99ZMSR2
 
-> La v1 era vertical, tipus Reel, i amb subtítols. Es descarta perquè el contingut és per a YouTube llarg i no s'assemblava als referents.
+> La v1 (vertical) i la v2 (snapcn) es descarten: l'usuari vol l'estil del vídeo d'Alex. L'anàlisi és a `docs/ESTIL_ALEX.md`.
 
-## Estructura (gramàtica Kallaway/Alex)
-| Temps | Què es veu |
-|---|---|
-| 0,0–1,8 | Tu: «Vale, mientras voy a la uni…» |
-| 1,8–3,8 | Targeta: **Las 3 IAs que uso de verdad** |
-| 3,8–5,3 | Rètol de secció **01 / OpenCode** |
-| 8,0–14,5 | Terminal (il·lustratiu): `opencode models` → DeepSeek ~80 $ de uso · Big Pickle gratis · GPT-5.6 Luna |
-| 29,7–31,9 | Rètol **02 / ChatGPT** |
-| 37,9–40,5 | Canvi de text: **Plan de 100 € → Plan de 20 €** |
-| 49,0–50,8 | Tu, més a prop: «con muchísima, muchísima diferencia» |
-| 50,8–52,4 | Rètol **03 / Claude** |
-| 56,5–58,9 | Frase clau: **Este vídeo está editado con *Claude*** |
-| 58,8–64,4 | Flux d'agent (il·lustratiu): «Conecta mis 3 IAs con n8n» → Flujo de trabajo perfecto |
-| 66,4 | Rètol inferior **+ Gemini · Gratis un año si estudias** |
-| 78,0 | Rètol inferior **+ Claude for Startups · Créditos de API** |
-| 80,0–81,7 | Targeta **1.000 $ / en APIs** |
-| 81,7–84,6 | Tu: «Entonces, con estos tres modelos vas sobrado» |
-
-Els components gràfics són de snapcn (MIT), amb el tema fosc i el teu accent coral. No hi ha subtítols cremats: a YouTube van com a subtítols (CC).
-
-## Decisions de muntatge (iguals que a la v1)
-- **Inici:** surt de la presa curta. A partir de «La primera, OpenCode…», tot surt de la llarga.
-- **Retallat:**
-  - les preses amb entrebancs («pero ahora está bastante, pero al final, realmente con un…»);
-  - «cinco euros», dit per error;
-  - una arrencada en fals;
-  - la tercera repetició de «con muchísima diferencia»;
-  - unes paraules que no s'entenien;
-  - els silencis de més de 0,6 s.
-- **Veu:** −16 LUFS, pic real ≤ −1,5 dBTP (mesurat).
-
-## Títol
-**En 90 segundos: las 3 IAs que uso de verdad.** És veritat: el vídeo dura 84,6 s.
+## Què canvia respecte a la v2
+- **Ritme d'Alex:**
+  - pauses de més de 300 ms escurçades a ~70–90 ms (84,6 s → 79,6 s);
+  - 41 talls, amb tres escales del pla que es van alternant (1,00 / 1,12 / 1,22);
+  - un apropament a 1,30 a «con muchísima, muchísima diferencia».
+- **29 gràfics contextuals**, un cada ~2,7 s, segons les regles d'Alex:
+  - **Xifres en or darrere teu** (amb la persona retallada al davant): «3 IAs», «10€», «100€», «INFINITO», «1.000$»; «GRATIS» en blanc.
+  - **Seccions** sobre l'escenari clar amb vinyeta: **I · OpenCode**, **II · ChatGPT**, **III · Claude**.
+  - **Xifres sobre l'escenari:**
+    - DeepSeek 10 € → ~80 $;
+    - ChatGPT 100 € → 20 €;
+    - ⏰ 5 H · 2 o 3 prompts;
+    - Gemini 1 AÑO gratis si eres estudiante.
+  - **Paraules flotants** al costat del cap (11 frases clau).
+  - **Objectes 3D:** 🥒 «big pickle · gratis», 📉 «no va tan bien», 🎬 «puedes hacer vídeos».
+  - **Xarxa** (la «tela de araña»): n8n al centre, connectat a OpenCode, ChatGPT i Claude.
+  - **Caselles finals** «Vas sobrado» amb les tres eines.
+- Totes les entrades i sortides es fan amb un desenfocament ràpid, com a la referència.
 
 ## Pendent (revisa-ho tu)
-1. **Escolta el màster sencer.** Claude no pot escoltar l'àudio. Hi ha empalmaments delicats a 41,5 s, 48,9 s i 59,4 s.
-2. **Noms dels models:** confirma DeepSeek, Big Pickle, GPT-5.6 Luna, GPT-6 Astra, «te darán mil dólares» i que l'eina 3 és Claude.
-3. **Resolució:** el vídeo ve de WhatsApp (832×464), i l'he ampliat ×2,3. Per a la versió final, envia l'arxiu original.
-4. **Logos reals:** els rètols de secció són tipogràfics. Si vols logos, posa'ls (SVG o PNG) a `brand/logos/`.
+1. **Revisa'l a l'editor**: amaga, canvia o mou els gràfics, treu talls, deixa-hi comentaris i clica «Aprovar per al render final». Després digues-me-ho i aplico els canvis.
+2. **Escolta'l sencer.** Claude no pot escoltar l'àudio. Amb talls tan ràpids hi ha més risc que alguna síl·laba quedi tallada.
+3. **Música:** Alex té un coixí constant sota la veu. Si en tens una amb llicència, l'hi poso amb ducking.
+4. **Noms dels models:** confirma DeepSeek, Big Pickle, GPT-5.6 Luna, GPT-6 Astra i que l'eina 3 és Claude.
+5. **Resolució:** el vídeo ve de WhatsApp (832×464). Amb l'original (i si pot ser gravat de nit o en un lloc amb profunditat, com Alex) quedarà molt més a prop de la referència.

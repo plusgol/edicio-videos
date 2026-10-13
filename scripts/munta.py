@@ -104,18 +104,25 @@ segments = [s for s in all_segments if s["keep"]]
 
 out = 0
 prev_scale = None
+scale_i = -1
 for s in segments:
     s["fromFrame"] = out
     out += s["durationInFrames"]
-    punch = next((p for p in edl.get("punchIns", []) if p["source"] == s["source"]
-                  and p["fromMs"] <= s["inMs"] and s["outMs"] <= p["toMs"]), None)
+    # Un punch-in s'aplica al segment el centre del qual cau dins del seu interval (els talls s'ajusten a silencis).
+    mid = (s["inMs"] + s["outMs"]) / 2
+    punch = next((p for p in edl.get("punchIns", []) if p["source"] == s["source"] and p["fromMs"] <= mid <= p["toMs"]), None)
     if punch:
         s["scale"] = punch["scale"]
     elif s["preferredScale"] and s["preferredScale"] != prev_scale:
         s["scale"] = s["preferredScale"]
     else:
         # Dos segments seguits mai amb la mateixa escala: amaga el salt del jump cut.
-        s["scale"] = 1.08 if prev_scale == 1.0 else 1.0
+        # L'estil Alex fa servir tres escales (video.cameraScales); el de la casa, dues.
+        cycle = edl["video"].get("cameraScales", [1.0, 1.08])
+        scale_i = (scale_i + 1) % len(cycle)
+        if cycle[scale_i] == prev_scale:
+            scale_i = (scale_i + 1) % len(cycle)
+        s["scale"] = cycle[scale_i]
     prev_scale = s["scale"]
     tr = sources[s["source"]]["track"][s["trimBefore"]:s["trimBefore"] + s["durationInFrames"]]
     s["originX"] = round(float(np.median([t["x"] for t in tr])), 1)
@@ -232,13 +239,59 @@ for k, p in enumerate(pages):
     captions.append({"fromFrame": ms_to_frame(start), "toFrame": ms_to_frame(end), "words": words})
 
 # ---------- Recursos ----------
+ROOT = Path(__file__).resolve().parent.parent
+ASSET_DIRS = {
+    "emoji": (ROOT / "node_modules/@lobehub/fluent-emoji-3d/assets", ".webp"),  # Fluent Emoji 3D (MIT)
+    "logo": (ROOT / "node_modules/@lobehub/icons-static-svg/icons", ".svg"),  # @lobehub/icons (MIT)
+}
+
+
+def resolve_assets(v):
+    """«emoji:1f9e0» o «logo:claude-color» → copia el fitxer a <projecte>/assets/ i en retorna la ruta."""
+    if isinstance(v, dict):
+        return {k: resolve_assets(x) for k, x in v.items()}
+    if isinstance(v, list):
+        return [resolve_assets(x) for x in v]
+    if isinstance(v, str) and v.split(":", 1)[0] in ASSET_DIRS and ":" in v:
+        kind, name = v.split(":", 1)
+        folder, ext = ASSET_DIRS[kind]
+        src_file = folder / f"{name}{ext}"
+        if not src_file.exists():
+            raise SystemExit(f"No existeix el recurs {v} ({src_file})")
+        dst = proj / "assets" / kind / src_file.name
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if not dst.exists():
+            dst.write_bytes(src_file.read_bytes())
+        return f"assets/{kind}/{src_file.name}"
+    return v
+
+
+def face_at(out_frame):
+    """Posició de la cara a la pantalla en un fotograma de sortida (amb l'escala del segment aplicada)."""
+    for s in segments:
+        if s["fromFrame"] <= out_frame < s["fromFrame"] + s["durationInFrames"]:
+            tr = sources[s["source"]]["track"]
+            p = tr[min(len(tr) - 1, s["trimBefore"] + out_frame - s["fromFrame"])]
+            return (round(s["originX"] + s["scale"] * (p["x"] - s["originX"]), 1),
+                    round(s["originY"] + s["scale"] * (p["y"] - s["originY"]), 1),
+                    round(s["scale"] * p["faceH"], 1))
+    return None
+
+
+NEEDS_FACE = {"FloatingWords", "EmojiPop"}
 overlays = []
 for o in active_overlays:
     at = o["atOutputMs"] if "atOutputMs" in o else src_to_out_ms(o["source"], o["anchorMs"])
     at = max(0, at + o.get("offsetMs", 0))
     f0 = ms_to_frame(at)
+    props = resolve_assets(o["props"])
+    if o["type"] in NEEDS_FACE and "faceX" not in props:
+        face = face_at(f0)
+        if face:
+            props = {**props, "faceX": face[0], "faceY": face[1], "faceH": face[2]}
+    o["_resolvedProps"] = props
     overlays.append({"id": o["id"], "type": o["type"], "fromFrame": f0,
-                     "durationInFrames": min(ms_to_frame(at + o["durationMs"]) - f0, total_frames - f0), "props": o["props"]})
+                     "durationInFrames": min(ms_to_frame(at + o["durationMs"]) - f0, total_frames - f0), "props": props})
 
 # ---------- Veu ----------
 A = edl["audio"]
@@ -285,7 +338,8 @@ render = {
     "voice": "work/voice.wav",
     "theme": edl["video"].get("theme", {}),
     "segments": [{"src": sources[s["source"]]["video"], "fromFrame": s["fromFrame"], "durationInFrames": s["durationInFrames"],
-                  "trimBefore": s["trimBefore"], "scale": s["scale"], "originX": s["originX"], "originY": s["originY"]}
+                  "trimBefore": s["trimBefore"], "scale": s["scale"], "originX": s["originX"], "originY": s["originY"],
+                  **({"personSrc": sources[s["source"]]["person"]} if sources[s["source"]].get("person") else {})}
                  for s in segments],
     "captions": captions,
     "overlays": overlays,
@@ -298,14 +352,14 @@ editor = {
     "fps": FPS, "width": edl["video"]["width"], "height": edl["video"]["height"],
     "title": edl.get("title", {}).get("chosen", ""),
     "theme": edl["video"].get("theme", {}),
-    "sources": {n: {"gainDb": round(g, 2)} for n, g in gains.items()},
+    "sources": {n: {"gainDb": round(g, 2), "person": bool(sources[n].get("person"))} for n, g in gains.items()},
     "ranges": [{"id": r["id"], "source": r["source"], "block": r["block"], "captions": r["captions"], "reason": r["reason"],
                 "keep": r.get("keep", True)} for r in edl["ranges"]],
     "segments": [{"range": s["range"], "source": s["source"], "trimBefore": s["trimBefore"],
                   "durationInFrames": s["durationInFrames"], "scale": s.get("scale", 1.0),
                   "originX": s.get("originX", edl["video"]["width"] / 2), "originY": s.get("originY", edl["video"]["height"] * 0.4)}
                  for s in all_segments],
-    "overlays": [{"id": o["id"], "type": o["type"], "props": o["props"], "reason": o.get("reason", ""),
+    "overlays": [{"id": o["id"], "type": o["type"], "props": o.get("_resolvedProps") or resolve_assets(o["props"]), "reason": o.get("reason", ""),
                   "anchor": None if "atOutputMs" in o else {"source": o["source"], "ms": o["anchorMs"]},
                   "atOutputMs": o.get("atOutputMs"), "durationMs": o["durationMs"], "offsetMs": o.get("offsetMs", 0),
                   "enabled": o.get("enabled", True)}

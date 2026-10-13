@@ -3,13 +3,22 @@ import {resolveSrc} from '../media';
 import type {RenderSegment} from '../types';
 
 // Pla de càmera. El canvi d'escala és tallat (mai animat) i s'ancora als ulls.
-export const CameraSegment: React.FC<{segment: RenderSegment; audible?: boolean}> = ({segment, audible = false}) => (
+export const CameraSegment: React.FC<{segment: RenderSegment; audible?: boolean; person?: boolean; offset?: number}> = ({
+  segment,
+  audible = false,
+  person = false,
+  offset = 0,
+}) => (
   <AbsoluteFill>
     <OffthreadVideo
-      src={resolveSrc(segment.src)}
-      trimBefore={segment.trimBefore}
-      muted={!audible}
-      volume={audible ? Math.pow(10, (segment.volumeDb ?? 0) / 20) : 0}
+      // person: la persona retallada (WebM amb alfa) del mateix tros, encaixada al mateix lloc i escala.
+      src={resolveSrc(person && segment.personSrc ? segment.personSrc : segment.src)}
+      transparent={person}
+      // Si la persona retallada no es pot reproduir (p. ex. Safari no llegeix WebM amb alfa), es deixa d'ensenyar sense aturar el vídeo.
+      onError={person ? () => undefined : undefined}
+      trimBefore={segment.trimBefore + offset}
+      muted={person || !audible}
+      volume={!person && audible ? Math.pow(10, (segment.volumeDb ?? 0) / 20) : 0}
       style={{
         width: '100%',
         height: '100%',

@@ -2,3 +2,4 @@
 numpy
 sherpa-onnx==1.13.8
 opencv-python-headless==4.10.0.84
+onnxruntime

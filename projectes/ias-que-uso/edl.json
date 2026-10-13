@@ -1,14 +1,19 @@
 {
- "_nota": "Pla de muntatge (v2, YouTube 16:9). Temps en ms de l'arxiu ORIGINAL. scripts/munta.py el converteix en work/render.json + work/voice.wav.",
+ "_nota": "Pla de muntatge v3 (estil Alex DiLorenzo, docs/ESTIL_ALEX.md). Temps en ms de l'arxiu ORIGINAL. scripts/munta.py → work/render.json + work/voice.wav.",
  "version": 1,
  "video": {
   "width": 1920,
   "height": 1080,
   "fps": 30,
   "captions": false,
+  "cameraScales": [
+   1.0,
+   1.12,
+   1.22
+  ],
   "theme": {
    "mode": "dark",
-   "accent": "#FF5A36"
+   "accent": "#D6A84E"
   }
  },
  "title": {
@@ -25,13 +30,15 @@
    "video": "work/curt.1920x1080.mp4",
    "audio": "work/curt.48k.wav",
    "track": "work/curt.1920x1080.track.json",
-   "transcript": "work/curt.transcript.json"
+   "transcript": "work/curt.transcript.json",
+   "person": "work/curt.persona.webm"
   },
   "llarg": {
    "video": "work/llarg.1920x1080.mp4",
    "audio": "work/llarg.48k.wav",
    "track": "work/llarg.1920x1080.track.json",
-   "transcript": "work/llarg.transcript.json"
+   "transcript": "work/llarg.transcript.json",
+   "person": "work/llarg.persona.webm"
   }
  },
  "asrPatches": {
@@ -77,9 +84,9 @@
  },
  "cuts": {
   "silenceThresholdDbAboveFloor": 9,
-  "shortenSilenceLongerThanMs": 600,
-  "keepAfterSpeechMs": 150,
-  "keepBeforeSpeechMs": 120,
+  "shortenSilenceLongerThanMs": 300,
+  "keepAfterSpeechMs": 90,
+  "keepBeforeSpeechMs": 70,
   "snapWindowMs": 100
  },
  "ranges": [
@@ -291,206 +298,408 @@
    "source": "llarg",
    "fromMs": 57880,
    "toMs": 59700,
-   "scale": 1.15,
+   "scale": 1.3,
    "reason": "èmfasi: «con muchísima, muchísima diferencia»"
   }
  ],
  "overlays": [
   {
-   "id": "intro",
-   "type": "PunchLines",
+   "id": "w-uni",
+   "type": "FloatingWords",
    "source": "curt",
-   "anchorMs": 1860,
-   "durationMs": 1950,
+   "anchorMs": 480,
+   "durationMs": 1700,
    "props": {
-    "script": "Las 3 IAs / que uso de verdad",
-    "styles": "slide",
-    "holds": "58",
-    "fontSize": 120
+    "text": "mientras voy a la uni",
+    "side": "right"
    },
-   "reason": "ganxo gràfic mentre dius «te voy a explicar las tres IAs»: promesa visible i separador d'entrada (Kallaway)"
+   "reason": "paraules flotants d'obertura: situen on és i fan llegible l'inici sense so"
+  },
+  {
+   "id": "g-3ias",
+   "type": "GoldWord",
+   "source": "curt",
+   "anchorMs": 2300,
+   "durationMs": 1500,
+   "props": {
+    "text": "3 IAs",
+    "tone": "gold",
+    "placement": "behind"
+   },
+   "reason": "la promesa del vídeo en gran, darrere seu (xifra = or, com «300.000€»)"
   },
   {
    "id": "s1",
-   "type": "PunchLines",
+   "type": "SectionNumeral",
    "source": "llarg",
-   "anchorMs": 2600,
-   "durationMs": 1500,
+   "anchorMs": 2720,
+   "durationMs": 1800,
    "props": {
-    "script": "01 / OpenCode",
-    "styles": "punch",
-    "holds": "44",
-    "accentBeat": 1,
-    "fontSize": 160
+    "numeral": "I",
+    "title": "OpenCode"
    },
-   "reason": "rètol de secció de la primera eina, mateixa gramàtica a les tres"
+   "reason": "pas 1 de 3: número romà + nom, com «II · DEFINIR»"
   },
   {
-   "id": "opencode-models",
-   "type": "TerminalSimulator",
+   "id": "g-10",
+   "type": "GoldWord",
+   "source": "llarg",
+   "anchorMs": 4240,
+   "durationMs": 1300,
+   "props": {
+    "text": "10€",
+    "tone": "gold",
+    "placement": "behind"
+   },
+   "reason": "xifra dita: preu d'OpenCode"
+  },
+  {
+   "id": "w-modelos",
+   "type": "FloatingWords",
+   "source": "llarg",
+   "anchorMs": 5120,
+   "durationMs": 1300,
+   "props": {
+    "text": "muchísimos modelos",
+    "side": "left"
+   },
+   "reason": "frase clau"
+  },
+  {
+   "id": "w-mejor",
+   "type": "FloatingWords",
    "source": "llarg",
    "anchorMs": 7040,
-   "durationMs": 6500,
+   "durationMs": 2100,
    "props": {
-    "intro": "OpenCode por 10 €",
-    "command": null,
-    "lines": [
-     {
-      "text": "opencode models",
-      "type": "command"
-     },
-     {
-      "text": "DeepSeek    ~80 $ de uso",
-      "type": "success"
-     },
-     {
-      "text": "Big Pickle  gratis",
-      "type": "log"
-     },
-     {
-      "text": "GPT-5.6 Luna",
-      "type": "log"
-     }
-    ]
+    "text": "el mejor con muchísima diferencia",
+    "side": "right"
    },
-   "reason": "OpenCode és una eina de terminal: la llista visualitza els models que menciones (il·lustratiu, no és una captura real)"
+   "reason": "frase clau abans de dir el model"
+  },
+  {
+   "id": "st-deepseek",
+   "type": "StageStat",
+   "source": "llarg",
+   "anchorMs": 9580,
+   "durationMs": 3200,
+   "props": {
+    "icon": "logo:deepseek-color",
+    "title": "DeepSeek",
+    "from": "10 €",
+    "value": "~80 $",
+    "caption": "de uso pagando 10 €",
+    "tone": "light"
+   },
+   "reason": "comparació de xifres que diu (10 € → ~80 $); targeta gràfica, no captura"
+  },
+  {
+   "id": "e-pickle",
+   "type": "EmojiPop",
+   "source": "llarg",
+   "anchorMs": 15660,
+   "durationMs": 1800,
+   "props": {
+    "src": "emoji:1f952",
+    "side": "right",
+    "label": "big pickle · gratis"
+   },
+   "reason": "metàfora literal: «Big Pickle» → cogombre 3D a la mà"
+  },
+  {
+   "id": "w-luna",
+   "type": "FloatingWords",
+   "source": "llarg",
+   "anchorMs": 19500,
+   "durationMs": 1700,
+   "props": {
+    "text": "gpt-5.6 luna",
+    "side": "left"
+   },
+   "reason": "nom del model que esmenta"
+  },
+  {
+   "id": "g-gratis",
+   "type": "GoldWord",
+   "source": "llarg",
+   "anchorMs": 26900,
+   "durationMs": 1200,
+   "props": {
+    "text": "GRATIS",
+    "tone": "white",
+    "placement": "behind"
+   },
+   "reason": "concepte fort"
   },
   {
    "id": "s2",
-   "type": "PunchLines",
+   "type": "SectionNumeral",
    "source": "llarg",
    "anchorMs": 30460,
-   "durationMs": 2200,
+   "durationMs": 2300,
    "props": {
-    "script": "02 / ChatGPT",
-    "styles": "punch",
-    "holds": "66",
-    "accentBeat": 1,
-    "fontSize": 160
+    "numeral": "II",
+    "title": "ChatGPT"
    },
-   "reason": "rètol de secció de la segona eina"
+   "reason": "pas 2 de 3"
   },
   {
-   "id": "plan-20",
-   "type": "TextSwap",
+   "id": "g-100",
+   "type": "GoldWord",
    "source": "llarg",
-   "anchorMs": 43840,
+   "anchorMs": 34440,
+   "durationMs": 1200,
+   "props": {
+    "text": "100€",
+    "tone": "gold",
+    "placement": "behind"
+   },
+   "reason": "xifra dita: pla de 100 €"
+  },
+  {
+   "id": "e-baja",
+   "type": "EmojiPop",
+   "source": "llarg",
+   "anchorMs": 35960,
+   "durationMs": 1300,
+   "props": {
+    "src": "emoji:1f4c9",
+    "side": "right"
+   },
+   "reason": "«ahora no va tan bien» → gràfic baixant"
+  },
+  {
+   "id": "w-astra",
+   "type": "FloatingWords",
+   "source": "llarg",
+   "anchorMs": 38080,
+   "durationMs": 1400,
+   "props": {
+    "text": "gpt-6 astra",
+    "side": "left"
+   },
+   "reason": "nom del model"
+  },
+  {
+   "id": "st-20",
+   "type": "StageStat",
+   "source": "llarg",
+   "anchorMs": 43800,
    "durationMs": 2600,
    "props": {
-    "fromText": "Plan de 100 €",
-    "toText": "Plan de 20 €",
-    "fontSize": 140
+    "icon": "logo:openai",
+    "title": "ChatGPT",
+    "from": "100 €",
+    "value": "20 €",
+    "caption": "para cosas pequeñas",
+    "tone": "light"
    },
-   "reason": "el consell clau del bloc: amb el pla de 20 € n'hi ha prou"
+   "reason": "el consell del bloc: amb 20 € n'hi ha prou"
+  },
+  {
+   "id": "st-5h",
+   "type": "StageStat",
+   "source": "llarg",
+   "anchorMs": 46660,
+   "durationMs": 3000,
+   "props": {
+    "icon": "emoji:23f0",
+    "value": "5 H",
+    "caption": "2 o 3 prompts con Astra",
+    "tone": "light"
+   },
+   "reason": "xifra de temps (com el rellotge «1h / 2h» d'Alex)"
+  },
+  {
+   "id": "w-bien",
+   "type": "FloatingWords",
+   "source": "llarg",
+   "anchorMs": 54980,
+   "durationMs": 1200,
+   "props": {
+    "text": "pero bastante bien",
+    "side": "right"
+   },
+   "reason": "conclusió del bloc"
+  },
+  {
+   "id": "w-elmejor",
+   "type": "FloatingWords",
+   "source": "llarg",
+   "anchorMs": 56180,
+   "durationMs": 2400,
+   "props": {
+    "text": "y el mejor con muchísima diferencia",
+    "side": "left"
+   },
+   "reason": "anticipa la tercera eina, sobre l'apropament"
   },
   {
    "id": "s3",
-   "type": "PunchLines",
+   "type": "SectionNumeral",
    "source": "llarg",
    "anchorMs": 59700,
    "durationMs": 1600,
    "props": {
-    "script": "03 / Claude",
-    "styles": "punch",
-    "holds": "48",
-    "accentBeat": 1,
-    "fontSize": 160
+    "numeral": "III",
+    "title": "Claude"
    },
-   "reason": "rètol de secció de la tercera eina, just després de «con muchísima diferencia» (cobreix el tros sense paraules clares)"
+   "reason": "pas 3 de 3; cobreix el tros sense paraules clares"
   },
   {
-   "id": "editado-con-claude",
-   "type": "TextHighlight",
+   "id": "g-inf",
+   "type": "GoldWord",
    "source": "llarg",
-   "anchorMs": 65760,
-   "durationMs": 2400,
+   "anchorMs": 63680,
+   "durationMs": 1300,
    "props": {
-    "before": "Este vídeo está editado con ",
-    "highlight": "Claude",
-    "preset": "marker",
-    "fontSize": 110
+    "text": "INFINITO",
+    "tone": "gold",
+    "placement": "behind"
    },
-   "reason": "la frase més forta del vídeo: prova personal"
+   "reason": "concepte fort: «es infinito, literalmente»"
   },
   {
-   "id": "n8n",
-   "type": "AgentSteps",
+   "id": "e-video",
+   "type": "EmojiPop",
+   "source": "llarg",
+   "anchorMs": 65360,
+   "durationMs": 1200,
+   "props": {
+    "src": "emoji:1f3ac",
+    "side": "right"
+   },
+   "reason": "«puedes hacer vídeos» → claqueta 3D"
+  },
+  {
+   "id": "w-editado",
+   "type": "FloatingWords",
+   "source": "llarg",
+   "anchorMs": 66080,
+   "durationMs": 2000,
+   "props": {
+    "text": "este vídeo está editado con claude",
+    "side": "left"
+   },
+   "reason": "la prova personal, en paraules"
+  },
+  {
+   "id": "net-n8n",
+   "type": "NetworkDiagram",
    "source": "llarg",
    "anchorMs": 73720,
-   "durationMs": 5600,
+   "durationMs": 5800,
    "props": {
-    "query": "Conecta mis 3 IAs con n8n",
-    "scale": 1.8,
-    "steps": [
+    "center": {
+     "label": "n8n",
+     "icon": "logo:n8n-color"
+    },
+    "nodes": [
      {
-      "running": "Conectando OpenCode…",
-      "done": "OpenCode conectado",
-      "icon": "check",
-      "hold": 0.7
+      "label": "OpenCode",
+      "icon": "logo:opencode"
      },
      {
-      "running": "Conectando ChatGPT…",
-      "done": "ChatGPT conectado",
-      "icon": "check",
-      "hold": 0.7
+      "label": "ChatGPT",
+      "icon": "logo:openai"
      },
      {
-      "running": "Conectando Claude…",
-      "done": "Claude conectado",
-      "icon": "check",
-      "hold": 0.7
-     },
-     {
-      "running": "Montando el flujo…",
-      "done": "Flujo listo",
-      "icon": "check",
-      "hold": 0.8
+      "label": "Claude",
+      "icon": "logo:claude-color"
      }
     ],
-    "result": "Flujo de trabajo perfecto"
+    "caption": "un flujo de trabajo perfecto"
    },
-   "reason": "visualitza «con esos tres lo vinculas con n8n y te haces un flujo de trabajo perfecto»"
+   "reason": "«con esos tres lo vinculas con n8n»: la tela d'aranya d'Alex amb les tres eines"
   },
   {
-   "id": "l-gemini",
-   "type": "ToolLabel",
+   "id": "st-gemini",
+   "type": "StageStat",
    "source": "llarg",
    "anchorMs": 83480,
-   "durationMs": 2800,
+   "durationMs": 3000,
    "props": {
-    "badge": "+",
-    "name": "Gemini",
-    "fn": "Gratis un año si estudias"
+    "icon": "logo:gemini-color",
+    "title": "Gemini",
+    "value": "1 AÑO",
+    "caption": "gratis si eres estudiante",
+    "tone": "light"
    },
-   "reason": "menció extra, rètol inferior"
+   "reason": "xifra i condició que diu"
   },
   {
-   "id": "l-startups",
-   "type": "ToolLabel",
+   "id": "w-gusta",
+   "type": "FloatingWords",
+   "source": "llarg",
+   "anchorMs": 87800,
+   "durationMs": 1800,
+   "props": {
+    "text": "nunca me ha acabado de gustar",
+    "side": "right"
+   },
+   "reason": "opinió personal"
+  },
+  {
+   "id": "w-auto",
+   "type": "FloatingWords",
+   "source": "llarg",
+   "anchorMs": 93060,
+   "durationMs": 1300,
+   "props": {
+    "text": "si eres autónomo",
+    "side": "left"
+   },
+   "reason": "a qui va el consell"
+  },
+  {
+   "id": "w-startups",
+   "type": "FloatingWords",
    "source": "llarg",
    "anchorMs": 95940,
-   "durationMs": 1900,
+   "durationMs": 1600,
    "props": {
-    "badge": "+",
-    "name": "Claude for Startups",
-    "fn": "Créditos de API"
+    "text": "claude for startups",
+    "side": "right"
    },
-   "reason": "programa mencionat, rètol inferior"
+   "reason": "nom del programa"
   },
   {
-   "id": "mil",
-   "type": "PunchLines",
+   "id": "g-mil",
+   "type": "GoldWord",
    "source": "llarg",
-   "anchorMs": 97900,
-   "durationMs": 1700,
+   "anchorMs": 97940,
+   "durationMs": 1500,
    "props": {
-    "script": "1.000 $ / en APIs",
-    "styles": "punch",
-    "holds": "51",
-    "accentBeat": 1,
-    "fontSize": 160
+    "text": "1.000$",
+    "tone": "gold",
+    "placement": "behind"
    },
-   "reason": "la xifra concreta del consell (versió continguda de les xifres grans d'Alex)"
+   "reason": "xifra dita: crèdits d'API"
+  },
+  {
+   "id": "slots",
+   "type": "SlotsRow",
+   "source": "llarg",
+   "anchorMs": 99780,
+   "durationMs": 2000,
+   "props": {
+    "title": "Vas sobrado",
+    "items": [
+     {
+      "icon": "logo:opencode",
+      "label": "OpenCode"
+     },
+     {
+      "icon": "logo:openai",
+      "label": "ChatGPT"
+     },
+     {
+      "icon": "logo:claude-color",
+      "label": "Claude"
+     }
+    ]
+   },
+   "reason": "resum final: les tres eines que s'omplen (caselles d'Alex)"
   }
  ],
  "audio": {
@@ -498,23 +707,29 @@
   "maxTruePeakDb": -1.5,
   "fadeMs": 12,
   "highpassHz": 90,
-  "denoise": "afftdn=nr=10:nf=-40"
+  "denoise": "afftdn=nr=10:nf=-40",
+  "music": null
  },
  "pending": [
   {
    "what": "escolta humana del màster",
    "why": "Claude no pot escoltar l'àudio",
-   "impact": "revisar els empalmaments r09→r10 («Con el límite de | cinco horas»), r11→r12 i r14→r15, i la reducció de soroll"
+   "impact": "amb talls més ràpids (estil Alex) hi ha més risc de síl·labes tallades: revisar sobretot els canvis de presa"
   },
   {
-   "what": "noms de models",
-   "why": "transcripció automàtica sense confirmar",
-   "impact": "confirmar «DeepSeek», «Big Pickle», «GPT-5.6 Luna», «GPT-6 Astra» i «te darán» (r18)"
+   "what": "música de fons",
+   "why": "Alex fa servir un coixí constant sota la veu; no tenim cap pista amb llicència",
+   "impact": "afegir-ne una a audio.music quan l'usuari la triï"
+  },
+  {
+   "what": "noms dels models",
+   "why": "transcripció automàtica",
+   "impact": "confirmar DeepSeek, Big Pickle, GPT-5.6 Luna, GPT-6 Astra"
   },
   {
    "what": "resolució",
-   "why": "el vídeo ha passat per WhatsApp (832×464): el retall vertical s'amplia ×4,1",
-   "impact": "envia l'arxiu original del mòbil per a la versió final"
+   "why": "vídeo de WhatsApp (832×464)",
+   "impact": "enviar l'original"
   }
  ]
 }

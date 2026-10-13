@@ -114,3 +114,31 @@ export type Layout =
   | 'FOCUS'
   | 'FRASE_CLAU'
   | 'PASSOS';
+
+// ---------- Estil Alex DiLorenzo (docs/ESTIL_ALEX.md) ----------
+export const ALEX = {
+  gold: 'linear-gradient(180deg, #F6DB98 0%, #E2B65E 45%, #B9862F 75%, #F0CF84 100%)',
+  goldSolid: '#D6A84E',
+  // Sobre el pla de càmera o fons fosc: resplendor càlida. Sobre l'escenari clar: només una vora fina, perquè no s'embruti.
+  goldGlow: 'drop-shadow(0 0 16px rgba(255,190,90,.40)) drop-shadow(0 4px 8px rgba(0,0,0,.30))',
+  goldGlowLight: 'drop-shadow(0 1px 0 rgba(120,80,20,.25))',
+  white: '#FFFFFF',
+  red: '#E5383B',
+  stageLight: 'radial-gradient(ellipse at 50% 50%, #F4F4F2 0%, #ECECEA 38%, #C9C9C7 70%, #8E8E8E 100%)',
+  stageDark: 'radial-gradient(ellipse at 50% 48%, #1C1C1E 0%, #0B0B0C 55%, #000000 100%)',
+  ink: '#151515',
+  fontDisplay: 'Anton',
+  fontWords: 'Poppins',
+  // Moviment (fotogrames a 30 fps)
+  blurInFrames: 5,
+  blurOutFrames: 4,
+  blurPx: 16,
+  letterStagger: 2,
+  wordStagger: 5,
+  pushPerSecond: 0.03, // zoom lent mentre un element és a pantalla
+  floatingWordsPx: 52,
+  // Aire a dalt dels textos amb degradat (background-clip retalla titlles i accents: Ñ, Á…).
+  goldClipPad: '0.18em 0.04em 0.06em',
+  // Escales del pla base: es van alternant a cada tall
+  cameraScales: [1.0, 1.12, 1.22],
+} as const;

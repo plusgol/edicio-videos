@@ -7,6 +7,8 @@ export type RenderSegment = {
   scale: number;
   originX: number;
   originY: number;
+  // Persona retallada (WebM amb alfa) del mateix tros, per posar textos darrere seu.
+  personSrc?: string;
   // Només a l'editor: l'àudio surt de cada tros (igualat en dB) en lloc de voice.wav.
   volumeDb?: number;
 };

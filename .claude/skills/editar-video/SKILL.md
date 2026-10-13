@@ -1,6 +1,6 @@
 ---
 name: editar-video
-description: Edita un vídeo vertical de marca personal (IA + negocis, en castellà) amb Remotion seguint l'estil natural i no saturat de la casa. Fes-la servir quan l'usuari demani editar, muntar, subtitular o renderitzar un vídeo de projectes/<nom>/input.
+description: Edita un vídeo de marca personal (IA + negocis, en castellà) per a YouTube 16:9 amb Remotion, amb l'estil d'Alex DiLorenzo (docs/ESTIL_ALEX.md). Fes-la servir quan l'usuari demani editar, muntar, renderitzar o revisar un vídeo de projectes/<nom>/input.
 ---
 
 # Editar vídeo — estil de la casa
@@ -8,9 +8,15 @@ description: Edita un vídeo vertical de marca personal (IA + negocis, en castel
 Llegeix `docs/GUIA_EDICIO.md` sencera la primera vegada. Aquest fitxer és el resum operatiu. Si hi ha conflicte, mana la guia.
 
 ## Identitat
-Marca personal sobre IA i negocis, en castellà. **Format principal: YouTube llarg, horitzontal 1920×1080 a 30 fps** (com els referents). Els Shorts o Reels (1080×1920, amb subtítols cremats) són un format secundari, i només es fan si l'usuari els demana.
-**Estil:** el de Kallaway i Alex DiLorenzo. La persona fa de pla base i, cada 5–15 s, hi ha una inserció gràfica a pantalla completa que visualitza el que diu: rètol de secció, terminal, xifra, canvi de text, flux d'agent o frase clau. Ha de ser net i amb un sol accent, sense saturar.
-**Fórmula:** pla base + rètols de secció numerats (01, 02, 03) + insercions de snapcn que il·lustren cada idea + rètols inferiors per a les mencions secundàries.
+Marca personal sobre IA i negocis, en castellà. **Format principal: YouTube llarg, horitzontal 1920×1080 a 30 fps.**
+**Estil (decidit per l'usuari): el del vídeo d'Alex DiLorenzo «mis +10.000 horas de YouTube explicados en 15 minutos».** Llegeix `docs/ESTIL_ALEX.md` abans d'editar: hi ha el catàleg de recursos, el ritme i les regles de context. En resum:
+- **Ritme:** pauses molt curtes (> 300 ms → 70–90 ms de marge) i un canvi visual cada 2–4 s. Les escales del pla base es van alternant entre 1,00, 1,12 i 1,22.
+- **Cada xifra** → `GoldWord` (or condensat; `placement: "behind"` la posa darrere de la persona retallada). **Cada concepte fort** → `GoldWord` blanc o daurat.
+- **Cada pas** → `SectionNumeral` (I, II, III + títol). **Cada metàfora o objecte** → `EmojiPop` (emoji 3D a la mà o sobre l'escenari).
+- **Comparacions de preus o xifres** → `StageStat`. **Connexions entre eines** → `NetworkDiagram`. **Resum de llista** → `SlotsRow`.
+- **Frases clau** → `FloatingWords` al costat del cap (cada 10–20 s).
+- Totes les entrades i sortides amb desenfocament ràpid. Res d'imatges generades presentades com a reals ni de captures inventades.
+- Icones: `emoji:<codi>` (Fluent Emoji 3D, `node_modules/@lobehub/fluent-emoji-3d/assets`) i `logo:<nom>` (`node_modules/@lobehub/icons-static-svg/icons`). `munta.py` les copia a `projectes/<nom>/assets/`.
 
 ## Insercions gràfiques (snapcn, `src/vendor/snapcn`)
 Són components de [snapcn](https://snapcn.dev) amb llicència MIT, copiats al projecte. A l'EDL es declaren com a `overlays` amb `type` = nom del component i `props`. `src/Overlays.tsx` els pinta a pantalla completa amb el tema de l'EDL (`video.theme`: mode i accent).
@@ -27,7 +33,8 @@ Si una inserció mostra una interfície **il·lustrativa** (un terminal, un xat)
 
 ## Flux obligatori (eines reals del repositori)
 0. **Una sola vegada:** `npm install`, `python3 -m pip install -r requirements.txt` i `scripts/models.sh` (Parakeet per transcriure + YuNet per a la cara).
-1. **Ingesta i preparació:** `scripts/prepara.sh projectes/<nom>`. Fa `ffprobe`, extreu els WAV (16 kHz per transcriure, 48 kHz per mesclar), transcriu amb marques per paraula (`work/<presa>.transcript.json`) i reenquadra amb seguiment de cara a 1920×1080 (`work/<presa>.1920x1080.mp4` + `.track.json`; per a Shorts, `scripts/prepara.sh projectes/<nom> 1080x1920`). Els originals de `input/` no es toquen mai.
+1. **Ingesta i preparació:** a més de `prepara.sh`, retalla la persona per als textos «darrere»: `python3 -I scripts/retalla_persona.py work/<presa>.1920x1080.mp4 work/<presa>.persona.webm` (Robust Video Matting) i posa `"person": "work/<presa>.persona.webm"` a la font de l'EDL.
+   **Preparació bàsica:** `scripts/prepara.sh projectes/<nom>`. Fa `ffprobe`, extreu els WAV (16 kHz per transcriure, 48 kHz per mesclar), transcriu amb marques per paraula (`work/<presa>.transcript.json`) i reenquadra amb seguiment de cara a 1920×1080 (`work/<presa>.1920x1080.mp4` + `.track.json`; per a Shorts, `scripts/prepara.sh projectes/<nom> 1080x1920`). Els originals de `input/` no es toquen mai.
 2. **Comprova la transcripció.** El model es pot saltar frases en trossos sorollosos. Busca buits de més d'1 s amb energia de veu i retranscriu aquella finestra sola. Si cal, contrasta-ho amb un segon model (Whisper small via sherpa-onnx). Les paraules recuperades van a `asrPatches` de l'EDL. Corregeix els noms amb `brand/glossari.json`. **No inventis mencions.**
 3. **Marques verbals:** «corta» retira la presa anterior fins a l'inici de la frase. Una pausa de ≥ 2 s seguida de la mateixa frase indica una repetició: queda't amb l'última presa completa. «marca» assenyala la frase com a candidata a èmfasi. Elimina sempre les paraules de marca.
 4. **Pla:** escriu `projectes/<nom>/edl.json` (model: `projectes/ias-que-uso/edl.json`).
@@ -36,7 +43,7 @@ Si una inserció mostra una interfície **il·lustrativa** (un terminal, un xat)
    - `overlays` són el ganxo i les etiquetes, ancorades a un temps de l'original (`anchorMs`).
    - Els silencis llargs dins de cada `range` els retalla `munta.py` sol.
 5. **Muntatge:** `python3 -I scripts/munta.py projectes/<nom>`. Escriu `work/render.json` (fotogrames de sortida), `work/voice.wav` (fosos de 12 ms, neteja i −16 LUFS / −1,5 dBTP) i `work/muntatge.txt`.
-6. **Revisió:** mostra a l'usuari `work/muntatge.txt`: durada, segments, subtítols i recursos.
+6. **Revisió (editor de vista prèvia):** `scripts/editor.sh projectes/<nom>` i publica `out/editor/index.html` com a artefacte (amb `files` i `capabilities: {db: {}}`; mateix fitxer = mateixa URL). L'usuari hi revisa, edita i aprova. Després llegeix el document `revisio/actual` (ArtifactData `get` amb `out_dir`) i aplica'l amb `python3 -I scripts/aplica_revisio.py projectes/<nom> <fitxer.json>`. Els comentaris els has de resoldre tu. Torna a muntar i renderitza.
 7. **Fotogrames de prova:** `npx remotion still src/index.ts Video qa.png --public-dir=projectes/<nom> --frame=N`. Fes-ne un de cada tipus d'escena i mira'ls: ulls i boca lliures, contrast, desbordaments.
 8. **Render:** `scripts/render.sh projectes/<nom>`. A l'entorn al núvol cal afegir `--browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`.
 9. **QA:** recorre la checklist (§21 de la guia). Comprova la sonoritat amb `ebur128` i que la durada coincideixi amb el títol.

@@ -7,7 +7,7 @@ export type EditorData = {
   height: number;
   title: string;
   theme: RenderPlan['theme'];
-  sources: Record<string, {gainDb: number}>;
+  sources: Record<string, {gainDb: number; person?: boolean}>;
   ranges: {id: string; source: string; block: string; captions: string; reason: string; keep: boolean}[];
   segments: (Omit<RenderSegment, 'src' | 'fromFrame' | 'volumeDb'> & {range: string; source: string})[];
   overlays: {
@@ -49,6 +49,14 @@ export const mergeRevision = (base: Revision, saved: Partial<Revision> | undefin
 
 export type Timing = {fromFrame: number; durationInFrames: number};
 
+// Els emojis i logos que munta.py copia a <projecte>/assets/ es publiquen al costat de la pàgina: ruta relativa.
+const relativeAssets = (v: unknown): unknown => {
+  if (typeof v === 'string') return v.startsWith('assets/') ? `./${v}` : v;
+  if (Array.isArray(v)) return v.map(relativeAssets);
+  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, relativeAssets(x)]));
+  return v;
+};
+
 // Mateix càlcul que scripts/munta.py: segments conservats en ordre i temps de l'original → temps de sortida.
 export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, string>) => {
   const maxGain = Math.max(...Object.values(d.sources).map((s) => s.gainDb));
@@ -61,6 +69,7 @@ export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, st
     segments.push({
       ...s,
       src: media[s.source],
+      ...(d.sources[s.source].person && media[`${s.source}:persona`] ? {personSrc: media[`${s.source}:persona`]} : {}),
       fromFrame: out,
       volumeDb: d.sources[s.source].gainDb - maxGain,
     });
@@ -100,7 +109,7 @@ export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, st
     const durationInFrames = Math.min(toFrame(at + r.durationMs) - fromFrame, total - fromFrame);
     overlayTimes[o.id] = durationInFrames > 0 ? {fromFrame, durationInFrames} : null;
     if (r.enabled && durationInFrames > 0) {
-      overlays.push({id: o.id, type: o.type, fromFrame, durationInFrames, props: r.props});
+      overlays.push({id: o.id, type: o.type, fromFrame, durationInFrames, props: relativeAssets(r.props) as Record<string, unknown>});
     }
   }
 

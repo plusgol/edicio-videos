@@ -3,9 +3,11 @@ models/
 projectes/*/input/
 projectes/*/work/
 projectes/*/out/
+projectes/*/assets/
 *.mov
 *.MOV
 *.mp4
 *.wav
 __pycache__/
 .DS_Store
+*.webm

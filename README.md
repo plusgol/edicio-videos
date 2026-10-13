@@ -40,6 +40,10 @@ Per previsualitzar i retocar a mà: `npx remotion studio src/index.ts --public-d
 |---|---|
 | `scripts/transcriu.py` | Transcripció local amb marques per paraula (sherpa-onnx + Parakeet TDT v3) |
 | `scripts/reencuadra.py` | Reenquadra a 1920×1080 (o 1080×1920 per a Shorts) seguint la cara (YuNet) i desa la posició dels ulls |
+| `src/alex/` | Components de l'estil Alex: GoldWord, FloatingWords, SectionNumeral, EmojiPop, StageStat, NetworkDiagram, SlotsRow |
+| `src/editor/` + `scripts/editor.sh` | Editor de vista prèvia (Remotion Player): gràfics, talls i comentaris; desa la revisió perquè Claude l'apliqui (`scripts/aplica_revisio.py`) |
+| `scripts/retalla_persona.py` | Retalla la persona (Robust Video Matting) per posar textos darrere seu |
+| `docs/ESTIL_ALEX.md` | Anàlisi del vídeo de referència: ritme, recursos, colors i regles de context |
 | `src/vendor/snapcn` | Components de snapcn (MIT) per a les insercions gràfiques; banc de proves a la composició `Galeria` |
 | `scripts/munta.py` | EDL → `render.json` (fotogrames) + `voice.wav` (veu neta, −16 LUFS). Tot el càlcul de temps és aquí |
 | `src/` | Projecte Remotion: `CameraSegment`, `Captions`, `HookText`, `ToolLabel` |
@@ -48,4 +52,4 @@ Per previsualitzar i retocar a mà: `npx remotion studio src/index.ts --public-d
 ## Vídeos
 | Projecte | Estat |
 |---|---|
-| `projectes/ias-que-uso` | v2 per a YouTube 16:9 (84,6 s) amb insercions de snapcn, feta amb la versió de WhatsApp. Pendent: arxiu original i escolta |
+| `projectes/ias-que-uso` | v3 amb l'estil d'Alex (79,6 s), feta amb la versió de WhatsApp. Editor: https://claude.ai/artifact/NzDzykDZDd2yxDP99ZMSR2 . Pendent: revisió a l'editor, escolta, música i arxiu original |

@@ -15,7 +15,14 @@ type Db = {
   };
 };
 
-const MEDIA: Record<string, string> = {curt: './media/curt.mp4', llarg: './media/llarg.mp4'};
+// H.264 si el navegador el reprodueix (Chrome, Safari, Edge); si no, WebM VP9.
+const EXT = document.createElement('video').canPlayType('video/mp4; codecs="avc1.4d401f"') ? 'mp4' : 'webm';
+const MEDIA: Record<string, string> = {
+  curt: `./media/curt.${EXT}`,
+  llarg: `./media/llarg.${EXT}`,
+  'curt:persona': './media/curt.persona.webm',
+  'llarg:persona': './media/llarg.persona.webm',
+};
 const REV_DOC = 'revisio/actual';
 
 const TYPE_LABEL: Record<string, string> = {
@@ -26,6 +33,13 @@ const TYPE_LABEL: Record<string, string> = {
   AgentSteps: 'Flux',
   ToolLabel: 'Rètol inferior',
   HookText: 'Ganxo',
+  GoldWord: 'Paraula gegant',
+  FloatingWords: 'Paraules',
+  SectionNumeral: 'Secció',
+  EmojiPop: 'Objecte 3D',
+  StageStat: 'Xifra',
+  NetworkDiagram: 'Xarxa',
+  SlotsRow: 'Caselles',
 };
 
 const BLOCK_LABEL = (block: string) => {
@@ -59,6 +73,18 @@ const summary = (type: string, p: Record<string, unknown>) => {
       return String(p.query ?? '');
     case 'ToolLabel':
       return `${p.name} · ${p.fn}`;
+    case 'GoldWord':
+      return `${p.sub ? `${p.sub} ` : ''}${p.text}${p.placement === 'behind' || !p.placement ? ' (darrere)' : ''}`;
+    case 'SectionNumeral':
+      return `${p.numeral} · ${p.title}`;
+    case 'EmojiPop':
+      return String(p.label ?? 'objecte 3D');
+    case 'StageStat':
+      return `${p.title ? `${p.title}: ` : ''}${p.from ? `${p.from} → ` : ''}${p.value}${p.caption ? ` · ${p.caption}` : ''}`;
+    case 'NetworkDiagram':
+      return `${(p.center as {label: string}).label} ← ${((p.nodes as {label: string}[]) ?? []).map((n) => n.label).join(', ')}`;
+    case 'SlotsRow':
+      return `${p.title ?? ''} · ${((p.items as {label?: string}[]) ?? []).map((n) => n.label).join(', ')}`;
     default:
       return String(p.text ?? '');
   }
@@ -163,6 +189,51 @@ const OverlayFields: React.FC<{id: string; type: string; props: Record<string, u
           {text('fn', 'Funció')}
         </>
       );
+    case 'GoldWord':
+      return (
+        <>
+          {text('text', 'Paraula o xifra')}
+          {text('sub', 'Frase petita a sobre (opcional)')}
+        </>
+      );
+    case 'SectionNumeral':
+      return (
+        <>
+          {text('numeral', 'Número romà')}
+          {text('title', 'Títol')}
+        </>
+      );
+    case 'EmojiPop':
+      return text('label', 'Text sota l\'objecte (opcional)');
+    case 'StageStat':
+      return (
+        <>
+          {text('title', 'Títol')}
+          {text('from', 'Abans (opcional)')}
+          {text('value', 'Xifra')}
+          {text('caption', 'Frase')}
+        </>
+      );
+    case 'NetworkDiagram': {
+      const center = (p.center as {label: string; icon?: string}) ?? {label: ''};
+      const nodes = (p.nodes as {label: string; icon?: string}[]) ?? [];
+      return (
+        <>
+          <Field id={`${id}-center`} label="Node central" value={center.label} onChange={(v) => set({...p, center: {...center, label: v}})} />
+          <Field
+            id={`${id}-nodes`}
+            label="Nodes"
+            hint="Un per línia"
+            multiline
+            value={nodes.map((n) => n.label).join('\n')}
+            onChange={(v) => set({...p, nodes: v.split('\n').map((label, i) => ({...(nodes[i] ?? {}), label}))})}
+          />
+          {text('caption', 'Frase')}
+        </>
+      );
+    }
+    case 'SlotsRow':
+      return text('title', 'Títol');
     default:
       return text('text', 'Text');
   }
@@ -472,7 +543,8 @@ const App: React.FC<{data: EditorData}> = ({data}) => {
                     <div className="card-head">
                       <button type="button" className="card-main" onClick={() => {
                         setSelected(open ? null : o.id);
-                        if (t) seek(t.fromFrame);
+                        // Uns fotogrames endins: a l'inici exacte el gràfic encara està desenfocat i transparent.
+                        if (t) seek(t.fromFrame + Math.min(12, Math.floor(t.durationInFrames / 3)));
                       }}>
                         <span className="tc">{t ? fmt(t.fromFrame, plan.fps) : '—'}</span>
                         <span className="type">{TYPE_LABEL[o.type] ?? o.type}</span>

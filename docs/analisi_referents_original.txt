@@ -1,0 +1,291 @@
+ANÀLISI VISUAL D’ALEX DILORENZO I KALLAWAY
+Guia editorial per a una marca personal sobre IA i negocis
+13 d’octubre de 2026
+
+ABAST I MÈTODE
+
+Les referències analitzades són els dos MP4 aportats per l’usuari: «mis +10.000 horas de YouTube explicados en 15 minutos» i «7 habilidades de Claude tan poderosas que parecen ilegales (harán que tus redes sociales exploten)». El marcador de 14:20 del segon enllaç no limita l’anàlisi. La revisió cobreix tota la durada dels dos arxius, des de l’inici fins al final.
+
+El primer arxiu dura 767,09 segons, aproximadament 12:47, i està codificat a 1920 × 1080 i 25 fps. El segon dura 1456,96 segons, aproximadament 24:17, i està codificat a 1920 × 1080 i 23,976 fps. Són propietats dels arxius rebuts; no demostren la càmera, l’aplicació d’edició o els paràmetres originals de producció.
+
+S’han inspeccionat 153 fotogrames distribuïts cada cinc segons al llarg del primer vídeo i 291 del segon, complementats amb seqüències a dos fotogrames per segon de les introduccions i d’alguns recursos representatius. També s’ha executat una detecció automàtica de canvis visuals sobre tota la durada. És una auditoria visual per mostreig i seqüències, no una reproducció contínua escoltada dels 37 minuts. Els exemples temporals són orientatius, aproximadament a l’entorn del segon indicat, i no punts de tall d’una EDL definitiva.
+
+La inspecció permet descriure enquadraments, composició, alternança de recursos, color aparent, textos i evolució de les seqüències observades. No permet identificar amb certesa una font tipogràfica, una durada exacta d’animació o la naturalesa d’un recurs com a gravació real o imatge generada. Tampoc permet afirmar que hi ha una música concreta, absència de música, efectes de so determinats o una veu sense artefactes: no s’ha fet una escolta auditiva. Les recomanacions de so són una proposta editorial.
+
+La detecció visual, amb llindar de canvi de 0,18 sobre imatges reduïdes i agrupant esdeveniments separats per menys de 0,25 segons, dona 128 esdeveniments a Alex i 94 a Kallaway. Durant el primer minut en dona 21 i 6, respectivament. Aquestes xifres NO són el nombre exacte de talls: els canvis de color i les entrades de gràfics poden activar el detector, mentre que talls entre plans molt semblants poden quedar fora. Serveixen com a indici de contrast visual, no com a mesura de retenció ni com a instrucció per editar.
+
+La conclusió editorial és combinar la presència personal i els exemples breus d’Alex amb la demostració i l’orientació de mirada de Kallaway. El resultat recomanat és més sobri que les seves seqüències gràfiques més intenses. Naturalitat significa conservar la teva expressió i deixar que el muntatge ajudi a comprendre.
+
+ALEX: EL PLA BASE I LA PRESÈNCIA PERSONAL
+
+El pla recurrent mostra Alex a l’exterior, de nit, davant d’un edifici amb vidres, il·luminació càlida i reflexos d’aigua visibles. La roba fosca i el fons nocturn creen una base cromàtica continguda, mentre que la cara rep llum suficient per destacar. La profunditat del fons dona context i separació sense convertir-lo en un fons buit.
+
+La càmera deixa espai per al tors, els braços i els objectes que mostra. El micròfon de mà forma part del pla. Aquesta configuració facilita gestos amplis, mirades laterals, aproximacions del cos i reaccions que mantenen varietat dins del mateix escenari. La teva gravació pot aprofitar aquesta idea: un pla una mica més obert pot aportar expressió que després no hauràs de suplir amb zooms.
+
+La naturalitat visual no ve d’una absència de producció. El pla és consistent i la persona queda ben separada del fons. L’efecte de proximitat es construeix amb una persona que es mou i mostra coses dins d’un espai recognoscible. En els teus vídeos, un lloc habitual amb bona llum pot complir aquesta funció sense haver de reproduir l’exterior nocturn.
+
+El pla base reapareix al llarg de tota la peça. Funciona com un punt de retorn: després d’una captura, un esquema o una quantitat destacada, tornem a la persona que explica. Aquesta continuïtat és una part important de la marca personal. Si cada idea es resol amb una pantalla nova, la presència de l’autor es pot diluir.
+
+ALEX: LA INTRODUCCIÓ I LA CONSTRUCCIÓ DE CONTEXT
+
+En els primers segons hi ha una alternança ràpida entre el pla actual i material d’un vídeo antic. A l’entorn de 00:01–00:04, el vídeo antic es presenta dins d’una pàgina de YouTube sobre un fons clar. Després apareix un detall del canal. La composició converteix el passat en un objecte visible que es pot comparar amb el present.
+
+A l’entorn de 00:05–00:08, torna al pla exterior amb un objecte rosa a la mà. A continuació, cap a 00:09, apareix un recurs visual associat a Charles Darwin. Entre aproximadament 00:11 i 00:14 hi ha un conjunt de miniatures de YouTube. Cap a 00:21–00:24, mostra una placa de YouTube amb text puntual al costat i un tractament del fons menys saturat.
+
+Aquesta successió té una funció de context i autoritat visual: passat, activitat, reconeixement i explicació. No cal assumir que cada captura prova tota la promesa del títol. Les miniatures i la placa mostren elements de trajectòria; el valor del contingut s’ha de justificar amb l’explicació i els exemples.
+
+Per al teu vídeo, la traducció útil és mostrar una acció o un resultat real molt aviat. Si expliques les eines que utilitzes per construir projectes, un fragment recognoscible d’un projecte teu pot donar context. No cal esperar al minut dos per mostrar què fas amb la IA.
+
+La introducció d’Alex també és més carregada que molts trams posteriors. Això ajuda a entendre que no existeix un únic ritme per a tota la peça. La introducció pot condensar context; el desenvolupament necessita deixar temps per assimilar-lo. Traslladar la densitat del primer minut a tot un vídeo de 2:30 seria una elecció nova, no una còpia fidel del seu patró global.
+
+ALEX: TEXTOS I JERARQUIA
+
+Es veuen dues famílies funcionals de text. Alguns textos són petits, blancs o amb una paraula acolorida, i apareixen al costat de la persona. Altres són grans, alts i condensats, sovint daurats, i converteixen una xifra o un concepte en el centre de la pantalla.
+
+Cap a 01:42, la xifra «5.000€» ocupa una gran part del pla mentre la imatge de la persona queda desenfocada. Cap a 05:12 es veu «ROMPER OBJECIONES» sobre el pla. Cap a 05:32 apareix «ATRAER» en una composició amb miniatures. Són recursos d’èmfasi, no subtítols neutres.
+
+La distinció és útil perquè evita confondre llegibilitat i espectacle. Un subtítol ha de permetre seguir el discurs. Una xifra gegant decideix què ha de dominar l’atenció. Per als teus vídeos, utilitzaria una jerarquia semblant però amb menys diferència de mida i sense desenfocar-te sistemàticament.
+
+No identifico una font exacta a partir dels fotogrames. La tipografia condensada és una característica observable, però atribuir-li un nom sense fitxers de projecte seria especular. Pots aconseguir una jerarquia comparable amb una sans serif llegible per als subtítols i un pes més fort de la mateixa família per als rètols.
+
+Els textos sobre el pla no estan sempre a la part inferior ni apareixen en tots els fotogrames. Sovint aprofiten espai lateral. Això no s’hauria de copiar directament a vertical: el retall elimina bona part d’aquest espai. Si el teu vídeo és 9:16, cal redissenyar la ubicació, no només escalar la composició.
+
+ALEX: GRÀFICS, CAPTURES I METÀFORES
+
+Cap a 00:30–00:33, una captura de dades dona pas a un esquema de rectangles amb el rètol «EDITORES». Els elements mantenen una relació entre informació i model visual. Cap a 02:32 i 03:17 apareixen composicions clares amb numeració romana i paraules centrals. Funcionen com a separadors d’idees dins d’una peça que continua tornant al mateix pla.
+
+Cap a 04:32, una xarxa d’icones de diners ocupa un fons fosc. Entre aproximadament 04:37 i 05:02 es veu un conjunt de miniatures que canvia de composició i incorpora una quantitat. Cap a 05:42–05:47 apareix una fila de caselles que s’omple amb icones. Aquest últim recurs és un bon exemple d’una estructura que pot explicar components o etapes sense haver d’ensenyar un document llarg.
+
+Per a un vídeo sobre IA, aquestes caselles podrien representar «idea», «investigació», «construcció» i «revisió». Les icones han d’ajudar a distingir funcions; no cal que siguin emojis grans o que rebin un efecte diferent cadascuna. L’esquema ha de tenir una raó per existir dins del discurs.
+
+Cap a 07:37 i 08:02, s’inserten captures sobre el pla i la persona ocupa més l’espai dret. Entre aproximadament 08:47 i 09:27 reapareix aquesta forma d’acompanyar la persona amb captures. Entre 10:12 i 10:42, una finestra de document ocupa l’esquerra mentre Alex continua visible a la dreta. Això permet alternar entre context personal i material explicatiu dins del mateix pla.
+
+El límit és la llegibilitat. Una captura completa pot demostrar que existeix un document, però el text petit no es converteix automàticament en informació assimilable. En el teu vídeo, decideix si la captura és una prova d’existència o un element que cal llegir. En el segon cas, amplia el fragment concret i dona-li temps.
+
+ALEX: RECURSOS QUE REBAIXARIA
+
+La peça utilitza fons amb vinyeta, canvis entre clar i fosc, desenfocaments, halos, quantitats de mida molt gran i composicions que prioritzen l’impacte. Cap a 07:47, es veu la persona davant de grans signes monetaris grocs. Cap a 01:52, apareix un breu fons negre amb text petit. A la part final, tornen una xifra destacada i la metàfora de xarxa.
+
+Per al teu gust, reduiria els signes monetaris gegants, els halos decoratius i el desenfocament del pla quan una etiqueta petita podria complir la mateixa funció. Conservaria les captures, la presència expressiva i les petites explicacions gràfiques.
+
+La referència no demostra que l’edició sigui la causa del rendiment del vídeo. No disposem de dades de retenció, experiment comparatiu o historial de versions. Es pot valorar la funció d’un recurs sense afirmar que genera més visualitzacions.
+
+KALLAWAY: EL PLA BASE I LA IDENTITAT VISUAL
+
+El pla recurrent és interior: roba i gorra fosques, micròfon sobre braç, prestatgeria, quadres i llum vertical cian a la dreta. La cara destaca sobre una base fosca. El cian pertany sobretot a l’escenari; el violeta es repeteix a la capa gràfica.
+
+Aquesta separació crea dues capes d’identitat que continuen connectades. Quan hi ha una demostració a pantalla completa, el violeta manté la continuïtat del vídeo. Quan torna la persona, reapareixen el micròfon i la llum cian. El públic pot reconèixer el sistema visual encara que canviï el tipus de contingut.
+
+La composició permet veure mans i tors, tot i que el micròfon ocupa una part central baixa. Es veuen aproximacions i plans una mica més oberts. No podem atribuir cada canvi a un zoom digital o a una càmera diferent a partir dels fotogrames, però sí observar-ne la funció: variar la proximitat mentre l’escenari es manté estable.
+
+Per a tu, la idea és un pla consistent i un petit conjunt de gràfics consistents. No cal adoptar cian, violeta o un escenari d’estudi. La coherència pot venir d’un mateix lloc, una mateixa font i una mateixa forma de mostrar les eines.
+
+KALLAWAY: LA INTRODUCCIÓ I ELS SEPARADORS
+
+Als primers segons, les targetes amb icones passen d’acompanyar el pla de càmera a ocupar una composició completa amb «CLAUDE-BASED WORKFLOWS». La seqüència inicial també inclou un conjunt de peces i una fletxa ascendent. És una introducció gràfica intensa.
+
+Cap a 00:17, es veuen dues finestres amb eines i resultats. Cap a 00:27 apareixen targetes amb perfils socials. A l’entorn de 00:40–00:45, s’introdueix el primer bloc amb un sistema de targetes que selecciona una icona i mostra el nom del workflow.
+
+La mateixa gramàtica es repeteix en altres punts: aproximadament 01:12, 03:37, 07:47–07:52, 09:27, 12:07, 15:57 i 19:07–19:12. Això dona una estructura recognoscible. No cal reinventar una portada per a cada bloc.
+
+Per a un vídeo teu de 2:30, no faria separadors complets de diversos segons per cada eina. Poden consumir una part massa gran de la peça. Adaptaria el sistema a una etiqueta compacta amb el nom i la funció, integrada al pla o a la demostració.
+
+Les icones tenen valor perquè ajuden a distingir categories, però el moviment i el contorn lluminós són eleccions d’estil. Pots conservar la categorització amb targetes planes i un color discret.
+
+KALLAWAY: EL DESENVOLUPAMENT PER DEMOSTRACIÓ
+
+La diferència principal respecte d’Alex és el temps que dona a les pantalles. Entre aproximadament 01:52 i 03:22 es veuen captures, un informe, una matriu de formats i una biblioteca de categories. La pantalla mateixa és el contingut visual principal durant bona part del bloc.
+
+Entre 04:12 i 05:17 domina una interfície amb una diana de cercles concèntrics i punts. El mateix sistema reapareix entre 05:37 i 06:47, amb filtres, diferents densitats de punts i seccions d’informe. Això aporta continuïtat conceptual: l’espectador pot seguir una mateixa eina en lloc de reconèixer un recurs nou a cada moment.
+
+Entre 08:02 i 08:52, el bloc de CTA mostra dades, histogrames i comparacions. Entre 10:12 i 11:47, el bloc de ganxos mostra configuració, informes, exemples i una eina per generar resultats. La distribució visual varia segons la feina que està explicant.
+
+Per a tu, la lliçó és mostrar un procés comprensible. Si una IA et serveix per convertir una idea en una web, la demostració hauria de connectar una instrucció amb un resultat. No és necessari mostrar tots els clics o tota l’espera; sí que cal evitar saltar entre pantalles que no permeten reconstruir què ha passat.
+
+Una demostració breu pot tenir tres moments: què li demanes, quina part del resultat vols destacar i per què et serveix. Aquesta estructura és més útil en 2:30 que ensenyar un document complet de deu pàgines.
+
+KALLAWAY: ORIENTAR LA MIRADA
+
+Cap a 02:22–02:27 es veu una composició amb la persona en una finestra vertical a l’esquerra i una frase al costat sobre un fons de dades enfosquit. Cap a 04:17–04:32, una zona de la interfície queda ressaltada mentre altres àrees perden protagonisme. La composició ajuda a decidir on mirar.
+
+El cas més clar és el gràfic de la part estratègica. Cap a 16:37–16:42 es presenta el gràfic complet. A l’entorn de 16:47–16:57 s’enfosqueix bona part i es manté una banda vertical visible. Cap a 17:02–17:17 es destaca una zona central; cap a 17:22–17:27, una zona de la dreta. El gràfic continua sent el mateix, però canvia l’àrea que rep atenció.
+
+Aquest és un recurs especialment adequat per a la teva edició natural. Permet explicar una captura amb molta informació sense afegir una transició espectacular. Es pot implementar amb una màscara semitransparent i un rectangle que deixa visible l’àrea rellevant.
+
+Cap a 19:47–19:52, una captura desenfocada serveix de fons per a una pregunta. Per al teu estil, ho reservaria per a una frase central molt concreta, perquè desenfocar documents sovint pot retirar informació que l’espectador estava intentant entendre.
+
+La regla pràctica és que la pantalla tingui un focus. Una captura amb moltes columnes, un subtítol, un rètol, una animació i la teva cara poden coexistir tècnicament, però no necessàriament es poden assimilar alhora. Retira elements quan el contingut exigeixi llegir.
+
+KALLAWAY: EL BLOC DE FÓRMULES I LA REUTILITZACIÓ
+
+Entre aproximadament 12:17 i 14:32 apareixen una fórmula visual, targetes amb quantitats, una llista de rendiments, un vídeo vertical i una matriu de combinacions. Cap a 13:32–14:07 es veu com la matriu passa de categories a una graella amb més caselles omplertes. Aquesta progressió ajuda a representar combinacions sense presentar-ho tot alhora.
+
+A la seqüència revisada amb més densitat, entre 13:11 i 13:25, una pantalla d’informe es manté i es desplaça verticalment. No cal canviar d’escena cada segon: el mateix recurs pot evolucionar mentre mostra una part diferent del contingut.
+
+Aquesta reutilització és molt compatible amb Remotion. La composició pot mantenir el mateix marc mentre canvien el contingut, el retall i la zona ressaltada. Reutilitzar el component ajuda a preservar la identitat i facilita fer correccions.
+
+La graella de combinacions seria excessiva per al teu primer vídeo si només expliques eines d’ús habitual. En canvi, una comparació de dues tasques amb dos resultats pot fer servir el mateix principi de presentar informació per etapes.
+
+KALLAWAY: EL TRAM FINAL I EL RITME
+
+Entre 19:37 i 22:42 hi ha una demostració extensa d’un informe de posicionament. Es passa per la proposta de valor, taules, una diana, creences i fórmules. Cap a 22:47 torna el pla de càmera, que domina bona part del tancament fins al final, amb alguns textos puntuals.
+
+La continuïtat de les pantalles en aquesta part contradiu la idea que tota edició dinàmica ha de tenir interrupcions constants. El canvi d’informació dins del mateix marc pot aportar progrés visual. La persona torna quan correspon recuperar la relació amb l’espectador i tancar el discurs.
+
+En un vídeo breu, conservaria aquesta alternança funcional, però condensaria les demostracions. Un informe llarg necessita un vídeo propi. La peça de 2:30 hauria d’ajudar a descobrir el teu criteri i entendre alguns usos, sense intentar explicar tot el procés de cada eina.
+
+QUÈ COMBINA BÉ I QUÈ NO TRASLLADARIA
+
+Alex aporta presència física, exemples de trajectòria i una alternança molt visible entre persona i recursos. Kallaway aporta estructura recurrent, demostracions llargues i orientació dins de pantalles complexes. Tots dos mantenen un pla base reconeixible.
+
+Els dos tenen també recursos intensos: quantitats gegants i composicions monetàries en Alex; resplendors violetes, targetes animades i composicions tecnològiques en Kallaway. No faria servir les referències com a autorització perquè Claude afegeixi totes aquestes coses. El teu criteri explícit és naturalitat, claredat i baixa saturació.
+
+La combinació recomanada és un pla personal recurrent, etiquetes breus de les eines, captures reals ben retallades i algun ressaltat que orienti la mirada. Una pantalla gràfica completa només entra quan simplifica una explicació que altrament costaria seguir.
+
+NATURALITAT I RITME PER AL TEU VÍDEO
+
+El muntatge ha de conservar la sensació d’una persona que explica què utilitza. Les petites reaccions, un somriure, una mirada de dubte o un gest de sorpresa poden formar part d’aquesta sensació. Les pauses en què prepares la frase i els errors accidentals es poden retirar.
+
+No tallaria totes les respiracions ni acceleraria la veu per arribar a una durada arbitrària. Primer retiraria redundàncies i escolliria idees. Després decidiria si la peça continua necessitant 2:30. Una versió de 90 segons tindria un muntatge propi, amb menys contingut i una promesa corresponent.
+
+Cada tall hauria de tenir una justificació: eliminar un error, passar a una idea, mostrar una prova o recuperar la persona. No hi ha una freqüència universal que garanteixi qualitat. Un canvi de subtítol tampoc s’ha de comptar com una necessitat d’afegir un altre estímul.
+
+Provaria dos enquadraments de càmera, amb una aproximació moderada quan ajudi a remarcar una idea. Una escala d’1,00 i una variant d’aproximadament 1,08 pot ser un punt de partida, sempre condicionat per la resolució i la composició. És una proposta per al teu projecte, no una escala mesurada en les referències.
+
+SUBTÍTOLS I GRÀFICS PER A 9:16
+
+Les referències són horitzontals. No podem assumir que els textos laterals i les captures al costat de la persona mantinguin llegibilitat en vertical. Si el vídeo de destinació és Reel, TikTok o Short, convé dissenyar el llenç de 1080 × 1920 des del principi.
+
+La base pot ser un pla vertical de la persona. Quan entra una demostració, passa a pantalla completa o a una composició on la demostració tingui espai suficient. Evitaria una finestra petita d’escriptori permanent sobre una cara que també queda petita.
+
+Per als subtítols proposo una sans serif clara, pes 600–700 i blocs de sentit, generalment una línia i màxim dues. Una mida inicial de 54–64 píxels en 1080 × 1920 és raonable per provar, però cal mesurar el text i verificar-lo en mòbil. No redueixis la font fins a tornar-la il·legible per encaixar una frase llarga: divideix-la.
+
+Un blanc amb ombra suau o un suport fosc discret pot mantenir contrast. Una sola paraula clau per bloc pot rebre el color d’accent quan hi hagi un motiu semàntic. El canvi de color paraula per paraula no és necessari per mantenir sincronització.
+
+Els noms d’eines necessiten revisió. El sistema ha de disposar d’un glossari per corregir confusions de transcripció. No ha d’utilitzar el glossari per inventar que s’ha mencionat una marca que no hi és.
+
+Les zones segures han de ser configurables per plataforma. Reserva especialment espai als controls laterals i a la descripció inferior. Revisa la boca, els ulls i el contingut de les captures. Els marges en píxels que es donin al sistema són guies inicials, no una garantia que la interfície no canviï.
+
+Per a les etiquetes d’eines, utilitzaria el nom i una funció de tres a sis paraules. «Claude / Desenvolupar i revisar idees» és més útil que una targeta plena d’adjectius. El rètol pot estar uns segons i sortir; no necessita viure durant tot el bloc.
+
+TRANSICIONS, COLOR I MOVIMENT
+
+La transició predeterminada seria el tall directe. Les targetes entrarien amb opacitat i un desplaçament curt, d’aproximadament 12–24 píxels sobre un llenç de 1080 d’amplada. Una entrada de 180–240 mil·lisegons és un punt de partida. Aquestes són especificacions proposades, no mesures dels vídeos.
+
+Mantindria els recursos llegibles durant el temps necessari. Un nom es pot identificar ràpidament; una resposta de text necessita més temps. No faria una animació de sortida que comenci abans que l’espectador pugui assimilar la informació.
+
+La paleta proposada és blanca, negra o neutra segons el contingut, amb un accent discret. La pell ha de conservar un aspecte natural i les preses han de tenir exposició i temperatura coherents. No cal desaturar-ho tot: una demostració pot conservar els colors de la interfície.
+
+Els moviments de pantalla han d’apuntar a contingut concret. Mantén el retall estable durant la lectura. Un moviment lent pot revelar una segona zona, però no ha de fer que el text estigui sempre desplaçant-se. Quan un cursor marca una acció, conserva el resultat d’aquesta acció el temps suficient.
+
+SO: CRITERIS PROPOSATS I LÍMITS DE L’AUDITORIA
+
+No s’ha fet una escolta perceptiva d’aquests arxius. Les afirmacions sobre música, textura de veu, pops, whooshes o qualitat d’empalmaments no es presenten com a observacions dels creadors.
+
+La mesura de la pista completa amb FFmpeg dona per a Alex −18,86 LUFS integrats, 7,20 LU de rang de sonoritat i +0,29 dBTP de pic real. Per a Kallaway dona −14,28 LUFS integrats, 1,40 LU de rang i +0,33 dBTP. La mescla de Kallaway és aproximadament 4,6 LU més alta i presenta un rang molt més reduït en aquesta mesura. Això és compatible amb un nivell general més uniforme, però no identifica quina compressió s’ha utilitzat ni separa veu, música i efectes. Els pics reals positius poden aparèixer per reconstrucció o codificació; no demostren per si sols distorsió audible. No copiaria aquests pics com a objectiu d’exportació.
+
+Per al teu projecte, la veu ha de ser la prioritat. La reducció de soroll s’ha de moderar per evitar una textura aquosa o metàl·lica. La normalització del màster no substitueix corregir diferències entre clips.
+
+Es pot començar provant un màster d’aproximadament −16 LUFS integrats i un pic real màxim d’aproximadament −1,5 dBTP. Són objectius de treball per revisar, no especificacions obligatòries de totes les plataformes. Cal escoltar-lo en mòbil i auriculars, amb i sense música.
+
+La música és opcional. Si s’afegeix, ha de deixar lliure el discurs i disminuir quan la veu ho necessiti. No s’ha de donar un percentatge fix de volum com si dues cançons tinguessin la mateixa sonoritat. Els efectes només entren quan assenyalen un fet visible i útil.
+
+El sistema ha de marcar com a pendent allò que no pugui comprovar auditivament. No ha de declarar que un empalmament sona natural perquè les marques de temps quadren.
+
+ESTRUCTURA PROPOSADA PER A LA PEÇA DE 2:30
+
+La proposta següent pressuposa que el vídeo es destina a xarxes en vertical. No s’ha rebut el vídeo propi ni una transcripció seva, així que els temps són una plantilla adaptable, no una decisió sobre frases ja gravades.
+
+Entre 00:00 i 00:06, entra directament amb una experiència o una promesa concreta. «Ojalá alguien me hubiera enseñado estas IA antes» pot funcionar si després expliques per què. La teva cara ha de ser visible; un rètol breu pot reforçar la idea sense cobrir-la.
+
+Entre 00:06 i 00:15, concreta la selecció: són les eines que utilitzes per als teus projectes i cadascuna té una funció. Una prova visual breu d’un projecte pot donar context. No afegeixis una intro de logotip abans d’aquesta explicació.
+
+Entre 00:15 i 02:05, desenvolupa tres o quatre usos si el material ho permet. Cada bloc identifica la tasca, l’eina, un exemple i el teu criteri. El temps de cada bloc depèn de la complexitat. No cal repartir-lo per igual.
+
+Entre 02:05 i 02:22, resumeix com esculls les eines. La conclusió pot explicar que comences pel problema i després decideixes quina eina encaixa. Si aquesta idea no està gravada, queda com a proposta de guió, no com una frase que el muntatge pugui inventar.
+
+Entre 02:22 i 02:30, tanca amb una acció o una continuïtat concreta. Pots animar a provar una eina amb una tasca pendent o anunciar que mostraràs un projecte real. Mantén una cua breu després de l’última frase i comprova que no queden fotogrames negres accidentals.
+
+Una distribució inicial possible és aproximadament un 65–75 % de presència de càmera i un 25–35 % de demostracions o gràfics. No és una mesura dels creadors ni una quota obligatòria. Serveix perquè la marca personal no desaparegui entre pantalles.
+
+Per començar, prova tres a cinc demostracions curtes, quatre a sis etiquetes i tres a cinc canvis d’enquadrament amb justificació. No omplis una quota si el vídeo funciona amb menys recursos. La coherència entre recurs i frase importa més que el nombre.
+
+TÍTOLS I PROMESA EMOCIONAL
+
+«Ojalá alguien me hubiera enseñado estas IA antes» és la proposta més personal. Connecta el descobriment amb el temps i l’experiència. El vídeo ha de concretar què hauries fet diferent si les haguessis conegut.
+
+«Estas son las IA que me ayudan a sacar adelante mis proyectos» posa el focus en l’ús i els negocis. És menys espectacular, però facilita que els exemples siguin la prova principal.
+
+«Dame 2 minutos y medio y te enseño las IA que uso de verdad» incorpora una durada coherent amb la peça descrita. Si l’edició final canvia molt de durada, adapta el títol.
+
+«Estas IA cambiaron mi forma de trabajar» funciona si expliques el canvi abans/després. No cal dir que han canviat tota la teva vida. Una transformació concreta pot ser emocional i creïble.
+
+Si fas una versió específica de 90 segons, «Dame 90 segundos y te enseño por dónde empezaría con la IA» manté una promesa delimitada. Evitaria anunciar 90 segons en una peça de 150 segons si el contingut principal continua fins al final.
+
+La teva autoritat pot venir de demostrar què estàs fent. No necessita xifres de facturació, hores d’experiència o resultats universals que no puguis justificar. L’emoció pot estar en les idees que abans ajornaves, les tasques que et pesaven i els projectes que ara pots provar.
+
+ARQUITECTURA EDITORIAL PER A CLAUDE I REMOTION
+
+El sistema ha de separar el pla de muntatge de la composició gràfica. Primer analitza el material i decideix quins fragments tenen sentit. Després els situa a la línia temporal i afegeix els recursos necessaris.
+
+Mantén un mapa entre el temps de l’arxiu original i el temps de sortida. Els subtítols i les animacions han d’utilitzar la línia temporal editada. Si es retira un fragment, tots els recursos posteriors afectats han de recalcular-se.
+
+Els límits de seqüència s’han de calcular de manera coherent. No arrodoneixis durades independents i acumulis errors: deriva l’inici i el final de cada segment i calcula la durada com la diferència entre els límits. Les paraules poden conservar precisió temporal fins al moment de representar-les en fotogrames.
+
+Inspecciona primer resolució, rotació, freqüència de fotogrames i pistes d’àudio. No assumeixis que tots els MOV porten el mateix esquema de pistes ni que la primera és sempre la millor. Si una pista espacial és diferent, cal comparar el material. Els llindars d’energia també s’han de calibrar per gravació.
+
+Utilitza components reutilitzables de pla de càmera, subtítol, etiqueta d’eina, demostració, ressaltat i frase clau. El muntatge pot passar dades a aquests components sense reescriure el disseny cada vegada.
+
+Els esdeveniments visuals han de portar una justificació editorial. Una propietat de tipus «reason» pot explicar que una captura comprova una afirmació o que un ressaltat marca el botó mencionat. Si no hi ha una justificació comprensible, el recurs és candidat a retirar-se.
+
+Les animacions han de dependre del temps de la composició perquè la vista prèvia i el render coincideixin. Carrega les fonts de manera controlada, fixa les versions del projecte i comprova els recursos abans de renderitzar. Si hi ha aleatorietat, ha de ser determinista i justificada.
+
+No multipliquis conversions amb pèrdua entre la retallada i el render final. Mantén els originals intactes i utilitza una estratègia de mitjans que preservi qualitat. Els còdecs i les API s’han d’adaptar a la versió instal·lada de Remotion, sense copiar exemples antics de manera mecànica.
+
+La revisió visual ha de comprovar desbordaments, contrast, retalls, zones segures i temps de lectura. La revisió d’àudio ha de comprovar síl·labes, respiracions, empalmaments, nivell i competència de la música. Els fotogrames no substitueixen escoltar el màster.
+
+El lliurament ha d’incloure un MP4, el pla de muntatge i els fitxers de dades necessaris per modificar-lo. Qualsevol comprovació pendent s’ha de declarar de manera específica. «El render ha acabat» no equival a «el vídeo està editorialment verificat».
+
+PROMPT OPERATIU EN CASTELLÀ PER A CLAUDE
+
+Quiero que edites mis vídeos con Remotion para una marca personal sobre inteligencia artificial, negocios y proyectos reales. Las referencias visuales son el vídeo «mis +10.000 horas de YouTube explicados en 15 minutos» de Alex DiLorenzo y el vídeo de Kallaway sobre workflows de Claude. Usa el análisis adjunto como guía. No afirmes haber visto referencias a las que no tengas acceso.
+
+Mi estilo debe ser natural, claro, cercano y visualmente contenido. Adapta la presencia personal y la alternancia de ejemplos de Alex, y la demostración y orientación de mirada de Kallaway. Reduce los recursos decorativos más intensos. Cada elemento debe ayudar a entender una idea, comprobar una afirmación o reconocer una herramienta.
+
+Empieza inspeccionando el material: duración, resolución, rotación, frecuencia de fotogramas y pistas de audio. Transcribe con marcas por palabra y corrige nombres de herramientas a partir de lo que realmente se dice. Mantén los originales intactos y evita conversiones innecesarias con pérdida.
+
+Prepara un plan de montaje antes de crear las animaciones. Identifica la promesa inicial, los bloques de contenido, las tomas repetidas, los errores y las demostraciones necesarias. Decide con criterio sobre el material disponible. Pregunta solo cuando falte información que impida tomar una decisión importante. Si falta una captura, marca el recurso como pendiente y no inventes un resultado.
+
+Conserva mi voz, mis expresiones y las reacciones espontáneas que aporten personalidad. Retira errores, repeticiones accidentales y pausas de preparación. Conserva pausas expresivas. No cortes todas las respiraciones. No pegues dos tomas diferentes dentro de una expresión. Usa la transcripción y el audio para proponer límites, pero no trates un umbral de energía como un criterio editorial universal.
+
+Usa el plano de cámara como base. Introduce una aproximación moderada solo cuando mejore el énfasis. Como punto de partida, prueba una escala de 1,00 y una variante de aproximadamente 1,08, siempre que la resolución y el encuadre lo permitan. Evita zooms periódicos y no tapes ojos, boca o gestos importantes.
+
+Si el destino es vertical, diseña a 1080 × 1920. Si el destino es horizontal, adapta toda la composición. No conviertas las referencias horizontales a vertical limitándote a recortar el centro. La distribución debe dar espacio suficiente a la cara y a las demostraciones.
+
+Los subtítulos deben aparecer en bloques breves con sentido, generalmente una línea y como máximo dos. Usa una sans serif legible, peso 600–700 y una posición estable. Para vertical, prueba inicialmente 54–64 px y verifica el resultado en móvil. Divide frases largas en vez de reducir la fuente sin límite. Utiliza blanco con contraste suficiente y un soporte discreto cuando sea necesario. No hagas karaoke animado por defecto. Destaca palabras clave solo cuando aporten énfasis.
+
+Las etiquetas de herramientas deben contener el nombre y una función breve. No añadas descripciones largas. Evita duplicar simultáneamente la misma frase en voz, subtítulo y tarjeta. Cuando una pantalla requiera lectura, retira textos secundarios.
+
+Prioriza grabaciones reales de pantalla. Cada demostración debe enseñar qué pido, qué resultado importa y por qué me sirve. Amplía la zona relevante para que se vea en móvil. Mantén el recorte estable durante la lectura y usa un resaltado suave o una máscara para orientar la mirada. No uses vídeos genéricos de robots, cerebros digitales o personas trabajando como sustituto automático de una demostración.
+
+Usa cortes directos como transición predeterminada. Para etiquetas, prueba entradas de 180–240 ms con un pequeño desplazamiento y opacidad. Evita rebotes exagerados, neón, glitches, partículas, flashes, sacudidas y cifras gigantes salvo que yo los solicite por una razón concreta. No añadas un efecto porque hayan pasado varios segundos.
+
+Mantén exposición y temperatura coherentes entre clips, piel natural y saturación moderada. Utiliza una paleta pequeña y un solo color de acento para los gráficos. Los colores propios de una interfaz pueden conservarse.
+
+La voz tiene prioridad. Aplica limpieza moderada y revisa que no aparezcan artefactos. La música es opcional y debe quedar claramente por debajo del discurso. Los efectos de sonido solo entran cuando corresponden a una acción visible y útil. Si no puedes escuchar el resultado, declara pendiente la revisión auditiva y no certifiques que los empalmes suenan naturales.
+
+Para una pieza de unos 2:30, empieza probando tres a cinco demostraciones, cuatro a seis etiquetas y tres a cinco cambios intencionados de encuadre. Son límites iniciales, no cuotas que debas rellenar. La duración final la decide el contenido útil. No aceleres mi voz para alcanzar una duración anunciada.
+
+Mantén separados los tiempos del archivo original y los tiempos de salida. Recalcula subtítulos y recursos tras cada corte. Calcula límites de secuencia coherentes para evitar huecos o solapamientos de un fotograma. Toda animación debe depender del tiempo y reproducirse de manera determinista.
+
+Renderiza una vista previa y revisa fotogramas de cada tipo de escena y de los puntos de cambio. Comprueba textos, contraste, zonas seguras, sincronización, resolución de las capturas y duración de lectura. Comprueba también que no haya finales negros accidentales. Reproduce y escucha el máster cuando dispongas de esa capacidad; de lo contrario, identifica exactamente lo que sigue pendiente.
+
+Entrega el MP4, el plan de montaje y los datos que permitan modificar la pieza. El título y el gancho deben corresponder al contenido y a la duración real. Para mi primer vídeo, el criterio principal es que se entienda qué IA utilizo, para qué me sirven y qué aportan a los proyectos que construyo.
+
+FUENTES Y CONTEXTO TÉCNICO
+
+Fuente visual principal: los dos MP4 aportados por el usuario. Los tiempos citados se refieren a esos archivos. El texto no atribuye los hallazgos a todos los vídeos de los canales.
+
+Referencia complementaria ya consultada: https://aducti.com/recursos/editar-videos-remotion-claude-code-skill . Su arquitectura combina transcripción, procesamiento de audio, clips y datos temporales con escenas de Remotion. Su estilo de animación no se adopta como regla universal. No se reproducen sus instrucciones de forma literal.
+
+Documentación oficial ya consultada: https://www.remotion.dev/docs/captions/ , https://www.remotion.dev/docs/captions/displaying , https://www.remotion.dev/docs/captions/create-tiktok-style-captions y https://www.remotion.dev/docs/sequence . Las funciones de subtítulos permiten agrupación y presentación configurable; un nombre orientado a TikTok no obliga a utilizar un diseño de karaoke. Las API exactas deben comprobarse contra la versión del proyecto antes de implementar.

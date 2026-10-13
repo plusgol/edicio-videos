@@ -1,0 +1,8 @@
+node_modules/
+projectes/*/input/
+projectes/*/work/
+projectes/*/out/
+*.mov
+*.mp4
+*.wav
+.DS_Store

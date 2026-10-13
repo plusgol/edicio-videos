@@ -1,0 +1,125 @@
+{
+  "_nota": "Exemple il·lustratiu del pla de muntatge. Els temps 'inMs/outMs' són temps de l'arxiu ORIGINAL. Els recursos s'ancoren a paraules de la transcripció (anchorWordId); el temps de sortida es calcula, no s'escriu a mà.",
+  "version": 1,
+  "video": { "width": 1080, "height": 1920, "fps": 30 },
+  "title": {
+    "chosen": "Ojalá alguien me hubiera enseñado estas IAs antes",
+    "alternatives": [
+      "Las IAs que me devolvieron horas de mi vida",
+      "Dame 2 minutos y te enseño mi equipo de IAs"
+    ],
+    "durationClaim": null,
+    "toolCountClaim": null
+  },
+  "sources": {
+    "cam": { "path": "input/cara.mov", "width": 2160, "height": 3840, "fps": 30, "rotation": 0, "audioTrack": 0 },
+    "demo_claude": { "path": "input/demo_claude.mp4", "width": 1920, "height": 1080, "fps": 30 },
+    "demo_lovable": { "path": "input/demo_lovable.mp4", "width": 1920, "height": 1080, "fps": 30 }
+  },
+  "removed": [
+    { "source": "cam", "inMs": 0, "outMs": 6200, "reason": "silenci de sala i arrencada" },
+    { "source": "cam", "inMs": 14800, "outMs": 19950, "reason": "presa fallida seguida de 'corta'" }
+  ],
+  "segments": [
+    {
+      "id": "s01",
+      "source": "cam",
+      "inMs": 6200,
+      "outMs": 8950,
+      "layout": "CARA",
+      "scale": 1.08,
+      "block": "ganxo",
+      "reason": "frase de ganxo, pla mig per proximitat"
+    },
+    {
+      "id": "s02",
+      "source": "cam",
+      "inMs": 9100,
+      "outMs": 14800,
+      "layout": "CARA",
+      "scale": 1.0,
+      "block": "context",
+      "reason": "jump cut amb canvi d'escala per amagar el salt"
+    },
+    {
+      "id": "s03",
+      "source": "cam",
+      "inMs": 19950,
+      "outMs": 31200,
+      "layout": "CARA_ETIQUETA",
+      "scale": 1.08,
+      "block": "eina:claude",
+      "reason": "problema i presentació de l'eina"
+    },
+    {
+      "id": "s04",
+      "source": "cam",
+      "inMs": 31200,
+      "outMs": 39800,
+      "layout": "SPLIT",
+      "scale": 1.0,
+      "block": "eina:claude",
+      "demo": {
+        "source": "demo_claude",
+        "inMs": 4200,
+        "outMs": 12600,
+        "crop": { "x": 320, "y": 140, "w": 1100, "h": 1020 },
+        "jCutFrames": 6,
+        "lCutFrames": 10
+      },
+      "reason": "prova: què demano i què surt"
+    }
+  ],
+  "overlays": [
+    {
+      "id": "o01",
+      "type": "HookText",
+      "atOutputFrame": 0,
+      "durationMs": 3000,
+      "props": { "text": "Las IAs que uso de verdad" },
+      "hideCaptionsWhileVisible": true,
+      "reason": "ganxo llegible sense so des del fotograma 0"
+    },
+    {
+      "id": "o02",
+      "type": "ProofFlash",
+      "anchorWordId": "w0011",
+      "durationMs": 1000,
+      "props": { "source": "input/projecte_web.png" },
+      "reason": "prova real de projecte dins dels primers 3 s"
+    },
+    {
+      "id": "o03",
+      "type": "ToolLabel",
+      "anchorWordId": "w0058",
+      "durationMs": 2800,
+      "props": { "name": "Claude", "fn": "Pensar y redactar conmigo", "icon": "brand/logos/claude.svg" },
+      "reason": "identificar l'eina quan es menciona"
+    },
+    {
+      "id": "o04",
+      "type": "FocusMask",
+      "anchorWordId": "w0081",
+      "durationMs": 3200,
+      "props": { "rects": [{ "x": 40, "y": 520, "w": 1000, "h": 260 }] },
+      "reason": "assenyalar el paràgraf de resposta que menciona la veu"
+    }
+  ],
+  "captions": {
+    "source": "work/transcript.json",
+    "combineTokensWithinMs": 1500,
+    "highlights": [
+      { "wordId": "w0102", "reason": "xifra concreta: 'una tarde'" }
+    ]
+  },
+  "audio": {
+    "voice": "work/voice.wav",
+    "music": null,
+    "targetLufs": -16,
+    "maxTruePeakDb": -1.5
+  },
+  "pending": [
+    { "what": "demo de Perplexity", "why": "no hi ha gravació de pantalla a input/", "impact": "bloc fet només amb cara + etiqueta" },
+    { "what": "escolta humana", "why": "no s'ha pogut escoltar el màster", "impact": "revisar empalmaments a s02/s03 i s07/s08" }
+  ]
+}

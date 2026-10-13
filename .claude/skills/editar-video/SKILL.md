@@ -12,17 +12,22 @@ Marca personal sobre IA i negocis. Vídeos verticals (1080×1920, 30 fps) en cas
 **Estil:** natural, clar, ben editat, no saturat. La persona al centre. Les pantalles són proves, no decoració.
 **Fórmula:** presència d'Alex DiLorenzo + demostració i orientació de mirada de Kallaway − decoració de tots dos.
 
-## Flux obligatori
-1. **Ingesta** — fes `ffprobe` de tot el que hi ha a `projectes/<nom>/input/`: resolució, rotació, fps i pistes d'àudio. No modifiquis mai els originals.
-2. **Àudio** — extreu un WAV mono a 16 kHz (per transcriure) i un WAV a 48 kHz (per mesclar) a `work/`. Calibra el soroll de fons amb els primers segons de silenci.
-3. **Transcripció** — whisper amb idioma `es` i marques per paraula. Corregeix els noms amb `brand/glossari.json`. **No inventis mencions.**
-4. **Marques verbals** — «corta» retira la presa anterior fins a l'inici de la frase. Una pausa de ≥ 2 s seguida de la mateixa frase indica una repetició: queda't amb l'última presa completa. «marca» assenyala la frase com a candidata a èmfasi. Elimina sempre les paraules de marca.
-5. **Pla** — escriu `work/edl.json` (format a `docs/edl.exemple.json`). Cada recurs porta un `reason`. Els recursos s'ancoren a una paraula (`anchorWordId`), no a segons de sortida.
-6. **Revisió** — abans de renderitzar, mostra a l'usuari un resum llegible de l'EDL: segments retirats, blocs, recursos i pendents. Continua sense esperar només si l'usuari ho ha dit explícitament.
-7. **Veu** — munta `work/voice.wav` amb ffmpeg a partir de l'EDL: fosos de 8–15 ms a cada empalmament (sense encavalcar), passa-alts a 80 Hz, reducció de soroll moderada, de-esser suau, compressió de 2:1 a 3:1 i `loudnorm` en dues passades a **−16 LUFS / −1,5 dBTP**.
-8. **Render** — Remotion amb els clips de vídeo `muted` i un únic `<Audio src=voice.wav>`. Fes servir H.264, CRF 18 i AAC a 320k.
-9. **QA** — extreu fotogrames de cada tipus d'escena i de cada canvi, i recorre la checklist (§21 de la guia). Mesura la sonoritat final amb `ebur128`.
-10. **Entrega** — deixa a `out/` el `video.mp4`, `edl.json` i `informe.md` (decisions, dubtes i pendents concrets).
+## Flux obligatori (eines reals del repositori)
+0. **Una sola vegada:** `npm install`, `python3 -m pip install -r requirements.txt` i `scripts/models.sh` (Parakeet per transcriure + YuNet per a la cara).
+1. **Ingesta i preparació:** `scripts/prepara.sh projectes/<nom>`. Fa `ffprobe`, extreu els WAV (16 kHz per transcriure, 48 kHz per mesclar), transcriu amb marques per paraula (`work/<presa>.transcript.json`) i genera la versió vertical 1080×1920 amb seguiment de cara (`work/<presa>.vertical.mp4` + `track.json`). Els originals de `input/` no es toquen mai.
+2. **Comprova la transcripció.** El model es pot saltar frases en trossos sorollosos. Busca buits de més d'1 s amb energia de veu i retranscriu aquella finestra sola. Si cal, contrasta-ho amb un segon model (Whisper small via sherpa-onnx). Les paraules recuperades van a `asrPatches` de l'EDL. Corregeix els noms amb `brand/glossari.json`. **No inventis mencions.**
+3. **Marques verbals:** «corta» retira la presa anterior fins a l'inici de la frase. Una pausa de ≥ 2 s seguida de la mateixa frase indica una repetició: queda't amb l'última presa completa. «marca» assenyala la frase com a candidata a èmfasi. Elimina sempre les paraules de marca.
+4. **Pla:** escriu `projectes/<nom>/edl.json` (model: `projectes/ias-que-uso/edl.json`).
+   - `ranges` són els trossos de contingut, en ms de l'original, amb el text corregit dels subtítols (amb puntuació: els punts tallen pàgines), els `highlight` i el `reason`.
+   - `punchIns` són els canvis d'escala d'èmfasi.
+   - `overlays` són el ganxo i les etiquetes, ancorades a un temps de l'original (`anchorMs`).
+   - Els silencis llargs dins de cada `range` els retalla `munta.py` sol.
+5. **Muntatge:** `python3 -I scripts/munta.py projectes/<nom>`. Escriu `work/render.json` (fotogrames de sortida), `work/voice.wav` (fosos de 12 ms, neteja i −16 LUFS / −1,5 dBTP) i `work/muntatge.txt`.
+6. **Revisió:** mostra a l'usuari `work/muntatge.txt`: durada, segments, subtítols i recursos.
+7. **Fotogrames de prova:** `npx remotion still src/index.ts Video qa.png --public-dir=projectes/<nom> --frame=N`. Fes-ne un de cada tipus d'escena i mira'ls: ulls i boca lliures, contrast, desbordaments.
+8. **Render:** `scripts/render.sh projectes/<nom>`. A l'entorn al núvol cal afegir `--browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`.
+9. **QA:** recorre la checklist (§21 de la guia). Comprova la sonoritat amb `ebur128` i que la durada coincideixi amb el títol.
+10. **Entrega:** deixa a `out/` el `video.mp4` i l'`informe.md` (decisions, dubtes i pendents concrets). L'`edl.json` va a git.
 
 ## Ritme
 - Silenci < 250 ms: no el toquis. De 250 a 600 ms: redueix-lo a 150–250 ms. > 600 ms: talla-hi i deixa 150 ms després de l'última paraula i 120 ms abans de la següent.
@@ -72,5 +77,9 @@ Veu per sobre de tot. La música és opcional, instrumental i amb llicència, cl
 ## Títol
 El títol, el text del ganxo i la primera frase s'han de reforçar entre ells. **La durada i el número d'eines del títol han de coincidir amb el vídeo final.** Res de promeses que el vídeo no pugui complir. Proposa'n 3–5 opcions a `informe.md` (vegeu §7 de la guia).
 
-## Remotion (comprova-ho amb la versió instal·lada)
-`OffthreadVideo` (`trimBefore`/`trimAfter`, o `startFrom`/`endAt` a les versions antigues), `<Sequence premountFor>`, `calculateMetadata`, `@remotion/captions` (`createTikTokStyleCaptions` amb `combineTokensWithinMilliseconds` de 1200–1800), `@remotion/install-whisper-cpp`, `@remotion/google-fonts`, `@remotion/layout-utils`. Fixa versions exactes a `package.json`.
+## Remotion (versió fixada: 4.0.528)
+- Composició `Video` (`src/Root.tsx`). El pla es llegeix de `work/render.json` amb `calculateMetadata`, i el projecte es tria amb `--public-dir`.
+- Components: `CameraSegment` (`OffthreadVideo` muted + `trimBefore`, escala ancorada als ulls), `Captions`, `HookText` i `ToolLabel`. Tot el disseny surt de `brand/estil.ts`.
+- La veu és un únic `<Audio>` amb `work/voice.wav`. Els clips de vídeo van sempre `muted`.
+- Font Inter local (`@fontsource/inter` + `@remotion/fonts`): el render no depèn de Google Fonts.
+- **En plans tancats (selfie)**, el ganxo i les etiquetes van al terç inferior, a sobre dels subtítols (`LABEL.top`), mai a dalt sobre els ulls.

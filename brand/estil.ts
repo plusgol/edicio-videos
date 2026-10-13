@@ -39,13 +39,17 @@ export const CAPTIONS = {
   maxCharsPerLine: 30,
   minPageMs: 700,
   combineTokensWithinMs: 1500, // 1200–1800 → blocs de 3–6 paraules
-  centerY: 1300, // layouts CARA / CARA_ETIQUETA
+  centerY: 1340, // layouts CARA / CARA_ETIQUETA (a sota de la boca, sobre el coll o el pit)
   shadow: '0 2px 12px rgba(0,0,0,.55)',
+  strokePx: 6, // contorn fosc (paint-order: stroke) perquè es llegeixi sobre cel, pell o samarreta
   splitBackground: 'rgba(14,14,16,0.65)', // suport al layout SPLIT
   fadeInFrames: 3,
 } as const;
 
 export const LABEL = {
+  // Etiquetes i text del ganxo van al terç inferior, a sobre dels subtítols: en plans tancats (selfie)
+  // la part de dalt és plena d'ulls i front, i el guió prohibeix tapar ulls i boca.
+  top: 1100,
   enterFrames: 7,
   exitFrames: 5,
   offsetPx: 20,

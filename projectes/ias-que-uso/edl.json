@@ -1,0 +1,105 @@
+{
+  "_nota": "Pla de muntatge escrit per Claude. Temps en ms de l'arxiu ORIGINAL. scripts/munta.py el converteix en work/render.json + work/voice.wav.",
+  "version": 1,
+  "video": { "width": 1080, "height": 1920, "fps": 30 },
+  "title": {
+    "chosen": "Las 3 IAs que uso de verdad (y lo que pago)",
+    "alternatives": [
+      "En 90 segundos: las 3 IAs que uso de verdad",
+      "Ojalá alguien me hubiera contado esto antes de pagar IAs",
+      "No necesitas 10 IAs. Yo uso estas 3"
+    ],
+    "note": "La versió amb «90 segundos» només val si la durada final és ≤ 90 s (vegeu informe.md)."
+  },
+  "sources": {
+    "curt": { "video": "work/curt.vertical.mp4", "audio": "work/curt.48k.wav", "track": "work/curt.track.json", "transcript": "work/curt.transcript.json" },
+    "llarg": { "video": "work/llarg.vertical.mp4", "audio": "work/llarg.48k.wav", "track": "work/llarg.track.json", "transcript": "work/llarg.transcript.json" }
+  },
+  "asrPatches": {
+    "_reason": "Paraules que el model principal es va saltar en passades llargues i que sí apareixen en passades curtes (Parakeet) o al primer intent.",
+    "llarg": [
+      { "text": "está", "startMs": 66480 }, { "text": "editado", "startMs": 66640 }, { "text": "con", "startMs": 67120 }, { "text": "Claude", "startMs": 67520 },
+      { "text": "Con", "startMs": 73720 }, { "text": "esos", "startMs": 73880 }, { "text": "tres", "startMs": 74120 },
+      { "text": "lo", "startMs": 75480 }, { "text": "vinculas", "startMs": 75720 }
+    ]
+  },
+  "cuts": {
+    "silenceThresholdDbAboveFloor": 9,
+    "shortenSilenceLongerThanMs": 600,
+    "keepAfterSpeechMs": 150,
+    "keepBeforeSpeechMs": 120,
+    "snapWindowMs": 100
+  },
+  "ranges": [
+    { "id": "r00", "source": "curt", "inMs": 40, "outMs": 3780, "block": "ganxo", "scale": 1.08,
+      "reason": "inici natural de la presa curta (preferència de l'usuari); la resta de la presa curta té entrebancs",
+      "captions": "Vale, mientras voy a la uni te voy a explicar las tres IAs que utilizo." },
+    { "id": "r01", "source": "llarg", "inMs": 2600, "outMs": 6800, "block": "eina:opencode",
+      "reason": "presentació de la primera eina; la frase d'inici de la presa llarga es descarta perquè ja la diu r00",
+      "captions": "La primera, OpenCode: por 10 euros puedes conseguir muchísimos modelos.", "highlight": ["10 euros"] },
+    { "id": "r02", "source": "llarg", "inMs": 6920, "outMs": 12900, "block": "eina:opencode", "reason": "argument principal d'OpenCode",
+      "captions": "El mejor, con muchísima diferencia, DeepSeek, que básicamente tienes como 80 dólares de gasto pagando 10." },
+    { "id": "r03", "source": "llarg", "inMs": 12950, "outMs": 17500, "block": "eina:opencode", "reason": "exemple de model gratuït",
+      "captions": "Y también tienes, por ejemplo, otros modelos, Big Pickle, que este es gratis.", "highlight": ["gratis"] },
+    { "id": "r04", "source": "llarg", "inMs": 18250, "outMs": 21500, "block": "eina:opencode", "reason": "segon exemple",
+      "captions": "También tienes GPT-5.6 Luna." },
+    { "id": "r05", "source": "llarg", "inMs": 21700, "outMs": 29900, "block": "eina:opencode", "reason": "criteri personal sobre OpenCode",
+      "captions": "Están muy bien, sobre todo por si quieres ir testeando un poco, y al final la mayoría son modelos gratuitos y los de pago están muy bien." },
+    { "id": "r06", "source": "llarg", "inMs": 30350, "outMs": 33300, "block": "eina:chatgpt", "reason": "presentació de la segona eina",
+      "captions": "En segundo lugar, evidentemente, ChatGPT." },
+    { "id": "r07", "source": "llarg", "inMs": 33450, "outMs": 39500, "block": "eina:chatgpt",
+      "reason": "experiència personal amb el pla; es retalla el tros posterior («pero ahora está bastante, pero al final, realmente con un…») perquè s'embarbussa",
+      "captions": "Tengo el plan de 100 euros, que ahora no va tan bien. Al principio estaba muy bien el GPT-6 Astra." },
+    { "id": "r08", "source": "llarg", "inMs": 43740, "outMs": 46400, "block": "eina:chatgpt", "reason": "consell pràctic (pla de 20 €)",
+      "captions": "Con el de 20 euros puedes seguir haciendo pequeñas cosas.", "highlight": ["20 euros"] },
+    { "id": "r09", "source": "llarg", "inMs": 46550, "outMs": 47600, "block": "eina:chatgpt", "reason": "inici de frase; es treu «cinco euros» dit per error",
+      "captions": "Con el límite de" },
+    { "id": "r10", "source": "llarg", "inMs": 48720, "outMs": 56000, "block": "eina:chatgpt", "reason": "detall del límit",
+      "captions": "cinco horas puedes hacer unos dos o tres prompts con Astra ligero o medio, pero bastante bien." },
+    { "id": "r11", "source": "llarg", "inMs": 56080, "outMs": 56800, "block": "eina:claude", "reason": "presentació de la tercera eina; es treu l'arrencada en fals",
+      "captions": "Y el mejor" },
+    { "id": "r12", "source": "llarg", "inMs": 57880, "outMs": 64900, "block": "eina:claude",
+      "reason": "frase d'èmfasi; entre 59,5 i 61,7 s hi ha so però cap model hi reconeix paraules: es conserva la part amb energia per no tallar una paraula",
+      "captions": "con muchísima, muchísima diferencia. El plan de 100, o sea, es infinito, literalmente.", "highlight": ["infinito"] },
+    { "id": "r13", "source": "llarg", "inMs": 64850, "outMs": 68000, "block": "eina:claude", "reason": "prova personal: aquest mateix vídeo",
+      "captions": "Puedes hacer vídeos. De hecho, este vídeo está editado con Claude.", "highlight": ["Claude"] },
+    { "id": "r14", "source": "llarg", "inMs": 73550, "outMs": 74400, "block": "eina:claude",
+      "reason": "es retalla 68,0–73,5 (repeteix «con muchísima diferencia» per tercer cop) i 74,4–75,4 (paraules no intel·ligibles per als models)",
+      "captions": "Con esos tres" },
+    { "id": "r15", "source": "llarg", "inMs": 75400, "outMs": 81450, "block": "eina:claude", "reason": "ús combinat amb n8n",
+      "captions": "lo vinculas con n8n y te puedes hacer un flujo de trabajo perfecto." },
+    { "id": "r16", "source": "llarg", "inMs": 81550, "outMs": 86650, "block": "extra:gemini", "reason": "menció secundària útil per a estudiants",
+      "captions": "Después también tenemos, por ejemplo, Gemini, ¿no?, que si eres estudiante te lo regalan un año." },
+    { "id": "r17", "source": "llarg", "inMs": 86950, "outMs": 92500, "block": "extra:gemini", "reason": "opinió personal (marca)",
+      "captions": "Y bueno, a mí Gemini nunca me ha acabado de gustar, sinceramente, pero si es gratis está muy bien." },
+    { "id": "r18", "source": "llarg", "inMs": 92650, "outMs": 99500, "block": "extra:startups", "reason": "consell per a autònoms",
+      "captions": "Y si eres autónomo, sobre todo, intenta aplicar a Claude for Startups, porque te darán mil dólares en APIs.", "highlight": ["mil dólares"] },
+    { "id": "r19", "source": "llarg", "inMs": 99650, "outMs": 102600, "block": "tancament", "reason": "tancament amb cua natural",
+      "captions": "Entonces, con estos tres modelos vas sobrado.", "highlight": ["sobrado"] }
+  ],
+  "punchIns": [
+    { "source": "llarg", "fromMs": 57880, "toMs": 59700, "scale": 1.15, "reason": "èmfasi: «con muchísima, muchísima diferencia»" },
+    { "source": "llarg", "fromMs": 65700, "toMs": 68000, "scale": 1.15, "reason": "èmfasi: «este vídeo está editado con Claude»" }
+  ],
+  "overlays": [
+    { "id": "hook", "type": "HookText", "atOutputMs": 0, "durationMs": 3000, "props": { "text": "Las 3 IAs que uso de verdad" },
+      "hideCaptions": true, "reason": "ganxo llegible sense so des del fotograma 0" },
+    { "id": "l1", "type": "ToolLabel", "source": "llarg", "anchorMs": 3120, "durationMs": 2800,
+      "props": { "badge": "1", "name": "OpenCode", "fn": "Muchos modelos por 10 €" }, "reason": "identificar l'eina quan es diu" },
+    { "id": "l2", "type": "ToolLabel", "source": "llarg", "anchorMs": 32380, "durationMs": 2800,
+      "props": { "badge": "2", "name": "ChatGPT", "fn": "Planes de 20 € y 100 €" }, "reason": "identificar l'eina quan es diu" },
+    { "id": "l3", "type": "ToolLabel", "source": "llarg", "anchorMs": 56180, "durationMs": 3000,
+      "props": { "badge": "3", "name": "Claude", "fn": "El mejor, con diferencia" },
+      "reason": "a «Y el mejor…» la veu no diu el nom de l'eina; l'etiqueta l'aclareix (se'n diu el nom a r13)" },
+    { "id": "l4", "type": "ToolLabel", "source": "llarg", "anchorMs": 83480, "durationMs": 2800,
+      "props": { "badge": "+", "name": "Gemini", "fn": "Gratis un año si estudias" }, "reason": "identificar la menció extra" },
+    { "id": "l5", "type": "ToolLabel", "source": "llarg", "anchorMs": 95940, "durationMs": 2800,
+      "props": { "badge": "+", "name": "Claude for Startups", "fn": "Créditos de API" }, "reason": "identificar el programa mencionat" }
+  ],
+  "audio": { "targetLufs": -16, "maxTruePeakDb": -1.5, "fadeMs": 12, "highpassHz": 90, "denoise": "afftdn=nr=10:nf=-40" },
+  "pending": [
+    { "what": "escolta humana del màster", "why": "Claude no pot escoltar l'àudio", "impact": "revisar els empalmaments r09→r10 («Con el límite de | cinco horas»), r11→r12 i r14→r15, i la reducció de soroll" },
+    { "what": "noms de models", "why": "transcripció automàtica sense confirmar", "impact": "confirmar «DeepSeek», «Big Pickle», «GPT-5.6 Luna», «GPT-6 Astra» i «te darán» (r18)" },
+    { "what": "resolució", "why": "el vídeo ha passat per WhatsApp (832×464): el retall vertical s'amplia ×4,1", "impact": "envia l'arxiu original del mòbil per a la versió final" }
+  ]
+}

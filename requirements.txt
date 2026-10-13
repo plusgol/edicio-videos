@@ -1,0 +1,4 @@
+# Dependències de Python dels scripts (python3 -m pip install -r requirements.txt)
+numpy
+sherpa-onnx==1.13.8
+opencv-python-headless==4.10.0.84

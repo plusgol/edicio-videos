@@ -16,9 +16,35 @@ Edició automàtica de vídeos verticals de marca personal (IA + negocis, en cas
 | `projectes/<nom>/` | Un vídeo per carpeta: `input/` (originals), `work/`, `out/` |
 
 ## Com s'utilitza
-1. Crea `projectes/<nom-del-video>/input/` i hi poses la gravació de càmera i les demos (`demo_<eina>.mp4`).
-2. A Claude Code: *«Edita el vídeo de projectes/<nom-del-video>»*.
-3. Claude et mostra el pla de muntatge. El revises, el renderitza i et deixa a `out/` el MP4, l'EDL i un informe amb els pendents.
 
-## Pendent
-- Projecte Remotion (components `CameraSegment`, `ToolLabel`, `Captions`, `FocusMask`…) i scripts de ffmpeg/whisper.
+### Una sola vegada
+```bash
+npm install
+python3 -m pip install -r requirements.txt
+scripts/models.sh          # Parakeet (transcripció local, castellà) + YuNet (detecció de cara)
+```
+També cal tenir **ffmpeg** instal·lat.
+
+### Per a cada vídeo
+1. Copia les preses a `projectes/<nom>/input/`. **Envia't l'arxiu original del mòbil**: WhatsApp el redueix a 832×464.
+2. A Claude Code: *«Edita el vídeo de projectes/<nom>»*. Claude:
+   - executa `scripts/prepara.sh projectes/<nom>` (àudio, transcripció per paraula i versió vertical que segueix la cara);
+   - escriu `projectes/<nom>/edl.json` (el pla de muntatge, amb el motiu de cada decisió);
+   - munta i renderitza amb `scripts/render.sh projectes/<nom>`.
+3. Resultat: `projectes/<nom>/out/video.mp4`, el resum `work/muntatge.txt` i `projectes/<nom>/informe.md`.
+
+Per previsualitzar i retocar a mà: `npx remotion studio src/index.ts --public-dir=projectes/<nom>`.
+
+## Estructura del codi
+| Ruta | Què fa |
+|---|---|
+| `scripts/transcriu.py` | Transcripció local amb marques per paraula (sherpa-onnx + Parakeet TDT v3) |
+| `scripts/vertical.py` | Converteix a vertical 1080×1920 seguint la cara (YuNet) i desa la posició dels ulls |
+| `scripts/munta.py` | EDL → `render.json` (fotogrames) + `voice.wav` (veu neta, −16 LUFS). Tot el càlcul de temps és aquí |
+| `src/` | Projecte Remotion: `CameraSegment`, `Captions`, `HookText`, `ToolLabel` |
+| `brand/estil.ts` | Totes les mides, colors i temps |
+
+## Vídeos
+| Projecte | Estat |
+|---|---|
+| `projectes/ias-que-uso` | Primer muntatge (84,6 s) fet amb la versió de WhatsApp. Pendent: arxiu original i escolta |

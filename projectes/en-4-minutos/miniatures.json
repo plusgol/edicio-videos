@@ -789,6 +789,333 @@
     }
    ],
    "reason": "Mateix estil, amb els logos més grans i més oberts cap als costats."
+  },
+  {
+   "name": "Q1_habitacio",
+   "variant": "lliure",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "eyesY": 222,
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "*165*"
+     ],
+     "x": 36,
+     "y": 140,
+     "w": 400,
+     "h": 180,
+     "align": "center",
+     "maxPx": 230
+    },
+    {
+     "type": "text",
+     "lines": [
+      "SEG"
+     ],
+     "x": 56,
+     "y": 315,
+     "w": 360,
+     "h": 150,
+     "align": "center",
+     "maxPx": 180
+    },
+    {
+     "type": "arrow",
+     "from": [
+      250,
+      128
+     ],
+     "ctrl": [
+      560,
+      -40
+     ],
+     "to": [
+      880,
+      110
+     ]
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "tile": "chatgpt",
+     "tint": "#FFFFFF",
+     "x": 905,
+     "y": 78,
+     "size": 92,
+     "grid": 30,
+     "depth": 1.5,
+     "rotate": -4,
+     "tiltY": 10
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "tile": "claude",
+     "tint": "#FFFFFF",
+     "x": 1018,
+     "y": 72,
+     "size": 92,
+     "grid": 24,
+     "depth": 1.5,
+     "rotate": 3,
+     "tiltY": 0
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "tile": "opencode",
+     "tint": "#FFFFFF",
+     "x": 1131,
+     "y": 78,
+     "size": 92,
+     "grid": 24,
+     "depth": 1.5,
+     "rotate": 6,
+     "tiltY": -10
+    },
+    {
+     "type": "text",
+     "lines": [
+      "NEGOCIOS",
+      "*CON IA*"
+     ],
+     "x": 790,
+     "y": 205,
+     "w": 460,
+     "h": 200,
+     "align": "center",
+     "maxPx": 110
+    }
+   ],
+   "reason": "Com la referència que li agrada (165 SEG → logos → NEGOCIOS CON IA, ell al centre a la seva habitació), amb les fitxes 3D i el logo real d'OpenCode."
+  },
+  {
+   "name": "Q2_negre",
+   "variant": "lliure",
+   "scene": "negre",
+   "person": "work/foto_noche.persona_negre.png",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "personAt": {
+    "x": 640,
+    "eyesY": 300,
+    "faceH": 218
+   },
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "*165*"
+     ],
+     "x": 36,
+     "y": 140,
+     "w": 400,
+     "h": 180,
+     "align": "center",
+     "maxPx": 230
+    },
+    {
+     "type": "text",
+     "lines": [
+      "SEG"
+     ],
+     "x": 56,
+     "y": 315,
+     "w": 360,
+     "h": 150,
+     "align": "center",
+     "maxPx": 180
+    },
+    {
+     "type": "arrow",
+     "from": [
+      250,
+      128
+     ],
+     "ctrl": [
+      560,
+      -40
+     ],
+     "to": [
+      880,
+      110
+     ]
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "tile": "chatgpt",
+     "tint": "#FFFFFF",
+     "x": 905,
+     "y": 78,
+     "size": 92,
+     "grid": 30,
+     "depth": 1.5,
+     "rotate": -4,
+     "tiltY": 10
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "tile": "claude",
+     "tint": "#FFFFFF",
+     "x": 1018,
+     "y": 72,
+     "size": 92,
+     "grid": 24,
+     "depth": 1.5,
+     "rotate": 3,
+     "tiltY": 0
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "tile": "opencode",
+     "tint": "#FFFFFF",
+     "x": 1131,
+     "y": 78,
+     "size": 92,
+     "grid": 24,
+     "depth": 1.5,
+     "rotate": 6,
+     "tiltY": -10
+    },
+    {
+     "type": "text",
+     "lines": [
+      "NEGOCIOS",
+      "*CON IA*"
+     ],
+     "x": 790,
+     "y": 205,
+     "w": 460,
+     "h": 200,
+     "align": "center",
+     "maxPx": 110
+    }
+   ],
+   "reason": "La mateixa composició sobre fons negre (el que demanava abans: més misteri)."
+  },
+  {
+   "name": "Q3_arc",
+   "variant": "lliure",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "eyesY": 240,
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "*165*"
+     ],
+     "x": 36,
+     "y": 140,
+     "w": 400,
+     "h": 180,
+     "align": "center",
+     "maxPx": 230
+    },
+    {
+     "type": "text",
+     "lines": [
+      "SEG"
+     ],
+     "x": 56,
+     "y": 315,
+     "w": 360,
+     "h": 150,
+     "align": "center",
+     "maxPx": 180
+    },
+    {
+     "type": "arrow",
+     "from": [
+      250,
+      150
+     ],
+     "ctrl": [
+      640,
+      -60
+     ],
+     "to": [
+      1000,
+      180
+     ]
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "tile": "chatgpt",
+     "tint": "#FFFFFF",
+     "x": 400,
+     "y": 20,
+     "size": 104,
+     "grid": 30,
+     "depth": 1.5,
+     "rotate": -10,
+     "tiltY": 16
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "tile": "claude",
+     "tint": "#FFFFFF",
+     "x": 588,
+     "y": 0,
+     "size": 104,
+     "grid": 24,
+     "depth": 1.5,
+     "rotate": 2,
+     "tiltY": 0
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "tile": "opencode",
+     "tint": "#FFFFFF",
+     "x": 776,
+     "y": 22,
+     "size": 104,
+     "grid": 24,
+     "depth": 1.5,
+     "rotate": 10,
+     "tiltY": -16
+    },
+    {
+     "type": "text",
+     "lines": [
+      "NEGOCIOS",
+      "*CON IA*"
+     ],
+     "x": 790,
+     "y": 225,
+     "w": 460,
+     "h": 210,
+     "align": "center",
+     "maxPx": 115
+    }
+   ],
+   "reason": "Variant diferent: els logos fan el camí de la fletxa per sobre del cap (165 SEG → les 3 IAs → NEGOCIOS CON IA)."
   }
  ]
 }

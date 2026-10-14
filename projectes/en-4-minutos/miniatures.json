@@ -327,6 +327,314 @@
     }
    ],
    "reason": "Prototip mínim: el temps a dalt i les 3 IAs pixelades flotant per sobre del cap, com si hi pensés."
+  },
+  {
+   "name": "P5_gamer_dreta",
+   "variant": "lliure",
+   "scene": "gamer",
+   "person": "work/foto_noche.persona_rgb.png",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "personAt": {
+    "x": 880,
+    "eyesY": 335,
+    "faceH": 240
+   },
+   "elements": [
+    {
+     "type": "monitor",
+     "x": 40,
+     "y": 230,
+     "w": 400,
+     "h": 250,
+     "rotate": -4,
+     "seed": "m1"
+    },
+    {
+     "type": "monitor",
+     "x": 1010,
+     "y": 170,
+     "w": 300,
+     "h": 210,
+     "rotate": 3,
+     "seed": "m2"
+    },
+    {
+     "type": "led",
+     "x": 1262,
+     "y": 0,
+     "length": 720,
+     "vertical": true
+    },
+    {
+     "type": "led",
+     "x": 560,
+     "y": 96,
+     "length": 720
+    },
+    {
+     "type": "text",
+     "lines": [
+      "*165*"
+     ],
+     "x": 36,
+     "y": 4,
+     "w": 440,
+     "h": 215,
+     "align": "left",
+     "maxPx": 235
+    },
+    {
+     "type": "text",
+     "lines": [
+      "SEGUNDOS"
+     ],
+     "x": 42,
+     "y": 205,
+     "w": 470,
+     "h": 95,
+     "align": "left",
+     "maxPx": 98
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "x": 70,
+     "y": 430,
+     "size": 150,
+     "grid": 14,
+     "depth": 1.2,
+     "rotate": -12,
+     "tiltX": 0,
+     "tiltY": 18,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "x": 330,
+     "y": 335,
+     "size": 140,
+     "grid": 18,
+     "depth": 1.2,
+     "rotate": 10,
+     "tiltX": 0,
+     "tiltY": -16,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "x": 1065,
+     "y": 36,
+     "size": 150,
+     "grid": 16,
+     "depth": 1.2,
+     "rotate": 14,
+     "tiltX": 10,
+     "tiltY": 0
+    }
+   ],
+   "reason": "Prototip: habitació «friki» (llums LED i pantalles amb codi), ell a la dreta amb llum de contorn, el temps a dalt a l'esquerra i els logos en 3D repartits i inclinats com si sortissin."
+  },
+  {
+   "name": "P6_gamer_esquerra",
+   "variant": "lliure",
+   "scene": "gamer",
+   "person": "work/foto_noche.persona_rgb.png",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "personAt": {
+    "x": 400,
+    "eyesY": 340,
+    "faceH": 240
+   },
+   "elements": [
+    {
+     "type": "monitor",
+     "x": 830,
+     "y": 300,
+     "w": 410,
+     "h": 260,
+     "rotate": 4,
+     "seed": "m3"
+    },
+    {
+     "type": "led",
+     "x": 12,
+     "y": 0,
+     "length": 720,
+     "vertical": true
+    },
+    {
+     "type": "led",
+     "x": 0,
+     "y": 100,
+     "length": 640
+    },
+    {
+     "type": "text",
+     "lines": [
+      "*165*"
+     ],
+     "x": 740,
+     "y": 4,
+     "w": 500,
+     "h": 215,
+     "align": "center",
+     "maxPx": 235
+    },
+    {
+     "type": "text",
+     "lines": [
+      "SEGUNDOS"
+     ],
+     "x": 720,
+     "y": 205,
+     "w": 540,
+     "h": 95,
+     "align": "center",
+     "maxPx": 98
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "x": 64,
+     "y": 150,
+     "size": 120,
+     "grid": 14,
+     "depth": 1.2,
+     "rotate": -14,
+     "tiltX": 0,
+     "tiltY": 16,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "x": 800,
+     "y": 400,
+     "size": 160,
+     "grid": 16,
+     "depth": 1.2,
+     "rotate": 12,
+     "tiltX": 0,
+     "tiltY": -18
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "x": 1060,
+     "y": 340,
+     "size": 140,
+     "grid": 18,
+     "depth": 1.2,
+     "rotate": -10,
+     "tiltX": 8,
+     "tiltY": 0,
+     "tint": "#FFFFFF"
+    }
+   ],
+   "reason": "Prototip: el mateix, invertit (ell a l'esquerra, el temps a la dreta)."
+  },
+  {
+   "name": "P7_gamer_dalt",
+   "variant": "lliure",
+   "scene": "gamer",
+   "person": "work/foto_noche.persona_rgb.png",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "personAt": {
+    "x": 760,
+    "eyesY": 400,
+    "faceH": 230
+   },
+   "elements": [
+    {
+     "type": "monitor",
+     "x": 60,
+     "y": 300,
+     "w": 380,
+     "h": 240,
+     "rotate": -5,
+     "seed": "m4"
+    },
+    {
+     "type": "led",
+     "x": 0,
+     "y": 186,
+     "length": 1280
+    },
+    {
+     "type": "text",
+     "lines": [
+      "*165* SEGUNDOS"
+     ],
+     "x": 30,
+     "y": 12,
+     "w": 1220,
+     "h": 160,
+     "align": "center",
+     "maxPx": 160
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "x": 110,
+     "y": 470,
+     "size": 140,
+     "grid": 14,
+     "depth": 1.2,
+     "rotate": -14,
+     "tiltX": 0,
+     "tiltY": 18,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "x": 1010,
+     "y": 260,
+     "size": 130,
+     "grid": 18,
+     "depth": 1.2,
+     "rotate": 12,
+     "tiltX": 6,
+     "tiltY": -14,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "x": 420,
+     "y": 230,
+     "size": 120,
+     "grid": 16,
+     "depth": 1.2,
+     "rotate": -8,
+     "tiltX": 0,
+     "tiltY": 12
+    }
+   ],
+   "reason": "Prototip: com el P4 que va triar (el temps a dalt de tot), però amb l'escena gamer, ell desplaçat i els logos en 3D repartits."
   }
  ]
 }

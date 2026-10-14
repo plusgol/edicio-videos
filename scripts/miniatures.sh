@@ -15,7 +15,7 @@ cfg = json.load(open(sys.argv[1]))
 KEYS = ("person", "background", "photo", "photoW", "photoH", "face")
 base = {k: cfg[k] for k in KEYS if k in cfg}
 for v in cfg["variants"]:
-    props = {**base, **{k: v[k] for k in KEYS + ("variant", "lines", "board", "big", "eyesY", "elements") if k in v}}
+    props = {**base, **{k: v[k] for k in KEYS + ("variant", "lines", "board", "big", "eyesY", "elements", "scene", "personAt") if k in v}}
     json.dump(props, open(f"{sys.argv[2]}/{v['name']}.json", "w"), ensure_ascii=False)
 PY
 for f in "$TMP"/*.json; do

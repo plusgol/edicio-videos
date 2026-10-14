@@ -227,6 +227,24 @@ export const MINIATURA = {
     logoShadow: 'drop-shadow(0 7px 0 rgba(0,0,0,.6)) drop-shadow(0 0 18px rgba(0,0,0,.5))',
     alphaThreshold: 110,
   },
+  // Escena «gamer» per a les miniatures (l'usuari vol una habitació «més friki»): fons fosc amb llums LED lila, rosa i
+  // cian, una graella molt fluixa, pantalles amb codi desenfocades al fons i la persona retallada amb llum de contorn
+  // (scripts/vora_rgb.py). Tot és decorat il·lustratiu, no una habitació real.
+  gamer: {
+    base: '#07070D',
+    glows: [
+      'radial-gradient(circle at 10% 20%, rgba(139,92,246,.55) 0, rgba(139,92,246,0) 42%)',
+      'radial-gradient(circle at 95% 90%, rgba(34,211,238,.45) 0, rgba(34,211,238,0) 40%)',
+      'radial-gradient(circle at 78% 6%, rgba(236,72,153,.32) 0, rgba(236,72,153,0) 32%)',
+    ],
+    grid: 'repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0 1px, transparent 1px 44px), repeating-linear-gradient(90deg, rgba(255,255,255,.035) 0 1px, transparent 1px 44px)',
+    led: {gradient: 'linear-gradient(90deg, #8B5CF6, #EC4899, #22D3EE)', thickness: 7, glow: '0 0 16px 5px rgba(139,92,246,.55), 0 0 60px 20px rgba(34,211,238,.28)'},
+    monitor: {fill: '#0E1430', border: '#2A3566', glow: '0 0 60px 10px rgba(59,130,246,.25)', blurPx: 2.2, codeColors: ['#A78BFA', '#22D3EE', '#F472B6', '#4ADE80', '#E2E8F0'], lineH: 16, opacity: 0.85},
+    personGlow: 'radial-gradient(circle, rgba(139,92,246,.42) 0, rgba(34,211,238,.18) 38%, rgba(0,0,0,0) 68%)',
+    vignette: 'radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%)',
+  },
+  // Logos en 3D (vòxels): cada píxel del logo té gruix; l'estil «pop-up» els inclina i els fa sortir del pla.
+  voxel: {depthCells: 0.9, shade: 0.5, bevel: 0.2, bevelLight: 0.35, perspectivePx: 900},
   // Geometria de la pissarra, en píxels del quadre (persona a l'esquerra, dibuix a la dreta; cantonada de baix a la dreta lliure).
   board: {
     box: {x: 640, y: 258, w: 540, h: 136},

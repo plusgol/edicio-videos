@@ -35,14 +35,34 @@ export type Element =
       maxPx: number;
       font?: 'bold' | 'pixel';
     }
-  | {type: 'logo'; src: string; x: number; y: number; size: number; grid: number; tint?: string}
-  | {type: 'arrow'; from: [number, number]; ctrl: [number, number]; to: [number, number]};
+  | ({type: 'logo'} & LogoProps)
+  | {type: 'arrow'; from: [number, number]; ctrl: [number, number]; to: [number, number]}
+  // Decorat de l'escena gamer (darrere de la persona): una pantalla amb línies de codi desenfocades i una tira LED.
+  | {type: 'monitor'; x: number; y: number; w: number; h: number; rotate?: number; seed: string}
+  | {type: 'led'; x: number; y: number; length: number; vertical?: boolean};
+
+// Logo pixelat; amb «depth» (en cel·les) té gruix de vòxel, i rotate/tiltX/tiltY l'inclinen com si sortís del pla.
+type LogoProps = {
+  src: string;
+  x: number;
+  y: number;
+  size: number;
+  grid: number;
+  tint?: string;
+  depth?: number;
+  rotate?: number;
+  tiltX?: number;
+  tiltY?: number;
+};
 
 export type MiniaturaProps = {
   variant: 'cine' | 'pizarra' | 'centro' | 'lliure';
   // lliure: alçada dels ulls de la persona (centrada) i elements a sobre.
   eyesY?: number;
   elements?: Element[];
+  // lliure amb escena gamer: la persona retallada (person) a la posició i mida de cara que es demana.
+  scene?: 'foto' | 'gamer';
+  personAt?: {x: number; eyesY: number; faceH: number};
   // Rutes dins de --public-dir: persona retallada i fons sense la persona (scripts/retalla_foto.py)…
   person?: string;
   background?: string;
@@ -405,16 +425,11 @@ const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'fac
 // Logo pixelat (com un objecte de videojoc retro): el vector es dibuixa a una graella petita (grid×grid), l'alfa es
 // talla a 0/1 perquè les vores siguin esglaons nets, i s'amplia sense suavitzar. Els logos d'un sol color (currentColor,
 // que en una imatge surt negre) es pinten del color «tint».
-const PixelLogo: React.FC<{src: string; x: number; y: number; size: number; grid: number; tint?: string}> = ({
-  src,
-  x,
-  y,
-  size,
-  grid,
-  tint,
-}) => {
+const PixelLogo: React.FC<LogoProps> = ({src, x, y, size, grid, tint, depth = 0, rotate = 0, tiltX = 0, tiltY = 0}) => {
   const ref = useRef<HTMLCanvasElement>(null);
   const [handle] = useState(() => delayRender(`Logo pixelat ${src}`));
+  const cell = size / grid;
+  const depthPx = Math.round(depth * cell);
   useEffect(() => {
     const img = new Image();
     img.onload = () => {
@@ -423,47 +438,172 @@ const PixelLogo: React.FC<{src: string; x: number; y: number; size: number; grid
       small.height = grid;
       const sctx = small.getContext('2d')!;
       sctx.drawImage(img, 0, 0, grid, grid);
-      const data = sctx.getImageData(0, 0, grid, grid);
+      const {data} = sctx.getImageData(0, 0, grid, grid);
       const rgb = tint ? [1, 3, 5].map((i) => parseInt(tint.slice(i, i + 2), 16)) : null;
-      for (let i = 0; i < data.data.length; i += 4) {
-        const on = data.data[i + 3] >= MINIATURA.pixel.alphaThreshold;
-        if (on && rgb) {
-          [data.data[i], data.data[i + 1], data.data[i + 2]] = rgb;
+      const on: {cx: number; cy: number; c: number[]}[] = [];
+      for (let i = 0; i < grid * grid; i++) {
+        if (data[i * 4 + 3] >= MINIATURA.pixel.alphaThreshold) {
+          on.push({cx: i % grid, cy: Math.floor(i / grid), c: rgb ?? [data[i * 4], data[i * 4 + 1], data[i * 4 + 2]]});
         }
-        data.data[i + 3] = on ? 255 : 0;
       }
-      sctx.putImageData(data, 0, 0);
+      const css = (c: number[], k: number) => `rgb(${c.map((v) => Math.round(Math.min(255, v * k))).join(',')})`;
+      const mix = (c: number[], t: number) => `rgb(${c.map((v) => Math.round(v + (255 - v) * t)).join(',')})`;
       const ctx = ref.current!.getContext('2d')!;
-      ctx.imageSmoothingEnabled = false;
-      ctx.drawImage(small, 0, 0, size, size);
+      // Gruix: còpies del logo desplaçades cap avall i a la dreta, més fosques (cara lateral del vòxel).
+      for (let d = depthPx; d >= 1; d--) {
+        for (const p of on) {
+          ctx.fillStyle = css(p.c, MINIATURA.voxel.shade);
+          ctx.fillRect(p.cx * cell + d, p.cy * cell + d, Math.ceil(cell), Math.ceil(cell));
+        }
+      }
+      // Cara frontal, amb una franja de llum a dalt de cada píxel perquè es llegeixi com un bloc.
+      for (const p of on) {
+        ctx.fillStyle = css(p.c, 1);
+        ctx.fillRect(p.cx * cell, p.cy * cell, Math.ceil(cell), Math.ceil(cell));
+        if (depthPx) {
+          ctx.fillStyle = mix(p.c, MINIATURA.voxel.bevelLight);
+          ctx.fillRect(p.cx * cell, p.cy * cell, Math.ceil(cell), Math.ceil(cell * MINIATURA.voxel.bevel));
+        }
+      }
       continueRender(handle);
     };
     img.onerror = () => cancelRender(new Error(`No s'ha pogut carregar ${src}`));
     img.src = staticFile(src);
-  }, [src, grid, size, tint, handle]);
+  }, [src, grid, cell, depthPx, tint, handle]);
   return (
-    <canvas ref={ref} width={size} height={size} style={{position: 'absolute', left: x, top: y, filter: MINIATURA.pixel.logoShadow}} />
+    <canvas
+      ref={ref}
+      width={size + depthPx}
+      height={size + depthPx}
+      style={{
+        position: 'absolute',
+        left: x,
+        top: y,
+        filter: MINIATURA.pixel.logoShadow,
+        transform: `perspective(${MINIATURA.voxel.perspectivePx}px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotate(${rotate}deg)`,
+      }}
+    />
   );
 };
 
-const Lliure: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'face' | 'eyesY' | 'elements'>> = ({
-  eyesY = MINIATURA.centro.eyesY,
-  elements = [],
-  ...photo
-}) => (
-  <>
-    <CenteredPhoto {...photo} eyesY={eyesY} />
-    {elements.map((e, i) =>
-      e.type === 'text' ? (
-        <Lines key={i} lines={e.lines} left={e.x} width={e.w} top={e.y} height={e.h} align={e.align} maxPx={e.maxPx} font={e.font} />
-      ) : e.type === 'logo' ? (
-        <PixelLogo key={i} {...e} />
+// Pantalla del fons de l'escena gamer: un rectangle que brilla amb línies de «codi» (llargades i colors amb llavor).
+const Monitor: React.FC<{x: number; y: number; w: number; h: number; rotate?: number; seed: string}> = ({x, y, w, h, rotate = 0, seed}) => {
+  const m = MINIATURA.gamer.monitor;
+  const rows = Math.floor((h - m.lineH * 2) / (m.lineH * 1.6));
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: x,
+        top: y,
+        width: w,
+        height: h,
+        background: m.fill,
+        border: `3px solid ${m.border}`,
+        borderRadius: 10,
+        boxShadow: m.glow,
+        transform: `rotate(${rotate}deg)`,
+        filter: `blur(${m.blurPx}px)`,
+        opacity: m.opacity,
+        padding: m.lineH,
+        display: 'flex',
+        flexDirection: 'column',
+        gap: m.lineH * 0.6,
+        overflow: 'hidden',
+      }}
+    >
+      {Array.from({length: rows}, (_, i) => (
+        <div key={i} style={{display: 'flex', gap: m.lineH * 0.6, paddingLeft: Math.floor(random(`${seed}-in-${i}`) * 3) * m.lineH * 1.5}}>
+          {Array.from({length: 1 + Math.floor(random(`${seed}-n-${i}`) * 3)}, (_, j) => (
+            <div
+              key={j}
+              style={{
+                height: m.lineH,
+                width: (0.12 + random(`${seed}-w-${i}-${j}`) * 0.3) * w,
+                borderRadius: 4,
+                background: m.codeColors[Math.floor(random(`${seed}-c-${i}-${j}`) * m.codeColors.length)],
+              }}
+            />
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const Led: React.FC<{x: number; y: number; length: number; vertical?: boolean}> = ({x, y, length, vertical}) => {
+  const l = MINIATURA.gamer.led;
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        left: x,
+        top: y,
+        width: vertical ? l.thickness : length,
+        height: vertical ? length : l.thickness,
+        borderRadius: l.thickness,
+        background: vertical ? l.gradient.replace('90deg', '180deg') : l.gradient,
+        boxShadow: l.glow,
+      }}
+    />
+  );
+};
+
+const Lliure: React.FC<
+  Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'face' | 'eyesY' | 'elements' | 'scene' | 'person' | 'personAt'>
+> = ({eyesY = MINIATURA.centro.eyesY, elements = [], scene = 'foto', person = '', personAt, ...photo}) => {
+  const decor = elements.filter((e) => e.type === 'monitor' || e.type === 'led');
+  const front = elements.filter((e) => e.type !== 'monitor' && e.type !== 'led');
+  const g = MINIATURA.gamer;
+  const at = personAt ?? {x: MINIATURA.width / 2, eyesY, faceH: photo.face.h};
+  const k = at.faceH / photo.face.h;
+  return (
+    <>
+      {scene === 'gamer' ? (
+        <>
+          <AbsoluteFill style={{background: g.base}} />
+          {g.glows.map((bg, i) => (
+            <AbsoluteFill key={i} style={{background: bg}} />
+          ))}
+          <AbsoluteFill style={{background: g.grid}} />
+          {decor.map((e, i) => (e.type === 'monitor' ? <Monitor key={i} {...e} /> : e.type === 'led' ? <Led key={i} {...e} /> : null))}
+          <div
+            style={{
+              position: 'absolute',
+              left: at.x - at.faceH * 2.2,
+              top: at.eyesY - at.faceH * 1.8,
+              width: at.faceH * 4.4,
+              height: at.faceH * 4.4,
+              background: g.personGlow,
+            }}
+          />
+          <Img
+            src={staticFile(person)}
+            style={{
+              position: 'absolute',
+              left: at.x - photo.face.x * k,
+              top: at.eyesY - photo.face.eyesY * k,
+              width: photo.photoW * k,
+              height: photo.photoH * k,
+            }}
+          />
+          <AbsoluteFill style={{background: g.vignette}} />
+        </>
       ) : (
-        <Arrow key={i} from={e.from} ctrl={e.ctrl} to={e.to} color={MINIATURA.chalk} />
-      ),
-    )}
-  </>
-);
+        <CenteredPhoto {...photo} eyesY={eyesY} />
+      )}
+      {front.map((e, i) =>
+        e.type === 'text' ? (
+          <Lines key={i} lines={e.lines} left={e.x} width={e.w} top={e.y} height={e.h} align={e.align} maxPx={e.maxPx} font={e.font} />
+        ) : e.type === 'logo' ? (
+          <PixelLogo key={i} {...e} />
+        ) : e.type === 'arrow' ? (
+          <Arrow key={i} from={e.from} ctrl={e.ctrl} to={e.to} color={MINIATURA.chalk} />
+        ) : null,
+      )}
+    </>
+  );
+};
 
 export const Miniatura: React.FC<MiniaturaProps> = ({
   variant,
@@ -478,11 +618,23 @@ export const Miniatura: React.FC<MiniaturaProps> = ({
   board,
   eyesY,
   elements,
+  scene,
+  personAt,
 }) => {
   if (variant === 'lliure') {
     return (
       <AbsoluteFill style={{background: MINIATURA.base, overflow: 'hidden'}}>
-        <Lliure photo={photo} photoW={photoW} photoH={photoH} face={face} eyesY={eyesY} elements={elements} />
+        <Lliure
+          photo={photo}
+          photoW={photoW}
+          photoH={photoH}
+          face={face}
+          eyesY={eyesY}
+          elements={elements}
+          scene={scene}
+          person={person}
+          personAt={personAt}
+        />
       </AbsoluteFill>
     );
   }

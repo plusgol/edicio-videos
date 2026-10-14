@@ -218,6 +218,15 @@ export const MINIATURA = {
     arrow: {from: [270, 150] as [number, number], ctrl: [640, -40] as [number, number], to: [1005, 158] as [number, number]},
     arrowHeadPx: 34,
   },
+  // Estil de píxels (prototips amb logos pixelats): font de videojoc, ombra dura sense difuminar.
+  pixel: {
+    fontWeight: 400,
+    letterSpacing: '0.02em',
+    lineHeight: 1.18,
+    textShadow: '0 6px 0 rgba(0,0,0,.7), 0 0 24px rgba(0,0,0,.6)',
+    logoShadow: 'drop-shadow(0 7px 0 rgba(0,0,0,.6)) drop-shadow(0 0 18px rgba(0,0,0,.5))',
+    alphaThreshold: 110,
+  },
   // Geometria de la pissarra, en píxels del quadre (persona a l'esquerra, dibuix a la dreta; cantonada de baix a la dreta lliure).
   board: {
     box: {x: 640, y: 258, w: 540, h: 136},

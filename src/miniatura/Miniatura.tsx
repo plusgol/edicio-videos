@@ -1,14 +1,16 @@
 import {loadFont as loadCaveat} from '@remotion/google-fonts/Caveat';
 import {loadFont as loadInter} from '@remotion/google-fonts/Inter';
+import {loadFont as loadPixel} from '@remotion/google-fonts/PressStart2P';
 import {fitText} from '@remotion/layout-utils';
-import {useEffect, useState} from 'react';
-import {AbsoluteFill, Img, continueRender, delayRender, random, staticFile} from 'remotion';
+import {useEffect, useRef, useState} from 'react';
+import {AbsoluteFill, Img, cancelRender, continueRender, delayRender, random, staticFile} from 'remotion';
 import {MINIATURA} from '../../brand/estil';
 
 const {fontFamily: BOLD, waitUntilDone: boldLoaded} = loadInter('normal', {
   weights: ['900'],
   subsets: ['latin', 'latin-ext'],
 });
+const {fontFamily: PIXEL, waitUntilDone: pixelLoaded} = loadPixel('normal', {weights: ['400'], subsets: ['latin']});
 const {fontFamily: HAND} = loadCaveat('normal', {
   weights: ['700'],
   subsets: ['latin', 'latin-ext'],
@@ -18,9 +20,29 @@ const {fontFamily: HAND} = loadCaveat('normal', {
 // cine    — text blanc molt gruixut a la dreta i l'última paraula en groc («It's So F*cking Simple.»);
 // pizarra — un esquema dibuixat amb retolador a la paret fosca (com la pissarra «CONFIDENCE / Pillar 1 2 3»);
 // centro  — la persona al mig (la foto sencera, sense retallar), la xifra en groc a l'esquerra, el resultat a la dreta
-//           i una fletxa a mà per sobre del cap (boceto aprovat per l'usuari).
+//           i una fletxa a mà per sobre del cap (boceto aprovat per l'usuari);
+// lliure  — la mateixa foto centrada i una llista d'elements (text, logo pixelat, fletxa) amb la posició a les props:
+//           per fer prototips de composició des de miniatures.json sense tocar codi.
+export type Element =
+  | {
+      type: 'text';
+      lines: string[];
+      x: number;
+      y: number;
+      w: number;
+      h: number;
+      align?: 'left' | 'center';
+      maxPx: number;
+      font?: 'bold' | 'pixel';
+    }
+  | {type: 'logo'; src: string; x: number; y: number; size: number; grid: number; tint?: string}
+  | {type: 'arrow'; from: [number, number]; ctrl: [number, number]; to: [number, number]};
+
 export type MiniaturaProps = {
-  variant: 'cine' | 'pizarra' | 'centro';
+  variant: 'cine' | 'pizarra' | 'centro' | 'lliure';
+  // lliure: alçada dels ulls de la persona (centrada) i elements a sobre.
+  eyesY?: number;
+  elements?: Element[];
   // Rutes dins de --public-dir: persona retallada i fons sense la persona (scripts/retalla_foto.py)…
   person?: string;
   background?: string;
@@ -244,20 +266,20 @@ const Board: React.FC<{box: string; pillars: string[]; clock: string}> = ({box, 
 };
 
 // Cada línia ha de cabre sencera (sense salts sobrers): la mida surt de la línia més llarga, amb la font ja carregada.
-const useFittedSize = (lines: string[], width: number, maxPx: number): number | null => {
+const useFittedSize = (lines: string[], width: number, maxPx: number, font: 'bold' | 'pixel' = 'bold'): number | null => {
   const [size, setSize] = useState<number | null>(null);
-  const key = `${lines.join('\n')}|${width}|${maxPx}`;
+  const key = `${lines.join('\n')}|${width}|${maxPx}|${font}`;
   useEffect(() => {
     const handle = delayRender('Mida del text de la miniatura');
-    boldLoaded().then(() => {
+    (font === 'pixel' ? pixelLoaded() : boldLoaded()).then(() => {
       const fits = lines.map(
         (l) =>
           fitText({
             text: l.replaceAll('*', ''),
             withinWidth: width,
-            fontFamily: BOLD,
-            fontWeight: MINIATURA.fontWeight,
-            letterSpacing: MINIATURA.letterSpacing,
+            fontFamily: font === 'pixel' ? PIXEL : BOLD,
+            fontWeight: font === 'pixel' ? MINIATURA.pixel.fontWeight : MINIATURA.fontWeight,
+            letterSpacing: font === 'pixel' ? MINIATURA.pixel.letterSpacing : MINIATURA.letterSpacing,
           }).fontSize,
       );
       setSize(Math.min(maxPx, ...fits));
@@ -268,9 +290,19 @@ const useFittedSize = (lines: string[], width: number, maxPx: number): number | 
   return size;
 };
 
-type Box = {left: number; width: number; top?: number; height?: number; align?: 'left' | 'center'; maxPx: number};
-const Lines: React.FC<{lines: string[]} & Box> = ({lines, left, width, top = 0, height = MINIATURA.height, align = 'left', maxPx}) => {
-  const fontSize = useFittedSize(lines, width, maxPx);
+type Box = {left: number; width: number; top?: number; height?: number; align?: 'left' | 'center'; maxPx: number; font?: 'bold' | 'pixel'};
+const Lines: React.FC<{lines: string[]} & Box> = ({
+  lines,
+  left,
+  width,
+  top = 0,
+  height = MINIATURA.height,
+  align = 'left',
+  maxPx,
+  font = 'bold',
+}) => {
+  const fontSize = useFittedSize(lines, width, maxPx, font);
+  const pixel = font === 'pixel';
   if (fontSize === null) {
     return null;
   }
@@ -286,13 +318,13 @@ const Lines: React.FC<{lines: string[]} & Box> = ({lines, left, width, top = 0, 
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-        fontFamily: BOLD,
-        fontWeight: MINIATURA.fontWeight,
+        fontFamily: pixel ? PIXEL : BOLD,
+        fontWeight: pixel ? MINIATURA.pixel.fontWeight : MINIATURA.fontWeight,
         fontSize,
-        lineHeight: MINIATURA.textLineHeight,
-        letterSpacing: MINIATURA.letterSpacing,
+        lineHeight: pixel ? MINIATURA.pixel.lineHeight : MINIATURA.textLineHeight,
+        letterSpacing: pixel ? MINIATURA.pixel.letterSpacing : MINIATURA.letterSpacing,
         color: MINIATURA.white,
-        textShadow: MINIATURA.textShadow,
+        textShadow: pixel ? MINIATURA.pixel.textShadow : MINIATURA.textShadow,
       }}
     >
       {lines.map((l, i) => (
@@ -316,19 +348,11 @@ const Lines: React.FC<{lines: string[]} & Box> = ({lines, left, width, top = 0, 
 };
 
 // Persona al centre amb la foto sencera: l'amplada cobreix el quadre i, per sobre, un fons ambient (la mateixa foto,
-// gran i desenfocada) deixa aire per a la fletxa; la vora de dalt i la de l'esquerra de la foto es fonen amb ell.
-const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'face' | 'big' | 'lines'>> = ({
-  photo = '',
-  photoW,
-  photoH,
-  face,
-  big,
-  lines = [],
-}) => {
+// gran i desenfocada) deixa aire per al que va a dalt; la vora de dalt i la de l'esquerra de la foto es fonen amb ell.
+type PhotoProps = Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'face'> & {eyesY: number};
+const CenteredPhoto: React.FC<PhotoProps> = ({photo = '', photoW, photoH, face, eyesY}) => {
   const c = MINIATURA.centro;
   const k = MINIATURA.width / photoW;
-  const left = MINIATURA.width / 2 - face.x * k;
-  const top = c.eyesY - face.eyesY * k;
   const kA = k * c.ambientScale;
   return (
     <>
@@ -337,7 +361,7 @@ const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'fac
         style={{
           position: 'absolute',
           left: MINIATURA.width / 2 - face.x * kA,
-          top: c.eyesY - face.eyesY * kA,
+          top: eyesY - face.eyesY * kA,
           width: photoW * kA,
           height: photoH * kA,
           filter: c.ambientFilter,
@@ -346,8 +370,8 @@ const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'fac
       <div
         style={{
           position: 'absolute',
-          left,
-          top,
+          left: MINIATURA.width / 2 - face.x * k,
+          top: eyesY - face.eyesY * k,
           width: photoW * k,
           height: photoH * k,
           WebkitMaskImage: c.featherTop,
@@ -360,6 +384,15 @@ const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'fac
         />
       </div>
       <AbsoluteFill style={{background: c.vignette}} />
+    </>
+  );
+};
+
+const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'face' | 'big' | 'lines'>> = ({big, lines = [], ...photo}) => {
+  const c = MINIATURA.centro;
+  return (
+    <>
+      <CenteredPhoto {...photo} eyesY={c.eyesY} />
       <Arrow from={c.arrow.from} ctrl={c.arrow.ctrl} to={c.arrow.to} color={MINIATURA.chalk} />
       {big ? (
         <Lines lines={[`*${big}*`]} left={c.left.x} width={c.left.w} top={c.textTop} height={c.textH} align="center" maxPx={c.bigMaxPx} />
@@ -368,6 +401,69 @@ const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'fac
     </>
   );
 };
+
+// Logo pixelat (com un objecte de videojoc retro): el vector es dibuixa a una graella petita (grid×grid), l'alfa es
+// talla a 0/1 perquè les vores siguin esglaons nets, i s'amplia sense suavitzar. Els logos d'un sol color (currentColor,
+// que en una imatge surt negre) es pinten del color «tint».
+const PixelLogo: React.FC<{src: string; x: number; y: number; size: number; grid: number; tint?: string}> = ({
+  src,
+  x,
+  y,
+  size,
+  grid,
+  tint,
+}) => {
+  const ref = useRef<HTMLCanvasElement>(null);
+  const [handle] = useState(() => delayRender(`Logo pixelat ${src}`));
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => {
+      const small = document.createElement('canvas');
+      small.width = grid;
+      small.height = grid;
+      const sctx = small.getContext('2d')!;
+      sctx.drawImage(img, 0, 0, grid, grid);
+      const data = sctx.getImageData(0, 0, grid, grid);
+      const rgb = tint ? [1, 3, 5].map((i) => parseInt(tint.slice(i, i + 2), 16)) : null;
+      for (let i = 0; i < data.data.length; i += 4) {
+        const on = data.data[i + 3] >= MINIATURA.pixel.alphaThreshold;
+        if (on && rgb) {
+          [data.data[i], data.data[i + 1], data.data[i + 2]] = rgb;
+        }
+        data.data[i + 3] = on ? 255 : 0;
+      }
+      sctx.putImageData(data, 0, 0);
+      const ctx = ref.current!.getContext('2d')!;
+      ctx.imageSmoothingEnabled = false;
+      ctx.drawImage(small, 0, 0, size, size);
+      continueRender(handle);
+    };
+    img.onerror = () => cancelRender(new Error(`No s'ha pogut carregar ${src}`));
+    img.src = staticFile(src);
+  }, [src, grid, size, tint, handle]);
+  return (
+    <canvas ref={ref} width={size} height={size} style={{position: 'absolute', left: x, top: y, filter: MINIATURA.pixel.logoShadow}} />
+  );
+};
+
+const Lliure: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'face' | 'eyesY' | 'elements'>> = ({
+  eyesY = MINIATURA.centro.eyesY,
+  elements = [],
+  ...photo
+}) => (
+  <>
+    <CenteredPhoto {...photo} eyesY={eyesY} />
+    {elements.map((e, i) =>
+      e.type === 'text' ? (
+        <Lines key={i} lines={e.lines} left={e.x} width={e.w} top={e.y} height={e.h} align={e.align} maxPx={e.maxPx} font={e.font} />
+      ) : e.type === 'logo' ? (
+        <PixelLogo key={i} {...e} />
+      ) : (
+        <Arrow key={i} from={e.from} ctrl={e.ctrl} to={e.to} color={MINIATURA.chalk} />
+      ),
+    )}
+  </>
+);
 
 export const Miniatura: React.FC<MiniaturaProps> = ({
   variant,
@@ -380,7 +476,16 @@ export const Miniatura: React.FC<MiniaturaProps> = ({
   lines = [],
   big,
   board,
+  eyesY,
+  elements,
 }) => {
+  if (variant === 'lliure') {
+    return (
+      <AbsoluteFill style={{background: MINIATURA.base, overflow: 'hidden'}}>
+        <Lliure photo={photo} photoW={photoW} photoH={photoH} face={face} eyesY={eyesY} elements={elements} />
+      </AbsoluteFill>
+    );
+  }
   if (variant === 'centro') {
     return (
       <AbsoluteFill style={{background: MINIATURA.base, overflow: 'hidden'}}>

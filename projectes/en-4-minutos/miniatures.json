@@ -1,5 +1,5 @@
 {
- "_nota": "Miniatures de YouTube (1280×720). Les renderitza scripts/miniatures.sh. Variants actuals: centro amb la foto de nit de l'usuari (input/foto_miniatura_noche.webp, mans juntes sota la barbeta), segons el boceto que va aprovar: durada exacta en groc a l'esquerra (el vídeo dura 2:45, ho vol sí o sí), resultat a la dreta i fletxa per sobre del cap. Les variants cine i pizarra (foto de dia) les va rebutjar.",
+ "_nota": "Miniatures de YouTube (1280×720). Les renderitza scripts/miniatures.sh. Foto: input/foto_miniatura_noche.webp (de l'usuari). D i E: boceto aprovat (2:45 → VIDA NUEVA). P1–P4: prototips que demana l'usuari: «165 segundos» a dalt en gran i els logos de ChatGPT, Claude i OpenCode pixelats (variant lliure: posicions en píxels del quadre).",
  "person": "work/foto_miniatura.persona.png",
  "background": "work/foto_miniatura.fons.jpg",
  "photoW": 1600,
@@ -45,6 +45,288 @@
     "LA VIDA"
    ],
    "reason": "Alternativa per a Test & Compare: la mateixa imatge amb la promesa en paraules seves («te cambio la vida»)."
+  },
+  {
+   "name": "P1_top_logos",
+   "variant": "lliure",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "eyesY": 345,
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "*165* SEGUNDOS"
+     ],
+     "x": 30,
+     "y": 16,
+     "w": 1220,
+     "h": 170,
+     "align": "center",
+     "maxPx": 170
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "x": 70,
+     "y": 315,
+     "size": 112,
+     "grid": 16,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "x": 204,
+     "y": 315,
+     "size": 112,
+     "grid": 16,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "x": 338,
+     "y": 315,
+     "size": 112,
+     "grid": 16
+    },
+    {
+     "type": "text",
+     "lines": [
+      "VIDA",
+      "NUEVA"
+     ],
+     "x": 785,
+     "y": 235,
+     "w": 465,
+     "h": 255,
+     "align": "center",
+     "maxPx": 130
+    }
+   ],
+   "reason": "Prototip: el temps exacte en segons a dalt i en gran; les tres eines pixelades (com objectes de videojoc) a l'esquerra; el resultat a la dreta."
+  },
+  {
+   "name": "P2_arcade",
+   "variant": "lliure",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "eyesY": 330,
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "TIEMPO"
+     ],
+     "x": 40,
+     "y": 34,
+     "w": 300,
+     "h": 44,
+     "align": "left",
+     "maxPx": 30,
+     "font": "pixel"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "*165*"
+     ],
+     "x": 40,
+     "y": 84,
+     "w": 360,
+     "h": 140,
+     "align": "left",
+     "maxPx": 120,
+     "font": "pixel"
+    },
+    {
+     "type": "text",
+     "lines": [
+      "OBJETOS"
+     ],
+     "x": 840,
+     "y": 34,
+     "w": 400,
+     "h": 44,
+     "align": "left",
+     "maxPx": 30,
+     "font": "pixel"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "x": 840,
+     "y": 92,
+     "size": 112,
+     "grid": 14,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "x": 974,
+     "y": 92,
+     "size": 112,
+     "grid": 14,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "x": 1108,
+     "y": 92,
+     "size": 112,
+     "grid": 14
+    },
+    {
+     "type": "text",
+     "lines": [
+      "*+1 VIDA*"
+     ],
+     "x": 30,
+     "y": 560,
+     "w": 340,
+     "h": 110,
+     "align": "left",
+     "maxPx": 56,
+     "font": "pixel"
+    }
+   ],
+   "reason": "Prototip arcade: el temps com el comptador d'un videojoc, les 3 IAs com a objectes i «+1 VIDA» (vida nova = vida extra)."
+  },
+  {
+   "name": "P3_top_logos_vida",
+   "variant": "lliure",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "eyesY": 345,
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "*165* SEGUNDOS"
+     ],
+     "x": 30,
+     "y": 16,
+     "w": 1220,
+     "h": 170,
+     "align": "center",
+     "maxPx": 170
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "x": 70,
+     "y": 315,
+     "size": 112,
+     "grid": 16,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "x": 204,
+     "y": 315,
+     "size": 112,
+     "grid": 16,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "x": 338,
+     "y": 315,
+     "size": 112,
+     "grid": 16
+    },
+    {
+     "type": "text",
+     "lines": [
+      "TE CAMBIO",
+      "LA VIDA"
+     ],
+     "x": 785,
+     "y": 245,
+     "w": 465,
+     "h": 235,
+     "align": "center",
+     "maxPx": 120
+    }
+   ],
+   "reason": "Prototip: com P1 però amb la promesa en paraules seves."
+  },
+  {
+   "name": "P4_pensando",
+   "variant": "lliure",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "eyesY": 395,
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "*165* SEGUNDOS"
+     ],
+     "x": 30,
+     "y": 16,
+     "w": 1220,
+     "h": 150,
+     "align": "center",
+     "maxPx": 150
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "x": 476,
+     "y": 168,
+     "size": 92,
+     "grid": 14,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "x": 598,
+     "y": 168,
+     "size": 92,
+     "grid": 14,
+     "tint": "#FFFFFF"
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "x": 720,
+     "y": 168,
+     "size": 92,
+     "grid": 14
+    }
+   ],
+   "reason": "Prototip mínim: el temps a dalt i les 3 IAs pixelades flotant per sobre del cap, com si hi pensés."
   }
  ]
 }

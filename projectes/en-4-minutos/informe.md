@@ -7,10 +7,13 @@
 ## Títol
 L'original diu «te lo explico en cuatro minutos», però el vídeo editat dura **2:45**. Per això:
 - La frase «y te lo explico en cuatro minutos» **s'ha tret** del ganxo (tram `r00b`). Es pot recuperar a l'editor, a la pestanya Talls.
-- **Títol triat**: **«Dame 3 minutos: IA y negocios»** (29 caràcters).
-  - L'usuari el vol curt i que digui IA **i** negocis.
-  - La promesa emocional va a la miniatura, que no repeteix el títol: **«TE CAMBIO / LA VIDA.»**, amb «LA VIDA.» en groc i ell al centre.
-- **Per provar amb Test & Compare:** «IA y negocios en 3 minutos», amb la miniatura «IMPOSIBLE FRACASAR» (la frase amb què tanca el vídeo).
+- **Títol triat**: **«Dame 165 segundos y te cambio la vida»** (37 caràcters).
+  - Va amb la miniatura «165 SEG → [ChatGPT · Claude · OpenCode] → NEGOCIOS CON IA».
+  - El títol posa la promesa i la miniatura diu de què va (IA i negocis); no es repeteixen.
+  - El número és el mateix i és exacte: el vídeo dura 165 s.
+- **Per provar amb Test & Compare:**
+  - «Con estas 3 IAs es imposible fracasar» (la seva frase final);
+  - «Las 3 IAs que uso para montar negocios».
 - No cal allargar-lo ni tornar-lo a gravar. Per arribar als 4 minuts s'haurien de tornar a posar preses repetides.
 
 ## Preses triades i el que s'ha tret

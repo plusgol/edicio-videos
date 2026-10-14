@@ -7,13 +7,14 @@
 ## Títol
 L'original diu «te lo explico en cuatro minutos», però el vídeo editat dura **2:45**. Per això:
 - La frase «y te lo explico en cuatro minutos» **s'ha tret** del ganxo (tram `r00b`). Es pot recuperar a l'editor, a la pestanya Talls.
-- Títol proposat, amb el format «Dame X minutos» (recerca a `docs/MINIATURES.md`), i 3 minuts és honest per a 2:46: **«Dame 3 minutos y te cambio la vida con la IA (y los negocios)»**. És el missatge que vols i encaixa amb les miniatures A i B.
-- També: «Dame 3 minutos y te enseño las 3 IAs para montar cualquier negocio».
-- Alternatives:
-  - «Dame 3 minutos: las 3 IAs para montar cualquier negocio»
-  - «Dame 3 minutos y te enseño las únicas 3 IAs que necesitas»
-  - «Con estas 3 IAs puedes crear cualquier negocio» (sense minuts)
-  - «OpenCode, ChatGPT y Claude: mi flujo de trabajo con IA»
+- **Títol triat**, comparat amb els vídeos americans del format «Give me X minutes»: **«Dame 3 minutos y te cambio la vida (con IA)»**.
+  - És curt i es llegeix sencer al mòbil.
+  - Els 3 minuts són honestos per a 2:46.
+  - «(con IA)» concreta el nínxol, com «Dangerously Smart (with AI)».
+- **Per provar amb Test & Compare:**
+  - «Dame 166 segundos y te cambio la vida con la IA»: número estrany i exacte, que atura el desplaçament;
+  - «Dame 3 minutos: las 3 IAs con las que es imposible fracasar»: concret i amb la teva frase final.
+- **Miniatura:** el text no ha de repetir el títol. Proposta: «IMPOSIBLE FRACASAR», que és la frase amb què tanques el vídeo.
 - No cal allargar-lo ni tornar-lo a gravar. Per arribar als 4 minuts s'haurien de tornar a posar preses repetides.
 
 ## Preses triades i el que s'ha tret

@@ -635,6 +635,160 @@
     }
    ],
    "reason": "Prototip: com el P4 que va triar (el temps a dalt de tot), però amb l'escena gamer, ell desplaçat i els logos en 3D repartits."
+  },
+  {
+   "name": "P8_negre",
+   "variant": "lliure",
+   "scene": "negre",
+   "person": "work/foto_noche.persona_negre.png",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "personAt": {
+    "x": 640,
+    "eyesY": 345,
+    "faceH": 210
+   },
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "*165* SEGUNDOS"
+     ],
+     "x": 30,
+     "y": 10,
+     "w": 1220,
+     "h": 165,
+     "align": "center",
+     "maxPx": 165
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "tile": "chatgpt",
+     "tint": "#FFFFFF",
+     "x": 362,
+     "y": 168,
+     "size": 150,
+     "grid": 30,
+     "depth": 2.6,
+     "rotate": -10,
+     "tiltX": 0,
+     "tiltY": 23.400000000000002
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "tile": "claude",
+     "tint": "#FFFFFF",
+     "x": 850,
+     "y": 186,
+     "size": 150,
+     "grid": 24,
+     "depth": 2.2,
+     "rotate": 12,
+     "tiltX": 0,
+     "tiltY": -20.8
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "tile": "opencode",
+     "tint": "#FFFFFF",
+     "x": 965,
+     "y": 392,
+     "size": 124,
+     "grid": 24,
+     "depth": 2.2,
+     "rotate": 8,
+     "tiltX": 0,
+     "tiltY": -26.0,
+     "blur": 1.2
+    }
+   ],
+   "reason": "Com la referència de l'usuari (fitxes d'app en 3D amb el símbol en blanc, al voltant del cap), però amb fons negre, de misteri, sense que es vegi l'habitació."
+  },
+  {
+   "name": "P9_negre_repartits",
+   "variant": "lliure",
+   "scene": "negre",
+   "person": "work/foto_noche.persona_negre.png",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "personAt": {
+    "x": 640,
+    "eyesY": 345,
+    "faceH": 210
+   },
+   "elements": [
+    {
+     "type": "text",
+     "lines": [
+      "*165* SEGUNDOS"
+     ],
+     "x": 30,
+     "y": 10,
+     "w": 1220,
+     "h": 165,
+     "align": "center",
+     "maxPx": 165
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/openai.svg",
+     "tile": "chatgpt",
+     "tint": "#FFFFFF",
+     "x": 120,
+     "y": 250,
+     "size": 170,
+     "grid": 30,
+     "depth": 2.6,
+     "rotate": -12,
+     "tiltX": 0,
+     "tiltY": 26.0
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/claude-color.svg",
+     "tile": "claude",
+     "tint": "#FFFFFF",
+     "x": 980,
+     "y": 200,
+     "size": 160,
+     "grid": 24,
+     "depth": 2.2,
+     "rotate": 12,
+     "tiltX": 0,
+     "tiltY": -23.400000000000002
+    },
+    {
+     "type": "logo",
+     "src": "assets/logo/opencode.svg",
+     "tile": "opencode",
+     "tint": "#FFFFFF",
+     "x": 250,
+     "y": 470,
+     "size": 120,
+     "grid": 24,
+     "depth": 2.2,
+     "rotate": 9,
+     "tiltX": 0,
+     "tiltY": 20.8,
+     "blur": 1.5
+    }
+   ],
+   "reason": "Mateix estil, amb els logos més grans i més oberts cap als costats."
   }
  ]
 }

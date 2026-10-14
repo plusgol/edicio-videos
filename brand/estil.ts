@@ -244,7 +244,16 @@ export const MINIATURA = {
     vignette: 'radial-gradient(ellipse at 50% 50%, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%)',
   },
   // Logos en 3D (vòxels): cada píxel del logo té gruix; l'estil «pop-up» els inclina i els fa sortir del pla.
-  voxel: {depthCells: 0.9, shade: 0.5, bevel: 0.2, bevelLight: 0.35, perspectivePx: 900},
+  voxel: {depthCells: 0.9, shade: 0.5, bevel: 0.2, bevelLight: 0.22, perspectivePx: 900, tileInner: 0.6, tileCornerCells: 4, tileGlyph: '#FFFFFF'},
+  // Colors de fitxa de les marques (estil de la referència de l'usuari: fitxes d'app en 3D amb el símbol en blanc).
+  brandTiles: {chatgpt: '#10A37F', claude: '#D97757', opencode: '#2B2F36'},
+  // Escena negra («més de misteri, que no es vegi res»): fons negre, una mica de llum càlida darrere el cap.
+  negre: {
+    base: '#030303',
+    halo: 'radial-gradient(circle, rgba(255,186,120,.16) 0, rgba(255,186,120,.05) 34%, rgba(0,0,0,0) 62%)',
+    vignette: 'radial-gradient(ellipse at 50% 42%, rgba(0,0,0,0) 38%, rgba(0,0,0,.65) 100%)',
+    personFilter: 'contrast(1.06) brightness(0.97)',
+  },
   // Geometria de la pissarra, en píxels del quadre (persona a l'esquerra, dibuix a la dreta; cantonada de baix a la dreta lliure).
   board: {
     box: {x: 640, y: 258, w: 540, h: 136},

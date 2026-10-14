@@ -42,6 +42,8 @@ export type Element =
   | {type: 'led'; x: number; y: number; length: number; vertical?: boolean};
 
 // Logo pixelat; amb «depth» (en cel·les) té gruix de vòxel, i rotate/tiltX/tiltY l'inclinen com si sortís del pla.
+// Amb «tile», el logo va dins d'una fitxa d'app de píxels (cantonades arrodonides en esglaó) del color de la marca,
+// amb el símbol en «tint» (blanc per defecte): és l'estil de la referència de l'usuari. «blur» simula profunditat de camp.
 type LogoProps = {
   src: string;
   x: number;
@@ -53,6 +55,8 @@ type LogoProps = {
   rotate?: number;
   tiltX?: number;
   tiltY?: number;
+  tile?: string;
+  blur?: number;
 };
 
 export type MiniaturaProps = {
@@ -61,7 +65,7 @@ export type MiniaturaProps = {
   eyesY?: number;
   elements?: Element[];
   // lliure amb escena gamer: la persona retallada (person) a la posició i mida de cara que es demana.
-  scene?: 'foto' | 'gamer';
+  scene?: 'foto' | 'gamer' | 'negre';
   personAt?: {x: number; eyesY: number; faceH: number};
   // Rutes dins de --public-dir: persona retallada i fons sense la persona (scripts/retalla_foto.py)…
   person?: string;
@@ -425,51 +429,82 @@ const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'fac
 // Logo pixelat (com un objecte de videojoc retro): el vector es dibuixa a una graella petita (grid×grid), l'alfa es
 // talla a 0/1 perquè les vores siguin esglaons nets, i s'amplia sense suavitzar. Els logos d'un sol color (currentColor,
 // que en una imatge surt negre) es pinten del color «tint».
-const PixelLogo: React.FC<LogoProps> = ({src, x, y, size, grid, tint, depth = 0, rotate = 0, tiltX = 0, tiltY = 0}) => {
+const PixelLogo: React.FC<LogoProps> = ({src, x, y, size, grid, tint, depth = 0, rotate = 0, tiltX = 0, tiltY = 0, tile, blur = 0}) => {
   const ref = useRef<HTMLCanvasElement>(null);
   const [handle] = useState(() => delayRender(`Logo pixelat ${src}`));
   const cell = size / grid;
   const depthPx = Math.round(depth * cell);
+  // La fitxa pot ser un color o el nom d'una marca de brand/estil.ts (chatgpt, claude, opencode).
+  const tileHex = tile ? ((MINIATURA.brandTiles as Record<string, string>)[tile] ?? tile) : undefined;
   useEffect(() => {
+    const hex = (h: string) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
     const img = new Image();
     img.onload = () => {
+      // Símbol: a tota la graella o, dins d'una fitxa, a la part central.
+      const g = tile ? Math.round(grid * MINIATURA.voxel.tileInner) : grid;
+      const o = Math.floor((grid - g) / 2);
       const small = document.createElement('canvas');
-      small.width = grid;
-      small.height = grid;
+      small.width = g;
+      small.height = g;
       const sctx = small.getContext('2d')!;
-      sctx.drawImage(img, 0, 0, grid, grid);
-      const {data} = sctx.getImageData(0, 0, grid, grid);
-      const rgb = tint ? [1, 3, 5].map((i) => parseInt(tint.slice(i, i + 2), 16)) : null;
-      const on: {cx: number; cy: number; c: number[]}[] = [];
-      for (let i = 0; i < grid * grid; i++) {
-        if (data[i * 4 + 3] >= MINIATURA.pixel.alphaThreshold) {
-          on.push({cx: i % grid, cy: Math.floor(i / grid), c: rgb ?? [data[i * 4], data[i * 4 + 1], data[i * 4 + 2]]});
+      sctx.drawImage(img, 0, 0, g, g);
+      const {data} = sctx.getImageData(0, 0, g, g);
+      const glyphRgb = tint ? hex(tint) : tile ? hex(MINIATURA.voxel.tileGlyph) : null;
+      const cells = new Map<number, number[]>();
+      if (tile) {
+        // Fitxa: totes les cel·les menys les cantonades (arrodonides en esglaó).
+        const r = MINIATURA.voxel.tileCornerCells;
+        const outside = (i: number, j: number) => {
+          const dx = i < r ? r - i - 0.5 : i >= grid - r ? i - (grid - r) + 0.5 : 0;
+          const dy = j < r ? r - j - 0.5 : j >= grid - r ? j - (grid - r) + 0.5 : 0;
+          return dx * dx + dy * dy > r * r;
+        };
+        for (let j = 0; j < grid; j++) {
+          for (let i = 0; i < grid; i++) {
+            if (!outside(i, j)) cells.set(j * grid + i, hex(tileHex!));
+          }
         }
       }
-      const css = (c: number[], k: number) => `rgb(${c.map((v) => Math.round(Math.min(255, v * k))).join(',')})`;
+      for (let k = 0; k < g * g; k++) {
+        if (data[k * 4 + 3] >= MINIATURA.pixel.alphaThreshold) {
+          const i = o + (k % g);
+          const j = o + Math.floor(k / g);
+          cells.set(j * grid + i, glyphRgb ?? [data[k * 4], data[k * 4 + 1], data[k * 4 + 2]]);
+        }
+      }
+      const body = tileHex ? hex(tileHex) : null;
+      const css = (c: number[], f: number) => `rgb(${c.map((v) => Math.round(Math.min(255, v * f))).join(',')})`;
       const mix = (c: number[], t: number) => `rgb(${c.map((v) => Math.round(v + (255 - v) * t)).join(',')})`;
       const ctx = ref.current!.getContext('2d')!;
-      // Gruix: còpies del logo desplaçades cap avall i a la dreta, més fosques (cara lateral del vòxel).
+      const c1 = Math.ceil(cell);
+      // Gruix: còpies desplaçades cap avall i a la dreta, més fosques (la cara lateral del bloc o de la fitxa).
       for (let d = depthPx; d >= 1; d--) {
-        for (const p of on) {
-          ctx.fillStyle = css(p.c, MINIATURA.voxel.shade);
-          ctx.fillRect(p.cx * cell + d, p.cy * cell + d, Math.ceil(cell), Math.ceil(cell));
+        for (const [key, c] of cells) {
+          ctx.fillStyle = css(body ?? c, MINIATURA.voxel.shade);
+          ctx.fillRect((key % grid) * cell + d, Math.floor(key / grid) * cell + d, c1, c1);
         }
       }
-      // Cara frontal, amb una franja de llum a dalt de cada píxel perquè es llegeixi com un bloc.
-      for (const p of on) {
-        ctx.fillStyle = css(p.c, 1);
-        ctx.fillRect(p.cx * cell, p.cy * cell, Math.ceil(cell), Math.ceil(cell));
-        if (depthPx) {
-          ctx.fillStyle = mix(p.c, MINIATURA.voxel.bevelLight);
-          ctx.fillRect(p.cx * cell, p.cy * cell, Math.ceil(cell), Math.ceil(cell * MINIATURA.voxel.bevel));
+      // Cara frontal. Sense fitxa, cada píxel du una franja de llum (blocs); amb fitxa, només la vora de dalt i
+      // l'esquerra de la fitxa s'aclareixen (la llum ve de dalt a l'esquerra).
+      for (const [key, c] of cells) {
+        const i = key % grid;
+        const j = Math.floor(key / grid);
+        ctx.fillStyle = css(c, 1);
+        ctx.fillRect(i * cell, j * cell, c1, c1);
+        if (!depthPx) continue;
+        if (!tile) {
+          ctx.fillStyle = mix(c, MINIATURA.voxel.bevelLight);
+          ctx.fillRect(i * cell, j * cell, c1, Math.ceil(cell * MINIATURA.voxel.bevel));
+        } else if (!cells.has((j - 1) * grid + i) || !cells.has(j * grid + i - 1) || j === 0 || i === 0) {
+          ctx.fillStyle = mix(c, MINIATURA.voxel.bevelLight);
+          ctx.fillRect(i * cell, j * cell, c1, c1);
         }
       }
       continueRender(handle);
     };
     img.onerror = () => cancelRender(new Error(`No s'ha pogut carregar ${src}`));
     img.src = staticFile(src);
-  }, [src, grid, cell, depthPx, tint, handle]);
+  }, [src, grid, cell, depthPx, tint, tile, handle]);
   return (
     <canvas
       ref={ref}
@@ -479,7 +514,7 @@ const PixelLogo: React.FC<LogoProps> = ({src, x, y, size, grid, tint, depth = 0,
         position: 'absolute',
         left: x,
         top: y,
-        filter: MINIATURA.pixel.logoShadow,
+        filter: `${blur ? `blur(${blur}px) ` : ''}${MINIATURA.pixel.logoShadow}`,
         transform: `perspective(${MINIATURA.voxel.perspectivePx}px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) rotate(${rotate}deg)`,
       }}
     />
@@ -559,7 +594,33 @@ const Lliure: React.FC<
   const k = at.faceH / photo.face.h;
   return (
     <>
-      {scene === 'gamer' ? (
+      {scene === 'negre' ? (
+        <>
+          <AbsoluteFill style={{background: MINIATURA.negre.base}} />
+          <div
+            style={{
+              position: 'absolute',
+              left: at.x - at.faceH * 2.4,
+              top: at.eyesY - at.faceH * 2.0,
+              width: at.faceH * 4.8,
+              height: at.faceH * 4.8,
+              background: MINIATURA.negre.halo,
+            }}
+          />
+          <Img
+            src={staticFile(person)}
+            style={{
+              position: 'absolute',
+              left: at.x - photo.face.x * k,
+              top: at.eyesY - photo.face.eyesY * k,
+              width: photo.photoW * k,
+              height: photo.photoH * k,
+              filter: MINIATURA.negre.personFilter,
+            }}
+          />
+          <AbsoluteFill style={{background: MINIATURA.negre.vignette}} />
+        </>
+      ) : scene === 'gamer' ? (
         <>
           <AbsoluteFill style={{background: g.base}} />
           {g.glows.map((bg, i) => (

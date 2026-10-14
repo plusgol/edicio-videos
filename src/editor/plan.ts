@@ -7,7 +7,7 @@ export type EditorData = {
   height: number;
   title: string;
   theme: RenderPlan['theme'];
-  sources: Record<string, {gainDb: number; person?: boolean}>;
+  sources: Record<string, {gainDb: number; person?: boolean; media?: string}>;
   ranges: {id: string; source: string; block: string; captions: string; reason: string; keep: boolean}[];
   segments: (Omit<RenderSegment, 'src' | 'fromFrame' | 'volumeDb'> & {range: string; source: string})[];
   overlays: {
@@ -77,21 +77,18 @@ export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, st
   }
   const total = Math.max(out, 1);
 
+  // Les preses poden anar reordenades: es busca per temps de l'original, no per ordre de sortida.
   const srcToOutMs = (source: string, ms: number): number | null => {
-    for (const s of segments) {
-      if (s.source !== source) {
-        continue;
-      }
-      const a = (s.trimBefore * 1000) / d.fps;
-      const b = ((s.trimBefore + s.durationInFrames) * 1000) / d.fps;
-      if (ms < a) {
-        return (s.fromFrame * 1000) / d.fps;
-      }
-      if (ms < b) {
-        return (s.fromFrame * 1000) / d.fps + (ms - a);
-      }
+    const spans = segments
+      .filter((s) => s.source === source)
+      .map((s) => ({a: (s.trimBefore * 1000) / d.fps, b: ((s.trimBefore + s.durationInFrames) * 1000) / d.fps, out: (s.fromFrame * 1000) / d.fps}));
+    const inside = spans.find((s) => s.a <= ms && ms < s.b);
+    if (inside) {
+      return inside.out + (ms - inside.a);
     }
-    return null;
+    // Cau en un tros retallat: va al tros conservat que el segueix a l'original.
+    const later = spans.filter((s) => s.a > ms).sort((x, y) => x.a - y.a);
+    return later.length ? later[0].out : null;
   };
 
   const toFrame = (ms: number) => Math.round((ms * d.fps) / 1000);

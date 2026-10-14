@@ -29,20 +29,27 @@ n_src = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 duration = n_src / src_fps
 n_out = int(round(duration * FPS))
 
-# Fotogrames de sortida = mostreig del fotograma d'origen més proper.
-frames = []
+# Fotogrames de sortida = mostreig del fotograma d'origen més proper. Es llegeixen en streaming (dues passades)
+# perquè un vídeo de minuts no hi cap a la memòria.
 want = [min(n_src - 1, int(round(i * src_fps / FPS))) for i in range(n_out)]
-idx, wi = 0, 0
-while wi < len(want):
-    ok, f = cap.read()
-    if not ok:
-        break
-    while wi < len(want) and want[wi] == idx:
-        frames.append(f)
+
+
+def output_frames():
+    cap = cv2.VideoCapture(src)
+    idx, wi, last = 0, 0, None
+    while wi < len(want):
+        ok, f = cap.read()
+        if not ok:
+            break
+        while wi < len(want) and want[wi] == idx:
+            last = f
+            yield f
+            wi += 1
+        idx += 1
+    while wi < len(want) and last is not None:
+        yield last
         wi += 1
-    idx += 1
-while len(frames) < n_out:
-    frames.append(frames[-1])
+
 
 yunet_path = os.environ.get("YUNET_MODEL")
 if yunet_path:
@@ -68,7 +75,7 @@ cx = np.full(n_out, np.nan)
 cy = np.full(n_out, np.nan)
 fh = np.full(n_out, np.nan)
 prev = None
-for i, f in enumerate(frames):
+for i, f in enumerate(output_frames()):
     faces = detect(f)
     if faces:
         # La cara més gran; si n'hi ha diverses, la més propera a l'anterior.
@@ -110,7 +117,7 @@ ff = subprocess.Popen(
      "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-an", dst],
     stdin=subprocess.PIPE,
 )
-for i, f in enumerate(frames):
+for i, f in enumerate(output_frames()):
     xi, yi = int(round(x0[i])), int(round(y0[i]))
     ff.stdin.write(np.ascontiguousarray(f[yi:yi + crop_h, xi:xi + crop_w]).tobytes())
 ff.stdin.close()

@@ -139,6 +139,8 @@ export const ALEX = {
   floatingWordsPx: 52,
   // Aire a dalt dels textos amb degradat (background-clip retalla titlles i accents: Ñ, Á…).
   goldClipPad: '0.18em 0.04em 0.06em',
+  // Xifra curta en or al costat del cap (side): distància lliure des del centre de la cara, en alçades de cara.
+  goldSideClearance: 0.6,
   // Escales del pla base: es van alternant a cada tall
   cameraScales: [1.0, 1.12, 1.22],
 } as const;

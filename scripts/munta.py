@@ -131,16 +131,15 @@ total_frames = out
 
 
 def src_to_out_ms(source, ms):
-    """Temps de l'original → temps de sortida. Si cau en un tros retallat, va al següent tros conservat."""
-    for s in segments:
-        if s["source"] != source:
-            continue
-        a, b = s["trimBefore"] * 1000 / FPS, (s["trimBefore"] + s["durationInFrames"]) * 1000 / FPS
-        if ms < a:
-            return s["fromFrame"] * 1000 / FPS
-        if ms < b:
-            return s["fromFrame"] * 1000 / FPS + (ms - a)
-    return None
+    """Temps de l'original → temps de sortida. Si cau en un tros retallat, va al tros conservat que el segueix a l'original.
+    Les preses poden anar reordenades (p. ex. la 3a presa d'una frase abans de la 1a): es busca per temps de l'original, no per ordre."""
+    spans = [(s["trimBefore"] * 1000 / FPS, (s["trimBefore"] + s["durationInFrames"]) * 1000 / FPS, s["fromFrame"] * 1000 / FPS)
+             for s in segments if s["source"] == source]
+    for a, b, out_ms in spans:
+        if a <= ms < b:
+            return out_ms + (ms - a)
+    later = [(a, out_ms) for a, _, out_ms in spans if a > ms]
+    return min(later)[1] if later else None
 
 
 # ---------- Subtítols ----------
@@ -278,7 +277,7 @@ def face_at(out_frame):
     return None
 
 
-NEEDS_FACE = {"FloatingWords", "EmojiPop", "HandWritten", "LogoPop"}
+NEEDS_FACE = {"FloatingWords", "EmojiPop", "HandWritten", "LogoPop", "GoldWord"}
 overlays = []
 for o in active_overlays:
     at = o["atOutputMs"] if "atOutputMs" in o else src_to_out_ms(o["source"], o["anchorMs"])
@@ -352,7 +351,9 @@ editor = {
     "fps": FPS, "width": edl["video"]["width"], "height": edl["video"]["height"],
     "title": edl.get("title", {}).get("chosen", ""),
     "theme": edl["video"].get("theme", {}),
-    "sources": {n: {"gainDb": round(g, 2), "person": bool(sources[n].get("person"))} for n, g in gains.items()},
+    # "media": nom base del vídeo reenquadrat (work/<media>.1920x1080.mp4), que scripts/editor.sh publica a media/<media>.*
+    "sources": {n: {"gainDb": round(g, 2), "person": bool(sources[n].get("person")), "media": Path(sources[n]["video"]).name.split(".")[0]}
+                for n, g in gains.items()},
     "ranges": [{"id": r["id"], "source": r["source"], "block": r["block"], "captions": r["captions"], "reason": r["reason"],
                 "keep": r.get("keep", True)} for r in edl["ranges"]],
     "segments": [{"range": s["range"], "source": s["source"], "trimBefore": s["trimBefore"],

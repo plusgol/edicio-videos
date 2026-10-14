@@ -1,0 +1,907 @@
+{
+ "_nota": "Pla de muntatge del vídeo en brut «en 4 minutos te cambiaré la vida con la IA» (estil Alex + toc manual + logos). Temps en ms de l'arxiu ORIGINAL.",
+ "version": 1,
+ "video": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "captions": false,
+  "cameraScales": [
+   1.0,
+   1.12,
+   1.22
+  ],
+  "theme": {
+   "mode": "dark",
+   "accent": "#D6A84E"
+  }
+ },
+ "title": {
+  "chosen": "Con estas 3 IAs puedes crear cualquier negocio",
+  "alternatives": [
+   "En menos de 3 minutos: las 3 IAs con las que puedes crear cualquier negocio",
+   "Las 3 IAs que uso para crear cualquier proyecto (y cuánto pago)",
+   "OpenCode, ChatGPT y Claude: mi flujo de trabajo con IA"
+  ],
+  "note": "El títol original diu «en 4 minutos»; el vídeo editat dura ~2:30 (vegeu informe)."
+ },
+ "sources": {
+  "raw": {
+   "video": "work/raw.1920x1080.mp4",
+   "audio": "work/raw.48k.wav",
+   "track": "work/raw.1920x1080.track.json",
+   "transcript": "work/raw.transcript.json",
+   "person": "work/raw.persona.webm"
+  }
+ },
+ "cuts": {
+  "silenceThresholdDbAboveFloor": 9,
+  "shortenSilenceLongerThanMs": 300,
+  "keepAfterSpeechMs": 90,
+  "keepBeforeSpeechMs": 70,
+  "snapWindowMs": 100
+ },
+ "ranges": [
+  {
+   "id": "r00",
+   "source": "raw",
+   "inMs": 3380,
+   "outMs": 5900,
+   "block": "ganxo",
+   "captions": "Con estos tres modelos ya vas a poder crear cualquier proyecto",
+   "reason": "ganxo de la 2a presa (la 1a s'atura a «de intelectual») Entra just abans de «Con» (la veu arrenca a 3,48 s): el vídeo comença sense silenci."
+  },
+  {
+   "id": "r00b",
+   "source": "raw",
+   "inMs": 5900,
+   "outMs": 7250,
+   "block": "ganxo",
+   "captions": "y te lo explico en cuatro minutos.",
+   "reason": "promesa de durada: desactivada perquè el vídeo editat dura ~2:30; activa-la a l'editor si vols mantenir-la",
+   "keep": false
+  },
+  {
+   "id": "r01",
+   "source": "raw",
+   "inMs": 67980,
+   "outMs": 74500,
+   "block": "eina:opencode",
+   "captions": "Vamos a empezar de más barato a más caro. El primero, OpenCode, por favor probarlo. Tienes el plan de 10 y de 40 euros.",
+   "reason": "presa completa d'OpenCode (1:05); les anteriors acaben en error («más, no, menos, coño»)"
+  },
+  {
+   "id": "r02",
+   "source": "raw",
+   "inMs": 74540,
+   "outMs": 84450,
+   "block": "eina:opencode",
+   "captions": "Tienes acceso a más de 30 modelos diferentes, entre ellos DeepSeek 4.1, que es una auténtica burrada, por favor probarlo. Es casi igual que Astra, pero gastando 20 veces menos.",
+   "reason": "detall dels models"
+  },
+  {
+   "id": "r03a",
+   "source": "raw",
+   "inMs": 84480,
+   "outMs": 88000,
+   "block": "eina:opencode",
+   "captions": "Y también tienes acceso, pues, a Kimi, a GLM,",
+   "reason": "altres models; es treu «tienes acceso a muchísimos» (es repeteix)"
+  },
+  {
+   "id": "r03b",
+   "source": "raw",
+   "inMs": 89220,
+   "outMs": 92650,
+   "block": "eina:opencode",
+   "captions": "a Luna también, a muchísimos modelos diferentes",
+   "reason": "continuació"
+  },
+  {
+   "id": "r04",
+   "source": "raw",
+   "inMs": 92700,
+   "outMs": 98550,
+   "block": "eina:opencode",
+   "captions": "y la capacidad de uso es una burrada. Con el plan de 10 dólares creo que llegas a más de 1000 dólares en gastos.",
+   "reason": "xifra clau"
+  },
+  {
+   "id": "r05",
+   "source": "raw",
+   "inMs": 99460,
+   "outMs": 116950,
+   "block": "eina:opencode",
+   "captions": "Sobre todo te va a ir muy bien para hacer un análisis de la competencia, para crear una pequeña base de datos, no para crear un proyecto enorme. Con el plan de 40 puede que sí, pero con el de 10 no te va a permitir crear un proyecto enorme, pero para hacer pequeños side hustles o pequeños apaños te va a ir perfecto.",
+   "reason": "per a què serveix; es treu «Perfecto,» d'arrencada"
+  },
+  {
+   "id": "r06",
+   "source": "raw",
+   "inMs": 166500,
+   "outMs": 173450,
+   "block": "eina:chatgpt",
+   "captions": "El segundo, ChatGPT. Ahora mismo tenemos el plan de 20, de 100, 200 y de 500. Yo ahora mismo tengo el de 100 y el de 20.",
+   "reason": "3a presa de ChatGPT (la més neta; la 1a s'embarbussa i la 2a es repeteix)"
+  },
+  {
+   "id": "r07",
+   "source": "raw",
+   "inMs": 173500,
+   "outMs": 181450,
+   "block": "eina:chatgpt",
+   "captions": "Y no está nada mal. Realmente con el de 20 puedes utilizar sobre todo el GPT-6.1 Sol, que va bastante, bastante bien.",
+   "reason": "pla de 20"
+  },
+  {
+   "id": "r08",
+   "source": "raw",
+   "inMs": 181500,
+   "outMs": 191650,
+   "block": "eina:chatgpt",
+   "captions": "Pero claro, con Astra, pues literalmente puedes hacer dos o tres prompts antes de que se acabe el límite de 5 horas. Con el de 100 sí que tiene bastante más tirada y sobre todo es muy bueno analizándolo",
+   "reason": "límits i pla de 100"
+  },
+  {
+   "id": "r09",
+   "source": "raw",
+   "inMs": 192100,
+   "outMs": 198220,
+   "block": "eina:chatgpt",
+   "captions": "y te ayudará sobre todo, no tanto a nivel diseño, porque a nivel diseño al final va bastante, bastante mal",
+   "reason": "punt feble; es treu el «va bastante» repetit"
+  },
+  {
+   "id": "r10",
+   "source": "raw",
+   "inMs": 199650,
+   "outMs": 209200,
+   "block": "eina:chatgpt",
+   "captions": "en este sentido, pero al final a nivel de razonar, de crear una base de datos, de ayudarte con el tema legal de cualquier plataforma, te va a ir muy, pero que muy bien.",
+   "reason": "punts forts"
+  },
+  {
+   "id": "r11",
+   "source": "raw",
+   "inMs": 260080,
+   "outMs": 270800,
+   "block": "eina:claude",
+   "captions": "Y en tercer lugar, Claude, con muchísima diferencia. Tenemos el plan de 20 y de 100, otra vez tengo los dos, y es que el de 100 es infinito. O sea, tengo el Opus 5.5 en máximo, en X High,",
+   "reason": "3a presa de Claude (la 1a diu «en primer lugar» per error)"
+  },
+  {
+   "id": "r12",
+   "source": "raw",
+   "inMs": 220880,
+   "outMs": 226340,
+   "block": "eina:claude",
+   "captions": "y estoy gastando 10 millones, 15 millones de tokens cada hora y es que no se me ha gastado.",
+   "reason": "de la 1a presa de Claude: s'enganxa just després de «X High» (totes dues preses diuen el mateix abans)"
+  },
+  {
+   "id": "r13",
+   "source": "raw",
+   "inMs": 226950,
+   "outMs": 237550,
+   "block": "eina:claude",
+   "captions": "De hecho, este vídeo está creado con Claude y creo que se me ha gastado el 4% semanal. Un vídeo de casi 6, 7 minutos, que al final lo estoy editando en 4, pero que es una auténtica burrada.",
+   "reason": "prova personal (1a presa); es treu el «No se me ha gastado» repetit"
+  },
+  {
+   "id": "r14",
+   "source": "raw",
+   "inMs": 279400,
+   "outMs": 292600,
+   "block": "eina:claude",
+   "captions": "Y es que a nivel de diseños, vídeos, ahora vais a ver por aquí vídeos que hace, una auténtica burrada. Tiene ese plan de 20 euros, está muy bien también, no podrás utilizar tanto Opus, pero con Sonnet sí que tienes bastantes, bastantes cosas que hacer.",
+   "reason": "de nou la 3a presa"
+  },
+  {
+   "id": "r15",
+   "source": "raw",
+   "inMs": 359000,
+   "outMs": 372650,
+   "block": "flux",
+   "captions": "¿Cómo organizaría mi flujo de trabajo con estas IAs? Empezamos por OpenCode haciéndote la base de datos y haciendo las tareas más simples. Al final tienes mucho contexto, muchos modelos diferentes y puedes gastar bastante. Entonces, para tareas que son más pesadas,",
+   "reason": "5a presa del flux (les 4 anteriors s'aturen)"
+  },
+  {
+   "id": "r16",
+   "source": "raw",
+   "inMs": 373680,
+   "outMs": 380850,
+   "block": "flux",
+   "captions": "pero tampoco son ultra complicadas, lo haría ChatGPT. ¿Para qué? Sobre todo para que interprete estos datos y que verifique,",
+   "reason": "es treu «¿no? Y que,»"
+  },
+  {
+   "id": "r17",
+   "source": "raw",
+   "inMs": 381100,
+   "outMs": 387000,
+   "block": "flux",
+   "captions": "y que analice, que pueda sacar un rendimiento de estos datos. El tema más de razonamiento.",
+   "reason": "continuació"
+  },
+  {
+   "id": "r18",
+   "source": "raw",
+   "inMs": 387050,
+   "outMs": 397400,
+   "block": "tancament",
+   "captions": "Y Claude, sobre todo para el tema de diseño y montarte, pues, por ejemplo, si estás haciendo una app, que te monte la app, que te monte la web. Porque es que es una auténtica locura. Con estos tres es imposible fracasar.",
+   "reason": "tancament amb la frase final"
+  }
+ ],
+ "punchIns": [
+  {
+   "source": "raw",
+   "fromMs": 260080,
+   "toMs": 262500,
+   "scale": 1.3,
+   "reason": "èmfasi: «Claude, con muchísima diferencia»"
+  },
+  {
+   "source": "raw",
+   "fromMs": 394500,
+   "toMs": 397400,
+   "scale": 1.3,
+   "reason": "èmfasi final: «imposible fracasar»"
+  }
+ ],
+ "overlays": [
+  {
+   "id": "slots-hook",
+   "type": "SlotsRow",
+   "source": "raw",
+   "anchorMs": 3920,
+   "durationMs": 1300,
+   "props": {
+    "items": [
+     {
+      "icon": "logo:opencode",
+      "label": "OpenCode"
+     },
+     {
+      "icon": "logo:openai",
+      "label": "ChatGPT"
+     },
+     {
+      "icon": "logo:claude-color",
+      "label": "Claude"
+     }
+    ]
+   },
+   "reason": "«con estos tres modelos»: les tres eines d'un cop d'ull"
+  },
+  {
+   "id": "h-proyecto",
+   "type": "HandWritten",
+   "source": "raw",
+   "anchorMs": 5300,
+   "durationMs": 1400,
+   "props": {
+    "text": "cualquier *proyecto*",
+    "mode": "camera",
+    "side": "left"
+   },
+   "reason": "toc manual: la promesa escrita a mà"
+  },
+  {
+   "id": "s1",
+   "type": "SectionNumeral",
+   "source": "raw",
+   "anchorMs": 69960,
+   "durationMs": 1700,
+   "props": {
+    "numeral": "I",
+    "title": "OpenCode",
+    "logo": "logo:opencode"
+   },
+   "reason": "pas 1: secció amb logo"
+  },
+  {
+   "id": "g-planes",
+   "type": "GoldWord",
+   "source": "raw",
+   "anchorMs": 72520,
+   "durationMs": 1800,
+   "props": {
+    "text": "10€ / 40€",
+    "tone": "gold",
+    "placement": "behind"
+   },
+   "reason": "xifres dites: els dos plans"
+  },
+  {
+   "id": "st-30",
+   "type": "StageStat",
+   "source": "raw",
+   "anchorMs": 75300,
+   "durationMs": 2000,
+   "props": {
+    "tone": "light",
+    "icon": "logo:opencode",
+    "value": "+30",
+    "caption": "modelos diferentes"
+   },
+   "reason": "xifra: més de 30 models"
+  },
+  {
+   "id": "l-deepseek",
+   "type": "LogoPop",
+   "source": "raw",
+   "anchorMs": 78020,
+   "durationMs": 1800,
+   "props": {
+    "src": "logo:deepseek-color",
+    "side": "right",
+    "label": "deepseek 4.1"
+   },
+   "reason": "menciona DeepSeek → logo"
+  },
+  {
+   "id": "h-20x",
+   "type": "HandWritten",
+   "source": "raw",
+   "anchorMs": 81700,
+   "durationMs": 2500,
+   "props": {
+    "text": "como Astra, gastando *20 veces menos*",
+    "mode": "stage"
+   },
+   "reason": "comparació clau escrita a mà"
+  },
+  {
+   "id": "slots-models",
+   "type": "SlotsRow",
+   "source": "raw",
+   "anchorMs": 86280,
+   "durationMs": 2600,
+   "props": {
+    "title": "y muchos más",
+    "items": [
+     {
+      "icon": "logo:kimi-color",
+      "label": "Kimi"
+     },
+     {
+      "icon": "logo:zhipu-color",
+      "label": "GLM"
+     },
+     {
+      "icon": "logo:openai",
+      "label": "Luna"
+     }
+    ]
+   },
+   "reason": "models que esmenta (Kimi, GLM, Luna) amb els seus logos"
+  },
+  {
+   "id": "st-1000",
+   "type": "StageStat",
+   "source": "raw",
+   "anchorMs": 94760,
+   "durationMs": 3200,
+   "props": {
+    "tone": "light",
+    "icon": "logo:opencode",
+    "title": "Plan de 10 $",
+    "from": "10 $",
+    "value": "+1.000 $",
+    "caption": "de uso"
+   },
+   "reason": "xifra clau: pagues 10, gastes més de 1.000"
+  },
+  {
+   "id": "w-competencia",
+   "type": "FloatingWords",
+   "source": "raw",
+   "anchorMs": 102640,
+   "durationMs": 1800,
+   "props": {
+    "text": "análisis de la competencia",
+    "side": "left"
+   },
+   "reason": "ús concret"
+  },
+  {
+   "id": "h-bd",
+   "type": "HandWritten",
+   "source": "raw",
+   "anchorMs": 105600,
+   "durationMs": 1750,
+   "props": {
+    "text": "una pequeña *base de datos*",
+    "mode": "camera",
+    "side": "right"
+   },
+   "reason": "ús concret, escrit a mà"
+  },
+  {
+   "id": "e-no",
+   "type": "EmojiPop",
+   "source": "raw",
+   "anchorMs": 107360,
+   "durationMs": 1400,
+   "props": {
+    "src": "emoji:1f6ab",
+    "side": "left"
+   },
+   "reason": "«no para crear un proyecto enorme»"
+  },
+  {
+   "id": "w-enorme",
+   "type": "FloatingWords",
+   "source": "raw",
+   "anchorMs": 111940,
+   "durationMs": 1800,
+   "props": {
+    "text": "no para un proyecto enorme",
+    "side": "right"
+   },
+   "reason": "«con el de 10 no te va a permitir crear un proyecto enorme»: el matís del pla barat; omple un buit de 5 s sense gràfics"
+  },
+  {
+   "id": "e-apanos",
+   "type": "EmojiPop",
+   "source": "raw",
+   "anchorMs": 113940,
+   "durationMs": 1800,
+   "props": {
+    "src": "emoji:1f6e0-fe0f",
+    "side": "right",
+    "label": "side hustles"
+   },
+   "reason": "«side hustles o pequeños apaños»"
+  },
+  {
+   "id": "s2",
+   "type": "SectionNumeral",
+   "source": "raw",
+   "anchorMs": 166540,
+   "durationMs": 1700,
+   "props": {
+    "numeral": "II",
+    "title": "ChatGPT",
+    "logo": "logo:openai"
+   },
+   "reason": "pas 2"
+  },
+  {
+   "id": "g-planes-gpt",
+   "type": "GoldWord",
+   "source": "raw",
+   "anchorMs": 168940,
+   "durationMs": 2300,
+   "props": {
+    "text": "20 · 100 · 200 · 500",
+    "tone": "gold",
+    "placement": "stage-light",
+    "sub": "planes de ChatGPT",
+    "size": 190
+   },
+   "reason": "els quatre plans que diu"
+  },
+  {
+   "id": "w-tengo",
+   "type": "FloatingWords",
+   "source": "raw",
+   "anchorMs": 171420,
+   "durationMs": 2000,
+   "props": {
+    "text": "yo tengo el de 100 y el de 20",
+    "side": "left"
+   },
+   "reason": "experiència personal"
+  },
+  {
+   "id": "l-sol",
+   "type": "LogoPop",
+   "source": "raw",
+   "anchorMs": 177280,
+   "durationMs": 1800,
+   "props": {
+    "src": "logo:openai",
+    "side": "right",
+    "label": "gpt-6.1 sol"
+   },
+   "reason": "menciona un model d'OpenAI → logo"
+  },
+  {
+   "id": "st-5h",
+   "type": "StageStat",
+   "source": "raw",
+   "anchorMs": 182480,
+   "durationMs": 3000,
+   "props": {
+    "tone": "light",
+    "icon": "emoji:23f0",
+    "value": "5 H",
+    "caption": "2 o 3 prompts con Astra"
+   },
+   "reason": "xifra de temps (el rellotge d'Alex)"
+  },
+  {
+   "id": "g-100",
+   "type": "GoldWord",
+   "source": "raw",
+   "anchorMs": 187640,
+   "durationMs": 1300,
+   "props": {
+    "text": "100€",
+    "tone": "gold",
+    "placement": "behind",
+    "side": "right",
+    "size": 340
+   },
+   "reason": "xifra: pla de 100 Al costat del cap (side): una xifra tan curta quedava tapada."
+  },
+  {
+   "id": "e-diseno",
+   "type": "EmojiPop",
+   "source": "raw",
+   "anchorMs": 193960,
+   "durationMs": 1800,
+   "props": {
+    "src": "emoji:1f44e",
+    "side": "right",
+    "label": "diseño"
+   },
+   "reason": "«a nivel diseño va bastante mal»"
+  },
+  {
+   "id": "h-razonar",
+   "type": "HandWritten",
+   "source": "raw",
+   "anchorMs": 200800,
+   "durationMs": 3500,
+   "props": {
+    "text": "razonar, bases de datos y *temas legales*",
+    "mode": "stage"
+   },
+   "reason": "punts forts escrits a mà"
+  },
+  {
+   "id": "w-muybien",
+   "type": "FloatingWords",
+   "source": "raw",
+   "anchorMs": 207200,
+   "durationMs": 1800,
+   "props": {
+    "text": "muy, pero que muy bien",
+    "side": "left"
+   },
+   "reason": "tanca la secció de ChatGPT amb la seva valoració literal; buit de 5 s abans de la secció III"
+  },
+  {
+   "id": "s3",
+   "type": "SectionNumeral",
+   "source": "raw",
+   "anchorMs": 260440,
+   "durationMs": 1700,
+   "props": {
+    "numeral": "III",
+    "title": "Claude",
+    "logo": "logo:claude-color"
+   },
+   "reason": "pas 3"
+  },
+  {
+   "id": "h-diferencia",
+   "type": "HandWritten",
+   "source": "raw",
+   "anchorMs": 262160,
+   "durationMs": 1300,
+   "props": {
+    "text": "con *muchísima* diferencia",
+    "mode": "camera",
+    "side": "left"
+   },
+   "reason": "èmfasi escrit a mà"
+  },
+  {
+   "id": "g-inf",
+   "type": "GoldWord",
+   "source": "raw",
+   "anchorMs": 266120,
+   "durationMs": 1100,
+   "props": {
+    "text": "INFINITO",
+    "tone": "gold",
+    "placement": "behind"
+   },
+   "reason": "concepte fort: «el de 100 es infinito»"
+  },
+  {
+   "id": "l-opus",
+   "type": "LogoPop",
+   "source": "raw",
+   "anchorMs": 267480,
+   "durationMs": 2000,
+   "props": {
+    "src": "logo:claude-color",
+    "side": "right",
+    "label": "opus 5.5"
+   },
+   "reason": "menciona Opus → logo de Claude"
+  },
+  {
+   "id": "st-tokens",
+   "type": "StageStat",
+   "source": "raw",
+   "anchorMs": 221880,
+   "durationMs": 2600,
+   "props": {
+    "tone": "light",
+    "icon": "emoji:1f680",
+    "value": "15 M",
+    "caption": "tokens cada hora"
+   },
+   "reason": "xifra: 10–15 milions de tokens per hora"
+  },
+  {
+   "id": "h-creado",
+   "type": "HandWritten",
+   "source": "raw",
+   "anchorMs": 227320,
+   "durationMs": 2450,
+   "props": {
+    "text": "este vídeo está creado con *Claude*",
+    "mode": "stage",
+    "logo": "logo:claude-color"
+   },
+   "reason": "la prova personal, escrita a mà amb el logo"
+  },
+  {
+   "id": "g-4",
+   "type": "GoldWord",
+   "source": "raw",
+   "anchorMs": 229800,
+   "durationMs": 1100,
+   "props": {
+    "text": "4%",
+    "tone": "gold",
+    "placement": "behind",
+    "side": "right"
+   },
+   "reason": "xifra: el 4% setmanal Al costat del cap (side): una xifra tan curta quedava tapada."
+  },
+  {
+   "id": "w-editando",
+   "type": "FloatingWords",
+   "source": "raw",
+   "anchorMs": 230920,
+   "durationMs": 2600,
+   "props": {
+    "text": "un vídeo de 6-7 minutos editado en 4",
+    "side": "left"
+   },
+   "reason": "frase clau"
+  },
+  {
+   "id": "g-burrada",
+   "type": "GoldWord",
+   "source": "raw",
+   "anchorMs": 236440,
+   "durationMs": 1100,
+   "props": {
+    "text": "BURRADA",
+    "tone": "gold",
+    "placement": "behind"
+   },
+   "reason": "«es una auténtica burrada» (el vídeo editat amb el 4% del pla): paraula d'èmfasi, en or darrere seu com a Alex"
+  },
+  {
+   "id": "e-videos",
+   "type": "EmojiPop",
+   "source": "raw",
+   "anchorMs": 281780,
+   "durationMs": 1400,
+   "props": {
+    "src": "emoji:1f3ac",
+    "side": "right"
+   },
+   "reason": "«vídeos que hace»"
+  },
+  {
+   "id": "g-20",
+   "type": "GoldWord",
+   "source": "raw",
+   "anchorMs": 286020,
+   "durationMs": 1200,
+   "props": {
+    "text": "20€",
+    "tone": "gold",
+    "placement": "behind",
+    "side": "right"
+   },
+   "reason": "«tiene ese plan de 20 euros»: el preu del pla bàsic de Claude Al costat del cap (side): una xifra tan curta quedava tapada."
+  },
+  {
+   "id": "l-sonnet",
+   "type": "LogoPop",
+   "source": "raw",
+   "anchorMs": 289780,
+   "durationMs": 1600,
+   "props": {
+    "src": "logo:claude-color",
+    "side": "right",
+    "label": "sonnet"
+   },
+   "reason": "menciona Sonnet → logo de Claude"
+  },
+  {
+   "id": "h-flujo",
+   "type": "HandWritten",
+   "source": "raw",
+   "anchorMs": 359060,
+   "durationMs": 1800,
+   "props": {
+    "text": "mi *flujo* de trabajo",
+    "mode": "stage"
+   },
+   "reason": "secció final escrita a mà"
+  },
+  {
+   "id": "l-flujo-oc",
+   "type": "LogoPop",
+   "source": "raw",
+   "anchorMs": 362260,
+   "durationMs": 2200,
+   "props": {
+    "src": "logo:opencode",
+    "side": "right",
+    "label": "base de datos"
+   },
+   "reason": "pas 1 del flux: OpenCode"
+  },
+  {
+   "id": "w-contexto",
+   "type": "FloatingWords",
+   "source": "raw",
+   "anchorMs": 366740,
+   "durationMs": 2200,
+   "props": {
+    "text": "mucho contexto, muchos modelos",
+    "side": "left"
+   },
+   "reason": "«tienes mucho contexto, muchos modelos diferentes»: per què OpenCode fa les tasques simples del flux"
+  },
+  {
+   "id": "e-pesadas",
+   "type": "EmojiPop",
+   "source": "raw",
+   "anchorMs": 371000,
+   "durationMs": 1400,
+   "props": {
+    "src": "emoji:1f9e0",
+    "side": "left"
+   },
+   "reason": "«tareas más pesadas»"
+  },
+  {
+   "id": "l-flujo-gpt",
+   "type": "LogoPop",
+   "source": "raw",
+   "anchorMs": 376360,
+   "durationMs": 2400,
+   "props": {
+    "src": "logo:openai",
+    "side": "left",
+    "label": "interpretar datos"
+   },
+   "reason": "pas 2 del flux: ChatGPT"
+  },
+  {
+   "id": "e-datos",
+   "type": "EmojiPop",
+   "source": "raw",
+   "anchorMs": 381160,
+   "durationMs": 1500,
+   "props": {
+    "src": "emoji:1f4ca",
+    "side": "right"
+   },
+   "reason": "«que analice… rendimiento de estos datos»"
+  },
+  {
+   "id": "w-razonamiento",
+   "type": "FloatingWords",
+   "source": "raw",
+   "anchorMs": 385320,
+   "durationMs": 1500,
+   "props": {
+    "text": "razonamiento",
+    "side": "right"
+   },
+   "reason": "«el tema más de razonamiento»: el paper de ChatGPT al flux"
+  },
+  {
+   "id": "l-flujo-claude",
+   "type": "LogoPop",
+   "source": "raw",
+   "anchorMs": 387320,
+   "durationMs": 2400,
+   "props": {
+    "src": "logo:claude-color",
+    "side": "right",
+    "label": "diseño y apps"
+   },
+   "reason": "pas 3 del flux: Claude"
+  },
+  {
+   "id": "slots-final",
+   "type": "SlotsRow",
+   "source": "raw",
+   "anchorMs": 392680,
+   "durationMs": 2550,
+   "props": {
+    "title": "tu equipo de IA",
+    "items": [
+     {
+      "icon": "logo:opencode",
+      "label": "datos"
+     },
+     {
+      "icon": "logo:openai",
+      "label": "análisis"
+     },
+     {
+      "icon": "logo:claude-color",
+      "label": "diseño"
+     }
+    ]
+   },
+   "reason": "resum del flux: les tres eines en ordre"
+  },
+  {
+   "id": "h-fracasar",
+   "type": "HandWritten",
+   "source": "raw",
+   "anchorMs": 395480,
+   "durationMs": 1700,
+   "props": {
+    "text": "imposible *fracasar*",
+    "mode": "camera",
+    "side": "left"
+   },
+   "reason": "tancament escrit a mà"
+  }
+ ],
+ "audio": {
+  "targetLufs": -16,
+  "maxTruePeakDb": -1.5,
+  "fadeMs": 12,
+  "highpassHz": 90,
+  "denoise": "afftdn=nr=10:nf=-40",
+  "music": null
+ },
+ "pending": [
+  {
+   "what": "escolta humana del màster",
+   "why": "Claude no pot escoltar l'àudio",
+   "impact": "revisar els empalmaments entre preses diferents, sobretot «X High | y estoy gastando» (Claude)"
+  },
+  {
+   "what": "vídeos fets amb Claude",
+   "why": "diu «ahora vais a ver por aquí vídeos que hace» i no en tenim cap gravació",
+   "impact": "afegir 2–3 clips o captures reals en aquell moment"
+  },
+  {
+   "what": "noms i xifres",
+   "why": "transcripció automàtica",
+   "impact": "confirmar DeepSeek 4.1, GPT-6.1 Sol, Opus 5.5, «más de 30 modelos» (en una presa anterior deies 70) i «+1.000 $ de uso»"
+  },
+  {
+   "what": "resolució",
+   "why": "el vídeo és 832×464",
+   "impact": "si el tens en més qualitat, el torno a renderitzar igual"
+  },
+  {
+   "what": "música de fons",
+   "why": "no hi ha cap pista amb llicència",
+   "impact": "opcional"
+  }
+ ]
+}

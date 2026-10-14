@@ -17,12 +17,14 @@ type Db = {
 
 // H.264 si el navegador el reprodueix (Chrome, Safari, Edge); si no, WebM VP9.
 const EXT = document.createElement('video').canPlayType('video/mp4; codecs="avc1.4d401f"') ? 'mp4' : 'webm';
-const MEDIA: Record<string, string> = {
-  curt: `./media/curt.${EXT}`,
-  llarg: `./media/llarg.${EXT}`,
-  'curt:persona': './media/curt.persona.webm',
-  'llarg:persona': './media/llarg.persona.webm',
-};
+// Fitxers que publica scripts/editor.sh per a cada font: media/<nom>.{mp4,webm} i, si n'hi ha, media/<nom>.persona.webm.
+const mediaFor = (d: EditorData): Record<string, string> =>
+  Object.fromEntries(
+    Object.entries(d.sources).flatMap(([name, s]) => {
+      const base = `./media/${s.media ?? name}`;
+      return [[name, `${base}.${EXT}`], ...(s.person ? [[`${name}:persona`, `${base}.persona.webm`]] : [])];
+    }),
+  );
 const REV_DOC = 'revisio/actual';
 
 const TYPE_LABEL: Record<string, string> = {
@@ -40,6 +42,8 @@ const TYPE_LABEL: Record<string, string> = {
   StageStat: 'Xifra',
   NetworkDiagram: 'Xarxa',
   SlotsRow: 'Caselles',
+  HandWritten: 'Lletra a mà',
+  LogoPop: 'Logo',
 };
 
 const BLOCK_LABEL = (block: string) => {
@@ -85,6 +89,10 @@ const summary = (type: string, p: Record<string, unknown>) => {
       return `${(p.center as {label: string}).label} ← ${((p.nodes as {label: string}[]) ?? []).map((n) => n.label).join(', ')}`;
     case 'SlotsRow':
       return `${p.title ?? ''} · ${((p.items as {label?: string}[]) ?? []).map((n) => n.label).join(', ')}`;
+    case 'HandWritten':
+      return String(p.text ?? '').replaceAll('*', '');
+    case 'LogoPop':
+      return String(p.label ?? 'logo');
     default:
       return String(p.text ?? '');
   }
@@ -234,6 +242,10 @@ const OverlayFields: React.FC<{id: string; type: string; props: Record<string, u
     }
     case 'SlotsRow':
       return text('title', 'Títol');
+    case 'HandWritten':
+      return text('text', 'Text escrit a mà (entre *asteriscs*, la paraula en color)');
+    case 'LogoPop':
+      return text('label', 'Text escrit a mà sota el logo (opcional)');
     default:
       return text('text', 'Text');
   }
@@ -349,7 +361,7 @@ const App: React.FC<{data: EditorData}> = ({data}) => {
   const [message, setMessage] = useState('');
   const player = useRef<PlayerRef>(null);
 
-  const {plan, segments, overlayTimes, rangeTimes} = useMemo(() => buildPlan(data, rev, MEDIA), [data, rev]);
+  const {plan, segments, overlayTimes, rangeTimes} = useMemo(() => buildPlan(data, rev, mediaFor(data)), [data, rev]);
 
   // Base de dades de l'artefacte: si no hi és (vista sense permís), l'editor funciona igual però no desa.
   useEffect(() => {
@@ -428,7 +440,8 @@ const App: React.FC<{data: EditorData}> = ({data}) => {
     const r = rev.overlays[o.id];
     return !r.enabled || r.offsetMs !== o.offsetMs || r.durationMs !== o.durationMs || JSON.stringify(r.props) !== JSON.stringify(o.props) || r.comment;
   }).length;
-  const cutRanges = data.ranges.filter((r) => !rev.ranges[r.id].keep).length;
+  // Trams que la revisió canvia respecte al muntatge proposat (treure'n un o recuperar-ne un de descartat).
+  const cutRanges = data.ranges.filter((r) => rev.ranges[r.id].keep !== r.keep).length;
 
   const statusText =
     saved === null
@@ -494,7 +507,7 @@ const App: React.FC<{data: EditorData}> = ({data}) => {
               {fmt(frame, plan.fps)} / {fmt(plan.durationInFrames, plan.fps)}
             </span>
             <span>
-              {changedOverlays} gràfics retocats · {cutRanges} talls nous
+              {changedOverlays} gràfics retocats · {cutRanges} trams canviats
             </span>
           </div>
           <Timeline

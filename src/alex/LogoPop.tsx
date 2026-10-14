@@ -31,6 +31,12 @@ export const LogoPop: React.FC<LogoPopProps> = ({src, label, side = 'right', fac
   const y = Math.max(80, Math.min(height - 380, fy - 40));
   // L'etiqueta s'escriu en ~0,5 s, just després que s'enganxi l'adhesiu.
   const labelT = Math.max(0, (frame - 6) / (fps * 0.5));
+  const labelWords: {text: string; from: number}[] = [];
+  let labelChars = 0;
+  for (const text of (label ?? '').split(/\s+/).filter(Boolean)) {
+    labelWords.push({text, from: labelChars});
+    labelChars += text.length;
+  }
   return (
     <AbsoluteFill style={{opacity: exit.opacity, filter: exit.filter}}>
       <div
@@ -41,7 +47,6 @@ export const LogoPop: React.FC<LogoPopProps> = ({src, label, side = 'right', fac
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: 6,
           transform: `scale(${0.55 + 0.45 * pop}) rotate(${tilt}deg)`,
           opacity: interpolate(frame, [0, 3], [0, 1], {extrapolateRight: 'clamp'}),
           filter: `blur(${Math.max(0, 1 - frame / 4) * 8}px)`,
@@ -50,12 +55,32 @@ export const LogoPop: React.FC<LogoPopProps> = ({src, label, side = 'right', fac
         <div style={{padding, borderRadius: radius, background: '#FFFFFF', boxShadow: '0 14px 30px rgba(0,0,0,.35), 0 0 0 4px rgba(255,255,255,.6)'}}>
           <Img src={resolveSrc(src)} style={{width: logoPx, height: logoPx, objectFit: 'contain', display: 'block'}} />
         </div>
-        {label ? (
-          <div style={{filter: 'drop-shadow(0 3px 8px rgba(0,0,0,.6))', whiteSpace: 'nowrap', width: 'max-content'}}>
-            <TegakiRenderer font={caveat} text={label} time={{mode: 'controlled', value: Math.min(1, labelT), unit: 'progress'}} style={{fontSize: 64, lineHeight: 1.1, whiteSpace: 'pre', display: 'inline-block', width: 'max-content', paddingRight: '0.35em', color: MANUAL.inkOnCamera}} />
-          </div>
-        ) : null}
       </div>
+      {label ? (
+        // Una peça per paraula (com HandWritten): amb tota l'etiqueta en una sola, tegaki la partia dins d'una paraula
+        // («deepseek 4.» / «1», «base de dat» / «os»).
+        <div
+          style={{
+            position: 'absolute',
+            left: x + cardW / 2,
+            top: y + cardW + 6,
+            display: 'flex',
+            flexWrap: 'nowrap',
+            transform: `translateX(-50%) rotate(${tilt}deg)`,
+            filter: 'drop-shadow(0 3px 8px rgba(0,0,0,.6))',
+          }}
+        >
+          {labelWords.map((w, i) => (
+            <TegakiRenderer
+              key={i}
+              font={caveat}
+              text={w.text}
+              time={{mode: 'controlled', value: Math.min(1, Math.max(0, (labelT * labelChars - w.from) / w.text.length)), unit: 'progress'}}
+              style={{fontSize: 64, lineHeight: 1.1, whiteSpace: 'pre', display: 'inline-block', width: 'max-content', paddingRight: '0.35em', color: MANUAL.inkOnCamera}}
+            />
+          ))}
+        </div>
+      ) : null}
     </AbsoluteFill>
   );
 };

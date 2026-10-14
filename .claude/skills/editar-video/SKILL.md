@@ -12,6 +12,7 @@ Marca personal sobre IA i negocis, en castellà. **Format principal: YouTube lla
 **Estil (decidit per l'usuari): el del vídeo d'Alex DiLorenzo «mis +10.000 horas de YouTube explicados en 15 minutos».** Llegeix `docs/ESTIL_ALEX.md` abans d'editar: hi ha el catàleg de recursos, el ritme i les regles de context. En resum:
 - **Ritme:** pauses molt curtes (> 300 ms → 70–90 ms de marge) i un canvi visual cada 2–4 s. Les escales del pla base es van alternant entre 1,00, 1,12 i 1,22.
 - **Cada xifra** → `GoldWord` (or condensat; `placement: "behind"` la posa darrere de la persona retallada). **Cada concepte fort** → `GoldWord` blanc o daurat.
+  Una xifra curta («4%», «20€», «100€») darrere del cap queda tapada: afegeix-hi `side: "right"` (o `"left"`) i va al costat de la cara. Comprova-ho sempre en un fotograma.
 - **Cada pas** → `SectionNumeral` (I, II, III + títol). **Cada metàfora o objecte** → `EmojiPop` (emoji 3D a la mà o sobre l'escenari).
 - **Comparacions de preus o xifres** → `StageStat`. **Connexions entre eines** → `NetworkDiagram`. **Resum de llista** → `SlotsRow`.
 - **Frases clau** → `FloatingWords` al costat del cap (cada 10–20 s).
@@ -43,7 +44,7 @@ Si una inserció mostra una interfície **il·lustrativa** (un terminal, un xat)
    - `overlays` són el ganxo i les etiquetes, ancorades a un temps de l'original (`anchorMs`).
    - Els silencis llargs dins de cada `range` els retalla `munta.py` sol.
 5. **Muntatge:** `python3 -I scripts/munta.py projectes/<nom>`. Escriu `work/render.json` (fotogrames de sortida), `work/voice.wav` (fosos de 12 ms, neteja i −16 LUFS / −1,5 dBTP) i `work/muntatge.txt`.
-6. **Revisió (editor de vista prèvia):** `scripts/editor.sh projectes/<nom>` i publica `out/editor/index.html` com a artefacte (amb `files` i `capabilities: {db: {}}`; mateix fitxer = mateixa URL). L'usuari hi revisa, edita i aprova. Després llegeix el document `revisio/actual` (ArtifactData `get` amb `out_dir`) i aplica'l amb `python3 -I scripts/aplica_revisio.py projectes/<nom> <fitxer.json>`. Els comentaris els has de resoldre tu. Torna a muntar i renderitza.
+6. **Revisió (editor de vista prèvia):** `scripts/editor.sh projectes/<nom>` (títol de la pestanya amb `EDITOR_TITLE=...`; ajusta els mitjans al límit de 15 MB per fitxer segons la durada) i publica `out/editor/index.html` com a artefacte (amb `files` i `capabilities: {db: {}}`; mateix fitxer = mateixa URL). L'usuari hi revisa, edita i aprova. Després llegeix el document `revisio/actual` (ArtifactData `get` amb `out_dir`) i aplica'l amb `python3 -I scripts/aplica_revisio.py projectes/<nom> <fitxer.json>`. Els comentaris els has de resoldre tu. Torna a muntar i renderitza.
 7. **Fotogrames de prova:** `npx remotion still src/index.ts Video qa.png --public-dir=projectes/<nom> --frame=N`. Fes-ne un de cada tipus d'escena i mira'ls: ulls i boca lliures, contrast, desbordaments.
 8. **Render:** `scripts/render.sh projectes/<nom>`. A l'entorn al núvol cal afegir `--browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`.
 9. **QA:** recorre la checklist (§21 de la guia). Comprova la sonoritat amb `ebur128` i que la durada coincideixi amb el títol.

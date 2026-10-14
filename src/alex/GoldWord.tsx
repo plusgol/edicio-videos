@@ -13,12 +13,17 @@ export type GoldWordProps = {
   // stage-light / stage-dark: sola sobre un escenari
   placement?: 'behind' | 'front' | 'stage-light' | 'stage-dark';
   size?: number;
+  // Només amb placement behind: una xifra curta («4%», «20€») quedaria tapada pel cap; amb side va al costat de la cara.
+  side?: 'left' | 'right';
+  faceX?: number;
+  faceY?: number;
+  faceH?: number;
 };
 
 // Paraula o xifra gegant en condensada daurada; les lletres entren escalonades i desenfocades.
-export const GoldWord: React.FC<GoldWordProps> = ({text, sub, tone = 'gold', placement = 'behind', size}) => {
+export const GoldWord: React.FC<GoldWordProps> = ({text, sub, tone = 'gold', placement = 'behind', size, side, faceX, faceY, faceH}) => {
   const frame = useCurrentFrame();
-  const {fps, durationInFrames, height} = useVideoConfig();
+  const {fps, durationInFrames, width, height} = useVideoConfig();
   const fontSize = size ?? (placement === 'front' ? 190 : placement === 'behind' ? 420 : 300);
   const exit = blurInOut(frame, durationInFrames, 0);
   const chars = [...text];
@@ -72,6 +77,20 @@ export const GoldWord: React.FC<GoldWordProps> = ({text, sub, tone = 'gold', pla
           {sub ? <div style={{fontFamily: WORDS, fontWeight: 500, fontSize: 44, color: placement === 'stage-light' ? ALEX.ink : ALEX.white, marginTop: 12}}>{sub}</div> : null}
         </AbsoluteFill>
       </Stage>
+    );
+  }
+  if (placement === 'behind' && side) {
+    const fx = faceX ?? width / 2;
+    const fy = faceY ?? height * 0.38;
+    const clear = (faceH ?? height * 0.3) * ALEX.goldSideClearance;
+    const region = side === 'left' ? {left: 0, width: fx - clear} : {left: fx + clear, width: width - fx - clear};
+    return (
+      <AbsoluteFill style={wrapStyle}>
+        <div style={{position: 'absolute', ...region, top: fy - fontSize / 2, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+          {subLine}
+          {word}
+        </div>
+      </AbsoluteFill>
     );
   }
   return (

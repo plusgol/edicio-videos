@@ -39,10 +39,10 @@ export const EmojiPop: React.FC<EmojiPopProps> = ({src, label, stage = 'none', s
         <div
           style={{
             position: 'absolute',
-            left: 0,
-            right: 0,
+            left: x,
             top: y + s / 2 + 26,
-            textAlign: 'center',
+            transform: 'translateX(-50%)',
+            whiteSpace: 'nowrap',
             fontFamily: WORDS,
             fontWeight: 500,
             fontSize: 44,

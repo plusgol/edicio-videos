@@ -11,9 +11,9 @@ mkdir -p "$P/out"
 python3 -I - "$P/miniatures.json" "$TMP" <<'PY'
 import json, sys
 cfg = json.load(open(sys.argv[1]))
-base = {k: cfg[k] for k in ("photo", "person", "photoW", "photoH", "face")}
+base = {k: cfg[k] for k in ("person", "background", "photoW", "photoH", "face")}
 for v in cfg["variants"]:
-    props = {**base, **{k: v[k] for k in ("variant", "big", "hand", "logos") if k in v}}
+    props = {**base, **{k: v[k] for k in ("variant", "lines", "board") if k in v}}
     json.dump(props, open(f"{sys.argv[2]}/{v['name']}.json", "w"), ensure_ascii=False)
 PY
 for f in "$TMP"/*.json; do

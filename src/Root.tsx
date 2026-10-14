@@ -30,7 +30,7 @@ export const Root: React.FC = () => (
     height={MINIATURA.height}
     fps={30}
     durationInFrames={1}
-    defaultProps={{variant: 'oro', photo: '', person: '', photoW: 1, photoH: 1, face: {x: 0, eyesY: 0, h: 1}} as MiniaturaProps}
+    defaultProps={{variant: 'cine', person: '', background: '', photoW: 1, photoH: 1, face: {x: 0, eyesY: 0, h: 1}} as MiniaturaProps}
   />
   </>
 );

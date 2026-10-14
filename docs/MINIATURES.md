@@ -33,21 +33,31 @@ Recerca de l'octubre de 2026 per al vídeo `projectes/en-4-minutos`. Es basa en 
 - **Estudi d'11.223 miniatures:** expressió neutra en el 35% de les cares, feliç en el 32% i sorpresa en l'11%. Contacte visual en el 49%.
 - *Inferència* sobre aquest gènere: primer pla o pla mitjà, una sola persona, mirada seriosa a càmera, fons llis fosc o desenfocat, i 0–4 paraules (sovint el número, «15 MIN»).
 
-## 3. Regles per a les nostres miniatures
+## 3. Direcció triada per l'usuari (octubre de 2026)
+- **Rebutjades:** les primeres variants (or sobre negre, logos sobre la foto i lletra a mà sobre gris clar). Massa clares i «vistes».
+- **Referències que li agraden:**
+  - **«It's So F*cking Simple.»:** persona a l'esquerra en una habitació real amb llum fosca, i a la dreta tres línies curtes de text blanc molt gruixut, amb l'última paraula en groc i ombra forta.
+  - **Pissarra «CONFIDENCE / Pillar 1 2 3»:** esquema dibuixat a mà al costat de la persona.
+- **Missatge:** «en 3 minuts et canvio la vida amb la IA i els negocis».
+- **Implementat** a `src/miniatura/Miniatura.tsx`:
+  - `cine`: la mida del text s'ajusta sola perquè cap línia es parteixi;
+  - `pizarra`: retolador blanc i groc sobre la paret fosca, amb un rellotge i el text dels minuts, un ninot amb raigs, un requadre amb el resultat i les eines com a pilars.
+
+## 4. Regles per a les nostres miniatures
 1. **Mida:** 1280×720, JPG de menys de 2 MB (ho fa `scripts/miniatures.sh`).
 2. **Text:** 2–5 paraules. Una peça gran (xifra o paraula en or) i, com a molt, una frase curta a mà.
-3. **Expressió:** cara seriosa o neutra, sense ganyotes, que és el que funciona en IA i negocis.
+3. **Expressió i llum:** cara seriosa o neutra, sense ganyotes, que és el que funciona en IA i negocis. Llum fosca i cinematogràfica, amb el focus a la cara.
 4. **Cantonada de baix a la dreta lliure:** YouTube hi posa la durada.
 5. **Llegibilitat:** s'ha de poder llegir a 160×90. Mira-ho a `out/miniatures_petites.png`.
 6. **Logos:** només els de les eines de què parla el vídeo. Res d'inventar resultats, xifres ni captures.
 7. **Prova:** 2–3 variants amb **Test & Compare** a YouTube Studio (ordinador). Guanya la que fa més temps de visualització, no la que té més clics. La prova dura com a màxim dues setmanes.
 
-## 4. Com es fan
+## 5. Com es fan
 1. Copia la foto de l'usuari a `projectes/<nom>/input/` (no es toca mai).
-2. Retalla-la: `RVM_MODEL=... python3 -I scripts/retalla_foto.py input/<foto>.jpg work/<foto>.persona.png`.
+2. Retalla-la i treu-ne també el fons sense la persona: `RVM_MODEL=... python3 -I scripts/retalla_foto.py input/<foto>.jpg work/<foto>.persona.png work/<foto>.fons.jpg`.
 3. Troba la cara amb YuNet (centre x, alçada dels ulls i alçada de la cara) i escriu `projectes/<nom>/miniatures.json`:
    - la foto, el retall, la mida i la cara;
-   - les variants (`oro`, `logos`, `mano`), amb `big`, `hand` (`*paraula*` en color), `logos` i un `reason`.
+   - les variants: `cine` amb `lines` (`*paraula*` en groc) o `pizarra` amb `board` (`clock`, `box`, `pillars`), i un `reason` per a cada una.
 4. Executa `scripts/miniatures.sh projectes/<nom>`. Al núvol cal afegir `--ignore-certificate-errors --browser-executable=...`.
 5. Els valors de disseny són a `brand/estil.ts` → `MINIATURA`, i el component a `src/miniatura/Miniatura.tsx`.
 

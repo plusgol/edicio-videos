@@ -163,31 +163,52 @@ export const MANUAL = {
 } as const;
 
 // ---------- Miniatures de YouTube (docs/MINIATURES.md) ----------
+// Direcció triada per l'usuari (referències «It's So F*cking Simple.» i la pissarra «CONFIDENCE»): llum fosca i
+// cinematogràfica sobre la seva habitació real, cara il·luminada, text blanc molt gruixut amb l'última paraula en groc,
+// o una pissarra dibuixada a mà a la paret.
 export const MINIATURA = {
   width: 1280,
   height: 720,
   // La persona retallada (scripts/retalla_foto.py) s'escala perquè la cara faci aquesta alçada i els ulls quedin aquí.
-  faceH: {oro: 300, logos: 250, mano: 270},
-  eyes: {oro: {x: 905, y: 300}, logos: {x: 930, y: 300}, mano: {x: 930, y: 290}},
-  // Fons de la foto original (variant logos): desenfocat i enfosquit perquè la persona i el text destaquin.
-  photoBlurPx: 12,
-  photoBrightness: 0.42,
-  // Llum càlida darrere de la persona sobre fons fosc (com el pla d'Alex).
-  rim: 'radial-gradient(circle at 70% 45%, rgba(214,168,78,.28) 0%, rgba(214,168,78,.10) 28%, rgba(0,0,0,0) 55%)',
-  personShadow: 'drop-shadow(0 18px 40px rgba(0,0,0,.45))',
-  // Zona de text a l'esquerra; la cantonada de baix a la dreta queda lliure (YouTube hi posa la durada).
-  textLeft: 64,
-  textWidth: 600,
-  goldPx: 270,
-  goldLinePx: 230,
-  handPx: 92,
-  handBigPx: 172,
+  faceH: 285,
+  eyes: {x: 330, y: 300},
+  // Fons: la foto sense la persona, una mica més gran perquè cobreixi el quadre, desenfocada, fosca i freda.
+  bgMinScale: 1.2,
+  bgFilter: 'blur(4px) brightness(0.5) saturate(0.7) contrast(1.08)',
+  bgTint: 'rgba(16, 26, 38, 0.30)',
+  personFilter: 'contrast(1.10) saturate(0.88) brightness(0.96)',
+  base: '#000000',
+  spotBelowEyes: 30, // el centre de la llum, una mica per sota dels ulls (cara sencera)
+  // Focus de llum a la cara: la resta del quadre cau a fosc (com un pla de nit).
+  spot: (x: number, y: number) =>
+    `radial-gradient(circle at ${x}px ${y}px, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 150px, rgba(0,0,0,.38) 420px, rgba(0,0,0,.72) 820px)`,
+  // Text gros (variant cine)
+  font: 'Inter',
+  fontWeight: 900,
+  textMaxPx: 150, // mida màxima; si una línia no hi cap, es redueix fins que hi cap (fitText)
+  textLineHeight: 1.0,
+  letterSpacing: '-0.025em',
+  textLeft: 600,
+  textRight: 48,
+  white: '#FFFFFF',
+  yellow: '#FFE53B',
+  textShadow: '0 4px 0 rgba(0,0,0,.30), 0 10px 36px rgba(0,0,0,.75)',
+  // Pissarra (variant pizarra): retolador blanc i groc a la paret fosca
+  chalk: '#F4F2EA',
+  strokePx: 5,
+  wobblePx: 3.2,
+  handFont: 'Caveat',
   handWeight: 700,
-  stickerPx: 104,
-  stickerPad: 20,
-  stickerRadius: 26,
-  stickerTiltDeg: 5,
-  textShadow: '0 4px 18px rgba(0,0,0,.55)',
-  textGap: 18,
-  stickerShadow: '0 12px 26px rgba(0,0,0,.35)',
+  chalkShadow: 'drop-shadow(0 2px 6px rgba(0,0,0,.55))',
+  // Geometria de la pissarra, en píxels del quadre (persona a l'esquerra, dibuix a la dreta; cantonada de baix a la dreta lliure).
+  board: {
+    box: {x: 640, y: 258, w: 540, h: 136},
+    pillarsBottom: 590,
+    pillarGap: 18,
+    figure: {x: 1080, y: 120, head: 24},
+    clock: {x: 702, y: 124, r: 58},
+    boxTextPx: 92,
+    pillarTextPx: 44,
+    clockTextPx: 96,
+  },
 } as const;

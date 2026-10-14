@@ -7,13 +7,13 @@
 ## Títol
 L'original diu «te lo explico en cuatro minutos», però el vídeo editat dura **2:45**. Per això:
 - La frase «y te lo explico en cuatro minutos» **s'ha tret** del ganxo (tram `r00b`). Es pot recuperar a l'editor, a la pestanya Talls.
-- Títol proposat, amb el format «Dame X minutos» (recerca a `docs/MINIATURES.md`), i 3 minuts és honest per a 2:46: **«Dame 3 minutos y te enseño las 3 IAs para montar cualquier negocio»**.
+- Títol proposat, amb el format «Dame X minutos» (recerca a `docs/MINIATURES.md`), i 3 minuts és honest per a 2:46: **«Dame 3 minutos y te cambio la vida con la IA (y los negocios)»**. És el missatge que vols i encaixa amb les miniatures A i B.
+- També: «Dame 3 minutos y te enseño las 3 IAs para montar cualquier negocio».
 - Alternatives:
   - «Dame 3 minutos: las 3 IAs para montar cualquier negocio»
   - «Dame 3 minutos y te enseño las únicas 3 IAs que necesitas»
   - «Con estas 3 IAs puedes crear cualquier negocio» (sense minuts)
   - «OpenCode, ChatGPT y Claude: mi flujo de trabajo con IA»
-- S'evita «te cambiaré la vida»: els vídeos d'aquest format que funcionen concreten el resultat.
 - No cal allargar-lo ni tornar-lo a gravar. Per arribar als 4 minuts s'haurien de tornar a posar preses repetides.
 
 ## Preses triades i el que s'ha tret
@@ -43,13 +43,13 @@ L'original diu «te lo explico en cuatro minutos», però el vídeo editat dura 
   - «Entonces» abans del flux ja quedava fora.
 
 ## Miniatures
-- `scripts/miniatures.sh` renderitza les variants a partir de `miniatures.json`. Cada una surt en PNG i en JPG de menys de 2 MB, i `out/miniatures_petites.png` serveix per comprovar com es llegeixen a mida de llista i de mòbil.
-- **Variants:**
-  - **A:** «3 MIN» en or sobre negre i «cualquier *negocio*» a mà;
-  - **B:** «3 IAs» amb els logos d'OpenCode, ChatGPT i Claude, i «las que *uso*»;
-  - **C:** «Dame 3 *minutos*» amb la teva lletra (negre i blau sobre gris).
-- La foto és teva (`input/foto_miniatura.jpg`) i s'ha retallat amb `scripts/retalla_foto.py`.
-- Proposta: posa'n tres a prova amb «Test & Compare» de YouTube Studio.
+- **v1 rebutjada:** or sobre negre, logos i lletra a mà sobre gris. No agradaven i eren massa clares.
+- **v2:** llum fosca i cinematogràfica (la teva habitació enfosquida i el focus a la cara), seguint les teves referències:
+  - **A:** «Dame 3 min. / Te cambio / *la vida.*», en blanc gruixut amb l'última línia en groc;
+  - **B:** «Negocios / con IA / en *3 min.*»;
+  - **C:** pissarra feta a mà: rellotge «3 min», ninot, «VIDA NUEVA» i les tres eines com a pilars.
+- **Fitxers:** `out/miniatura_*.jpg` (1280×720, menys de 2 MB) i `out/miniatures_petites.png` (prova a mida de mòbil). Es regeneren amb `scripts/miniatures.sh` a partir de `miniatures.json`.
+- **Proposta:** posa A, B i C a prova amb «Test & Compare» de YouTube Studio.
 
 ## Gràfics (45, un cada ~3,7 s)
 - **Seccions** sobre l'escenari clar amb el logo: **I · OpenCode**, **II · ChatGPT**, **III · Claude**.

@@ -1,18 +1,48 @@
 {
- "_nota": "Miniatures de YouTube (1280×720). Les renderitza scripts/miniatures.sh. Foto: input/foto_miniatura.jpg (de l'usuari); retall: scripts/retalla_foto.py. Cara detectada amb YuNet.",
- "photo": "input/foto_miniatura.jpg",
+ "_nota": "Miniatures de YouTube (1280×720). Les renderitza scripts/miniatures.sh. Foto de l'usuari: input/foto_miniatura.jpg; retall i fons sense la persona: scripts/retalla_foto.py. Cara detectada amb YuNet. Direcció de l'usuari: llum fosca i cinematogràfica, text blanc gruixut amb l'última paraula en groc, o pissarra a mà; missatge: en 3 minuts et canvio la vida amb la IA i els negocis.",
  "person": "work/foto_miniatura.persona.png",
+ "background": "work/foto_miniatura.fons.jpg",
  "photoW": 1600,
  "photoH": 1200,
- "face": {"x": 783, "eyesY": 401, "h": 268},
+ "face": {
+  "x": 783,
+  "eyesY": 401,
+  "h": 268
+ },
  "variants": [
-  {"name": "A_oro", "variant": "oro", "big": "3 MIN", "hand": "cualquier *negocio*",
-   "reason": "Format «Dame X minutos»: la xifra gegant fa la promesa i la frase a mà diu el resultat. Fons negre i or (tendència 2026: fons quasi negre + un accent)."},
-  {"name": "B_logos", "variant": "logos", "big": "3 IAs", "hand": "las que *uso*",
-   "logos": ["assets/logo/opencode.svg", "assets/logo/openai.svg", "assets/logo/claude-color.svg"],
-   "reason": "Diu exactament què hi ha al vídeo: les 3 eines amb el seu logo. La seva habitació de fons, desenfocada i fosca."},
-  {"name": "C_mano", "variant": "mano", "hand": "Dame 3 *minutos*",
-   "logos": ["assets/logo/opencode.svg", "assets/logo/openai.svg", "assets/logo/claude-color.svg"],
-   "reason": "La seva lletra «Me gusta la IA» (negre + paraula en blau sobre gris clar): la variant més de marca personal."}
+  {
+   "name": "A_cine",
+   "variant": "cine",
+   "lines": [
+    "Dame 3 min.",
+    "Te cambio",
+    "*la vida.*"
+   ],
+   "reason": "Referència «It's So F*cking Simple.»: tres línies curtes, l'última en groc. La promesa del format «Dame X minutos» (3 min és honest per a 2:46)."
+  },
+  {
+   "name": "B_cine",
+   "variant": "cine",
+   "lines": [
+    "Negocios",
+    "con IA",
+    "en *3 min.*"
+   ],
+   "reason": "Mateix estil, tres línies curtes i grans: de què va (negocis amb IA) i, en groc, la promesa de temps."
+  },
+  {
+   "name": "C_pizarra",
+   "variant": "pizarra",
+   "board": {
+    "clock": "3 min",
+    "box": "VIDA NUEVA",
+    "pillars": [
+     "OpenCode",
+     "ChatGPT",
+     "Claude"
+    ]
+   },
+   "reason": "Referència de la pissarra «CONFIDENCE / Pillar 1 2 3»: el resultat a dalt, les 3 IAs del vídeo com a pilars i el rellotge dels 3 minuts. Dibuix a mà, com la seva marca."
+  }
  ]
 }

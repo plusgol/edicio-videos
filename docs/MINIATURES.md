@@ -43,6 +43,10 @@ Recerca de l'octubre de 2026 per al vídeo `projectes/en-4-minutos`. Es basa en 
   - `cine`: la mida del text s'ajusta sola perquè cap línia es parteixi;
   - `pizarra`: retolador blanc i groc sobre la paret fosca, amb un rellotge i el text dels minuts, un ninot amb raigs, un requadre amb el resultat i les eines com a pilars.
 
+- **Aprovat al final (`centro`):** persona **al centre**, amb una pose com la de les referències (mans juntes sota la barbeta) i una foto de nit amb llum càlida. A l'esquerra, **la durada exacta del vídeo** («2:45») en groc; a la dreta, el resultat («VIDA NUEVA») en blanc; una fletxa a mà per sobre del cap les uneix.
+  - **El temps hi va sí o sí, amb els segons.** Ha de coincidir amb l'etiqueta de durada de YouTube: si cal, retalla el final del vídeo perquè no arrodoneixi al segon de més.
+  - **Títol curt** (p. ex. «Dame 3 minutos: IA y negocios»), que digui IA **i** negocis. La promesa emocional va a la miniatura, no es repeteix al títol.
+
 ## 4. Regles per a les nostres miniatures
 1. **Mida:** 1280×720, JPG de menys de 2 MB (ho fa `scripts/miniatures.sh`).
 2. **Text:** 2–5 paraules. Una peça gran (xifra o paraula en or) i, com a molt, una frase curta a mà.

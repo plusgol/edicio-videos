@@ -16,18 +16,24 @@ const {fontFamily: HAND} = loadCaveat('normal', {
 
 // Miniatura de YouTube (1280×720), amb la llum fosca i cinematogràfica que va triar l'usuari (docs/MINIATURES.md):
 // cine    — text blanc molt gruixut a la dreta i l'última paraula en groc («It's So F*cking Simple.»);
-// pizarra — un esquema dibuixat amb retolador a la paret fosca (com la pissarra «CONFIDENCE / Pillar 1 2 3»).
+// pizarra — un esquema dibuixat amb retolador a la paret fosca (com la pissarra «CONFIDENCE / Pillar 1 2 3»);
+// centro  — la persona al mig (la foto sencera, sense retallar), la xifra en groc a l'esquerra, el resultat a la dreta
+//           i una fletxa a mà per sobre del cap (boceto aprovat per l'usuari).
 export type MiniaturaProps = {
-  variant: 'cine' | 'pizarra';
-  // Rutes dins de --public-dir: persona retallada i fons sense la persona (scripts/retalla_foto.py).
-  person: string;
-  background: string;
+  variant: 'cine' | 'pizarra' | 'centro';
+  // Rutes dins de --public-dir: persona retallada i fons sense la persona (scripts/retalla_foto.py)…
+  person?: string;
+  background?: string;
+  // …o, per a centro, la foto sencera.
+  photo?: string;
   // Mida de la foto i posició de la cara a la foto, en píxels (YuNet): centre x, alçada dels ulls i alçada de la cara.
   photoW: number;
   photoH: number;
   face: {x: number; eyesY: number; h: number};
-  // cine: una línia per element; entre *asteriscs*, en groc.
+  // cine i centro (a la dreta): una línia per element; entre *asteriscs*, en groc.
   lines?: string[];
+  // centro: la xifra de l'esquerra, en groc (p. ex. la durada exacta del vídeo).
+  big?: string;
   // pizarra: el requadre de dalt, els pilars de sota i el text del rellotge.
   board?: {box: string; pillars: string[]; clock: string};
 };
@@ -81,6 +87,31 @@ const Stroke: React.FC<{d: (pass: number) => string; color: string}> = ({d, colo
     />
   </>
 );
+
+// Fletxa feta a mà (retolador) de «from» a «to», corbada cap a «ctrl».
+const Arrow: React.FC<{from: Pt; ctrl: Pt; to: Pt; color: string}> = ({from, ctrl, to, color}) => {
+  const n = 24;
+  const pts: Pt[] = Array.from({length: n + 1}, (_, i) => {
+    const t = i / n;
+    return [
+      (1 - t) ** 2 * from[0] + 2 * (1 - t) * t * ctrl[0] + t * t * to[0],
+      (1 - t) ** 2 * from[1] + 2 * (1 - t) * t * ctrl[1] + t * t * to[1],
+    ];
+  });
+  const [px, py] = pts[n - 2];
+  const ang = Math.atan2(to[1] - py, to[0] - px);
+  const head = (da: number): Pt[] => [
+    to,
+    [to[0] - Math.cos(ang + da) * MINIATURA.centro.arrowHeadPx, to[1] - Math.sin(ang + da) * MINIATURA.centro.arrowHeadPx],
+  ];
+  return (
+    <svg width={MINIATURA.width} height={MINIATURA.height} style={{position: 'absolute', inset: 0, filter: MINIATURA.chalkShadow}}>
+      <Stroke d={(s) => wobbly(pts, `arrow${s}`)} color={color} />
+      <Stroke d={(s) => wobbly(head(0.5), `ah1${s}`)} color={color} />
+      <Stroke d={(s) => wobbly(head(-0.5), `ah2${s}`)} color={color} />
+    </svg>
+  );
+};
 
 const Board: React.FC<{box: string; pillars: string[]; clock: string}> = ({box, pillars, clock}) => {
   const b = MINIATURA.board;
@@ -213,13 +244,12 @@ const Board: React.FC<{box: string; pillars: string[]; clock: string}> = ({box, 
 };
 
 // Cada línia ha de cabre sencera (sense salts sobrers): la mida surt de la línia més llarga, amb la font ja carregada.
-const useFittedSize = (lines: string[]): number | null => {
+const useFittedSize = (lines: string[], width: number, maxPx: number): number | null => {
   const [size, setSize] = useState<number | null>(null);
-  const key = lines.join('\n');
+  const key = `${lines.join('\n')}|${width}|${maxPx}`;
   useEffect(() => {
     const handle = delayRender('Mida del text de la miniatura');
     boldLoaded().then(() => {
-      const width = MINIATURA.width - MINIATURA.textLeft - MINIATURA.textRight;
       const fits = lines.map(
         (l) =>
           fitText({
@@ -230,7 +260,7 @@ const useFittedSize = (lines: string[]): number | null => {
             letterSpacing: MINIATURA.letterSpacing,
           }).fontSize,
       );
-      setSize(Math.min(MINIATURA.textMaxPx, ...fits));
+      setSize(Math.min(maxPx, ...fits));
       continueRender(handle);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -238,8 +268,9 @@ const useFittedSize = (lines: string[]): number | null => {
   return size;
 };
 
-const Lines: React.FC<{lines: string[]}> = ({lines}) => {
-  const fontSize = useFittedSize(lines);
+type Box = {left: number; width: number; top?: number; height?: number; align?: 'left' | 'center'; maxPx: number};
+const Lines: React.FC<{lines: string[]} & Box> = ({lines, left, width, top = 0, height = MINIATURA.height, align = 'left', maxPx}) => {
+  const fontSize = useFittedSize(lines, width, maxPx);
   if (fontSize === null) {
     return null;
   }
@@ -247,10 +278,11 @@ const Lines: React.FC<{lines: string[]}> = ({lines}) => {
     <div
       style={{
         position: 'absolute',
-        left: MINIATURA.textLeft,
-        right: MINIATURA.textRight,
-        top: 0,
-        bottom: 0,
+        left,
+        width,
+        top,
+        height,
+        textAlign: align,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -283,7 +315,79 @@ const Lines: React.FC<{lines: string[]}> = ({lines}) => {
   );
 };
 
-export const Miniatura: React.FC<MiniaturaProps> = ({variant, person, background, photoW, photoH, face, lines = [], board}) => {
+// Persona al centre amb la foto sencera: l'amplada cobreix el quadre i, per sobre, un fons ambient (la mateixa foto,
+// gran i desenfocada) deixa aire per a la fletxa; la vora de dalt i la de l'esquerra de la foto es fonen amb ell.
+const Centro: React.FC<Pick<MiniaturaProps, 'photo' | 'photoW' | 'photoH' | 'face' | 'big' | 'lines'>> = ({
+  photo = '',
+  photoW,
+  photoH,
+  face,
+  big,
+  lines = [],
+}) => {
+  const c = MINIATURA.centro;
+  const k = MINIATURA.width / photoW;
+  const left = MINIATURA.width / 2 - face.x * k;
+  const top = c.eyesY - face.eyesY * k;
+  const kA = k * c.ambientScale;
+  return (
+    <>
+      <Img
+        src={staticFile(photo)}
+        style={{
+          position: 'absolute',
+          left: MINIATURA.width / 2 - face.x * kA,
+          top: c.eyesY - face.eyesY * kA,
+          width: photoW * kA,
+          height: photoH * kA,
+          filter: c.ambientFilter,
+        }}
+      />
+      <div
+        style={{
+          position: 'absolute',
+          left,
+          top,
+          width: photoW * k,
+          height: photoH * k,
+          WebkitMaskImage: c.featherTop,
+          maskImage: c.featherTop,
+        }}
+      >
+        <Img
+          src={staticFile(photo)}
+          style={{width: '100%', height: '100%', display: 'block', WebkitMaskImage: c.featherLeft, maskImage: c.featherLeft}}
+        />
+      </div>
+      <AbsoluteFill style={{background: c.vignette}} />
+      <Arrow from={c.arrow.from} ctrl={c.arrow.ctrl} to={c.arrow.to} color={MINIATURA.chalk} />
+      {big ? (
+        <Lines lines={[`*${big}*`]} left={c.left.x} width={c.left.w} top={c.textTop} height={c.textH} align="center" maxPx={c.bigMaxPx} />
+      ) : null}
+      <Lines lines={lines} left={c.right.x} width={c.right.w} top={c.textTop} height={c.textH} align="center" maxPx={c.linesMaxPx} />
+    </>
+  );
+};
+
+export const Miniatura: React.FC<MiniaturaProps> = ({
+  variant,
+  person = '',
+  background = '',
+  photo,
+  photoW,
+  photoH,
+  face,
+  lines = [],
+  big,
+  board,
+}) => {
+  if (variant === 'centro') {
+    return (
+      <AbsoluteFill style={{background: MINIATURA.base, overflow: 'hidden'}}>
+        <Centro photo={photo} photoW={photoW} photoH={photoH} face={face} big={big} lines={lines} />
+      </AbsoluteFill>
+    );
+  }
   const {eyes} = MINIATURA;
   // Persona: la cara a la mida i el lloc del disseny. Fons (sense la persona): prou gran per cobrir tot el quadre.
   const k = MINIATURA.faceH / face.h;
@@ -306,7 +410,14 @@ export const Miniatura: React.FC<MiniaturaProps> = ({variant, person, background
           background: MINIATURA.spot(eyes.x, eyes.y + MINIATURA.spotBelowEyes),
         }}
       />
-      {variant === 'cine' ? <Lines lines={lines} /> : null}
+      {variant === 'cine' ? (
+        <Lines
+          lines={lines}
+          left={MINIATURA.textLeft}
+          width={MINIATURA.width - MINIATURA.textLeft - MINIATURA.textRight}
+          maxPx={MINIATURA.textMaxPx}
+        />
+      ) : null}
       {variant === 'pizarra' && board ? <Board {...board} /> : null}
     </AbsoluteFill>
   );

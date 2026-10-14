@@ -1,5 +1,5 @@
 {
- "_nota": "Miniatures de YouTube (1280×720). Les renderitza scripts/miniatures.sh. Foto de l'usuari: input/foto_miniatura.jpg; retall i fons sense la persona: scripts/retalla_foto.py. Cara detectada amb YuNet. Direcció de l'usuari: llum fosca i cinematogràfica, text blanc gruixut amb l'última paraula en groc, o pissarra a mà; missatge: en 3 minuts et canvio la vida amb la IA i els negocis.",
+ "_nota": "Miniatures de YouTube (1280×720). Les renderitza scripts/miniatures.sh. Variants actuals: centro amb la foto de nit de l'usuari (input/foto_miniatura_noche.webp, mans juntes sota la barbeta), segons el boceto que va aprovar: durada exacta en groc a l'esquerra (el vídeo dura 2:45, ho vol sí o sí), resultat a la dreta i fletxa per sobre del cap. Les variants cine i pizarra (foto de dia) les va rebutjar.",
  "person": "work/foto_miniatura.persona.png",
  "background": "work/foto_miniatura.fons.jpg",
  "photoW": 1600,
@@ -11,38 +11,40 @@
  },
  "variants": [
   {
-   "name": "A_cine",
-   "variant": "cine",
-   "lines": [
-    "Dame 3 min.",
-    "Te cambio",
-    "*la vida.*"
-   ],
-   "reason": "Referència «It's So F*cking Simple.»: tres línies curtes, l'última en groc. La promesa del format «Dame X minutos» (3 min és honest per a 2:46)."
-  },
-  {
-   "name": "B_cine",
-   "variant": "cine",
-   "lines": [
-    "Negocios",
-    "con IA",
-    "en *3 min.*"
-   ],
-   "reason": "Mateix estil, tres línies curtes i grans: de què va (negocis amb IA) i, en groc, la promesa de temps."
-  },
-  {
-   "name": "C_pizarra",
-   "variant": "pizarra",
-   "board": {
-    "clock": "3 min",
-    "box": "VIDA NUEVA",
-    "pillars": [
-     "OpenCode",
-     "ChatGPT",
-     "Claude"
-    ]
+   "name": "D_centro",
+   "variant": "centro",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
    },
-   "reason": "Referència de la pissarra «CONFIDENCE / Pillar 1 2 3»: el resultat a dalt, les 3 IAs del vídeo com a pilars i el rellotge dels 3 minuts. Dibuix a mà, com la seva marca."
+   "big": "2:45",
+   "lines": [
+    "VIDA",
+    "NUEVA"
+   ],
+   "reason": "Boceto aprovat: ell al centre amb la pose de la referència (mans sota la barbeta), la durada exacta del vídeo (2:45) en groc i el resultat «VIDA NUEVA», units per una fletxa a mà."
+  },
+  {
+   "name": "E_centro",
+   "variant": "centro",
+   "photo": "input/foto_miniatura_noche.webp",
+   "photoW": 1672,
+   "photoH": 941,
+   "face": {
+    "x": 810,
+    "eyesY": 276,
+    "h": 285
+   },
+   "big": "2:45",
+   "lines": [
+    "TE CAMBIO",
+    "LA VIDA"
+   ],
+   "reason": "Alternativa per a Test & Compare: la mateixa imatge amb la promesa en paraules seves («te cambio la vida»)."
   }
  ]
 }

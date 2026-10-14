@@ -227,10 +227,10 @@
    "id": "r18",
    "source": "raw",
    "inMs": 387050,
-   "outMs": 397400,
+   "outMs": 396550,
    "block": "tancament",
    "captions": "Y Claude, sobre todo para el tema de diseño y montarte, pues, por ejemplo, si estás haciendo una app, que te monte la app, que te monte la web. Porque es que es una auténtica locura. Con estos tres es imposible fracasar.",
-   "reason": "tancament amb la frase final"
+   "reason": "tancament amb la frase final Acaba a 396,55 s: el darrer tros (0,7 s després de «fracasar») només tenia una respiració, i així el vídeo dura 2:45 exactes (la miniatura hi posa el temps)."
   }
  ],
  "punchIns": [

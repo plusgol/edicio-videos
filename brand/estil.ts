@@ -200,6 +200,24 @@ export const MINIATURA = {
   handFont: 'Caveat',
   handWeight: 700,
   chalkShadow: 'drop-shadow(0 2px 6px rgba(0,0,0,.55))',
+  // Persona al centre (variant centro, boceto aprovat): foto sencera a l'amplada del quadre, xifra a l'esquerra,
+  // resultat a la dreta, a l'altura del cap (per sobre de les espatlles), i fletxa per sobre del cap.
+  centro: {
+    eyesY: 285,
+    ambientScale: 1.35,
+    ambientFilter: 'blur(26px) brightness(0.55)',
+    featherTop: 'linear-gradient(to bottom, transparent 0px, black 90px)',
+    featherLeft: 'linear-gradient(to right, transparent 0px, black 40px)',
+    vignette: 'radial-gradient(circle at 640px 300px, rgba(0,0,0,0) 260px, rgba(0,0,0,.42) 860px)',
+    left: {x: 28, w: 470},
+    right: {x: 785, w: 465},
+    textTop: 150,
+    textH: 290,
+    bigMaxPx: 240,
+    linesMaxPx: 140,
+    arrow: {from: [270, 150] as [number, number], ctrl: [640, -40] as [number, number], to: [1005, 158] as [number, number]},
+    arrowHeadPx: 34,
+  },
   // Geometria de la pissarra, en píxels del quadre (persona a l'esquerra, dibuix a la dreta; cantonada de baix a la dreta lliure).
   board: {
     box: {x: 640, y: 258, w: 540, h: 136},

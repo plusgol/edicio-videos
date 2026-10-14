@@ -1,6 +1,6 @@
 # Informe — «en 4 minutos te cambiaré la vida con la IA» (vídeo en brut)
 
-**v2 (estil Alex DiLorenzo + toc manual + logos)** · 2:46 (165,9 s) · **màster per a YouTube: 2560×1440** (`out/video_youtube_1440p.mp4`, H.264 High CRF 12, bt709, AAC 320 kbps) · 30 fps · −16 LUFS
+**v2 (estil Alex DiLorenzo + toc manual + logos)** · **2:45 (165,3 s)** · fitxer per pujar: `out/dame-3-minutos_1440p.mp4` (2560×1440, H.264 High CRF 13,6, bt709, AAC 320 kbps, 239 MB) · 30 fps · −16 LUFS
 **Original:** `input/raw.mp4`, 6:38 (398,7 s), 832×464 a 60 fps
 **Editor de vista prèvia:** https://claude.ai/artifact/QSyL459qMwkAmdczUU5JYb
 
@@ -40,13 +40,13 @@ L'original diu «te lo explico en cuatro minutos», però el vídeo editat dura 
   - «Entonces» abans del flux ja quedava fora.
 
 ## Miniatures
-- **v1 rebutjada:** or sobre negre, logos i lletra a mà sobre gris. No agradaven i eren massa clares.
-- **v2:** llum fosca i cinematogràfica (la teva habitació enfosquida i el focus a la cara), seguint les teves referències:
-  - **A:** «Dame 3 min. / Te cambio / *la vida.*», en blanc gruixut amb l'última línia en groc;
-  - **B:** «Negocios / con IA / en *3 min.*»;
-  - **C:** pissarra feta a mà: rellotge «3 min», ninot, «VIDA NUEVA» i les tres eines com a pilars.
-- **Fitxers:** `out/miniatura_*.jpg` (1280×720, menys de 2 MB) i `out/miniatures_petites.png` (prova a mida de mòbil). Es regeneren amb `scripts/miniatures.sh` a partir de `miniatures.json`.
-- **Proposta:** posa A, B i C a prova amb «Test & Compare» de YouTube Studio.
+- **v1 i v2 rebutjades:** primer or, logos i lletra a mà sobre fons clar; després la variant cinematogràfica amb la persona al costat.
+- **v3, el boceto que l'usuari va aprovar:** ell al centre, amb la seva foto de nit (`input/foto_miniatura_noche.webp`, mans juntes sota la barbeta).
+  - **D:** **2:45** en groc (la durada exacta, que l'usuari vol sí o sí) → **VIDA NUEVA**, amb una fletxa a mà per sobre del cap.
+  - **E:** el mateix amb **TE CAMBIO LA VIDA**.
+- **Durada exacta:** perquè la miniatura i l'etiqueta de durada de YouTube diguin el mateix, s'ha tret el darrer tros de 0,7 s (una respiració després de «fracasar»). El vídeo dura 165,3 s, i YouTube marca 2:45 arrodoneixi com arrodoneixi.
+- **Fitxers:** `out/miniatura_D_centro.jpg` i `out/miniatura_E_centro.jpg` (1280×720, menys de 2 MB). Es regeneren amb `scripts/miniatures.sh`.
+- **Descàrrega** del vídeo, les miniatures i el títol: https://claude.ai/artifact/41XeRqHJWUfpuniU4ZUbhV
 
 ## Gràfics (45, un cada ~3,7 s)
 - **Seccions** sobre l'escenari clar amb el logo: **I · OpenCode**, **II · ChatGPT**, **III · Claude**.

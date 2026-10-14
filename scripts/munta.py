@@ -278,7 +278,7 @@ def face_at(out_frame):
     return None
 
 
-NEEDS_FACE = {"FloatingWords", "EmojiPop"}
+NEEDS_FACE = {"FloatingWords", "EmojiPop", "HandWritten", "LogoPop"}
 overlays = []
 for o in active_overlays:
     at = o["atOutputMs"] if "atOutputMs" in o else src_to_out_ms(o["source"], o["anchorMs"])

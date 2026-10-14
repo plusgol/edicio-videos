@@ -7,7 +7,7 @@ import type {RenderPlan} from './types';
 // El projecte es tria amb --public-dir=projectes/<nom>; el pla ve de work/render.json.
 export const Root: React.FC = () => (
   <>
-  <Composition id="Galeria" component={Galeria} width={1920} height={1080} fps={30} durationInFrames={GALERIA_SECCIONS * 7} />
+  <Composition id="Galeria" component={Galeria} width={1920} height={1080} fps={30} durationInFrames={GALERIA_SECCIONS * 7 + 240} />
   <Composition
     id="Video"
     component={Video}

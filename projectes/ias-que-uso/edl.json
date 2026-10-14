@@ -1,5 +1,5 @@
 {
- "_nota": "Pla de muntatge v3 (estil Alex DiLorenzo, docs/ESTIL_ALEX.md). Temps en ms de l'arxiu ORIGINAL. scripts/munta.py → work/render.json + work/voice.wav.",
+ "_nota": "Pla de muntatge v4 (estil Alex + toc manual de l'usuari: lletra a mà i logos de les eines). Temps en ms de l'arxiu ORIGINAL.",
  "version": 1,
  "video": {
   "width": 1920,
@@ -304,16 +304,17 @@
  ],
  "overlays": [
   {
-   "id": "w-uni",
-   "type": "FloatingWords",
+   "id": "h-uni",
+   "type": "HandWritten",
    "source": "curt",
    "anchorMs": 480,
    "durationMs": 1700,
    "props": {
-    "text": "mientras voy a la uni",
+    "text": "mientras voy a la *uni*",
+    "mode": "camera",
     "side": "right"
    },
-   "reason": "paraules flotants d'obertura: situen on és i fan llegible l'inici sense so"
+   "reason": "toc manual: obertura escrita a mà al costat del cap"
   },
   {
    "id": "g-3ias",
@@ -336,7 +337,8 @@
    "durationMs": 1800,
    "props": {
     "numeral": "I",
-    "title": "OpenCode"
+    "title": "OpenCode",
+    "logo": "logo:opencode"
    },
    "reason": "pas 1 de 3: número romà + nom, com «II · DEFINIR»"
   },
@@ -407,29 +409,29 @@
    "reason": "metàfora literal: «Big Pickle» → cogombre 3D a la mà"
   },
   {
-   "id": "w-luna",
-   "type": "FloatingWords",
+   "id": "l-luna",
+   "type": "LogoPop",
    "source": "llarg",
    "anchorMs": 19500,
    "durationMs": 1700,
    "props": {
-    "text": "gpt-5.6 luna",
-    "side": "left"
+    "src": "logo:openai",
+    "side": "left",
+    "label": "gpt-5.6 luna"
    },
-   "reason": "nom del model que esmenta"
+   "reason": "menciona un model d'OpenAI → logo"
   },
   {
-   "id": "g-gratis",
-   "type": "GoldWord",
+   "id": "h-gratis",
+   "type": "HandWritten",
    "source": "llarg",
-   "anchorMs": 26900,
-   "durationMs": 1200,
+   "anchorMs": 26460,
+   "durationMs": 1700,
    "props": {
-    "text": "GRATIS",
-    "tone": "white",
-    "placement": "behind"
+    "text": "la mayoría son *gratis*",
+    "mode": "stage"
    },
-   "reason": "concepte fort"
+   "reason": "toc manual: la idea del bloc escrita a mà sobre gris (com «Me gusta la IA»)"
   },
   {
    "id": "s2",
@@ -439,7 +441,8 @@
    "durationMs": 2300,
    "props": {
     "numeral": "II",
-    "title": "ChatGPT"
+    "title": "ChatGPT",
+    "logo": "logo:openai"
    },
    "reason": "pas 2 de 3"
   },
@@ -469,16 +472,17 @@
    "reason": "«ahora no va tan bien» → gràfic baixant"
   },
   {
-   "id": "w-astra",
-   "type": "FloatingWords",
+   "id": "l-astra",
+   "type": "LogoPop",
    "source": "llarg",
    "anchorMs": 38080,
    "durationMs": 1400,
    "props": {
-    "text": "gpt-6 astra",
-    "side": "left"
+    "src": "logo:openai",
+    "side": "left",
+    "label": "gpt-6 astra"
    },
-   "reason": "nom del model"
+   "reason": "menciona un model d'OpenAI → logo"
   },
   {
    "id": "st-20",
@@ -511,16 +515,17 @@
    "reason": "xifra de temps (com el rellotge «1h / 2h» d'Alex)"
   },
   {
-   "id": "w-bien",
-   "type": "FloatingWords",
+   "id": "h-bien",
+   "type": "HandWritten",
    "source": "llarg",
    "anchorMs": 54980,
-   "durationMs": 1200,
+   "durationMs": 1300,
    "props": {
-    "text": "pero bastante bien",
+    "text": "pero bastante *bien*",
+    "mode": "camera",
     "side": "right"
    },
-   "reason": "conclusió del bloc"
+   "reason": "toc manual"
   },
   {
    "id": "w-elmejor",
@@ -542,7 +547,8 @@
    "durationMs": 1600,
    "props": {
     "numeral": "III",
-    "title": "Claude"
+    "title": "Claude",
+    "logo": "logo:claude-color"
    },
    "reason": "pas 3 de 3; cobreix el tros sense paraules clares"
   },
@@ -569,19 +575,21 @@
     "src": "emoji:1f3ac",
     "side": "right"
    },
-   "reason": "«puedes hacer vídeos» → claqueta 3D"
+   "reason": "«puedes hacer vídeos» → claqueta 3D — desactivat a la v4: la frase escrita a mà que ve just després el tapava",
+   "enabled": false
   },
   {
-   "id": "w-editado",
-   "type": "FloatingWords",
+   "id": "h-editado",
+   "type": "HandWritten",
    "source": "llarg",
-   "anchorMs": 66080,
-   "durationMs": 2000,
+   "anchorMs": 65840,
+   "durationMs": 2300,
    "props": {
-    "text": "este vídeo está editado con claude",
-    "side": "left"
+    "text": "este vídeo está editado con *Claude*",
+    "mode": "stage",
+    "logo": "logo:claude-color"
    },
-   "reason": "la prova personal, en paraules"
+   "reason": "la prova personal, escrita a mà amb el logo de Claude"
   },
   {
    "id": "net-n8n",
@@ -628,16 +636,29 @@
    "reason": "xifra i condició que diu"
   },
   {
-   "id": "w-gusta",
-   "type": "FloatingWords",
+   "id": "l-gemini",
+   "type": "LogoPop",
    "source": "llarg",
    "anchorMs": 87800,
+   "durationMs": 1900,
+   "props": {
+    "src": "logo:gemini-color",
+    "side": "left"
+   },
+   "reason": "menciona Gemini → logo"
+  },
+  {
+   "id": "h-gusta",
+   "type": "HandWritten",
+   "source": "llarg",
+   "anchorMs": 88360,
    "durationMs": 1800,
    "props": {
-    "text": "nunca me ha acabado de gustar",
+    "text": "nunca me ha acabado de *gustar*",
+    "mode": "camera",
     "side": "right"
    },
-   "reason": "opinió personal"
+   "reason": "opinió personal escrita a mà"
   },
   {
    "id": "w-auto",
@@ -652,16 +673,17 @@
    "reason": "a qui va el consell"
   },
   {
-   "id": "w-startups",
-   "type": "FloatingWords",
+   "id": "l-startups",
+   "type": "LogoPop",
    "source": "llarg",
    "anchorMs": 95940,
-   "durationMs": 1600,
+   "durationMs": 1700,
    "props": {
-    "text": "claude for startups",
-    "side": "right"
+    "src": "logo:claude-color",
+    "side": "right",
+    "label": "for startups"
    },
-   "reason": "nom del programa"
+   "reason": "menciona Claude for Startups → logo"
   },
   {
    "id": "g-mil",

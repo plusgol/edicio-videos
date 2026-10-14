@@ -6,6 +6,10 @@ import {TerminalSimulator} from '@/components/snap-cn/terminal-simulator';
 import {TextHighlight} from '@/components/snap-cn/text-highlight';
 import {TextSwap} from '@/components/snap-cn/text-swap';
 import {COLOR} from '../brand/estil';
+import {HandWritten} from './alex/HandWritten';
+import {LogoPop} from './alex/LogoPop';
+import {SectionNumeral} from './alex/SectionNumeral';
+import {staticFile} from 'remotion';
 
 // Banc de proves: els components de snapcn amb contingut del vídeo, per veure'ls abans de fer-los servir.
 export const GALERIA_SECCIONS = 150;
@@ -13,6 +17,18 @@ const accent = COLOR.accent;
 
 export const Galeria: React.FC = () => (
   <AbsoluteFill style={{backgroundColor: COLOR.ink}}>
+    {/* Toc manual: lletra a mà (tegaki) i logos */}
+    <Sequence from={GALERIA_SECCIONS * 7} durationInFrames={90}>
+      <HandWritten text="Me gusta *la IA*" mode="stage" />
+    </Sequence>
+    <Sequence from={GALERIA_SECCIONS * 7 + 90} durationInFrames={90}>
+      <AbsoluteFill style={{background: '#3a6ea5'}} />
+      <HandWritten text="este vídeo está editado con *Claude*" mode="camera" side="left" faceX={1150} faceY={420} faceH={500} />
+      <LogoPop src={staticFile('assets/logo/claude-color.svg')} label="Claude" side="right" faceX={1150} faceY={420} faceH={500} />
+    </Sequence>
+    <Sequence from={GALERIA_SECCIONS * 7 + 180} durationInFrames={60}>
+      <SectionNumeral numeral="III" title="Claude" logo={staticFile('assets/logo/claude-color.svg')} />
+    </Sequence>
     <Sequence durationInFrames={GALERIA_SECCIONS}>
       <PunchLines mode="dark" accentColor={accent} script="Las 3 IAs / que uso de verdad | OpenCode" styles="slide,punch" accentBeat={2} />
     </Sequence>

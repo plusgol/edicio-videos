@@ -142,3 +142,20 @@ export const ALEX = {
   // Escales del pla base: es van alternant a cada tall
   cameraScales: [1.0, 1.12, 1.22],
 } as const;
+
+// ---------- Toc manual (lletra a mà de l'usuari, mostra «Me gusta la IA») ----------
+export const MANUAL = {
+  // Fons gris clar quasi pla, com la mostra; vinyeta molt suau.
+  stage: 'radial-gradient(ellipse at 50% 50%, #E4E4E4 0%, #DDDDDD 60%, #CDCDCD 100%)',
+  ink: '#141414',
+  accent: '#1D6BFF', // el blau de «la IA»
+  inkOnCamera: '#FFFFFF',
+  accentOnCamera: '#FFD34D', // sobre el cel blau del vídeo, el blau es perdria
+  stageSize: 290,
+  cameraSize: 124,
+  writeSpeed: 3.2, // velocitat d'escriptura (1 = ritme natural de la font; Alex va ràpid)
+  writeFitFraction: 0.55, // la frase ha d'acabar d'escriure's dins d'aquesta part del temps en pantalla
+  stageLongTextChars: 22, // a partir d'aquí, la frase d'escenari es fa més petita perquè no surti de quadre
+  stageSizeLong: 190,
+  sticker: {radius: 30, padding: 26, logoPx: 150, tiltDeg: 4},
+} as const;

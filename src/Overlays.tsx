@@ -8,6 +8,8 @@ import {COLOR} from '../brand/estil';
 import {EmojiPop} from './alex/EmojiPop';
 import {FloatingWords} from './alex/FloatingWords';
 import {GoldWord} from './alex/GoldWord';
+import {HandWritten} from './alex/HandWritten';
+import {LogoPop} from './alex/LogoPop';
 import {NetworkDiagram} from './alex/NetworkDiagram';
 import {SectionNumeral} from './alex/SectionNumeral';
 import {SlotsRow} from './alex/SlotsRow';
@@ -25,6 +27,8 @@ const ALEX_COMPONENTS: Record<string, React.FC<any>> = {
   StageStat,
   NetworkDiagram,
   SlotsRow,
+  HandWritten,
+  LogoPop,
 };
 
 export const isBehind = (o: Overlay) => o.type === 'GoldWord' && ((o.props.placement as string | undefined) ?? 'behind') === 'behind';

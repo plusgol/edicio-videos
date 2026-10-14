@@ -1,13 +1,14 @@
-import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Img, interpolate, spring, useCurrentFrame, useVideoConfig} from 'remotion';
+import {resolveSrc} from '../media';
 import {ALEX} from '../../brand/estil';
 import {DISPLAY, WORDS} from './fonts';
 import {blurInOut, slowPush} from './motion';
 import {Stage} from './Stage';
 
-export type SectionNumeralProps = {numeral: string; title: string; sub?: string};
+export type SectionNumeralProps = {numeral: string; title: string; sub?: string; logo?: string};
 
 // Número romà daurat que puja des de baix i el títol de la secció entrant lletra a lletra amb perspectiva (II · DEFINIR).
-export const SectionNumeral: React.FC<SectionNumeralProps> = ({numeral, title, sub}) => {
+export const SectionNumeral: React.FC<SectionNumeralProps> = ({numeral, title, sub, logo}) => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
   const exit = blurInOut(frame, durationInFrames, 0);
@@ -26,6 +27,19 @@ export const SectionNumeral: React.FC<SectionNumeralProps> = ({numeral, title, s
             );
           })}
         </div>
+        <div style={{display: 'flex', alignItems: 'center', gap: 36}}>
+        {logo ? (
+          <Img
+            src={resolveSrc(logo)}
+            style={{
+              width: 170,
+              height: 170,
+              objectFit: 'contain',
+              transform: `scale(${spring({frame: frame - titleStart, fps, config: {damping: 12, stiffness: 160}})})`,
+              filter: 'drop-shadow(0 10px 18px rgba(0,0,0,.18))',
+            }}
+          />
+        ) : null}
         <div style={{display: 'flex', fontFamily: DISPLAY, fontSize: 200, lineHeight: 0.95, textTransform: 'uppercase', perspective: 900, filter: ALEX.goldGlowLight}}>
           {[...title].map((c, i) => {
             const p = interpolate(frame - titleStart - i * ALEX.letterStagger, [0, 8], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
@@ -45,6 +59,7 @@ export const SectionNumeral: React.FC<SectionNumeralProps> = ({numeral, title, s
               </span>
             );
           })}
+        </div>
         </div>
         {sub ? (
           <div style={{fontFamily: WORDS, fontWeight: 500, fontSize: 40, color: ALEX.ink, opacity: interpolate(frame, [titleStart + 12, titleStart + 18], [0, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})}}>

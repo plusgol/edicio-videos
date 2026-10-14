@@ -12,8 +12,23 @@ Config.setAudioBitrate('320k');
 const vendor = path.resolve(process.cwd(), 'src/vendor/snapcn');
 Config.overrideWebpackConfig((config) => ({
   ...config,
+  module: {
+    ...config.module,
+    rules: [
+      ...(config.module?.rules ?? []).filter((rule) => {
+        const test = typeof rule === 'object' && rule ? (rule as {test?: unknown}).test : undefined;
+        return !(test instanceof RegExp && (test.test('a.ttf') || test.test('a.wasm')));
+      }),
+      // tegaki (lletra a mà): la font i el shaper harfbuzz van incrustats al paquet.
+      {test: /\.(ttf|otf)$/, type: 'asset/inline'},
+      // Les woff2 com a fitxer (amb extensió), que és el que espera @remotion/fonts.
+      {test: /\.(woff2?|eot)$/, type: 'asset/resource'},
+      {test: /\.wasm$/, type: 'asset/inline'},
+    ],
+  },
   resolve: {
     ...config.resolve,
+    fallback: {...config.resolve?.fallback, fs: false, path: false, crypto: false, module: false, url: false},
     alias: {
       ...(config.resolve?.alias as Record<string, string>),
       '@/lib/snap-cn-ui': path.join(vendor, 'snap-cn-ui/core/index.ts'),

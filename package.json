@@ -21,7 +21,8 @@
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "remotion": "4.0.528",
-    "tailwind-merge": "3.5.0"
+    "tailwind-merge": "3.5.0",
+    "tegaki": "1.0.0"
   },
   "devDependencies": {
     "@types/culori": "4.0.1",

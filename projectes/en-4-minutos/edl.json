@@ -46,10 +46,10 @@
    "id": "r00",
    "source": "raw",
    "inMs": 3380,
-   "outMs": 5900,
+   "outMs": 6080,
    "block": "ganxo",
    "captions": "Con estos tres modelos ya vas a poder crear cualquier proyecto",
-   "reason": "ganxo de la 2a presa (la 1a s'atura a «de intelectual») Entra just abans de «Con» (la veu arrenca a 3,48 s): el vídeo comença sense silenci."
+   "reason": "ganxo de la 2a presa (la 1a s'atura a «de intelectual») Entra just abans de «Con» (la veu arrenca a 3,48 s): el vídeo comença sense silenci. Acaba a 6,08 s: a 5,92 el tall queia a l'oclusió de la «t» i es menjava «-to» (la retranscripció del màster sentia «precio»)."
   },
   {
    "id": "r00b",
@@ -101,10 +101,10 @@
    "id": "r04",
    "source": "raw",
    "inMs": 92700,
-   "outMs": 98550,
+   "outMs": 98960,
    "block": "eina:opencode",
    "captions": "y la capacidad de uso es una burrada. Con el plan de 10 dólares creo que llegas a más de 1000 dólares en gastos.",
-   "reason": "xifra clau"
+   "reason": "xifra clau Acaba a 98,96 s: abans es tallava «gas|tos»."
   },
   {
    "id": "r05",
@@ -146,10 +146,10 @@
    "id": "r09",
    "source": "raw",
    "inMs": 192100,
-   "outMs": 198220,
+   "outMs": 198380,
    "block": "eina:chatgpt",
    "captions": "y te ayudará sobre todo, no tanto a nivel diseño, porque a nivel diseño al final va bastante, bastante mal",
-   "reason": "punt feble; es treu el «va bastante» repetit"
+   "reason": "punt feble; es treu el «va bastante» repetit Acaba a 198,44 s (el tall cau aquí), just després de «mal» i abans de «va» de la represa (abans es perdia: «va bastante, bastante | en este sentido»)."
   },
   {
    "id": "r10",

@@ -49,6 +49,9 @@ Si una inserció mostra una interfície **il·lustrativa** (un terminal, un xat)
 8. **Render:** `scripts/render.sh projectes/<nom>`. A l'entorn al núvol cal afegir `--browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell`.
 9. **QA:** recorre la checklist (§21 de la guia). Comprova la sonoritat amb `ebur128` i que la durada coincideixi amb el títol.
 10. **Entrega:** deixa a `out/` el `video.mp4` i l'`informe.md` (decisions, dubtes i pendents concrets). L'`edl.json` va a git.
+11. **Comprovació dels talls amb transcripció:** retranscriu l'àudio del màster (`scripts/transcriu.py`) i alinea'l amb el text previst de cada tram. Una paraula que canvia o desapareix a menys de ~0,4 s d'un tall és sospitosa (les oclusions de «t», «p» i «k» semblen silencis i el tall hi cau a dins). Contrasta-ho transcrivint finestres de l'original. Això no substitueix l'escolta humana.
+12. **Màster per a YouTube:** renderitza a 1440p (`--scale=1.3333333333333333 --crf=12 --x264-preset=slow --color-space=bt709 --jpeg-quality=100 --timeout=180000`). Així YouTube fa servir VP9 i també es veu millor a 1080p.
+13. **Miniatures:** segueix `docs/MINIATURES.md` (format «Dame X minutos», 2–5 paraules, cara seriosa i 2–3 variants per a Test & Compare): `scripts/retalla_foto.py` + `projectes/<nom>/miniatures.json` + `scripts/miniatures.sh`.
 
 ## Ritme
 - Silenci < 250 ms: no el toquis. De 250 a 600 ms: redueix-lo a 150–250 ms. > 600 ms: talla-hi i deixa 150 ms després de l'última paraula i 120 ms abans de la següent.

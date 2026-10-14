@@ -1,6 +1,7 @@
 import {Composition, staticFile} from 'remotion';
-import {VIDEO} from '../brand/estil';
+import {MINIATURA, VIDEO} from '../brand/estil';
 import {GALERIA_SECCIONS, Galeria} from './Galeria';
+import {Miniatura, type MiniaturaProps} from './miniatura/Miniatura';
 import {Video} from './Video';
 import type {RenderPlan} from './types';
 
@@ -20,6 +21,16 @@ export const Root: React.FC = () => (
       const plan: RenderPlan = await fetch(staticFile('work/render.json')).then((r) => r.json());
       return {durationInFrames: plan.durationInFrames, fps: plan.fps, width: plan.width, height: plan.height, props: {plan}};
     }}
+  />
+  {/* Miniatura de YouTube: les props (foto, cara, textos) surten de projectes/<nom>/miniatures.json via scripts/miniatures.sh */}
+  <Composition
+    id="Miniatura"
+    component={Miniatura}
+    width={MINIATURA.width}
+    height={MINIATURA.height}
+    fps={30}
+    durationInFrames={1}
+    defaultProps={{variant: 'oro', photo: '', person: '', photoW: 1, photoH: 1, face: {x: 0, eyesY: 0, h: 1}} as MiniaturaProps}
   />
   </>
 );

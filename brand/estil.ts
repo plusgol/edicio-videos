@@ -161,3 +161,33 @@ export const MANUAL = {
   stageSizeLong: 190,
   sticker: {radius: 30, padding: 26, logoPx: 150, tiltDeg: 4},
 } as const;
+
+// ---------- Miniatures de YouTube (docs/MINIATURES.md) ----------
+export const MINIATURA = {
+  width: 1280,
+  height: 720,
+  // La persona retallada (scripts/retalla_foto.py) s'escala perquè la cara faci aquesta alçada i els ulls quedin aquí.
+  faceH: {oro: 300, logos: 250, mano: 270},
+  eyes: {oro: {x: 905, y: 300}, logos: {x: 930, y: 300}, mano: {x: 930, y: 290}},
+  // Fons de la foto original (variant logos): desenfocat i enfosquit perquè la persona i el text destaquin.
+  photoBlurPx: 12,
+  photoBrightness: 0.42,
+  // Llum càlida darrere de la persona sobre fons fosc (com el pla d'Alex).
+  rim: 'radial-gradient(circle at 70% 45%, rgba(214,168,78,.28) 0%, rgba(214,168,78,.10) 28%, rgba(0,0,0,0) 55%)',
+  personShadow: 'drop-shadow(0 18px 40px rgba(0,0,0,.45))',
+  // Zona de text a l'esquerra; la cantonada de baix a la dreta queda lliure (YouTube hi posa la durada).
+  textLeft: 64,
+  textWidth: 600,
+  goldPx: 270,
+  goldLinePx: 230,
+  handPx: 92,
+  handBigPx: 172,
+  handWeight: 700,
+  stickerPx: 104,
+  stickerPad: 20,
+  stickerRadius: 26,
+  stickerTiltDeg: 5,
+  textShadow: '0 4px 18px rgba(0,0,0,.55)',
+  textGap: 18,
+  stickerShadow: '0 12px 26px rgba(0,0,0,.35)',
+} as const;

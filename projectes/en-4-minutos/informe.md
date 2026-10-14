@@ -7,11 +7,10 @@
 ## Títol
 L'original diu «te lo explico en cuatro minutos», però el vídeo editat dura **2:45**. Per això:
 - La frase «y te lo explico en cuatro minutos» **s'ha tret** del ganxo (tram `r00b`). Es pot recuperar a l'editor, a la pestanya Talls.
-- **Títol triat**: **«Dame 3 minutos y te cambio la vida con la IA y los negocios»**. L'usuari vol que quedi clar que el vídeo és d'IA **i** negocis, no només d'IA, i per això es descarta «(con IA)». Té el format «Give me X minutes» (els 3 minuts són honestos per a 2:46) i ocupa 59 caràcters, que al mòbil es veuen en dues línies.
-- **Per provar amb Test & Compare:**
-  - «Dame 3 minutos y te cambio la vida (IA + negocios)»: més curt i s'escaneja d'un cop d'ull;
-  - «Dame 166 segundos: las 3 IAs para montar cualquier negocio»: número exacte i estrany, i un resultat concret.
-- **Miniatura:** el text no ha de repetir el títol. Proposta: «IMPOSIBLE FRACASAR», que és la frase amb què tanques el vídeo.
+- **Títol triat**: **«Dame 3 minutos: IA y negocios»** (29 caràcters).
+  - L'usuari el vol curt i que digui IA **i** negocis.
+  - La promesa emocional va a la miniatura, que no repeteix el títol: **«TE CAMBIO / LA VIDA.»**, amb «LA VIDA.» en groc i ell al centre.
+- **Per provar amb Test & Compare:** «IA y negocios en 3 minutos», amb la miniatura «IMPOSIBLE FRACASAR» (la frase amb què tanca el vídeo).
 - No cal allargar-lo ni tornar-lo a gravar. Per arribar als 4 minuts s'haurien de tornar a posar preses repetides.
 
 ## Preses triades i el que s'ha tret

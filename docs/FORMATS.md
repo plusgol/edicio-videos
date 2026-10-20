@@ -32,9 +32,9 @@ L'usuari els vol **copiar més o menys i barrejar-los amb l'estil actual** (`doc
 - **Zoom lent del 6 %** quan és a pantalla completa, i **imatges reals** (proves, documents i interfícies que semblin reals), mai inventades.
 - **Estil propi:** agafar elements de diverses persones, no copiar-ne només una.
 
-## 3. Proposta d'ordre (per decidir amb l'usuari)
-1. **Bot de trading** (16:9): barreja del nostre estil amb el de *tef*.
-   - Pantalla partida (càmera + gravació d'OBS), finestres flotants amb zoom a les xifres i targetes de logo.
-   - Possible tier list de les plataformes o les APIs.
-2. **TierList** com a component reutilitzable, en vertical i en horitzontal.
-3. **Reels verticals** (depth-ui, personal i business), cada un com a skill.
+## 3. Decisió de l'usuari
+- **Els formats del catàleg** (tier list, depth-ui, reels personals i de negoci, clips) són per al **contingut curt** (vertical). Es construiran com a skills quan toqui fer reels.
+- **El vídeo del bot de trading** (16:9, llarg) **no** porta tier list ni aquests formats. Barreja el nostre estil (`docs/ESTIL_ALEX.md`: cara, ganxo, seccions, logos i lletra a mà) amb el de *tef*:
+  - gravacions d'OBS en finestra flotant amb zoom a les xifres;
+  - targetes de logo per a cada eina;
+  - ritme més ràpid a les parts de pantalla.

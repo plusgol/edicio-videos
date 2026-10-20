@@ -34,6 +34,7 @@ Sense tier list ni formats de contingut curt (decisió de l'usuari).
   - no surten «casi 50 euros» ni «50 dólares», ni el panell amb xifres;
   - el panell només surt al final, difuminat, amb «Resultados en la parte 2», mentre diu «es que de verdad funciona».
 
+## Decisions
 - **Reordenat:** el límit del pla de 20 $ (5867, 214–251 s) va just després del truc, perquè tot el que és «construir amb Claude» quedi junt.
 - **Represes retirades:**
   - 5866: 54–59 s i 77–81 s.
@@ -64,6 +65,6 @@ Alternatives:
 
 ## Pendent
 - **Escolta humana pendent:**
-  - empalmaments entre preses (h1→h2→h3, t1→t2, f6a→f6);
+  - empalmaments entre preses (h3→p1, t1→t2, f6a→f6, h2→e3);
   - el so de la selfie de 5885, al carrer.
 - **Si Ibero Funding és col·laboració o enllaç d'afiliat:** marca «Incluye promoción pagada» a YouTube.

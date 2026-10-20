@@ -1,6 +1,6 @@
 {
  "_nota": "Bot de trading. Estil Alex (cara, seccions, lletra a mà) + tef (pantalla en finestra flotant, targetes d'eina). Pantalla sincronitzada per contingut: OBS1 = 5866 + 93 s i 5867 + 344 s; OBS3 = 5883 − 9 s; OBS2 per contingut. La veu és sempre la de l'iPhone (OBS només grava la pantalla).",
- "version": 1,
+ "version": 2,
  "video": {
   "width": 1920,
   "height": 1080,
@@ -60,6 +60,15 @@
   },
   "obs3": {
    "video": "input/2026-10-20_14-00-57.mkv"
+  },
+  "yt1": {
+   "video": "work/yt_bot_trading_ia.mp4"
+  },
+  "yt2": {
+   "video": "work/yt_claude_trading_bot.mp4"
+  },
+  "yt3": {
+   "video": "work/yt_ai_trading_bot.mp4"
   }
  },
  "screenCrops": {
@@ -75,34 +84,23 @@
    2880,
    1288
   ],
+  "full": [
+   0,
+   0,
+   1920,
+   1080
+  ],
   "_nota": "px de l'original 2880×1620. app: treu la barra de tasques. browser: treu també pestanyes, adreça i adreces d'interès (dades personals)."
  },
  "cuts": {
   "silenceThresholdDbAboveFloor": 9,
-  "shortenSilenceLongerThanMs": 300,
-  "keepAfterSpeechMs": 90,
-  "keepBeforeSpeechMs": 70,
-  "snapWindowMs": 100
+  "shortenSilenceLongerThanMs": 450,
+  "keepAfterSpeechMs": 170,
+  "keepBeforeSpeechMs": 130,
+  "snapWindowMs": 100,
+  "_nota": "v2: menys agressius que a en-4-minutos (300/90/70). Parla a poc a poc i fent coses: amb pauses de 160 ms la veu sonava robòtica."
  },
  "ranges": [
-  {
-   "id": "h1",
-   "source": "c5885",
-   "inMs": 5700,
-   "outMs": 7650,
-   "block": "ganxo",
-   "captions": "Casi 50 euros ganados.",
-   "reason": "ganxo: el resultat en 2 s (5885). «Como podéis haber visto» es treu perquè no s'ha vist res encara"
-  },
-  {
-   "id": "h2",
-   "source": "c5885",
-   "inMs": 17000,
-   "outMs": 19800,
-   "block": "ganxo",
-   "captions": "Y que coño, que funciona, es que de verdad funciona.",
-   "reason": "ganxo: reacció sincera, a càmera"
-  },
   {
    "id": "h3",
    "source": "c5866",
@@ -110,7 +108,7 @@
    "outMs": 157700,
    "block": "ganxo",
    "captions": "Yo sinceramente no tengo mucha idea de esto, entonces me fío completamente de la inteligencia artificial, que me sustituya por completo.",
-   "reason": "context del ganxo: no en sap i ho fa tot la IA (5866, final). Talla abans de «y que dé la mejoría del mercado», que no s'entén"
+   "reason": "ganxo: la veu comença a 0,07 s. Mentre diu «no tengo mucha idea de esto, me fío de la IA» es veuen vídeos reals de bots de trading amb IA (com la intro de tef)"
   },
   {
    "id": "p1",
@@ -156,7 +154,7 @@
    "block": "seccio:prompt",
    "captions": "Entonces yo he escrito, tal cual: quiero hacer un bot de trading para operar con criptomonedas y activos financieros. ¿Cómo lo harías? Dame un prompt muy concreto para tener la mejor IA del mercado y obtener rentabilidad.",
    "reason": "el prompt inicial, llegit mentre l'escriu. El teclat (−50 dB) omple les pauses: llindar de silenci propi",
-   "silenceAboveFloorDb": 20
+   "silenceAboveFloorDb": 16
   },
   {
    "id": "p6",
@@ -193,7 +191,7 @@
    "block": "seccio:prompt",
    "captions": "Y a partir de aquí le tenemos que decir, sobre todo, que lo vincule con alguna plataforma para poder operar de forma real, pero sin dinero. Por lo tanto, ficticio.",
    "reason": "la condició clau: diners ficticis. Tecleja mentre parla: llindar de silenci propi",
-   "silenceAboveFloorDb": 20
+   "silenceAboveFloorDb": 16
   },
   {
    "id": "p10",
@@ -403,22 +401,13 @@
    "reason": "els problemes (honest)"
   },
   {
-   "id": "e1",
+   "id": "h2",
    "source": "c5885",
-   "inMs": 0,
-   "outMs": 3550,
+   "inMs": 17000,
+   "outMs": 19800,
    "block": "final",
-   "captions": "Bueno, me estoy yendo a la uni, entonces no he podido grabar la reacción.",
-   "reason": "tancament: selfie de camí a la uni"
-  },
-  {
-   "id": "e2",
-   "source": "c5885",
-   "inMs": 43550,
-   "outMs": 46550,
-   "block": "final",
-   "captions": "Pero que ahora mismo está en positivo, con 50 dólares.",
-   "reason": "el resultat (aquí diu dòlars, que és el que marca el panell)"
+   "captions": "Y que coño, que funciona, es que de verdad funciona.",
+   "reason": "la reacció, sense xifres"
   },
   {
    "id": "e3",
@@ -436,62 +425,107 @@
    "outMs": 40550,
    "block": "final",
    "captions": "Pero bueno, yo muy sorprendido. Y a ver realmente si queréis una parte dos, a ver cuánto llega a ganar.",
-   "reason": "CTA únic: part 2"
+   "reason": "CTA únic: part 2 (amb els resultats)"
   }
  ],
  "punchIns": [],
  "overlays": [
   {
-   "id": "w-hook",
+   "id": "w-yt1",
    "type": "ScreenWindow",
-   "source": "c5885",
-   "anchorMs": 5700,
-   "durationMs": 2300,
+   "source": "c5866",
+   "anchorMs": 151450,
+   "durationMs": 1550,
    "props": {
     "clip": {
-     "screen": "obs3",
-     "fromMs": 120000,
-     "crop": "browser"
+     "screen": "yt3",
+     "fromMs": 300,
+     "crop": "full"
     },
     "zooms": [
      {
       "atMs": 0,
-      "zoom": 1
-     },
-     {
-      "atMs": 450,
-      "zoom": 2.5,
-      "x": 0.2,
-      "y": 0.19
+      "zoom": 1.9,
+      "x": 0.36,
+      "y": 0.42
      }
     ],
-    "what": "panell del bot",
-    "tag": "Dinero ficticio · paper trading"
+    "what": "YouTube: ai trading bot"
    },
-   "reason": "prova real del resultat: el panell del bot amb +46,54 $ (OBS3 2:00). Etiqueta de diners ficticis: el panell mateix diu «Dinero ficticio»"
+   "reason": "cerca real de YouTube «ai trading bot» (capturada el 20/10/2026): «+$2,629/DAY», «$400/Day»…"
+  },
+  {
+   "id": "w-yt2",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 153000,
+   "durationMs": 1500,
+   "props": {
+    "clip": {
+     "screen": "yt2",
+     "fromMs": 500,
+     "crop": "full"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.9,
+      "x": 0.36,
+      "y": 0.4
+     }
+    ],
+    "what": "YouTube: claude trading bot"
+   },
+   "reason": "cerca real de YouTube «claude trading bot»: «From Claude AI +0.85 ETH», «Claude Trader»…"
+  },
+  {
+   "id": "e-hmm",
+   "type": "EmojiPop",
+   "source": "c5866",
+   "anchorMs": 153400,
+   "durationMs": 1200,
+   "props": {
+    "src": "emoji:1f928",
+    "side": "right",
+    "faceX": 1100,
+    "faceY": 470
+   },
+   "reason": "reacció a les promeses de les miniatures (estil tef)"
+  },
+  {
+   "id": "w-yt3",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 154500,
+   "durationMs": 1600,
+   "props": {
+    "clip": {
+     "screen": "yt1",
+     "fromMs": 1000,
+     "crop": "full"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.9,
+      "x": 0.36,
+      "y": 0.42
+     }
+    ],
+    "what": "YouTube: bot de trading con ia"
+   },
+   "reason": "cerca real de YouTube «bot de trading con ia»: «BOT CON IA ASÍ FUNCIONA»…"
   },
   {
    "id": "hook",
    "type": "HookText",
-   "source": "c5885",
-   "anchorMs": 17000,
-   "durationMs": 3000,
+   "source": "c5866",
+   "anchorMs": 156100,
+   "durationMs": 1600,
    "props": {
     "text": "Construí un bot de trading con IA"
    },
-   "reason": "títol del vídeo dins del ganxo, mentre parla a càmera"
-  },
-  {
-   "id": "fw-ni-idea",
-   "type": "FloatingWords",
-   "source": "c5866",
-   "anchorMs": 152400,
-   "durationMs": 1900,
-   "props": {
-    "text": "sin tener ni idea",
-    "side": "left"
-   },
-   "reason": "frase clau del ganxo"
+   "reason": "títol del vídeo quan torna la cara"
   },
   {
    "id": "s1",
@@ -1243,8 +1277,8 @@
    "id": "w-panel",
    "type": "ScreenWindow",
    "source": "c5885",
-   "anchorMs": 43600,
-   "durationMs": 3600,
+   "anchorMs": 17100,
+   "durationMs": 2900,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -1254,19 +1288,16 @@
     "zooms": [
      {
       "atMs": 0,
-      "zoom": 1.0
-     },
-     {
-      "atMs": 700,
-      "zoom": 2.0,
-      "x": 0.25,
-      "y": 0.2
+      "zoom": 1.15,
+      "x": 0.5,
+      "y": 0.45
      }
     ],
-    "what": "panel del bot de paper trading",
-    "tag": "Dinero ficticio · paper trading"
+    "what": "panel del bot (tapado)",
+    "tag": "Resultados en la parte 2",
+    "hidden": true
    },
-   "reason": "el panell real: Equity 10.046 $, +46 $ oberts, «Dinero ficticio · precios reales» (OBS3 2:30)"
+   "reason": "el panell del bot TAPAT: es veu que existeix i funciona, però cap xifra (l'usuari no vol ensenyar resultats; van a la part 2)"
   },
   {
    "id": "tl-aviso",
@@ -1309,9 +1340,9 @@
    "impact": "sobretot els empalmaments entre preses (h1→h2→h3, t1→t2, f6a→f6) i la selfie de 5885 (vent, carrer)"
   },
   {
-   "what": "«máximo 1060» i «mínimo 9080 o 9980»",
-   "why": "no es veuen a cap gravació de pantalla i ell mateix dubta",
-   "impact": "retirats; si tens una captura del màxim (10.060 $?) l'afegim"
+   "what": "resultats del bot",
+   "why": "l'usuari no els vol ensenyar en aquest vídeo",
+   "impact": "fora «casi 50 euros», «50 dólares» i el panell amb xifres; el panell surt tapat al final. Van a la part 2"
   },
   {
    "what": "Ibero Funding",
@@ -1319,9 +1350,9 @@
    "impact": "marca «Incluye promoción pagada» si cal"
   },
   {
-   "what": "euros vs dòlars",
-   "why": "al ganxo diu «50 euros»; el panell marca dòlars ficticis",
-   "impact": "l'etiqueta «Dinero ficticio» ho aclareix; si vols, es pot tallar «euros»"
+   "what": "cerques de YouTube de la intro",
+   "why": "capturades des d'aquí el 20/10/2026 (scripts/captura_youtube.py): són resultats reals d'aquell dia",
+   "impact": "si vols les teves cerques (amb la teva sessió), grava-les i les canvio"
   }
  ]
 }

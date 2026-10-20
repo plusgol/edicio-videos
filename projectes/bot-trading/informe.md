@@ -27,8 +27,13 @@ Estil Alex (`docs/ESTIL_ALEX.md`) barrejat amb el de *tef* (`docs/FORMATS.md`):
 
 Sense tier list ni formats de contingut curt (decisió de l'usuari).
 
-## Decisions
-- **Ganxo amb el resultat** («Casi 50 euros ganados», sobre el panell real), «es que de verdad funciona», i «no tengo mucha idea de esto, me fío de la IA». Després, el títol en pantalla.
+## Versió 2 (revisió de l'usuari: «la veu és robòtica», «intro com tef», «no ensenyar resultats»)
+- **Veu:** els talls eren massa agressius per a una manera de parlar pausada (pauses retallades a 160 ms, i paraula per paraula mentre tecleja). Ara les pauses de menys de 450 ms no es toquen, i les llargues deixen 170 ms després de parlar i 130 ms abans (unes 300 ms). Els trams on tecleja tenen un llindar més suau.
+- **Intro estil tef:** cerques reals de YouTube («ai trading bot», «claude trading bot», «bot de trading con ia»), capturades des d'aquí el 20/10/2026 amb `scripts/captura_youtube.py`. Plans de ~1,5 s amb zoom a les miniatures i una reacció 🤨, mentre diu «no tengo mucha idea de esto, me fío completamente de la IA». Després, el títol.
+- **Resultats fora:**
+  - no surten «casi 50 euros» ni «50 dólares», ni el panell amb xifres;
+  - el panell només surt al final, difuminat, amb «Resultados en la parte 2», mentre diu «es que de verdad funciona».
+
 - **Reordenat:** el límit del pla de 20 $ (5867, 214–251 s) va just després del truc, perquè tot el que és «construir amb Claude» quedi junt.
 - **Represes retirades:**
   - 5866: 54–59 s i 77–81 s.
@@ -62,4 +67,3 @@ Alternatives:
   - empalmaments entre preses (h1→h2→h3, t1→t2, f6a→f6);
   - el so de la selfie de 5885, al carrer.
 - **Si Ibero Funding és col·laboració o enllaç d'afiliat:** marca «Incluye promoción pagada» a YouTube.
-- **Euros i dòlars:** al ganxo diu «50 euros», però el panell marca dòlars ficticis. L'etiqueta ho aclareix; si vols, es pot tallar «euros».

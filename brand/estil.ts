@@ -279,6 +279,8 @@ export const PANTALLA = {
   shadow: '0 30px 70px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08)',
   // Zoom a una zona: transició (ms) i corba suau, sense rebot.
   zoomMoveMs: 550,
+  // Contingut tapat (resultats que encara no s'ensenyen): desenfocament fort, que no es pugui llegir cap xifra.
+  hiddenBlurPx: 14,
   // Etiqueta d'honestedat («Dinero ficticio», «paper trading»…) a baix a l'esquerra.
   tag: {bg: '#151515', ink: '#FFFFFF', dot: '#E5383B', fontPx: 34, padY: 12, padX: 22, radius: 999, bottom: 46, left: 70},
   // Clips extrets de l'original: amplada màxima i qualitat (CRF x264) per al render.

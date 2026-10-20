@@ -17,6 +17,8 @@ export type ScreenWindowProps = {
   zooms?: ScreenZoom[];
   // Etiqueta curta i honesta a baix a l'esquerra (p. ex. «Dinero ficticio · paper trading»).
   tag?: string;
+  // Tapa el contingut (p. ex. resultats que es guarden per a la part 2): es veu la interfície però no es llegeix res.
+  hidden?: boolean;
   tone?: 'light' | 'dark';
 };
 
@@ -28,6 +30,11 @@ const poseAt = (ms: number, zooms: ScreenZoom[]) => {
   for (const z of [...zooms].sort((a, b) => a.atMs - b.atMs)) {
     if (ms < z.atMs) break;
     const target = {zoom: z.zoom, x: z.x ?? pose.x, y: z.y ?? pose.y};
+    if (z.atMs <= 0) {
+      // Un zoom a l'instant 0 és la pose inicial: el pla entra ja ampliat (tall sec, com a la intro de tef).
+      pose = target;
+      continue;
+    }
     const p = interpolate(ms, [z.atMs, z.atMs + PANTALLA.zoomMoveMs], [0, 1], {...clamp, easing: Easing.inOut(Easing.cubic)});
     pose = {zoom: pose.zoom + (target.zoom - pose.zoom) * p, x: pose.x + (target.x - pose.x) * p, y: pose.y + (target.y - pose.y) * p};
   }
@@ -37,7 +44,7 @@ const poseAt = (ms: number, zooms: ScreenZoom[]) => {
 };
 
 // Gravació de pantalla en una finestra flotant sobre l'escenari (estil tef), amb zooms a les xifres.
-export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = [], tag, tone = 'light'}) => {
+export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = [], tag, hidden, tone = 'light'}) => {
   const frame = useCurrentFrame();
   const {fps, width, height, durationInFrames} = useVideoConfig();
   const exit = blurInOut(frame, durationInFrames, 0);
@@ -70,6 +77,7 @@ export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = 
               height: h,
               transformOrigin: '0 0',
               transform: `translate(${w * (0.5 - pose.x * pose.zoom)}px, ${h * (0.5 - pose.y * pose.zoom)}px) scale(${pose.zoom})`,
+              filter: hidden ? `blur(${PANTALLA.hiddenBlurPx}px)` : undefined,
             }}
           />
         </div>

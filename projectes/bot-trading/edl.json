@@ -1,0 +1,1327 @@
+{
+ "_nota": "Bot de trading. Estil Alex (cara, seccions, lletra a mà) + tef (pantalla en finestra flotant, targetes d'eina). Pantalla sincronitzada per contingut: OBS1 = 5866 + 93 s i 5867 + 344 s; OBS3 = 5883 − 9 s; OBS2 per contingut. La veu és sempre la de l'iPhone (OBS només grava la pantalla).",
+ "version": 1,
+ "video": {
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "captions": false,
+  "cameraScales": [
+   1.0,
+   1.12,
+   1.22
+  ],
+  "theme": {
+   "mode": "dark",
+   "accent": "#D6A84E"
+  }
+ },
+ "title": {
+  "chosen": "Construí un bot de trading con IA (sin tener ni idea)",
+  "alternatives": [
+   "Construí un bot de trading con Claude sin saber programar",
+   "Construí un bot de trading con IA: 24 horas después",
+   "Construí un bot de trading con IA y esto es lo que ganó (dinero ficticio)"
+  ],
+  "note": "No fem servir «10K al mes» com a la referència: el bot ha fet ~+46 $ ficticis en paper trading."
+ },
+ "sources": {
+  "c5866": {
+   "video": "work/IMG_5866.1920x1080.mp4",
+   "audio": "work/IMG_5866.48k.wav",
+   "track": "work/IMG_5866.1920x1080.track.json",
+   "transcript": "work/IMG_5866.transcript.json"
+  },
+  "c5867": {
+   "video": "work/IMG_5867.1920x1080.mp4",
+   "audio": "work/IMG_5867.48k.wav",
+   "track": "work/IMG_5867.1920x1080.track.json",
+   "transcript": "work/IMG_5867.transcript.json"
+  },
+  "c5883": {
+   "video": "work/IMG_5883.1920x1080.mp4",
+   "audio": "work/IMG_5883.48k.wav",
+   "track": "work/IMG_5883.1920x1080.track.json",
+   "transcript": "work/IMG_5883.transcript.json"
+  },
+  "c5885": {
+   "video": "work/IMG_5885.1920x1080.mp4",
+   "audio": "work/IMG_5885.48k.wav",
+   "track": "work/IMG_5885.1920x1080.track.json",
+   "transcript": "work/IMG_5885.transcript.json"
+  }
+ },
+ "screens": {
+  "obs1": {
+   "video": "input/2026-10-19_14-57-35.mkv"
+  },
+  "obs2": {
+   "video": "input/2026-10-19_16-36-40.mkv"
+  },
+  "obs3": {
+   "video": "input/2026-10-20_14-00-57.mkv"
+  }
+ },
+ "screenCrops": {
+  "app": [
+   0,
+   0,
+   2880,
+   1524
+  ],
+  "browser": [
+   0,
+   236,
+   2880,
+   1288
+  ],
+  "_nota": "px de l'original 2880×1620. app: treu la barra de tasques. browser: treu també pestanyes, adreça i adreces d'interès (dades personals)."
+ },
+ "cuts": {
+  "silenceThresholdDbAboveFloor": 9,
+  "shortenSilenceLongerThanMs": 300,
+  "keepAfterSpeechMs": 90,
+  "keepBeforeSpeechMs": 70,
+  "snapWindowMs": 100
+ },
+ "ranges": [
+  {
+   "id": "h1",
+   "source": "c5885",
+   "inMs": 5700,
+   "outMs": 7650,
+   "block": "ganxo",
+   "captions": "Casi 50 euros ganados.",
+   "reason": "ganxo: el resultat en 2 s (5885). «Como podéis haber visto» es treu perquè no s'ha vist res encara"
+  },
+  {
+   "id": "h2",
+   "source": "c5885",
+   "inMs": 17000,
+   "outMs": 19800,
+   "block": "ganxo",
+   "captions": "Y que coño, que funciona, es que de verdad funciona.",
+   "reason": "ganxo: reacció sincera, a càmera"
+  },
+  {
+   "id": "h3",
+   "source": "c5866",
+   "inMs": 151450,
+   "outMs": 157700,
+   "block": "ganxo",
+   "captions": "Yo sinceramente no tengo mucha idea de esto, entonces me fío completamente de la inteligencia artificial, que me sustituya por completo.",
+   "reason": "context del ganxo: no en sap i ho fa tot la IA (5866, final). Talla abans de «y que dé la mejoría del mercado», que no s'entén"
+  },
+  {
+   "id": "p1",
+   "source": "c5866",
+   "inMs": 2500,
+   "outMs": 9950,
+   "block": "seccio:prompt",
+   "captions": "Vale, el primer paso es muy fácil: entra a Claude. Aquí tenemos diferentes planes de precios: el gratis, el de 20, el de 100. Yo voy a utilizar el de 20.",
+   "reason": "pas 1: Claude i els plans"
+  },
+  {
+   "id": "p2",
+   "source": "c5866",
+   "inMs": 10100,
+   "outMs": 14200,
+   "block": "seccio:prompt",
+   "captions": "A partir de aquí tenemos dos modelos: el Sonnet, que es el barato, y el Opus.",
+   "reason": "els dos models"
+  },
+  {
+   "id": "p3",
+   "source": "c5866",
+   "inMs": 14400,
+   "outMs": 18650,
+   "block": "seccio:prompt",
+   "captions": "Ahora mismo vamos a entrar primero al chat normal y le vamos a dar un poco de contexto.",
+   "reason": "primer el xat normal"
+  },
+  {
+   "id": "p4",
+   "source": "c5866",
+   "inMs": 18700,
+   "outMs": 24750,
+   "block": "seccio:prompt",
+   "captions": "Voy a poner aquí, en vez de Opus 5.5, que, como puedes ver, es para trabajos complejos... Para hacer un poco de búsqueda no hace falta.",
+   "reason": "tria de model al xat"
+  },
+  {
+   "id": "p5",
+   "source": "c5866",
+   "inMs": 24800,
+   "outMs": 51400,
+   "block": "seccio:prompt",
+   "captions": "Entonces yo he escrito, tal cual: quiero hacer un bot de trading para operar con criptomonedas y activos financieros. ¿Cómo lo harías? Dame un prompt muy concreto para tener la mejor IA del mercado y obtener rentabilidad.",
+   "reason": "el prompt inicial, llegit mentre l'escriu. El teclat (−50 dB) omple les pauses: llindar de silenci propi",
+   "silenceAboveFloorDb": 20
+  },
+  {
+   "id": "p6",
+   "source": "c5866",
+   "inMs": 59300,
+   "outMs": 72000,
+   "block": "seccio:prompt",
+   "captions": "Vale, ya tenemos el prompt hecho. Entonces, con lo que nos dé de resultado, como podéis ver, pues cómo lo haría, el paso a paso, no hagáis nada: mandadlo directamente a Claude Code y este se encargará de crear la inteligencia artificial.",
+   "reason": "2a presa (la de 54,5 s es un intent superat)"
+  },
+  {
+   "id": "p7",
+   "source": "c5866",
+   "inMs": 80900,
+   "outMs": 92550,
+   "block": "seccio:prompt",
+   "captions": "Vale, como puedes ver, con este prompt tan sencillo nos da el paso a paso. Bueno, aquí lo tenemos: objetivo, actúa como ingeniero cuantitativo senior. Yo no tengo ni idea, entonces lo voy a copiar",
+   "reason": "2a presa (la de 77,5 s es una represa)"
+  },
+  {
+   "id": "p8",
+   "source": "c5866",
+   "inMs": 92650,
+   "outMs": 109850,
+   "block": "seccio:prompt",
+   "captions": "y aquí, si os fijáis, tenemos la opción de Claude Code. Aquí, en este equipo, y vamos a utilizar, en este caso, el modo Opus 5.5 en esfuerzo... es un esfuerzo medio. Le pegamos.",
+   "reason": "Claude Code amb Opus 5.5 i esforç mitjà"
+  },
+  {
+   "id": "p9",
+   "source": "c5866",
+   "inMs": 110100,
+   "outMs": 127800,
+   "block": "seccio:prompt",
+   "captions": "Y a partir de aquí le tenemos que decir, sobre todo, que lo vincule con alguna plataforma para poder operar de forma real, pero sin dinero. Por lo tanto, ficticio.",
+   "reason": "la condició clau: diners ficticis. Tecleja mentre parla: llindar de silenci propi",
+   "silenceAboveFloorDb": 20
+  },
+  {
+   "id": "p10",
+   "source": "c5866",
+   "inMs": 130199,
+   "outMs": 132150,
+   "block": "seccio:prompt",
+   "captions": "Ahora mismo ya lo tenemos todo hecho.",
+   "reason": "transició"
+  },
+  {
+   "id": "p11",
+   "source": "c5866",
+   "inMs": 141450,
+   "outMs": 151300,
+   "block": "seccio:prompt",
+   "captions": "Vale, ahora mismo tenemos literalmente el 60% de las tareas hechas: hemos hecho el prompt, y aquí básicamente pues va creando aquí hipótesis.",
+   "reason": "estat: 60%, la IA proposa hipòtesis"
+  },
+  {
+   "id": "t1",
+   "source": "c5867",
+   "inMs": 150,
+   "outMs": 14850,
+   "block": "seccio:truco",
+   "captions": "Os voy a dar un truco para saber si realmente el prompt es bueno. Si os fijáis, he enviado este prompt y aquí nos hace unas preguntas antes de la fase 2. ¿Por qué? Porque así gastan menos créditos, menos tokens, ¿no? En vez de hacer pues dos aplicaciones.",
+   "reason": "el truc de les preguntes"
+  },
+  {
+   "id": "t2",
+   "source": "c5867",
+   "inMs": 23400,
+   "outMs": 28000,
+   "block": "seccio:truco",
+   "captions": "Entonces, con estas preguntas las respondemos y así creará un prototipo muchísimo mejor.",
+   "reason": "conclusió del truc. Es retira 15–23 s («no lo hemos puesto»), que contradiu el que s'ha vist: sí que ho havia demanat"
+  },
+  {
+   "id": "l1",
+   "source": "c5867",
+   "inMs": 214800,
+   "outMs": 242950,
+   "block": "seccio:truco",
+   "captions": "¿Qué pasa si tenemos la cuenta de Claude de 20 dólares? Aquí tenemos un contra, ¿no? Y es que, si os fijáis aquí, tenemos un límite de sesión. Es decir, cada 5 horas, si gastas el 100%, no vas a poder hacer nada hasta que pase ese tiempo. Y hay, evidentemente, un gasto semanal que se restablece cada sábado a la una de la tarde. Como podéis ver, llevamos un 2% y le hemos pasado ya todo el prompt y está haciendo un análisis.",
+   "reason": "el límit del pla de 20 $ (3a presa; 198–214 s són represes). Reordenat: va després del truc, abans del fondeig"
+  },
+  {
+   "id": "l2",
+   "source": "c5867",
+   "inMs": 243100,
+   "outMs": 251000,
+   "block": "seccio:truco",
+   "captions": "Entonces vamos a ver si realmente, con Opus 5.5 en esfuerzo medio, nos da para crear este bot.",
+   "reason": "pregunta oberta → enllaça amb el dia següent"
+  },
+  {
+   "id": "f1",
+   "source": "c5867",
+   "inMs": 30000,
+   "outMs": 50800,
+   "block": "seccio:fondeo",
+   "captions": "Vale, ¿cuál sería la utilidad real de esto? Ahora vamos a crear un prototipo, y al final esto no significa que como funciona aquí siempre va a funcionar. Vamos a hablar sobre las cuentas de fondeo. En este caso, yo la que más recomiendo siempre será Ibero Funding, porque es la única prop firm española que realmente da cuentas de fondeo.",
+   "reason": "per a què serveix: comptes de fondeig. El nom és Ibero Funding (iberofunding.com, a la pantalla)"
+  },
+  {
+   "id": "f3",
+   "source": "c5867",
+   "inMs": 51000,
+   "outMs": 65300,
+   "block": "seccio:fondeo",
+   "captions": "Para empezar, ¿qué es una cuenta de fondeo? Básicamente, una empresa: tú pagas 30 dólares, por ejemplo... vamos a ver esta oferta. En este caso, este plan: tú pagas 28 dólares y tienes una cuenta de 5.000 dólares para operar.",
+   "reason": "què és una compta de fondeig"
+  },
+  {
+   "id": "f4",
+   "source": "c5867",
+   "inMs": 65900,
+   "outMs": 66800,
+   "block": "seccio:fondeo",
+   "captions": "¿Cómo puede ser?",
+   "reason": "pregunta retòrica"
+  },
+  {
+   "id": "f4b",
+   "source": "c5867",
+   "inMs": 67550,
+   "outMs": 72550,
+   "block": "seccio:fondeo",
+   "captions": "Básicamente porque aquí tienes, pues, unas obligaciones, ¿no? Por así decirlo.",
+   "reason": "les condicions. Treu «No sé qué»"
+  },
+  {
+   "id": "f5",
+   "source": "c5867",
+   "inMs": 74500,
+   "outMs": 87950,
+   "block": "seccio:fondeo",
+   "captions": "Sí o sí, si lo ves, para superar la fase necesitas un 8% de estos 5.000. Si pierdes un 6%, has perdido el reto, y ya has perdido 28 dólares.",
+   "reason": "les regles: 8 % d'objectiu, 6 % de pèrdua màxima"
+  },
+  {
+   "id": "f6a",
+   "source": "c5867",
+   "inMs": 88100,
+   "outMs": 89100,
+   "block": "seccio:fondeo",
+   "captions": "Esto es lo más complicado.",
+   "reason": "transició. Es treu 89–99 s: «a la mayoría de traders les sale muy rentable» és una afirmació que no podem sostenir"
+  },
+  {
+   "id": "f6",
+   "source": "c5867",
+   "inMs": 99200,
+   "outMs": 116400,
+   "block": "seccio:fondeo",
+   "captions": "Pues hacer un 8% con 5.000 dólares no es hacer una operación y ya: tienes que hacer varias. Y, sobre todo, al final el trading se trata mucho a nivel mental, porque tú puedes tener una estrategia muy clara, pero por los nervios, o por la presión, o por impulsos, acabéis operando de una forma que no es la correcta.",
+   "reason": "el trading és mental"
+  },
+  {
+   "id": "b1",
+   "source": "c5867",
+   "inMs": 119400,
+   "outMs": 129800,
+   "block": "seccio:backtesting",
+   "captions": "A partir de aquí, lo que tenemos que mirar es realmente si podemos llegar a ser rentables. Por esto creamos este bot de trading: para probar diferentes estrategias y hacer un poco lo que es el backtesting.",
+   "reason": "per a què el bot: provar estratègies"
+  },
+  {
+   "id": "b2a",
+   "source": "c5867",
+   "inMs": 144950,
+   "outMs": 154400,
+   "block": "seccio:backtesting",
+   "captions": "El backtesting básicamente sirve para comprobar estrategias. Coge un momento de mercado anterior y tú, sin saber lo que va a pasar a futuro, pruebas la estrategia.",
+   "reason": "definició (2a presa: 131–145 s és una represa)"
+  },
+  {
+   "id": "b2b",
+   "source": "c5867",
+   "inMs": 156550,
+   "outMs": 164700,
+   "block": "seccio:backtesting",
+   "captions": "Así puedes llegar a ver si realmente tu estrategia hubiera sido rentable en el pasado y comprobar si realmente puedes obtener beneficio.",
+   "reason": "per a què serveix. Es treu «por eso se llamaba el testing»"
+  },
+  {
+   "id": "b3",
+   "source": "c5867",
+   "inMs": 166600,
+   "outMs": 182800,
+   "block": "seccio:backtesting",
+   "captions": "Vamos a poner un ejemplo, ¿no? Con una cuenta de 5.000 dólares, que equivale a 28 dólares pagando en Ibero Funding, si tenemos una rentabilidad mensual del 5%, que sí que es bastante, estás llegando a casi 200 dólares al mes, unos 2.200 al año.",
+   "reason": "exemple amb la calculadora de la web"
+  },
+  {
+   "id": "b4",
+   "source": "c5867",
+   "inMs": 183300,
+   "outMs": 193000,
+   "block": "seccio:backtesting",
+   "captions": "Aquí, como vais a ver, evidentemente, si tenemos una cuenta de 50.000 y hacemos un 5%, ganamos casi 2.000 dólares. Pero esto, sobre todo, os lo digo: es muy a nivel mental.",
+   "reason": "l'exemple gran i l'avís"
+  },
+  {
+   "id": "d1",
+   "source": "c5883",
+   "inMs": 10700,
+   "outMs": 17450,
+   "block": "seccio:24h",
+   "captions": "Vale, han pasado ya 24 horas. Al final, la vida del universitario es muy dura, pero ahora sí, ya tenemos todo preparado.",
+   "reason": "el dia següent"
+  },
+  {
+   "id": "d2",
+   "source": "c5883",
+   "inMs": 17500,
+   "outMs": 23600,
+   "block": "seccio:24h",
+   "captions": "Como podéis ver, me ha dicho que si tenía que hacer algo, le he dicho que no, que no quería hacer nada, que lo haría todo él,",
+   "reason": "ho fa tot la IA"
+  },
+  {
+   "id": "d3",
+   "source": "c5883",
+   "inMs": 23650,
+   "outMs": 39200,
+   "block": "seccio:24h",
+   "captions": "y ahora mismo tenemos, como podéis ver, en archivos, «iniciar bot». Vale, se va a iniciar un bot. Seguramente me estarán a punto de hackear, pero como veis, me ha abierto el explorador de archivos con «iniciar bot», y en esta carpeta pues tengo toda la información.",
+   "reason": "arrenca el bot"
+  },
+  {
+   "id": "d4",
+   "source": "c5883",
+   "inMs": 39250,
+   "outMs": 48050,
+   "block": "seccio:24h",
+   "captions": "Entonces vamos a ver si realmente funciona este bot que hemos creado. Literalmente, me ha gastado un 5% semanal crear el bot.",
+   "reason": "cost real de fer-lo"
+  },
+  {
+   "id": "d5",
+   "source": "c5883",
+   "inMs": 55750,
+   "outMs": 69800,
+   "block": "seccio:24h",
+   "captions": "Vale, como puedes ver, también puede haber problemas. Que había pasado que me había creado el bot, pero que no se veía. Entonces ahora me está creando un servidor local con páginas. Entonces este 5% puede que aumente un poco, pero como podéis ver, siempre pueden haber errores.",
+   "reason": "els problemes (honest)"
+  },
+  {
+   "id": "e1",
+   "source": "c5885",
+   "inMs": 0,
+   "outMs": 3550,
+   "block": "final",
+   "captions": "Bueno, me estoy yendo a la uni, entonces no he podido grabar la reacción.",
+   "reason": "tancament: selfie de camí a la uni"
+  },
+  {
+   "id": "e2",
+   "source": "c5885",
+   "inMs": 43550,
+   "outMs": 46550,
+   "block": "final",
+   "captions": "Pero que ahora mismo está en positivo, con 50 dólares.",
+   "reason": "el resultat (aquí diu dòlars, que és el que marca el panell)"
+  },
+  {
+   "id": "e3",
+   "source": "c5885",
+   "inMs": 23000,
+   "outMs": 34800,
+   "block": "final",
+   "captions": "Al final son test, pero sí que es verdad que es una herramienta que te va a servir mucho a la larga para, sobre todo, practicar. Y si vas a ir modificando, puedes ver las estrategias, puedes hacer backtesting.",
+   "reason": "la valoració honesta: són proves"
+  },
+  {
+   "id": "e4",
+   "source": "c5885",
+   "inMs": 35050,
+   "outMs": 40550,
+   "block": "final",
+   "captions": "Pero bueno, yo muy sorprendido. Y a ver realmente si queréis una parte dos, a ver cuánto llega a ganar.",
+   "reason": "CTA únic: part 2"
+  }
+ ],
+ "punchIns": [],
+ "overlays": [
+  {
+   "id": "w-hook",
+   "type": "ScreenWindow",
+   "source": "c5885",
+   "anchorMs": 5700,
+   "durationMs": 2300,
+   "props": {
+    "clip": {
+     "screen": "obs3",
+     "fromMs": 120000,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1
+     },
+     {
+      "atMs": 450,
+      "zoom": 2.5,
+      "x": 0.2,
+      "y": 0.19
+     }
+    ],
+    "what": "panell del bot",
+    "tag": "Dinero ficticio · paper trading"
+   },
+   "reason": "prova real del resultat: el panell del bot amb +46,54 $ (OBS3 2:00). Etiqueta de diners ficticis: el panell mateix diu «Dinero ficticio»"
+  },
+  {
+   "id": "hook",
+   "type": "HookText",
+   "source": "c5885",
+   "anchorMs": 17000,
+   "durationMs": 3000,
+   "props": {
+    "text": "Construí un bot de trading con IA"
+   },
+   "reason": "títol del vídeo dins del ganxo, mentre parla a càmera"
+  },
+  {
+   "id": "fw-ni-idea",
+   "type": "FloatingWords",
+   "source": "c5866",
+   "anchorMs": 152400,
+   "durationMs": 1900,
+   "props": {
+    "text": "sin tener ni idea",
+    "side": "left"
+   },
+   "reason": "frase clau del ganxo"
+  },
+  {
+   "id": "s1",
+   "type": "SectionNumeral",
+   "source": "c5866",
+   "anchorMs": 2500,
+   "durationMs": 1600,
+   "props": {
+    "numeral": "I",
+    "title": "El prompt",
+    "logo": "logo:claude-color"
+   },
+   "reason": "secció I"
+  },
+  {
+   "id": "lc-claude",
+   "type": "LogoCard",
+   "source": "c5866",
+   "anchorMs": 4150,
+   "durationMs": 1300,
+   "props": {
+    "logo": "logo:claude-color",
+    "name": "Claude"
+   },
+   "reason": "menciona Claude per primer cop → targeta d'eina (estil tef)"
+  },
+  {
+   "id": "hw-planes",
+   "type": "HandWritten",
+   "source": "c5866",
+   "anchorMs": 6900,
+   "durationMs": 2700,
+   "props": {
+    "text": "gratis · *20 $* · 100 $",
+    "mode": "camera",
+    "side": "right"
+   },
+   "reason": "els tres plans que diu; el seu, el de 20 (ho diu en dòlars més endavant)"
+  },
+  {
+   "id": "hw-sonnet",
+   "type": "HandWritten",
+   "source": "c5866",
+   "anchorMs": 12000,
+   "durationMs": 2000,
+   "props": {
+    "text": "Sonnet = *barato*",
+    "mode": "camera",
+    "side": "left"
+   },
+   "reason": "el que diu del Sonnet"
+  },
+  {
+   "id": "w-modelos",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 18700,
+   "durationMs": 5600,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 111500,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 250,
+      "zoom": 2.4,
+      "x": 0.53,
+      "y": 0.34
+     }
+    ],
+    "what": "selector de modelos de Claude"
+   },
+   "reason": "el selector de models real (OBS1 1:51, sincronitzat: cara 5866 + 93 s)"
+  },
+  {
+   "id": "w-prompt1",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 26200,
+   "durationMs": 17000,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 119000,
+     "crop": "app",
+     "speed": 1.15
+    },
+    "zooms": [
+     {
+      "atMs": 200,
+      "zoom": 2.2,
+      "x": 0.5,
+      "y": 0.55
+     }
+    ],
+    "what": "prompt inicial"
+   },
+   "reason": "el prompt escrivint-se de debò (OBS1 1:59–2:16), una mica accelerat (×1,15) perquè la veu va retallada"
+  },
+  {
+   "id": "w-respuesta",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 60300,
+   "durationMs": 6000,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 157000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.9,
+      "x": 0.48,
+      "y": 0.2
+     },
+     {
+      "atMs": 2800,
+      "zoom": 1.9,
+      "x": 0.48,
+      "y": 0.5
+     }
+    ],
+    "what": "respuesta de Claude"
+   },
+   "reason": "la resposta real de Claude: primer l'avís («Ningún prompt te da la mejor IA ni rentabilidad garantizada… no soy asesor financiero»), després «Cómo lo haría»"
+  },
+  {
+   "id": "lp-claudecode",
+   "type": "LogoPop",
+   "source": "c5866",
+   "anchorMs": 67900,
+   "durationMs": 1600,
+   "props": {
+    "src": "logo:claudecode-color",
+    "side": "right",
+    "label": "Claude Code"
+   },
+   "reason": "menciona Claude Code"
+  },
+  {
+   "id": "w-prompt2",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 85800,
+   "durationMs": 6200,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 179500,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 2.0,
+      "x": 0.5,
+      "y": 0.38
+     }
+    ],
+    "what": "prompt generado por Claude"
+   },
+   "reason": "el prompt generat real: «Actúa como ingeniero cuantitativo senior…» i el botó de copiar (OBS1 2:59–3:05)"
+  },
+  {
+   "id": "lc-claudecode",
+   "type": "LogoCard",
+   "source": "c5866",
+   "anchorMs": 95300,
+   "durationMs": 1300,
+   "props": {
+    "logo": "logo:claudecode-color",
+    "name": "Claude Code"
+   },
+   "reason": "obre Claude Code → targeta d'eina"
+  },
+  {
+   "id": "w-claudecode",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 98000,
+   "durationMs": 6800,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 191000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 300,
+      "zoom": 2.4,
+      "x": 0.65,
+      "y": 0.81
+     }
+    ],
+    "what": "Claude Code: Opus 5.5 · esfuerzo medio"
+   },
+   "reason": "Claude Code real: model Opus 5.5 i esforç Medio (OBS1 3:11)"
+  },
+  {
+   "id": "w-ficticio",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 113500,
+   "durationMs": 6500,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 207000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 200,
+      "zoom": 2.0,
+      "x": 0.5,
+      "y": 0.75
+     }
+    ],
+    "what": "prompt + dinero ficticio"
+   },
+   "reason": "el que hi afegeix de debò: «vinculalo con alguna plataforma para poder operar de forma real pero con dinero ficticio» (OBS1 3:27)"
+  },
+  {
+   "id": "g-ficticio",
+   "type": "GoldWord",
+   "source": "c5866",
+   "anchorMs": 126400,
+   "durationMs": 1700,
+   "props": {
+    "text": "DINERO FICTICIO",
+    "tone": "gold",
+    "placement": "front"
+   },
+   "reason": "concepte fort i avís d'honestedat: tot el vídeo és amb diners ficticis"
+  },
+  {
+   "id": "g-60",
+   "type": "GoldWord",
+   "source": "c5866",
+   "anchorMs": 143400,
+   "durationMs": 1500,
+   "props": {
+    "text": "60%",
+    "tone": "gold",
+    "placement": "front"
+   },
+   "reason": "xifra dita"
+  },
+  {
+   "id": "w-hipotesis",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 146000,
+   "durationMs": 4600,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 236000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.85,
+      "x": 0.49,
+      "y": 0.53
+     }
+    ],
+    "what": "fase 1: hipótesis"
+   },
+   "reason": "«Fase 1: tres hipótesis de estrategia y plataforma de paper trading» (OBS1 3:56)"
+  },
+  {
+   "id": "s2",
+   "type": "SectionNumeral",
+   "source": "c5867",
+   "anchorMs": 150,
+   "durationMs": 1500,
+   "props": {
+    "numeral": "II",
+    "title": "El truco"
+   },
+   "reason": "secció II"
+  },
+  {
+   "id": "w-preguntas",
+   "type": "ScreenWindow",
+   "source": "c5867",
+   "anchorMs": 3500,
+   "durationMs": 6200,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 347000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.9,
+      "x": 0.48,
+      "y": 0.52
+     }
+    ],
+    "what": "preguntas antes de la fase 2"
+   },
+   "reason": "«Preguntas antes de la fase 2» reals (OBS1 5:47; cara 5867 + 344 s). Acaba abans de 6:00, on surt el selector de finestres"
+  },
+  {
+   "id": "g-tokens",
+   "type": "GoldWord",
+   "source": "c5867",
+   "anchorMs": 11300,
+   "durationMs": 1500,
+   "props": {
+    "text": "menos tokens",
+    "tone": "white",
+    "placement": "front"
+   },
+   "reason": "concepte fort"
+  },
+  {
+   "id": "st-20",
+   "type": "StageStat",
+   "source": "c5867",
+   "anchorMs": 215600,
+   "durationMs": 2100,
+   "props": {
+    "tone": "light",
+    "icon": "logo:claude-color",
+    "value": "20 $",
+    "caption": "límite cada 5 horas"
+   },
+   "reason": "xifra: el pla i el seu límit"
+  },
+  {
+   "id": "w-limite",
+   "type": "ScreenWindow",
+   "source": "c5867",
+   "anchorMs": 220400,
+   "durationMs": 8600,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 584500,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 300,
+      "zoom": 2.6,
+      "x": 0.61,
+      "y": 0.8
+     }
+    ],
+    "what": "límites de uso de Claude"
+   },
+   "reason": "el panell «Uso» real: límit de sessió 2 % i setmanal (OBS1 9:44)"
+  },
+  {
+   "id": "hw-semanal",
+   "type": "HandWritten",
+   "source": "c5867",
+   "anchorMs": 231400,
+   "durationMs": 2300,
+   "props": {
+    "text": "semanal: *sábado 13:00*",
+    "mode": "camera",
+    "side": "left"
+   },
+   "reason": "el segon límit, el setmanal"
+  },
+  {
+   "id": "g-2",
+   "type": "GoldWord",
+   "source": "c5867",
+   "anchorMs": 238800,
+   "durationMs": 1500,
+   "props": {
+    "text": "2%",
+    "sub": "de la sesión",
+    "tone": "gold",
+    "placement": "front"
+   },
+   "reason": "xifra dita (i visible al panell «Uso»)"
+  },
+  {
+   "id": "lp-opus",
+   "type": "LogoPop",
+   "source": "c5867",
+   "anchorMs": 245200,
+   "durationMs": 1800,
+   "props": {
+    "src": "logo:claude-color",
+    "side": "right",
+    "label": "Opus 5.5 · medio"
+   },
+   "reason": "el model i l'esforç que fa servir"
+  },
+  {
+   "id": "s3",
+   "type": "SectionNumeral",
+   "source": "c5867",
+   "anchorMs": 38500,
+   "durationMs": 1700,
+   "props": {
+    "numeral": "III",
+    "title": "Cuentas de fondeo"
+   },
+   "reason": "secció III"
+  },
+  {
+   "id": "w-ibero",
+   "type": "ScreenWindow",
+   "source": "c5867",
+   "anchorMs": 43000,
+   "durationMs": 3000,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 398700,
+     "crop": "browser",
+     "speed": 0.5
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.7,
+      "x": 0.3,
+      "y": 0.45
+     }
+    ],
+    "what": "web de Ibero Funding"
+   },
+   "reason": "la web real d'Ibero Funding: «La prop firm española de CFD y futuros» (OBS1 6:39). Només es veu 1,5 s abans que faci clic a Planes: a mitja velocitat"
+  },
+  {
+   "id": "w-planes",
+   "type": "ScreenWindow",
+   "source": "c5867",
+   "anchorMs": 56500,
+   "durationMs": 5400,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 401500,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.3,
+      "x": 0.5,
+      "y": 0.55
+     },
+     {
+      "atMs": 2300,
+      "zoom": 2.4,
+      "x": 0.22,
+      "y": 0.62
+     }
+    ],
+    "what": "planes de Ibero Funding"
+   },
+   "reason": "la taula de plans real: compte de 5K per 28 $ (OBS1 6:41)"
+  },
+  {
+   "id": "st-28",
+   "type": "StageStat",
+   "source": "c5867",
+   "anchorMs": 62200,
+   "durationMs": 2200,
+   "props": {
+    "tone": "light",
+    "from": "28 $",
+    "value": "5.000 $",
+    "caption": "de cuenta para operar"
+   },
+   "reason": "comparació de xifres dites (i visibles a la taula)"
+  },
+  {
+   "id": "w-reglas",
+   "type": "ScreenWindow",
+   "source": "c5867",
+   "anchorMs": 76500,
+   "durationMs": 6400,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 420000,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 2.3,
+      "x": 0.22,
+      "y": 0.6
+     }
+    ],
+    "what": "reglas: 8% y 6%"
+   },
+   "reason": "la taula real: Profit Target 8 %, Max Drawdown 6 % (OBS1 7:00)"
+  },
+  {
+   "id": "e-mental",
+   "type": "EmojiPop",
+   "source": "c5867",
+   "anchorMs": 106400,
+   "durationMs": 1500,
+   "props": {
+    "src": "emoji:1f9e0",
+    "side": "right"
+   },
+   "reason": "«a nivel mental» → cervell"
+  },
+  {
+   "id": "fw-mental",
+   "type": "FloatingWords",
+   "source": "c5867",
+   "anchorMs": 110400,
+   "durationMs": 1800,
+   "props": {
+    "text": "nervios, presión, impulsos",
+    "side": "left"
+   },
+   "reason": "frase clau"
+  },
+  {
+   "id": "s4",
+   "type": "SectionNumeral",
+   "source": "c5867",
+   "anchorMs": 119400,
+   "durationMs": 1600,
+   "props": {
+    "numeral": "IV",
+    "title": "Backtesting"
+   },
+   "reason": "secció IV"
+  },
+  {
+   "id": "w-backtesting",
+   "type": "ScreenWindow",
+   "source": "c5867",
+   "anchorMs": 146000,
+   "durationMs": 4600,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 497000,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.5,
+      "x": 0.32,
+      "y": 0.3
+     },
+     {
+      "atMs": 2600,
+      "zoom": 1.6,
+      "x": 0.5,
+      "y": 0.33
+     }
+    ],
+    "what": "qué es el backtesting"
+   },
+   "reason": "la cerca real «backtesting free» i la web que va obrir: «Trading with confidence starts with backtesting» (FX Replay, OBS1 8:17–8:21)"
+  },
+  {
+   "id": "hw-pasado",
+   "type": "HandWritten",
+   "source": "c5867",
+   "anchorMs": 158800,
+   "durationMs": 2100,
+   "props": {
+    "text": "¿rentable en el *pasado*?",
+    "mode": "camera",
+    "side": "left"
+   },
+   "reason": "idea clau escrita a mà"
+  },
+  {
+   "id": "w-calc5k",
+   "type": "ScreenWindow",
+   "source": "c5867",
+   "anchorMs": 168100,
+   "durationMs": 8800,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 529000,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.7,
+      "x": 0.49,
+      "y": 0.47
+     },
+     {
+      "atMs": 4300,
+      "zoom": 2.6,
+      "x": 0.62,
+      "y": 0.38
+     }
+    ],
+    "what": "calculadora: 5K al 5%",
+    "tag": "Simulación de la web, no es una promesa"
+   },
+   "reason": "la calculadora real: 5K al 5 % → 188 $/mes, 2.250 $/any (OBS1 8:49). La mateixa web diu que és una simulació, no una promesa"
+  },
+  {
+   "id": "w-calc50k",
+   "type": "ScreenWindow",
+   "source": "c5867",
+   "anchorMs": 184000,
+   "durationMs": 4600,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 550500,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 2.0,
+      "x": 0.48,
+      "y": 0.52
+     }
+    ],
+    "what": "calculadora: 50K al 5%",
+    "tag": "Simulación de la web, no es una promesa"
+   },
+   "reason": "la calculadora real amb 50K → 1.875 $/mes (OBS1 9:11)"
+  },
+  {
+   "id": "s5",
+   "type": "SectionNumeral",
+   "source": "c5883",
+   "anchorMs": 10700,
+   "durationMs": 1600,
+   "props": {
+    "numeral": "V",
+    "title": "24 horas después"
+   },
+   "reason": "secció V"
+  },
+  {
+   "id": "w-hazlo",
+   "type": "ScreenWindow",
+   "source": "c5883",
+   "anchorMs": 18600,
+   "durationMs": 4800,
+   "props": {
+    "clip": {
+     "screen": "obs2",
+     "fromMs": 37000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 2.2,
+      "x": 0.6,
+      "y": 0.68
+     }
+    ],
+    "what": "«hazlo todo, no quiero tocar nada»"
+   },
+   "reason": "el seu missatge real: «hazlo todo. No quiero tocar nada, lo tienes q hacer tú de forma autónoma» (OBS2 0:37)"
+  },
+  {
+   "id": "w-iniciar",
+   "type": "ScreenWindow",
+   "source": "c5883",
+   "anchorMs": 26000,
+   "durationMs": 8000,
+   "props": {
+    "clip": {
+     "screen": "obs3",
+     "fromMs": 14500,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.0
+     },
+     {
+      "atMs": 5400,
+      "zoom": 2.2,
+      "x": 0.25,
+      "y": 0.25
+     }
+    ],
+    "what": "iniciar bot"
+   },
+   "reason": "explorador amb «iniciar_bot» i la consola «Bot iniciado» (OBS3 0:15–0:23; cara 5883 − 9 s)"
+  },
+  {
+   "id": "g-5",
+   "type": "GoldWord",
+   "source": "c5883",
+   "anchorMs": 44600,
+   "durationMs": 1800,
+   "props": {
+    "text": "5%",
+    "sub": "del límite semanal",
+    "tone": "gold",
+    "placement": "front"
+   },
+   "reason": "xifra dita: el bot ha costat un 5 % del límit setmanal"
+  },
+  {
+   "id": "w-panel-crea",
+   "type": "ScreenWindow",
+   "source": "c5883",
+   "anchorMs": 58300,
+   "durationMs": 6500,
+   "props": {
+    "clip": {
+     "screen": "obs3",
+     "fromMs": 81000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.8,
+      "x": 0.5,
+      "y": 0.56
+     }
+    ],
+    "what": "Claude crea el panel"
+   },
+   "reason": "«vale pero quiero ver como opera sabes!!!» i Claude creant el servidor local i la pàgina de gràfics (OBS3 1:21). No es fa servir 0:45–0:58, que és un terminal d'un altre projecte"
+  },
+  {
+   "id": "w-panel",
+   "type": "ScreenWindow",
+   "source": "c5885",
+   "anchorMs": 43600,
+   "durationMs": 3600,
+   "props": {
+    "clip": {
+     "screen": "obs3",
+     "fromMs": 150000,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.0
+     },
+     {
+      "atMs": 700,
+      "zoom": 2.0,
+      "x": 0.25,
+      "y": 0.2
+     }
+    ],
+    "what": "panel del bot de paper trading",
+    "tag": "Dinero ficticio · paper trading"
+   },
+   "reason": "el panell real: Equity 10.046 $, +46 $ oberts, «Dinero ficticio · precios reales» (OBS3 2:30)"
+  },
+  {
+   "id": "tl-aviso",
+   "type": "ToolLabel",
+   "source": "c5885",
+   "anchorMs": 23000,
+   "durationMs": 3200,
+   "props": {
+    "name": "Aviso",
+    "fn": "No es consejo financiero · dinero ficticio"
+   },
+   "reason": "avís legal i d'honestedat: res del vídeo és consell financer ni diners reals"
+  },
+  {
+   "id": "hw-parte2",
+   "type": "HandWritten",
+   "source": "c5885",
+   "anchorMs": 38300,
+   "durationMs": 2200,
+   "props": {
+    "text": "¿*Parte 2*?",
+    "mode": "camera",
+    "side": "right"
+   },
+   "reason": "CTA"
+  }
+ ],
+ "audio": {
+  "targetLufs": -16,
+  "maxTruePeakDb": -1.5,
+  "fadeMs": 12,
+  "highpassHz": 90,
+  "denoise": "afftdn=nr=10:nf=-40",
+  "music": null
+ },
+ "pending": [
+  {
+   "what": "escolta humana del màster",
+   "why": "Claude no pot escoltar l'àudio",
+   "impact": "sobretot els empalmaments entre preses (h1→h2→h3, t1→t2, f6a→f6) i la selfie de 5885 (vent, carrer)"
+  },
+  {
+   "what": "«máximo 1060» i «mínimo 9080 o 9980»",
+   "why": "no es veuen a cap gravació de pantalla i ell mateix dubta",
+   "impact": "retirats; si tens una captura del màxim (10.060 $?) l'afegim"
+  },
+  {
+   "what": "Ibero Funding",
+   "why": "si és una col·laboració o un enllaç d'afiliat, YouTube obliga a marcar-ho",
+   "impact": "marca «Incluye promoción pagada» si cal"
+  },
+  {
+   "what": "euros vs dòlars",
+   "why": "al ganxo diu «50 euros»; el panell marca dòlars ficticis",
+   "impact": "l'etiqueta «Dinero ficticio» ho aclareix; si vols, es pot tallar «euros»"
+  }
+ ]
+}

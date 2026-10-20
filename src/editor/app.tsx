@@ -44,6 +44,8 @@ const TYPE_LABEL: Record<string, string> = {
   SlotsRow: 'Caselles',
   HandWritten: 'Lletra a mà',
   LogoPop: 'Logo',
+  ScreenWindow: 'Pantalla',
+  LogoCard: "Targeta d'eina",
 };
 
 const BLOCK_LABEL = (block: string) => {
@@ -93,6 +95,10 @@ const summary = (type: string, p: Record<string, unknown>) => {
       return String(p.text ?? '').replaceAll('*', '');
     case 'LogoPop':
       return String(p.label ?? 'logo');
+    case 'ScreenWindow':
+      return `${p.what ?? 'gravació de pantalla'}${p.tag ? ` · ${p.tag}` : ''}`;
+    case 'LogoCard':
+      return String(p.name ?? '');
     default:
       return String(p.text ?? '');
   }
@@ -246,6 +252,10 @@ const OverlayFields: React.FC<{id: string; type: string; props: Record<string, u
       return text('text', 'Text escrit a mà (entre *asteriscs*, la paraula en color)');
     case 'LogoPop':
       return text('label', 'Text escrit a mà sota el logo (opcional)');
+    case 'ScreenWindow':
+      return text('tag', 'Etiqueta (opcional)', "Avís curt a baix a l'esquerra, p. ex. «Dinero ficticio»");
+    case 'LogoCard':
+      return text('name', "Nom de l'eina");
     default:
       return text('text', 'Text');
   }
@@ -361,7 +371,7 @@ const App: React.FC<{data: EditorData}> = ({data}) => {
   const [message, setMessage] = useState('');
   const player = useRef<PlayerRef>(null);
 
-  const {plan, segments, overlayTimes, rangeTimes} = useMemo(() => buildPlan(data, rev, mediaFor(data)), [data, rev]);
+  const {plan, segments, overlayTimes, rangeTimes} = useMemo(() => buildPlan(data, rev, mediaFor(data), EXT), [data, rev]);
 
   // Base de dades de l'artefacte: si no hi és (vista sense permís), l'editor funciona igual però no desa.
   useEffect(() => {

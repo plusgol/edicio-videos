@@ -59,11 +59,18 @@ def snap(src, ms):
     return (a + int(np.argmin(db[a:b]))) * HOP_MS
 
 
-def split_silences(src, a, b):
-    """Retalla dins [a, b] els silencis més llargs que el límit i en deixa uns marges naturals."""
-    db, thr = src["db"], src["thr"]
+def split_silences(src, a, b, above_floor_db=None):
+    """Retalla dins [a, b] els silencis més llargs que el límit i en deixa uns marges naturals.
+    above_floor_db: llindar propi del tram (p. ex. si tecleja mentre parla, el teclat queda per sobre del llindar general)."""
+    db = src["db"]
+    thr = src["thr"] if above_floor_db is None else src["floor"] + above_floor_db
     i0, i1 = int(a / HOP_MS), int(b / HOP_MS)
     quiet = db[i0:i1] < thr
+    # Una paraula que la transcripció ha sentit no és silenci, encara que comenci fluixa («¿cómo», «y»).
+    for w in src["words"]:
+        if a <= w["startMs"] < b:
+            k0 = max(0, int((w["startMs"] - 60) / HOP_MS) - i0)
+            quiet[k0:max(k0, int((w["startMs"] + 220) / HOP_MS) - i0)] = False
     parts, start, run = [], a, None
     for k, q in enumerate(list(quiet) + [False]):
         if q and run is None:
@@ -78,6 +85,20 @@ def split_silences(src, a, b):
     return [p for p in parts if p[1] - p[0] > 80]
 
 
+def split_word_gaps(src, a, b, gap_ms):
+    """Talla [a, b] a les pauses entre paraules (segons la transcripció) més llargues que gap_ms.
+    Per als trams on l'energia no veu els silencis (p. ex. parla mentre tecleja i el teclat omple les pauses)."""
+    ws = [w for w in src["words"] if a <= w["startMs"] < b]
+    parts, start = [], a
+    for w1, w2 in zip(ws, ws[1:]):
+        end = w1.get("endMs", w1["startMs"] + 300)
+        if w2["startMs"] - end > gap_ms:
+            parts.append((start, end + C["keepAfterSpeechMs"] + 60))
+            start = w2["startMs"] - C["keepBeforeSpeechMs"] - 50
+    parts.append((start, b))
+    return [p for p in parts if p[1] - p[0] > 80]
+
+
 # ---------- Segments ----------
 # Revisions de l'editor: un range amb keep=false es talla sencer; un recurs amb enabled=false no es pinta.
 active_overlays = [o for o in edl["overlays"] if o.get("enabled", True)]
@@ -86,7 +107,12 @@ segments = []
 for r in edl["ranges"]:
     src = sources[r["source"]]
     a, b = snap(src, r["inMs"]), snap(src, min(r["outMs"], src["durMs"]))
-    for pa, pb in split_silences(src, a, b):
+    pieces = split_silences(src, a, b, r.get("silenceAboveFloorDb"))
+    if r.get("splitAtWordGapsMs"):
+        pieces = [q for pa, pb in pieces for q in split_word_gaps(src, pa, pb, r["splitAtWordGapsMs"])]
+    # Un tros curtíssim sense cap paraula és soroll (un cop de teclat, un clic): fora.
+    pieces = [(pa, pb) for pa, pb in pieces if pb - pa >= 300 or any(pa <= w["startMs"] < pb for w in src["words"])]
+    for pa, pb in pieces:
         # Talla també als límits dels punch-ins perquè el canvi d'escala caigui en un tall.
         # Un punt de punch-in massa a prop d'un extrem crearia un tros de < 0,5 s: llavors no es talla.
         cuts = sorted({pa, pb, *[p[k] for p in edl.get("punchIns", []) if p["source"] == r["source"]
@@ -113,6 +139,9 @@ for s in segments:
     punch = next((p for p in edl.get("punchIns", []) if p["source"] == s["source"] and p["fromMs"] <= mid <= p["toMs"]), None)
     if punch:
         s["scale"] = punch["scale"]
+    elif prev_scale is not None and s["durationInFrames"] < FPS * 0.6:
+        # Un tros molt curt (una paraula entre dues pauses) no canvia d'escala: tres salts en un segon fan mal de veure.
+        s["scale"] = prev_scale
     elif s["preferredScale"] and s["preferredScale"] != prev_scale:
         s["scale"] = s["preferredScale"]
     else:
@@ -277,6 +306,33 @@ def face_at(out_frame):
     return None
 
 
+def pantalla_token(key):
+    """Valor numèric del bloc PANTALLA de brand/estil.ts (font única dels valors de disseny)."""
+    block = (ROOT / "brand/estil.ts").read_text().split("export const PANTALLA", 1)[1]
+    return float(re.search(rf"\b{key}: ([\d.]+)", block).group(1))
+
+
+def screen_clip(o, props):
+    """ScreenWindow amb «clip»: extreu el tros de la gravació de pantalla (retallat i, si cal, accelerat) a
+    <projecte>/assets/pantalla/ i el substitueix per «src» i «aspect». El nom porta els paràmetres: si no canvien, no es refà."""
+    c = props["clip"]
+    scr = edl["screens"][c["screen"]]
+    x, y, w, h = edl["screenCrops"][c.get("crop", scr.get("crop", "full"))]
+    speed = c.get("speed", 1.0)
+    out_ms = o["durationMs"] + 1500  # marge: a l'editor el recurs es pot allargar una mica
+    name = f"{c['screen']}_{c['fromMs']}_{out_ms}_{speed:g}_{c.get('crop', scr.get('crop', 'full'))}.mp4"
+    dst = proj / "assets" / "pantalla" / name
+    if not dst.exists():
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        vf = (f"crop={w}:{h}:{x}:{y},setpts=PTS/{speed},fps={FPS},"
+              f"scale='min({pantalla_token('clipMaxW'):g},iw)':-2:flags=lanczos")
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{c['fromMs'] / 1000:.3f}", "-t", f"{out_ms * speed / 1000:.3f}",
+                        "-i", str(proj / scr["video"]), "-vf", vf, "-an", "-c:v", "libx264", "-preset", "medium",
+                        "-crf", f"{pantalla_token('clipCrf'):g}", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(dst)], check=True)
+    rest = {k: v for k, v in props.items() if k != "clip"}
+    return {**rest, "src": f"assets/pantalla/{name}", "aspect": round(w / h, 4)}
+
+
 NEEDS_FACE = {"FloatingWords", "EmojiPop", "HandWritten", "LogoPop", "GoldWord"}
 overlays = []
 for o in active_overlays:
@@ -284,6 +340,8 @@ for o in active_overlays:
     at = max(0, at + o.get("offsetMs", 0))
     f0 = ms_to_frame(at)
     props = resolve_assets(o["props"])
+    if o["type"] == "ScreenWindow" and "clip" in props:
+        props = screen_clip(o, props)
     if o["type"] in NEEDS_FACE and "faceX" not in props:
         face = face_at(f0)
         if face:
@@ -291,6 +349,12 @@ for o in active_overlays:
     o["_resolvedProps"] = props
     overlays.append({"id": o["id"], "type": o["type"], "fromFrame": f0,
                      "durationInFrames": min(ms_to_frame(at + o["durationMs"]) - f0, total_frames - f0), "props": props})
+
+# Clips de pantalla d'una versió anterior del pla (zooms o trossos canviats): ja no els fa servir ningú.
+used = {o["props"].get("src") for o in overlays}
+for f in (proj / "assets" / "pantalla").glob("*.mp4"):
+    if f"assets/pantalla/{f.name}" not in used:
+        f.unlink()
 
 # ---------- Veu ----------
 A = edl["audio"]

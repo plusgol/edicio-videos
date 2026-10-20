@@ -109,3 +109,12 @@ El títol, el text del ganxo i la primera frase s'han de reforçar entre ells. *
 - Font Inter local (`@fontsource/inter` + `@remotion/fonts`): el render no depèn de Google Fonts.
 - En horitzontal, `ToolLabel` és un rètol inferior esquerre. En vertical i amb plans tancats (selfie), va al terç inferior, a sobre dels subtítols, mai a dalt sobre els ulls.
 - En aquest entorn al núvol, el render necessita `--ignore-certificate-errors` (Google Fonts passa per un proxy). Al teu ordinador no cal.
+
+## Gravacions de pantalla (estil tef: finestra flotant)
+- Les gravacions d'OBS **no tenen veu**: la veu és sempre la de les preses de cara. Sincronitza la pantalla per contingut (què es veu quan ho diu) i escriu els desfasaments a `_nota` de l'EDL.
+- A l'EDL: `screens` (vídeos originals), `screenCrops` (retalls en px de l'original: treu sempre la barra de tasques i, al navegador, pestanyes, adreça i adreces d'interès, que porten dades personals) i recursos `ScreenWindow` amb `clip: {screen, fromMs, crop, speed?}` i `zooms` ([{atMs, zoom, x, y}], centre normalitzat sobre el retall). `munta.py` extreu el clip a `assets/pantalla/` i esborra els que ja no es fan servir.
+- Abans de triar un tros, fes-ne un full de contactes i vigila finestres privades (WhatsApp, correu, selector de finestres, altres projectes).
+- `LogoCard`: targeta d'eina a pantalla completa quan s'obre una eina per primer cop.
+- Valors a `brand/estil.ts` → `PANTALLA`.
+- Si es tecleja mentre es parla, el teclat omple les pauses: posa `silenceAboveFloorDb` (p. ex. 20) al tram. El detector no talla mai l'inici d'una paraula de la transcripció.
+- Les preses d'iPhone solen ser HDR (HLG): `reencuadra.py` hi aplica mapatge de tons; comprova un fotograma.

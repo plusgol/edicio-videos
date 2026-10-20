@@ -60,6 +60,9 @@ export const LABEL = {
   paddingY: 20,
   paddingX: 28,
   iconSize: 48,
+  // Ganxo en 16:9: a sota de la cara i sense tapar la boca.
+  hookTopLandscape: 0.74,
+  hookMaxWidthLandscape: 0.7,
 } as const;
 
 export const FRAMING = {
@@ -265,4 +268,22 @@ export const MINIATURA = {
     pillarTextPx: 44,
     clockTextPx: 96,
   },
+} as const;
+
+// ---------- Gravacions de pantalla a l'estil tef (finestra flotant sobre l'escenari) ----------
+export const PANTALLA = {
+  // Amplada màxima i alçada màxima de la finestra (en fracció del quadre); la finestra manté l'aspecte del retall.
+  maxW: 0.86,
+  maxH: 0.84,
+  radius: 18,
+  shadow: '0 30px 70px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08)',
+  // Zoom a una zona: transició (ms) i corba suau, sense rebot.
+  zoomMoveMs: 550,
+  // Etiqueta d'honestedat («Dinero ficticio», «paper trading»…) a baix a l'esquerra.
+  tag: {bg: '#151515', ink: '#FFFFFF', dot: '#E5383B', fontPx: 34, padY: 12, padX: 22, radius: 999, bottom: 46, left: 70},
+  // Clips extrets de l'original: amplada màxima i qualitat (CRF x264) per al render.
+  clipMaxW: 1920,
+  clipCrf: 16,
+  // Targeta de logo a pantalla completa (com «coingecko API» a la referència).
+  logoCard: {logoPx: 240, namePx: 150, gap: 44},
 } as const;

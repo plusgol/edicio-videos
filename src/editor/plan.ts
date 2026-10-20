@@ -50,15 +50,19 @@ export const mergeRevision = (base: Revision, saved: Partial<Revision> | undefin
 export type Timing = {fromFrame: number; durationInFrames: number};
 
 // Els emojis i logos que munta.py copia a <projecte>/assets/ es publiquen al costat de la pàgina: ruta relativa.
-const relativeAssets = (v: unknown): unknown => {
-  if (typeof v === 'string') return v.startsWith('assets/') ? `./${v}` : v;
-  if (Array.isArray(v)) return v.map(relativeAssets);
-  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, relativeAssets(x)]));
+// Els clips de pantalla (assets/pantalla/*.mp4) també es publiquen en WebM: el navegador fa servir el format que pot reproduir.
+const relativeAssets = (v: unknown, videoExt: string): unknown => {
+  if (typeof v === 'string') {
+    if (!v.startsWith('assets/')) return v;
+    return v.startsWith('assets/pantalla/') ? `./${v.replace(/\.mp4$/, `.${videoExt}`)}` : `./${v}`;
+  }
+  if (Array.isArray(v)) return v.map((x) => relativeAssets(x, videoExt));
+  if (v && typeof v === 'object') return Object.fromEntries(Object.entries(v).map(([k, x]) => [k, relativeAssets(x, videoExt)]));
   return v;
 };
 
 // Mateix càlcul que scripts/munta.py: segments conservats en ordre i temps de l'original → temps de sortida.
-export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, string>) => {
+export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, string>, videoExt = 'mp4') => {
   const maxGain = Math.max(...Object.values(d.sources).map((s) => s.gainDb));
   let out = 0;
   const segments: (RenderSegment & {range: string; source: string})[] = [];
@@ -106,7 +110,7 @@ export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, st
     const durationInFrames = Math.min(toFrame(at + r.durationMs) - fromFrame, total - fromFrame);
     overlayTimes[o.id] = durationInFrames > 0 ? {fromFrame, durationInFrames} : null;
     if (r.enabled && durationInFrames > 0) {
-      overlays.push({id: o.id, type: o.type, fromFrame, durationInFrames, props: relativeAssets(r.props) as Record<string, unknown>});
+      overlays.push({id: o.id, type: o.type, fromFrame, durationInFrames, props: relativeAssets(r.props, videoExt) as Record<string, unknown>});
     }
   }
 

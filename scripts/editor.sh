@@ -32,6 +32,13 @@ for w in "$P"/work/*.persona.webm; do
     -auto-alt-ref 0 -deadline good -cpu-used 5 -row-mt 1 -an "$OUT/media/$(basename "$w")"
 done
 rm -rf "$OUT/assets" && cp -r "$P/assets" "$OUT/assets" 2>/dev/null || true
+# Clips de pantalla (ScreenWindow): a la vista prèvia n'hi ha prou amb 960 px d'amplada. També en WebM (com les preses).
+for c in "$OUT"/assets/pantalla/*.mp4; do
+  [ -e "$c" ] || continue
+  ffmpeg -v error -y -i "$c" -vf "scale='min(960,iw)':-2" -c:v libx264 -preset slow -crf 30 -pix_fmt yuv420p -an -movflags +faststart "$c.tmp.mp4"
+  mv "$c.tmp.mp4" "$c"
+  ffmpeg -v error -y -i "$c" -c:v libvpx-vp9 -crf 40 -b:v 0 -deadline good -cpu-used 5 -row-mt 1 -an "${c%.mp4}.webm"
+done
 cp "$P/work/editor.json" "$OUT/editor.json"
 # Títol de la pestanya (i de l'artifact publicat): EDITOR_TITLE, o «Editor «<projecte>»».
 TITLE="${EDITOR_TITLE:-Editor «$(basename "$P")»}"

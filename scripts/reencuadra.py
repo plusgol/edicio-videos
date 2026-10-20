@@ -51,9 +51,14 @@ def output_frames():
         wi += 1
 
 
+# La cara es busca en una còpia reduïda: a 1080p YuNet va ~10 vegades més lent i no troba res més.
+DETECT_W = 640
+ds = min(1.0, DETECT_W / W)
+DW, DH = int(round(W * ds)), int(round(H * ds))
+
 yunet_path = os.environ.get("YUNET_MODEL")
 if yunet_path:
-    yunet = cv2.FaceDetectorYN.create(yunet_path, "", (W, H), score_threshold=0.6)
+    yunet = cv2.FaceDetectorYN.create(yunet_path, "", (DW, DH), score_threshold=0.6)
 else:
     haar = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
@@ -61,11 +66,11 @@ else:
 def detect(f):
     """Llista de (x, y, w, h, ulls_y)."""
     if yunet_path:
-        _, faces = yunet.detect(f)
+        _, faces = yunet.detect(cv2.resize(f, (DW, DH), interpolation=cv2.INTER_AREA) if ds < 1 else f)
         if faces is None:
             return []
-        # Columnes 4–7: ull dret i ull esquerre (x, y).
-        return [(r[0], r[1], r[2], r[3], (r[5] + r[7]) / 2) for r in faces]
+        # Columnes 4–7: ull dret i ull esquerre (x, y). Es tornen a coordenades de l'original.
+        return [(r[0] / ds, r[1] / ds, r[2] / ds, r[3] / ds, (r[5] + r[7]) / 2 / ds) for r in faces]
     g = cv2.equalizeHist(cv2.cvtColor(f, cv2.COLOR_BGR2GRAY))
     rs = haar.detectMultiScale(g, scaleFactor=1.1, minNeighbors=6, minSize=(int(H * 0.15), int(H * 0.15)))
     return [(x, y, w, h, y + h * 0.42) for x, y, w, h in rs]
@@ -111,17 +116,29 @@ x0 = np.clip(cx - crop_w / 2, 0, W - crop_w)
 y0 = np.clip(cy - crop_h * 0.4, 0, H - crop_h)
 k = OUT_H / crop_h
 
-ff = subprocess.Popen(
-    ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{crop_w}x{crop_h}", "-r", str(FPS), "-i", "-",
-     "-vf", f"scale={OUT_W}:{OUT_H}:flags=lanczos", "-c:v", "libx264", "-preset", "slow", "-crf", "14",
-     "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-an", dst],
-    stdin=subprocess.PIPE,
-)
-for i, f in enumerate(output_frames()):
-    xi, yi = int(round(x0[i])), int(round(y0[i]))
-    ff.stdin.write(np.ascontiguousarray(f[yi:yi + crop_h, xi:xi + crop_w]).tobytes())
-ff.stdin.close()
-ff.wait()
+if (crop_w, crop_h) == (W, H) == (OUT_W, OUT_H):
+    # L'origen ja té la mida i la proporció de sortida: no hi ha res a retallar, només canviar els fps.
+    # ffmpeg sol és ~3 vegades més ràpid que passar els fotogrames per Python.
+    # Primer els fps (meitat de fotogrames per al mapatge de tons, que és car). Els iPhone graven en HDR (HLG, BT.2020, 10 bits): sense mapatge de tons el vídeo SDR queda pàl·lid i sense contrast.
+    trc = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=color_transfer",
+                          "-of", "default=nw=1:nk=1", src], capture_output=True, text=True).stdout.strip()
+    tonemap = ("zscale=t=linear:npl=203,format=gbrpf32le,zscale=p=bt709,tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv,"
+               if trc in ("arib-std-b67", "smpte2084") else "")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-vf", f"fps={FPS},{tonemap}format=yuv420p", "-frames:v", str(n_out), "-c:v", "libx264",
+                    "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709",
+                    "-colorspace", "bt709", "-an", dst], check=True)
+else:
+    ff = subprocess.Popen(
+        ["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "bgr24", "-s", f"{crop_w}x{crop_h}", "-r", str(FPS), "-i", "-",
+         "-vf", f"scale={OUT_W}:{OUT_H}:flags=lanczos", "-c:v", "libx264", "-preset", "slow", "-crf", "14",
+         "-pix_fmt", "yuv420p", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709", "-an", dst],
+        stdin=subprocess.PIPE,
+    )
+    for i, f in enumerate(output_frames()):
+        xi, yi = int(round(x0[i])), int(round(y0[i]))
+        ff.stdin.write(np.ascontiguousarray(f[yi:yi + crop_h, xi:xi + crop_w]).tobytes())
+    ff.stdin.close()
+    ff.wait()
 
 track = [
     {"x": round(float((cx[i] - x0[i]) * k), 1), "y": round(float((cy[i] - y0[i]) * k), 1), "faceH": round(float(fh[i] * k), 1)}

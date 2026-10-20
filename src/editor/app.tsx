@@ -17,12 +17,17 @@ type Db = {
 
 // H.264 si el navegador el reprodueix (Chrome, Safari, Edge); si no, WebM VP9.
 const EXT = document.createElement('video').canPlayType('video/mp4; codecs="avc1.4d401f"') ? 'mp4' : 'webm';
-// Fitxers que publica scripts/editor.sh per a cada font: media/<nom>.{mp4,webm} i, si n'hi ha, media/<nom>.persona.webm.
+// Fitxers que publica scripts/editor.sh per a cada font: media/<nom>.{mp4,webm}, el so a part (media/<nom>.audio.{mp4,webm})
+// i, si n'hi ha, media/<nom>.persona.webm.
 const mediaFor = (d: EditorData): Record<string, string> =>
   Object.fromEntries(
     Object.entries(d.sources).flatMap(([name, s]) => {
       const base = `./media/${s.media ?? name}`;
-      return [[name, `${base}.${EXT}`], ...(s.person ? [[`${name}:persona`, `${base}.persona.webm`]] : [])];
+      return [
+        [name, `${base}.${EXT}`],
+        [`${name}:audio`, `${base}.audio.${EXT}`],
+        ...(s.person ? [[`${name}:persona`, `${base}.persona.webm`]] : []),
+      ];
     }),
   );
 const REV_DOC = 'revisio/actual';

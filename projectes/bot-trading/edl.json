@@ -1,6 +1,6 @@
 {
  "_nota": "Bot de trading. Estil Alex (cara, seccions, lletra a mà) + tef (pantalla en finestra flotant, targetes d'eina). Pantalla sincronitzada per contingut: OBS1 = 5866 + 93 s i 5867 + 344 s; OBS3 = 5883 − 9 s; OBS2 per contingut. La veu és sempre la de l'iPhone (OBS només grava la pantalla).",
- "version": 2,
+ "version": 3,
  "video": {
   "width": 1920,
   "height": 1080,
@@ -26,6 +26,12 @@
   "note": "No fem servir «10K al mes» com a la referència: el bot ha fet ~+46 $ ficticis en paper trading."
  },
  "sources": {
+  "vo": {
+   "video": "work/VO.1920x1080.mp4",
+   "audio": "work/VO.48k.wav",
+   "track": "work/VO.1920x1080.track.json",
+   "transcript": "work/VO.transcript.json"
+  },
   "c5866": {
    "video": "work/IMG_5866.1920x1080.mp4",
    "audio": "work/IMG_5866.48k.wav",
@@ -69,6 +75,12 @@
   },
   "yt3": {
    "video": "work/yt_ai_trading_bot.mp4"
+  },
+  "yt4": {
+   "video": "work/yt_rug_pull.mp4"
+  },
+  "yt5": {
+   "video": "work/yt_while_sleep.mp4"
   }
  },
  "screenCrops": {
@@ -102,13 +114,22 @@
  },
  "ranges": [
   {
+   "id": "vo-intro",
+   "source": "vo",
+   "inMs": 0,
+   "outMs": 34700,
+   "block": "intro",
+   "captions": "Veo a mucha gente ganando mucho dinero con las criptomonedas, y hay un montón de escándalos, ya sabes, rug pulls. Hay muchísimo dinero en las cripto. Así que quiero un trozo de ese pastel. Y ganan ese dinero mientras duermen, con bots. A veces funciona, a veces no, pero sé una cosa: dormir es mi habilidad número uno. Entonces, ¿tengo un plan para hacer este bot? No, para nada. Pero ¿tengo acceso a la IA? Sí. Así que, al final de este vídeo, tendremos un bot que funciona, le daremos datos del mercado en directo y operará por nosotros y nos hará ganar dinero real. Y mi objetivo son 10.000 dólares en un mes. De verdad quiero llegar a ese objetivo.",
+   "reason": "intro en veu en off, com la de tef (traducció literal dels seus primers 32 s; guió a guio_veu_en_off.md)"
+  },
+  {
    "id": "h3",
    "source": "c5866",
    "inMs": 151450,
    "outMs": 157700,
    "block": "ganxo",
    "captions": "Yo sinceramente no tengo mucha idea de esto, entonces me fío completamente de la inteligencia artificial, que me sustituya por completo.",
-   "reason": "ganxo: la veu comença a 0,07 s. Mentre diu «no tengo mucha idea de esto, me fío de la IA» es veuen vídeos reals de bots de trading amb IA (com la intro de tef)"
+   "reason": "després de la veu en off, a càmera: no en sap i ho fa tot la IA"
   },
   {
    "id": "p1",
@@ -431,11 +452,11 @@
  "punchIns": [],
  "overlays": [
   {
-   "id": "w-yt1",
+   "id": "w-gente1",
    "type": "ScreenWindow",
-   "source": "c5866",
-   "anchorMs": 151450,
-   "durationMs": 1550,
+   "source": "vo",
+   "anchorMs": 0,
+   "durationMs": 1600,
    "props": {
     "clip": {
      "screen": "yt3",
@@ -452,14 +473,14 @@
     ],
     "what": "YouTube: ai trading bot"
    },
-   "reason": "cerca real de YouTube «ai trading bot» (capturada el 20/10/2026): «+$2,629/DAY», «$400/Day»…"
+   "reason": "«mucha gente ganando mucho dinero»: cerca real «ai trading bot» (+$2,629/DAY, $400/Day…)"
   },
   {
-   "id": "w-yt2",
+   "id": "w-gente2",
    "type": "ScreenWindow",
-   "source": "c5866",
-   "anchorMs": 153000,
-   "durationMs": 1500,
+   "source": "vo",
+   "anchorMs": 1590,
+   "durationMs": 1600,
    "props": {
     "clip": {
      "screen": "yt2",
@@ -476,32 +497,18 @@
     ],
     "what": "YouTube: claude trading bot"
    },
-   "reason": "cerca real de YouTube «claude trading bot»: «From Claude AI +0.85 ETH», «Claude Trader»…"
+   "reason": "«…con las criptomonedas»: cerca real «claude trading bot» (+0.85 ETH, +180%)"
   },
   {
-   "id": "e-hmm",
-   "type": "EmojiPop",
-   "source": "c5866",
-   "anchorMs": 153400,
-   "durationMs": 1200,
-   "props": {
-    "src": "emoji:1f928",
-    "side": "right",
-    "faceX": 1100,
-    "faceY": 470
-   },
-   "reason": "reacció a les promeses de les miniatures (estil tef)"
-  },
-  {
-   "id": "w-yt3",
+   "id": "w-rug",
    "type": "ScreenWindow",
-   "source": "c5866",
-   "anchorMs": 154500,
-   "durationMs": 1600,
+   "source": "vo",
+   "anchorMs": 3180,
+   "durationMs": 2200,
    "props": {
     "clip": {
-     "screen": "yt1",
-     "fromMs": 1000,
+     "screen": "yt4",
+     "fromMs": 600,
      "crop": "full"
     },
     "zooms": [
@@ -512,9 +519,210 @@
       "y": 0.42
      }
     ],
-    "what": "YouTube: bot de trading con ia"
+    "what": "YouTube: rug pull crypto"
    },
-   "reason": "cerca real de YouTube «bot de trading con ia»: «BOT CON IA ASÍ FUNCIONA»…"
+   "reason": "«escándalos, rug pulls»: cerca real «rug pull crypto» (RUGGED?, RUG PULL IN 6 MINUTES)"
+  },
+  {
+   "id": "g-dinero",
+   "type": "GoldWord",
+   "source": "vo",
+   "anchorMs": 5410,
+   "durationMs": 2000,
+   "props": {
+    "text": "MUCHÍSIMO DINERO",
+    "sub": "en las cripto",
+    "tone": "gold",
+    "placement": "stage-dark",
+    "size": 190
+   },
+   "reason": "la frase, en gran"
+  },
+  {
+   "id": "hw-pastel",
+   "type": "HandWritten",
+   "source": "vo",
+   "anchorMs": 7420,
+   "durationMs": 1500,
+   "props": {
+    "text": "quiero un trozo del *pastel*",
+    "mode": "stage"
+   },
+   "reason": "la frase, escrita a mà"
+  },
+  {
+   "id": "w-sleep",
+   "type": "ScreenWindow",
+   "source": "vo",
+   "anchorMs": 8900,
+   "durationMs": 2300,
+   "props": {
+    "clip": {
+     "screen": "yt5",
+     "fromMs": 400,
+     "crop": "full"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.9,
+      "x": 0.36,
+      "y": 0.42
+     }
+    ],
+    "what": "YouTube: while you sleep"
+   },
+   "reason": "«ganan dinero mientras duermen, con bots»: cerca real «trading bot make money while you sleep»"
+  },
+  {
+   "id": "pl-funciona",
+   "type": "PunchLines",
+   "source": "vo",
+   "anchorMs": 11240,
+   "durationMs": 1500,
+   "props": {
+    "script": "A veces funciona, / a veces no",
+    "fontSize": 140
+   },
+   "reason": "«a veces funciona, a veces no»"
+  },
+  {
+   "id": "hw-dormir",
+   "type": "HandWritten",
+   "source": "vo",
+   "anchorMs": 12720,
+   "durationMs": 3400,
+   "props": {
+    "text": "dormir: mi habilidad *nº 1*",
+    "mode": "stage"
+   },
+   "reason": "la broma de tef, escrita a mà"
+  },
+  {
+   "id": "pl-plan",
+   "type": "PunchLines",
+   "source": "vo",
+   "anchorMs": 16219,
+   "durationMs": 2300,
+   "props": {
+    "script": "¿Tengo un plan / para este bot?",
+    "fontSize": 140
+   },
+   "reason": "la pregunta"
+  },
+  {
+   "id": "g-no",
+   "type": "GoldWord",
+   "source": "vo",
+   "anchorMs": 18550,
+   "durationMs": 900,
+   "props": {
+    "text": "NO",
+    "sub": "para nada",
+    "tone": "white",
+    "placement": "stage-dark",
+    "size": 300
+   },
+   "reason": "la resposta"
+  },
+  {
+   "id": "lc-ia",
+   "type": "LogoCard",
+   "source": "vo",
+   "anchorMs": 19400,
+   "durationMs": 2800,
+   "props": {
+    "logo": "logo:claude-color",
+    "name": "Claude"
+   },
+   "reason": "«¿tengo acceso a la IA? Sí»: la IA que fa servir"
+  },
+  {
+   "id": "w-intro-bot",
+   "type": "ScreenWindow",
+   "source": "vo",
+   "anchorMs": 22260,
+   "durationMs": 2800,
+   "props": {
+    "clip": {
+     "screen": "obs3",
+     "fromMs": 19500,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 2.2,
+      "x": 0.25,
+      "y": 0.25
+     }
+    ],
+    "what": "Bot iniciado"
+   },
+   "reason": "«tendremos un bot que funciona»: la consola real «Bot iniciado» (OBS3 0:20)"
+  },
+  {
+   "id": "w-intro-datos",
+   "type": "ScreenWindow",
+   "source": "vo",
+   "anchorMs": 25120,
+   "durationMs": 2100,
+   "props": {
+    "clip": {
+     "screen": "obs2",
+     "fromMs": 0,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.9,
+      "x": 0.33,
+      "y": 0.3
+     }
+    ],
+    "what": "Fase 2: datos reales"
+   },
+   "reason": "«datos del mercado en directo»: «Fase 2 terminada: descarga y limpieza de datos… datos reales» (OBS2 0:00)"
+  },
+  {
+   "id": "w-intro-opera",
+   "type": "ScreenWindow",
+   "source": "vo",
+   "anchorMs": 27240,
+   "durationMs": 2600,
+   "props": {
+    "clip": {
+     "screen": "obs3",
+     "fromMs": 120000,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.15,
+      "x": 0.5,
+      "y": 0.45
+     }
+    ],
+    "what": "panel del bot (tapado)",
+    "tag": "Dinero ficticio · paper trading",
+    "hidden": true
+   },
+   "reason": "«operará por nosotros»: el panell del bot, TAPAT (sense resultats)"
+  },
+  {
+   "id": "st-objetivo",
+   "type": "StageStat",
+   "source": "vo",
+   "anchorMs": 29790,
+   "durationMs": 4900,
+   "props": {
+    "tone": "light",
+    "value": "10.000 $",
+    "caption": "en un mes: el objetivo"
+   },
+   "reason": "l'objectiu que diu (és un objectiu, no un resultat)"
   },
   {
    "id": "hook",
@@ -1035,18 +1243,6 @@
     "what": "reglas: 8% y 6%"
    },
    "reason": "la taula real: Profit Target 8 %, Max Drawdown 6 % (OBS1 7:00)"
-  },
-  {
-   "id": "e-mental",
-   "type": "EmojiPop",
-   "source": "c5867",
-   "anchorMs": 106400,
-   "durationMs": 1500,
-   "props": {
-    "src": "emoji:1f9e0",
-    "side": "right"
-   },
-   "reason": "«a nivel mental» → cervell"
   },
   {
    "id": "fw-mental",

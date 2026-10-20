@@ -7,13 +7,17 @@ description: Edita un vídeo de marca personal (IA + negocis, en castellà) per 
 
 Llegeix `docs/GUIA_EDICIO.md` sencera la primera vegada. Aquest fitxer és el resum operatiu. Si hi ha conflicte, mana la guia.
 
+## Regles de l'usuari (fixes)
+- **Mai emojis** (ni `EmojiPop` ni emojis en textos o miniatures). Cada recurs ha de tenir sentit amb el que es diu.
+- No ensenyar resultats del bot/negoci si l'usuari no ho demana: es tapen (`ScreenWindow` amb `hidden`) o no surten.
+
 ## Identitat
 Marca personal sobre IA i negocis, en castellà. **Format principal: YouTube llarg, horitzontal 1920×1080 a 30 fps.**
 **Estil (decidit per l'usuari): el del vídeo d'Alex DiLorenzo «mis +10.000 horas de YouTube explicados en 15 minutos».** Llegeix `docs/ESTIL_ALEX.md` abans d'editar: hi ha el catàleg de recursos, el ritme i les regles de context. En resum:
 - **Ritme:** pauses molt curtes (> 300 ms → 70–90 ms de marge) i un canvi visual cada 2–4 s. Les escales del pla base es van alternant entre 1,00, 1,12 i 1,22.
 - **Cada xifra** → `GoldWord` (or condensat; `placement: "behind"` la posa darrere de la persona retallada). **Cada concepte fort** → `GoldWord` blanc o daurat.
   Una xifra curta («4%», «20€», «100€») darrere del cap queda tapada: afegeix-hi `side: "right"` (o `"left"`) i va al costat de la cara. Comprova-ho sempre en un fotograma.
-- **Cada pas** → `SectionNumeral` (I, II, III + títol). **Cada metàfora o objecte** → `EmojiPop` (emoji 3D a la mà o sobre l'escenari).
+- **Cada pas** → `SectionNumeral` (I, II, III + títol). **Metàfores i objectes:** sense emojis (regla de l'usuari); fes servir text, logos o captures reals.
 - **Comparacions de preus o xifres** → `StageStat`. **Connexions entre eines** → `NetworkDiagram`. **Resum de llista** → `SlotsRow`.
 - **Frases clau** → `FloatingWords` al costat del cap (cada 10–20 s).
 - Totes les entrades i sortides amb desenfocament ràpid. Res d'imatges generades presentades com a reals ni de captures inventades.

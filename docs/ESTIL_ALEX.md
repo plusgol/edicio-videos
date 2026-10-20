@@ -1,4 +1,6 @@
 # Estil d'edició de referència — Alex DiLorenzo
+
+> **Regla de l'usuari (octubre de 2026): mai emojis.** On aquest document parla d'emojis 3D, fes servir text, logos o captures reals.
 ### «mis +10.000 horas de YouTube explicados en 15 minutos» (12:47, 1920×1080, 25 fps)
 
 Anàlisi feta sobre el vídeo complet: 444 fotogrames (1 per segon durant el primer minut i 1 cada 2 s la resta), seqüències a 10 fps en 10 moments clau, detecció automàtica de talls, transcripció de les 3.190 paraules i mesures d'àudio.

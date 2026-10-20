@@ -34,6 +34,12 @@ Sense tier list ni formats de contingut curt (decisió de l'usuari).
   - no surten «casi 50 euros» ni «50 dólares», ni el panell amb xifres;
   - el panell només surt al final, difuminat, amb «Resultados en la parte 2», mentre diu «es que de verdad funciona».
 
+## Versió 3 («se'm talla», «mai emojis», intro amb veu en off com tef, 8–9 min)
+- **So que s'entretalla a l'editor:** el so anava dins de cada vídeo; quan el vídeo es quedava enrere carregant, el reproductor el tornava a situar i el so saltava. Ara l'editor reprodueix el so de fitxers només d'àudio i precarrega les gravacions de pantalla.
+- **Sense emojis** (regla fixa, a `SKILL.md` i `ESTIL_ALEX.md`).
+- **Intro amb veu en off:** traducció literal dels primers 32 s de tef (`guio_veu_en_off.md`), amb les animacions muntades. Font `vo` **provisional i muda** fins que arribi la gravació.
+- **Durada:** blocs extra A–E de veu en off sobre la pantalla (~1:40), amb text tret del que es veu a les gravacions. Amb tot plegat, ~8:30.
+
 ## Decisions
 - **Reordenat:** el límit del pla de 20 $ (5867, 214–251 s) va just després del truc, perquè tot el que és «construir amb Claude» quedi junt.
 - **Represes retirades:**

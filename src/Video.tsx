@@ -37,11 +37,18 @@ export const Video: React.FC<{plan: RenderPlan | null}> = ({plan}) => {
             );
           }),
       )}
-      {plan.overlays.filter((o) => !isBehind(o)).map((o) => (
-        <Sequence key={o.id} from={o.fromFrame} durationInFrames={o.durationInFrames} layout="none">
-          <OverlayView overlay={o} theme={plan.theme} />
-        </Sequence>
-      ))}
+      {plan.overlays.filter((o) => !isBehind(o)).map((o) =>
+        // Les gravacions de pantalla es munten 1 s abans perquè el vídeo ja estigui carregat quan entren.
+        o.type === 'ScreenWindow' ? (
+          <Sequence key={o.id} from={o.fromFrame} durationInFrames={o.durationInFrames} premountFor={30}>
+            <OverlayView overlay={o} theme={plan.theme} />
+          </Sequence>
+        ) : (
+          <Sequence key={o.id} from={o.fromFrame} durationInFrames={o.durationInFrames} layout="none">
+            <OverlayView overlay={o} theme={plan.theme} />
+          </Sequence>
+        ),
+      )}
       {/* Veu muntada a part (scripts/munta.py): sense clics als talls i ja normalitzada. */}
       {plan.audioFromSegments ? null : <Audio src={resolveSrc(plan.voice)} />}
     </AbsoluteFill>

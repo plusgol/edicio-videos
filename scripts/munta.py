@@ -369,7 +369,13 @@ def loudness(path, filt=None):
 
 
 # Iguala el nivell de cada presa abans de muntar (les preses poden venir de llocs i moments diferents).
-gains = {n: -20 - float(loudness(proj / s["audio"])["input_i"]) for n, s in edl["sources"].items()}
+def level_gain(path):
+    """Guany per deixar la presa a −20 LUFS. Una pista muda (p. ex. la provisional d'una veu en off encara no gravada) no es toca."""
+    i = float(loudness(path)["input_i"])
+    return 0.0 if not np.isfinite(i) or i < -70 else -20 - i
+
+
+gains = {n: level_gain(proj / s["audio"]) for n, s in edl["sources"].items()}
 names = list(edl["sources"])
 inputs, chains, labels = [], [], []
 for n in names:

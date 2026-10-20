@@ -76,6 +76,7 @@ export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, st
       ...(d.sources[s.source].person && media[`${s.source}:persona`] ? {personSrc: media[`${s.source}:persona`]} : {}),
       fromFrame: out,
       volumeDb: d.sources[s.source].gainDb - maxGain,
+      ...(media[`${s.source}:audio`] ? {audioSrc: media[`${s.source}:audio`]} : {}),
     });
     out += s.durationInFrames;
   }

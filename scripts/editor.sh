@@ -21,6 +21,9 @@ for v in "$P"/work/*.1920x1080.mp4; do
   # Mateixa versió en WebM (VP9 + Opus) per als navegadors sense H.264; l'editor tria la que pot reproduir.
   ffmpeg -v error -y -i "$v" -i "$P/work/$n.48k.wav" -map 0:v -map 1:a -vf "scale=$size" -shortest \
     -c:v libvpx-vp9 -b:v "$((vk * 9 / 10))k" -deadline good -cpu-used 5 -row-mt 1 -g 30 -c:a libopus -b:a 48k -ac 1 "$OUT/media/$n.webm"
+  # El so també a part (l'editor el reprodueix separat del vídeo perquè no s'entretalli quan el vídeo carrega).
+  ffmpeg -v error -y -i "$P/work/$n.48k.wav" -c:a aac -b:a 96k -ac 1 -movflags +faststart "$OUT/media/$n.audio.mp4"
+  ffmpeg -v error -y -i "$P/work/$n.48k.wav" -c:a libopus -b:a 64k -ac 1 "$OUT/media/$n.audio.webm"
 done
 for w in "$P"/work/*.persona.webm; do
   [ -e "$w" ] || continue

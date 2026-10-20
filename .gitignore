@@ -11,3 +11,4 @@ projectes/*/assets/
 __pycache__/
 .DS_Store
 *.webm
+referencies/

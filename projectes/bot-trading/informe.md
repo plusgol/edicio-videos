@@ -46,6 +46,14 @@ Sense tier list ni formats de contingut curt (decisió de l'usuari).
 - **Durada:** 9:01, amb els buits de veu en off encara muts.
 - **Vista prèvia:** vídeo renderitzat a 720p i servit en trossos de 10 s (HLS): es reprodueix d'una tirada, sense dependre de l'editor.
 
+## Versió 6 (revisió: «pantalla comentada», més dinàmic i educatiu, resultats visibles)
+- **Pantalla comentada (estil Adrián Sáez):** mentre parla de la pantalla, la gravació és el pla principal i la seva cara va en una finestreta a la dreta (`pip`). Ja no hi ha salts bruscos cara ↔ pantalla.
+- **Intro:** només la columna de vídeos de YouTube, fent scroll (×1,5), sense barra lateral ni capçalera.
+- **Prompt:** fora els 20 s de dictat; el prompt es veu accelerat ×4 amb el bloc de veu en off P.
+- **Explicacions animades:** el pla de Claude (5 passos), les 3 estratègies amb gràfics d'exemple, les plataformes (Alpaca amb el logo del seu web; Bybit amb el nom), què fa Claude Code, el compte de fondeig (28 $ → 5.000 $ → +8 % → −6 % → 75 %, xifres de la web d'Ibero) i el backtesting.
+- **Resultats visibles:** el panell sense tapar i, al final, +46,54 $ en ~22 h (diners ficticis).
+- **So de la selfie del carrer:** filtre propi (passaalt a 140 Hz i reducció de soroll adaptativa). **Escolta humana pendent.**
+
 ## Decisions
 - **Reordenat:** el límit del pla de 20 $ (5867, 214–251 s) va just després del truc, perquè tot el que és «construir amb Claude» quedi junt.
 - **Represes retirades:**

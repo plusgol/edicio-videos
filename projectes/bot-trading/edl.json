@@ -760,8 +760,9 @@
    "props": {
     "clip": {
      "screen": "obs2",
-     "fromMs": 0,
-     "crop": "app"
+     "fromMs": 2000,
+     "crop": "app",
+     "still": true
     },
     "zooms": [
      {
@@ -774,7 +775,7 @@
     "what": "Fase 2: datos reales",
     "cutIn": true
    },
-   "reason": "«datos del mercado en directo»: «Fase 2 terminada: descarga y limpieza de datos… datos reales» (OBS2 0:00)"
+   "reason": "«datos del mercado en directo»: «Fase 2 terminada: descarga y limpieza de datos… datos reales» (OBS2 0:00) Comença a 0:02 (aturat): el primer segon d'OBS2 ensenya la finestra del mateix OBS."
   },
   {
    "id": "w-intro-opera",

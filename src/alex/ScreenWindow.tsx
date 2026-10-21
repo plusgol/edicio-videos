@@ -135,7 +135,8 @@ export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = 
                   <div
                     style={{
                       position: 'absolute',
-                      left: -N.strokePx,
+                      // A la meitat dreta de la finestra, el rètol s'alinea per la dreta perquè no en surti.
+                      ...(r.left + r.width / 2 > w / 2 ? {right: -N.strokePx} : {left: -N.strokePx}),
                       ...(above ? {bottom: `calc(100% + ${N.labelGap + N.strokePx}px)`} : {top: `calc(100% + ${N.labelGap + N.strokePx}px)`}),
                       padding: `${N.labelPadY}px ${N.labelPadX}px`,
                       borderRadius: 999,

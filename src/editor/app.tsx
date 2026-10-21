@@ -258,12 +258,63 @@ const OverlayFields: React.FC<{id: string; type: string; props: Record<string, u
     case 'LogoPop':
       return text('label', 'Text escrit a mà sota el logo (opcional)');
     case 'ScreenWindow':
-      return text('tag', 'Etiqueta (opcional)', "Avís curt a baix a l'esquerra, p. ex. «Dinero ficticio»");
+      return <ScreenFields id={id} props={p} set={set} />;
     case 'LogoCard':
       return text('name', "Nom de l'eina");
     default:
       return text('text', 'Text');
   }
+};
+
+const Slider: React.FC<{id: string; label: string; value: number; min: number; max: number; step: number; show: (v: number) => string; onChange: (v: number) => void}> = ({
+  id,
+  label,
+  value,
+  min,
+  max,
+  step,
+  show,
+  onChange,
+}) => (
+  <label className="slider" htmlFor={id}>
+    <span className="field-label">{label}</span>
+    <input id={id} type="range" min={min} max={max} step={step} value={value} onChange={(e) => onChange(Number(e.target.value))} />
+    <output className="tc">{show(value)}</output>
+  </label>
+);
+
+type ScreenZoomEdit = {atMs: number; zoom: number; x?: number; y?: number};
+type ScreenNoteEdit = {atMs: number; toMs?: number; box: number[]; label?: string};
+
+// Gravació de pantalla: per a cada pla, la mida (zoom) i quina part es veu; i el text de cada rètol.
+const ScreenFields: React.FC<{id: string; props: Record<string, unknown>; set: (p: Record<string, unknown>) => void}> = ({id, props: p, set}) => {
+  const zooms = (p.zooms as ScreenZoomEdit[] | undefined)?.length ? (p.zooms as ScreenZoomEdit[]) : [{atMs: 0, zoom: 1, x: 0.5, y: 0.5}];
+  const notes = (p.notes as ScreenNoteEdit[] | undefined) ?? [];
+  const setZoom = (i: number, patch: Partial<ScreenZoomEdit>) => set({...p, zooms: zooms.map((z, k) => (k === i ? {...z, ...patch} : z))});
+  return (
+    <>
+      {zooms.map((z, i) => (
+        <fieldset className="screen-plan" key={i}>
+          <legend className="field-label">{zooms.length > 1 ? `Pla ${i + 1} · des de ${secs(z.atMs)}` : 'Pla'}</legend>
+          <Slider id={`${id}-z${i}`} label="Mida" value={z.zoom} min={1} max={3} step={0.05} show={(v) => `×${v.toFixed(2).replace('.', ',')}`} onChange={(v) => setZoom(i, {zoom: v})} />
+          <Slider id={`${id}-x${i}`} label="Horitzontal" value={z.x ?? 0.5} min={0} max={1} step={0.01} show={(v) => `${Math.round(v * 100)} %`} onChange={(v) => setZoom(i, {x: v})} />
+          <Slider id={`${id}-y${i}`} label="Vertical" value={z.y ?? 0.5} min={0} max={1} step={0.01} show={(v) => `${Math.round(v * 100)} %`} onChange={(v) => setZoom(i, {y: v})} />
+        </fieldset>
+      ))}
+      {notes.map((n, i) =>
+        n.label !== undefined ? (
+          <Field
+            key={i}
+            id={`${id}-n${i}`}
+            label={`Rètol ${i + 1}`}
+            value={n.label}
+            onChange={(v) => set({...p, notes: notes.map((m, k) => (k === i ? {...m, label: v} : m))})}
+          />
+        ) : null,
+      )}
+      <Field id={`${id}-tag`} label="Etiqueta (opcional)" hint="Avís curt a baix a l'esquerra, p. ex. «Dinero ficticio»" value={String(p.tag ?? '')} onChange={(v) => set({...p, tag: v})} />
+    </>
+  );
 };
 
 const Nudge: React.FC<{label: string; value: string; onStep: (deltaMs: number) => void}> = ({label, value, onStep}) => (

@@ -69,6 +69,11 @@ h1 { margin: 0; font-size: clamp(18px, 2.2vw, 24px); font-weight: 600; text-wrap
 .tl-head { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--fg); pointer-events: none; transform: translateX(-1px); }
 .tl-ticks { position: absolute; left: 0; right: 0; bottom: 2px; height: 14px; pointer-events: none; }
 .tl-ticks span { position: absolute; font-family: var(--font-mono); font-size: 10px; color: var(--muted); padding-left: 3px; border-left: 1px solid var(--line); }
+.slider { display: grid; grid-template-columns: 6.5em minmax(0, 1fr) 4.5em; align-items: center; gap: 10px; }
+.slider input { width: 100%; accent-color: var(--accent); }
+.slider output { text-align: right; color: var(--muted); font-size: 12px; }
+.screen-plan { margin: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; display: grid; gap: 8px; min-width: 0; }
+.screen-plan legend { padding: 0 4px; }
 .legend { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; color: var(--muted); font-size: 12px; }
 .lg { display: inline-block; width: 12px; height: 8px; border-radius: 2px; vertical-align: middle; }
 .lg-ov { background: var(--accent); } .lg-eina { background: var(--seg-eina); } .lg-extra { background: var(--seg-extra); } .lg-ganxo { background: var(--seg-ganxo); }

@@ -3,7 +3,8 @@
 Ús: python3 -I scripts/aplica_revisio.py projectes/<nom> <revisio.json>
      (<revisio.json>: el document tal com el desa l'editor, p. ex. baixat amb ArtifactData get + out_dir)
 
-Canvia a edl.json: recursos visibles o amagats, textos, inici (offsetMs) i durada; talls que es queden o surten.
+Canvia a edl.json: recursos visibles o amagats, textos, inici (offsetMs) i durada, la mida i el lloc de les gravacions de pantalla
+(zooms) i els seus rètols; talls que es queden o surten.
 Els comentaris no s'apliquen sols: s'imprimeixen perquè Claude els llegeixi i decideixi.
 """
 import json

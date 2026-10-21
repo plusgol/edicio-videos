@@ -182,7 +182,8 @@
    "outMs": 26900,
    "block": "seccio:prompt",
    "captions": "Entonces yo he escrito, tal cual:",
-   "reason": "només l'entrada: els 20 s dictant mentre tecleja eren lents (l'usuari). El prompt es veu accelerat al bloc P"
+   "reason": "només l'entrada: els 20 s dictant mentre tecleja eren lents (l'usuari). El prompt es veu accelerat al bloc P · RETIRAT (revisió amb ulls nous del kit): «tal cual» promet llegir el prompt i no ho fa; la veu en off ja ho explica",
+   "keep": false
   },
   {
    "id": "vo-P",
@@ -190,7 +191,7 @@
    "inMs": 36000,
    "outMs": 44000,
    "block": "veu-en-off",
-   "captions": "Fijaos en el truco: no le pido el bot directamente. Le pido a Claude que me escriba el prompt perfecto para pedírselo.",
+   "captions": "Fijaos: no le pido el bot directamente. Le pido a Claude que me escriba el prompt perfecto para pedírselo.",
    "reason": "bloc P de veu en off (provisional mut): per què el prompt és bo, sobre la pantalla accelerada"
   },
   {
@@ -200,7 +201,8 @@
    "outMs": 65640,
    "block": "seccio:prompt",
    "captions": "Vale, ya tenemos el prompt hecho. Entonces, con lo que nos dé de resultado, como podéis ver, pues cómo lo haría, el paso a paso, no hagáis nada: mandadlo directamente a Claude Code y este se encargará de crear la inteligencia artificial.",
-   "reason": "2a presa (la de 54,5 s es un intent superat) · v7: acaba a «el paso a paso» (el «mandadlo a Claude Code» ja el diu a p8)"
+   "reason": "2a presa (la de 54,5 s es un intent superat) · v7: acaba a «el paso a paso» (el «mandadlo a Claude Code» ja el diu a p8) · RETIRAT (revisió amb ulls nous del kit): eco més fluix de «Bueno, aquí lo tenemos» (p7) i acaba en coma",
+   "keep": false
   },
   {
    "id": "vo-A",
@@ -224,10 +226,19 @@
    "id": "p8",
    "source": "c5866",
    "inMs": 92650,
+   "outMs": 97600,
+   "block": "seccio:prompt",
+   "captions": "y aquí, si os fijáis, tenemos la opción de Claude Code. Aquí, en este equipo, y vamos a utilizar, en este caso, el modo Opus 5.5 en esfuerzo... es un esfuerzo medio. Le pegamos.",
+   "reason": "Claude Code amb Opus 5.5 i esforç mitjà · v7: fora l'ensopegada «versión, en formato o en esfuerzo, es un»: queda «el modo Opus 5.5 en esfuerzo medio» · kit: fora «Aquí, en este equipo,»"
+  },
+  {
+   "id": "p8c",
+   "source": "c5866",
+   "inMs": 99750,
    "outMs": 105020,
    "block": "seccio:prompt",
    "captions": "y aquí, si os fijáis, tenemos la opción de Claude Code. Aquí, en este equipo, y vamos a utilizar, en este caso, el modo Opus 5.5 en esfuerzo... es un esfuerzo medio. Le pegamos.",
-   "reason": "Claude Code amb Opus 5.5 i esforç mitjà · v7: fora l'ensopegada «versión, en formato o en esfuerzo, es un»: queda «el modo Opus 5.5 en esfuerzo medio»",
+   "reason": "continuació de p8 (sense «Aquí, en este equipo»)",
    "exactOut": true
   },
   {
@@ -257,7 +268,8 @@
    "outMs": 132150,
    "block": "seccio:prompt",
    "captions": "Ahora mismo ya lo tenemos todo hecho.",
-   "reason": "transició"
+   "reason": "transició · RETIRAT (revisió amb ulls nous del kit): «ya lo tenemos todo hecho» contradiu el «60 %» que ve just després",
+   "keep": false
   },
   {
    "id": "p11",
@@ -298,11 +310,20 @@
   {
    "id": "l1",
    "source": "c5867",
-   "inMs": 214800,
-   "outMs": 243100,
+   "inMs": 215150,
+   "outMs": 233450,
    "block": "seccio:truco",
    "captions": "¿Qué pasa si tenemos la cuenta de Claude de 20 dólares? Aquí tenemos un contra, ¿no? Y es que, si os fijáis aquí, tenemos un límite de sesión. Es decir, cada 5 horas, si gastas el 100%, no vas a poder hacer nada hasta que pase ese tiempo. Y hay, evidentemente, un gasto semanal que se restablece cada sábado a la una de la tarde. Como podéis ver, llevamos un 2% y le hemos pasado ya todo el prompt y está haciendo un análisis.",
-   "reason": "el límit del pla de 20 $ (3a presa; 198–214 s són represes). Reordenat: va després del truc, abans del fondeig"
+   "reason": "el límit del pla de 20 $ (3a presa; 198–214 s són represes). Reordenat: va després del truc, abans del fondeig · kit: fora el «básicamente» de l'inici i «que se restablece cada sábado a la una»"
+  },
+  {
+   "id": "l1b",
+   "source": "c5867",
+   "inMs": 236450,
+   "outMs": 242950,
+   "block": "seccio:truco",
+   "captions": "¿Qué pasa si tenemos la cuenta de Claude de 20 dólares? Aquí tenemos un contra, ¿no? Y es que, si os fijáis aquí, tenemos un límite de sesión. Es decir, cada 5 horas, si gastas el 100%, no vas a poder hacer nada hasta que pase ese tiempo. Y hay, evidentemente, un gasto semanal que se restablece cada sábado a la una de la tarde. Como podéis ver, llevamos un 2% y le hemos pasado ya todo el prompt y está haciendo un análisis.",
+   "reason": "continuació de l1: «Como podéis ver, llevamos un 2 %…»"
   },
   {
    "id": "l2",
@@ -328,26 +349,45 @@
    "inMs": 123000,
    "outMs": 135000,
    "block": "veu-en-off",
-   "captions": "Y con los datos encontró cosas que yo no habría visto: mantener una posición larga en Bitcoin ha costado, de media, un 12,7 % al año en funding.",
+   "captions": "Y con los datos encontró cosas que yo no habría visto: por ejemplo, mantener una posición larga en Bitcoin ha costado, de media, un 12,7 % al año solo en comisiones de financiación.",
    "reason": "bloc C (provisional mut): el que van mostrar les dades"
   },
   {
    "id": "f1",
    "source": "c5867",
    "inMs": 30000,
-   "outMs": 51000,
+   "outMs": 32450,
    "block": "seccio:fondeo",
    "captions": "Vale, ¿cuál sería la utilidad real de esto? Ahora vamos a crear un prototipo, y al final esto no significa que como funciona aquí siempre va a funcionar. Vamos a hablar sobre las cuentas de fondeo. En este caso, yo la que más recomiendo siempre será Ibero Funding, porque es la única prop firm española que realmente da cuentas de fondeo.",
-   "reason": "per a què serveix: comptes de fondeig. El nom és Ibero Funding (iberofunding.com, a la pantalla)"
+   "reason": "per a què serveix: comptes de fondeig. El nom és Ibero Funding (iberofunding.com, a la pantalla) · kit: només «¿cuál sería la utilidad real de esto?» (fora la cautela i el «vamos a hablar»)",
+   "exactOut": true
   },
   {
    "id": "f3",
    "source": "c5867",
    "inMs": 51000,
+   "outMs": 54400,
+   "block": "seccio:fondeo",
+   "captions": "Para empezar, ¿qué es una cuenta de fondeo? Básicamente, una empresa: tú pagas 30 dólares, por ejemplo... vamos a ver esta oferta. En este caso, este plan: tú pagas 28 dólares y tienes una cuenta de 5.000 dólares para operar.",
+   "reason": "què és una compta de fondeig · kit: empelt de la represa «30 dólares… 28 dólares»"
+  },
+  {
+   "id": "f3b",
+   "source": "c5867",
+   "inMs": 59600,
    "outMs": 65300,
    "block": "seccio:fondeo",
    "captions": "Para empezar, ¿qué es una cuenta de fondeo? Básicamente, una empresa: tú pagas 30 dólares, por ejemplo... vamos a ver esta oferta. En este caso, este plan: tú pagas 28 dólares y tienes una cuenta de 5.000 dólares para operar.",
-   "reason": "què és una compta de fondeig"
+   "reason": "continuació de f3: «tú pagas 28 dólares y tienes una cuenta de 5.000 dólares para operar»"
+  },
+  {
+   "id": "f1b",
+   "source": "c5867",
+   "inMs": 40400,
+   "outMs": 50800,
+   "block": "seccio:fondeo",
+   "captions": "Vale, ¿cuál sería la utilidad real de esto? Ahora vamos a crear un prototipo, y al final esto no significa que como funciona aquí siempre va a funcionar. Vamos a hablar sobre las cuentas de fondeo. En este caso, yo la que más recomiendo siempre será Ibero Funding, porque es la única prop firm española que realmente da cuentas de fondeo.",
+   "reason": "la recomanació d'Ibero Funding, moguda després de definir què és una cuenta de fondeo"
   },
   {
    "id": "f4",
@@ -370,11 +410,22 @@
   {
    "id": "f5",
    "source": "c5867",
-   "inMs": 74500,
+   "inMs": 76650,
+   "outMs": 85210,
+   "block": "seccio:fondeo",
+   "captions": "Sí o sí, si lo ves, para superar la fase necesitas un 8% de estos 5.000. Si pierdes un 6%, has perdido el reto, y ya has perdido 28 dólares.",
+   "reason": "les regles: 8 % d'objectiu, 6 % de pèrdua màxima · kit: comença a «para superar la fase» (el «sí o sí» anava amb la frase anterior)",
+   "exactOut": true
+  },
+  {
+   "id": "f5b",
+   "source": "c5867",
+   "inMs": 86330,
    "outMs": 87950,
    "block": "seccio:fondeo",
    "captions": "Sí o sí, si lo ves, para superar la fase necesitas un 8% de estos 5.000. Si pierdes un 6%, has perdido el reto, y ya has perdido 28 dólares.",
-   "reason": "les regles: 8 % d'objectiu, 6 % de pèrdua màxima"
+   "reason": "continuació de f5 sense l'ensopegada «y no…»: «has perdido 28 dólares»",
+   "exactIn": true
   },
   {
    "id": "vo-G",
@@ -397,38 +448,12 @@
   {
    "id": "f6",
    "source": "c5867",
-   "inMs": 99200,
+   "inMs": 98660,
    "outMs": 116400,
    "block": "seccio:fondeo",
    "captions": "Pues hacer un 8% con 5.000 dólares no es hacer una operación y ya: tienes que hacer varias. Y, sobre todo, al final el trading se trata mucho a nivel mental, porque tú puedes tener una estrategia muy clara, pero por los nervios, o por la presión, o por impulsos, acabéis operando de una forma que no es la correcta.",
-   "reason": "el trading és mental"
-  },
-  {
-   "id": "b1",
-   "source": "c5867",
-   "inMs": 119400,
-   "outMs": 129800,
-   "block": "seccio:backtesting",
-   "captions": "A partir de aquí, lo que tenemos que mirar es realmente si podemos llegar a ser rentables. Por esto creamos este bot de trading: para probar diferentes estrategias y hacer un poco lo que es el backtesting.",
-   "reason": "per a què el bot: provar estratègies"
-  },
-  {
-   "id": "b2a",
-   "source": "c5867",
-   "inMs": 144950,
-   "outMs": 154400,
-   "block": "seccio:backtesting",
-   "captions": "El backtesting básicamente sirve para comprobar estrategias. Coge un momento de mercado anterior y tú, sin saber lo que va a pasar a futuro, pruebas la estrategia.",
-   "reason": "definició (2a presa: 131–145 s és una represa)"
-  },
-  {
-   "id": "b2b",
-   "source": "c5867",
-   "inMs": 156550,
-   "outMs": 164700,
-   "block": "seccio:backtesting",
-   "captions": "Así puedes llegar a ver si realmente tu estrategia hubiera sido rentable en el pasado y comprobar si realmente puedes obtener beneficio.",
-   "reason": "per a què serveix. Es treu «por eso se llamaba el testing»"
+   "reason": "el trading és mental · kit: comença a «Es decir,» (abans quedava «decir» sol)",
+   "exactIn": true
   },
   {
    "id": "b3",
@@ -454,10 +479,38 @@
    "id": "b4",
    "source": "c5867",
    "inMs": 183300,
-   "outMs": 193000,
+   "outMs": 189600,
    "block": "seccio:backtesting",
    "captions": "Aquí, como vais a ver, evidentemente, si tenemos una cuenta de 50.000 y hacemos un 5%, ganamos casi 2.000 dólares. Pero esto, sobre todo, os lo digo: es muy a nivel mental.",
-   "reason": "l'exemple gran i l'avís"
+   "reason": "l'exemple gran i l'avís · kit: acaba a «ganamos casi 2.000 dólares» (el «es muy a nivel mental» repetia f6)"
+  },
+  {
+   "id": "b1",
+   "source": "c5867",
+   "inMs": 119400,
+   "outMs": 129800,
+   "block": "seccio:backtesting",
+   "captions": "A partir de aquí, lo que tenemos que mirar es realmente si podemos llegar a ser rentables. Por esto creamos este bot de trading: para probar diferentes estrategias y hacer un poco lo que es el backtesting.",
+   "reason": "per a què el bot: provar estratègies"
+  },
+  {
+   "id": "b2a",
+   "source": "c5867",
+   "inMs": 144950,
+   "outMs": 154400,
+   "block": "seccio:backtesting",
+   "captions": "El backtesting básicamente sirve para comprobar estrategias. Coge un momento de mercado anterior y tú, sin saber lo que va a pasar a futuro, pruebas la estrategia.",
+   "reason": "definició (2a presa: 131–145 s és una represa)"
+  },
+  {
+   "id": "b2b",
+   "source": "c5867",
+   "inMs": 156550,
+   "outMs": 161590,
+   "block": "seccio:backtesting",
+   "captions": "Así puedes llegar a ver si realmente tu estrategia hubiera sido rentable en el pasado y comprobar si realmente puedes obtener beneficio.",
+   "reason": "per a què serveix. Es treu «por eso se llamaba el testing» · kit: fora l'eco «y comprobar si realmente puedes obtener beneficio»",
+   "exactOut": true
   },
   {
    "id": "d1",
@@ -481,10 +534,19 @@
    "id": "d3",
    "source": "c5883",
    "inMs": 23650,
+   "outMs": 29000,
+   "block": "seccio:24h",
+   "captions": "y ahora mismo tenemos, como podéis ver, en archivos, «iniciar bot». Vale, se va a iniciar un bot. Seguramente me estarán a punto de hackear, pero como veis, me ha abierto el explorador de archivos con «iniciar bot», y en esta carpeta pues tengo toda la información.",
+   "reason": "arrenca el bot · v7: acaba a «hackear» (el segon «iniciar bot» repetia) · kit: fora «Se va a iniciar un bot,»"
+  },
+  {
+   "id": "d3b",
+   "source": "c5883",
+   "inMs": 31250,
    "outMs": 33420,
    "block": "seccio:24h",
    "captions": "y ahora mismo tenemos, como podéis ver, en archivos, «iniciar bot». Vale, se va a iniciar un bot. Seguramente me estarán a punto de hackear, pero como veis, me ha abierto el explorador de archivos con «iniciar bot», y en esta carpeta pues tengo toda la información.",
-   "reason": "arrenca el bot · v7: acaba a «hackear» (el segon «iniciar bot» repetia)"
+   "reason": "continuació de d3: «seguramente me estarán a punto de hackear»"
   },
   {
    "id": "d4",
@@ -517,10 +579,11 @@
    "id": "e1",
    "source": "c5885",
    "inMs": 0,
-   "outMs": 3550,
+   "outMs": 3300,
    "block": "final",
    "captions": "Bueno, me estoy yendo a la uni, entonces no he podido grabar la reacción.",
-   "reason": "tancament: selfie de camí a la uni"
+   "reason": "tancament: selfie de camí a la uni · kit: acaba a «la reacción» (el «Como» quedava penjat)",
+   "exactOut": true
   },
   {
    "id": "e2",
@@ -553,10 +616,11 @@
    "id": "e4",
    "source": "c5885",
    "inMs": 35050,
-   "outMs": 40550,
+   "outMs": 41100,
    "block": "final",
    "captions": "Pero bueno, yo muy sorprendido. Y a ver realmente si queréis una parte dos, a ver cuánto llega a ganar.",
-   "reason": "CTA únic: part 2 (amb els resultats)"
+   "reason": "CTA únic: part 2 (amb els resultats) · kit: el tall es menjava «ganar» (final tallat)",
+   "exactOut": true
   }
  ],
  "punchIns": [],
@@ -1174,19 +1238,6 @@
     "what": "límites de uso de Claude"
    },
    "reason": "el panell «Uso» real: límit de sessió 2 % i setmanal (OBS1 9:44)"
-  },
-  {
-   "id": "hw-semanal",
-   "type": "HandWritten",
-   "source": "c5867",
-   "anchorMs": 231400,
-   "durationMs": 2300,
-   "props": {
-    "text": "semanal: *sábado 13:00*",
-    "mode": "camera",
-    "side": "left"
-   },
-   "reason": "el segon límit, el setmanal"
   },
   {
    "id": "g-2",

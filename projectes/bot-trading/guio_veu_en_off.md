@@ -39,11 +39,11 @@ Les animacions ja estan muntades amb aquest ritme. Entre parèntesis, què surt 
 ## Blocs de veu en off
 Mentre parles, a la pantalla hi ha una explicació animada (o la teva pantalla accelerada). Tot el que diuen surt a les teves gravacions o a la web d'Ibero Funding.
 
-### P — El truco del prompt (va després de «Entonces yo he escrito, tal cual:»), ~8 s
-«Fijaos en el truco: no le pido el bot directamente. Le pido a Claude que me escriba el prompt perfecto para pedírselo.»
+### P — El truco del prompt (va després de «para hacer un poco de búsqueda no hace falta»), ~8 s
+«Fijaos: no le pido el bot directamente. Le pido a Claude que me escriba el prompt perfecto para pedírselo.»
 *(La teva pantalla escrivint el prompt, accelerada ×4, amb el rètol «Le pido el prompt, no el bot».)*
 
-### A — El plan de Claude (va després de «como lo haría, el paso a paso»), ~14 s
+### A — El plan de Claude (va just després de P), ~14 s
 «Y antes de nada, Claude me avisa: ningún prompt te garantiza ganar dinero, y la mayoría de bots de particulares pierden. Su plan tiene cinco pasos: una hipótesis simple, datos históricos, backtesting, control del riesgo y, como mínimo, dos o tres meses con dinero ficticio.»
 *(L'avís de Claude i després els cinc passos en targetes.)*
 
@@ -56,7 +56,7 @@ Mentre parles, a la pantalla hi ha una explicació animada (o la teva pantalla a
 *(Els passos en targetes i la llista real de tasques de Claude Code.)*
 
 ### C — El que van mostrar les dades (va just després de D), ~12 s
-«Y con los datos encontró cosas que yo no habría visto: mantener una posición larga en Bitcoin ha costado, de media, un 12,7 % al año en funding.»
+«Y con los datos encontró cosas que yo no habría visto: por ejemplo, mantener una posición larga en Bitcoin ha costado, de media, un 12,7 % al año solo en comisiones de financiación.»
 
 ### G — El final del compte de fondeig (va després de «has perdido 28 dólares»), ~6 s
 «Y si pasas el reto, te quedas el 75 % de lo que ganes.»

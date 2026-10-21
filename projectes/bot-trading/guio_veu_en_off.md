@@ -2,12 +2,12 @@
 
 **Com gravar-ho**
 - Amb l'iPhone, a l'habitació en silenci, amb el mòbil a uns 20 cm de la boca.
-- **Un fitxer per bloc:** Intro, A, B, C, D i F.
+- **Un fitxer per bloc:** Intro, P, A, B, D, C, G i F.
 - Llegeix-ho amb naturalitat, no cal que sigui perfecte: les pauses i els errors els retallo jo.
 - Si t'equivoques, torna a dir la frase sencera.
 - Quan ho tinguis, puja-ho al Drive.
 
-Amb la intro i els blocs A–F, el vídeo queda en **unes 9:00**.
+A la pàgina de vista prèvia, sota el vídeo, surt el text de cada bloc en el moment que toca: pots gravar mirant el vídeo.
 
 ---
 
@@ -36,22 +36,32 @@ Les animacions ja estan muntades amb aquest ritme. Entre parèntesis, què surt 
 
 ---
 
-## Blocs extra (per arribar als 8–9 min)
-Al vídeo es veu la teva pantalla mentre parles. Tot el que diuen aquests blocs **surt a les teves gravacions de pantalla**; no he afegit res que no hi sigui.
+## Blocs de veu en off
+Mentre parles, a la pantalla hi ha una explicació animada (o la teva pantalla accelerada). Tot el que diuen surt a les teves gravacions o a la web d'Ibero Funding.
 
-### A — L'avís de Claude (va després de «mandadlo directamente a Claude Code»), ~20 s
-«Antes de darme el prompt, Claude me avisó de algo importante: ningún prompt te da “la mejor IA” ni rentabilidad garantizada. La mayoría de bots de particulares pierden dinero, y no es asesor financiero. Y me propuso hacerlo paso a paso: una hipótesis simple, datos históricos, un backtesting realista, gestión del riesgo y, como mínimo, dos o tres meses en paper trading.»
+### P — El truco del prompt (va després de «Entonces yo he escrito, tal cual:»), ~8 s
+«Fijaos en el truco: no le pido el bot directamente. Le pido a Claude que me escriba el prompt perfecto para pedírselo.»
+*(La teva pantalla escrivint el prompt, accelerada ×4, amb el rètol «Le pido el prompt, no el bot».)*
 
-### B — Les tres hipòtesis (va després de «va creando hipótesis»), ~22 s
-«En la fase 1 me propuso tres hipótesis de estrategia. La primera, seguir la tendencia. La segunda, reversión a la media a corto plazo: por ejemplo, comprar el SPY cuando cae mucho en pocos días. Y la tercera, momentum relativo: cada mes, invertir en lo que más ha subido entre Bitcoin, Ethereum y el SPY. Y para operar con dinero ficticio, Alpaca Paper para las acciones y Bybit Demo para las cripto.»
+### A — El plan de Claude (va després de «mandadlo directamente a Claude Code»), ~14 s
+«Y antes de nada, Claude me avisa: ningún prompt te garantiza ganar dinero, y la mayoría de bots de particulares pierden. Su plan tiene cinco pasos: una hipótesis simple, datos históricos, backtesting, control del riesgo y, como mínimo, dos o tres meses con dinero ficticio.»
+*(L'avís de Claude i després els cinc passos en targetes.)*
 
-### D — Claude Code treballant sol (va després de «nos da para crear este bot»), ~18 s
-«Y a partir de aquí, Claude Code se pone a trabajar solo: comprueba Python, crea la estructura del proyecto, escribe la descarga de datos de cripto y de ETF, la limpieza, los tests… y prueba a descargar datos reales de Bitcoin.»
+### B — Les estratègies i les plataformes (va després de «va creando hipótesis»), ~42 s
+«Me propone tres estrategias. La primera: seguir la tendencia con dos medias, una rápida y una lenta. Cuando la rápida cruza por encima de la lenta, el precio está cogiendo fuerza: compra. Cuando cruza por debajo: vende. La segunda: reversión a la media. Si un activo cae mucho en pocos días, apuesta a que vuelva a su precio normal. La tercera: momentum. Cada mes mira qué ha subido más entre Bitcoin, Ethereum y el SPY, y pone el dinero ahí. Y para practicar sin arriesgar, dos plataformas con dinero ficticio: Alpaca Paper para las acciones y Bybit Demo para las cripto.»
+*(Un gràfic animat per a cada estratègia, marcat «Ejemplo ilustrativo», i les dues plataformes amb el logo.)*
 
-### C — El que van mostrar les dades (va just després de D), ~22 s
-«En la fase 2 descargó y limpió los datos: velas diarias de Bitcoin desde 2020 y de Ethereum desde 2021. Y encontró cosas que yo no habría visto nunca. Por ejemplo, que mantener una posición larga en el perpetuo de Bitcoin ha costado, de media, un 12,7 % al año en funding. Y me avisó de que en cripto solo hay unos seis años de historial, así que la confianza en los resultados es limitada.»
+### D — Què fa Claude Code (va després de «nos da para crear este bot»), ~15 s
+«Luego Claude Code se pone a trabajar solo: descarga los datos de Bybit y de Alpaca, los limpia, monta el backtesting y lo conecta todo a las cuentas de dinero ficticio. Y al final, un panel para verlo.»
+*(Els passos en targetes i la llista real de tasques de Claude Code.)*
 
-### F — Així funciona el bot (va després de «siempre pueden haber errores»), ~50 s
-«Así funciona el bot. Se arranca con un doble clic en «iniciar bot», y si lo cierro, al volver retoma las posiciones donde las dejó. Este es el panel: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum, cada uno con su estrategia. La principal es un cruce de medias: si la media rápida está por encima de la lenta, entra en largo; si está por debajo, en corto. Cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro. ¿Los resultados? En la parte 2.»
+### C — El que van mostrar les dades (va just després de D), ~12 s
+«Y con los datos encontró cosas que yo no habría visto: mantener una posición larga en Bitcoin ha costado, de media, un 12,7 % al año en funding.»
 
-*A la pantalla, el teu panell amb un requadre i un rètol a cada part que expliques: «Se arranca con iniciar_bot», «En marcha · riesgo OK», «Precios reales, dinero ficticio», els quatre mercats, «Media rápida / Media lenta», «Stop-loss», «Pierde como máximo un 0,5 %», «Pérdida diaria máx.: 3 %», «Kill switch: −8 %» i el registre. Les xifres de guanys i pèrdues queden tapades.*
+### G — El final del compte de fondeig (va després de «has perdido 28 dólares»), ~6 s
+«Y si pasas el reto, te quedas el 75 % de lo que ganes.»
+*(Última targeta de l'explicació del compte de fondeig.)*
+
+### F — Així funciona el bot (va després de «siempre pueden haber errores»), ~44 s
+«Así funciona el bot. Se arranca con un doble clic en «iniciar bot», y si lo cierro, al volver retoma las posiciones donde las dejó. Este es el panel: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum, cada uno con su estrategia. La principal es un cruce de medias: si la media rápida está por encima de la lenta, entra en largo; si está por debajo, en corto. Cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro.»
+*(El teu panell amb un requadre i un rètol a cada part que expliques.)*

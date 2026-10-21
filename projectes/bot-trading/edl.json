@@ -1,6 +1,6 @@
 {
- "_nota": "Bot de trading. Estil Alex (cara, seccions, lletra a mà) + tef (pantalla en finestra flotant, targetes d'eina). Pantalla sincronitzada per contingut: OBS1 = 5866 + 93 s i 5867 + 344 s; OBS3 = 5883 − 9 s; OBS2 per contingut. La veu és sempre la de l'iPhone (OBS només grava la pantalla). v5: zooms de pantalla reduïts a la meitat de l'ampliació (l'usuari: «surt massa gran»); l'usuari els pot canviar a l'editor.",
- "version": 3,
+ "_nota": "Bot de trading. Estil Alex (cara, seccions, lletra a mà) + tef (pantalla en finestra flotant, targetes d'eina). Pantalla sincronitzada per contingut: OBS1 = 5866 + 93 s i 5867 + 344 s; OBS3 = 5883 − 9 s; OBS2 per contingut. La veu és sempre la de l'iPhone (OBS només grava la pantalla). v5: zooms de pantalla reduïts a la meitat de l'ampliació (l'usuari: «surt massa gran»); l'usuari els pot canviar a l'editor. v6: pantalla comentada (cara en finestreta, `pip`), explicacions animades (FlowSteps, ChartExplainer), resultats visibles.",
+ "version": 6,
  "video": {
   "width": 1920,
   "height": 1080,
@@ -30,7 +30,8 @@
    "video": "work/VO.1920x1080.mp4",
    "audio": "work/VO.48k.wav",
    "track": "work/VO.1920x1080.track.json",
-   "transcript": "work/VO.transcript.json"
+   "transcript": "work/VO.transcript.json",
+   "noFace": true
   },
   "c5866": {
    "video": "work/IMG_5866.1920x1080.mp4",
@@ -54,7 +55,8 @@
    "video": "work/IMG_5885.1920x1080.mp4",
    "audio": "work/IMG_5885.48k.wav",
    "track": "work/IMG_5885.1920x1080.track.json",
-   "transcript": "work/IMG_5885.transcript.json"
+   "transcript": "work/IMG_5885.transcript.json",
+   "audioFilter": "highpass=f=140,afftdn=nr=16:nf=-38:tn=1"
   }
  },
  "screens": {
@@ -102,7 +104,13 @@
    1920,
    1080
   ],
-  "_nota": "px de l'original 2880×1620. app: treu la barra de tasques. browser: treu també pestanyes, adreça i adreces d'interès (dades personals)."
+  "_nota": "px de l'original 2880×1620. app: treu la barra de tasques. browser: treu també pestanyes, adreça i adreces d'interès (dades personals). ytres: només la columna de resultats de YouTube (sense barra lateral ni capçalera).",
+  "ytres": [
+   440,
+   60,
+   1300,
+   1020
+  ]
  },
  "cuts": {
   "silenceThresholdDbAboveFloor": 9,
@@ -171,11 +179,19 @@
    "id": "p5",
    "source": "c5866",
    "inMs": 24800,
-   "outMs": 51400,
+   "outMs": 26900,
    "block": "seccio:prompt",
-   "captions": "Entonces yo he escrito, tal cual: quiero hacer un bot de trading para operar con criptomonedas y activos financieros. ¿Cómo lo harías? Dame un prompt muy concreto para tener la mejor IA del mercado y obtener rentabilidad.",
-   "reason": "el prompt inicial, llegit mentre l'escriu. El teclat (−50 dB) omple les pauses: llindar de silenci propi",
-   "silenceAboveFloorDb": 16
+   "captions": "Entonces yo he escrito, tal cual:",
+   "reason": "només l'entrada: els 20 s dictant mentre tecleja eren lents (l'usuari). El prompt es veu accelerat al bloc P"
+  },
+  {
+   "id": "vo-P",
+   "source": "vo",
+   "inMs": 36000,
+   "outMs": 44000,
+   "block": "veu-en-off",
+   "captions": "Fijaos en el truco: no le pido el bot directamente. Le pido a Claude que me escriba el prompt perfecto para pedírselo.",
+   "reason": "bloc P de veu en off (provisional mut): per què el prompt és bo, sobre la pantalla accelerada"
   },
   {
    "id": "p6",
@@ -189,11 +205,11 @@
   {
    "id": "vo-A",
    "source": "vo",
-   "inMs": 36000,
-   "outMs": 56000,
+   "inMs": 46000,
+   "outMs": 60000,
    "block": "veu-en-off",
-   "captions": "Antes de darme el prompt, Claude me avisó de algo importante: ningún prompt te da “la mejor IA” ni rentabilidad garantizada. La mayoría de bots de particulares pierden dinero, y no es asesor financiero. Y me propuso hacerlo paso a paso: una hipótesis simple, datos históricos, un backtesting realista, gestión del riesgo y, como mínimo, dos o tres meses en paper trading.",
-   "reason": "bloc A de veu en off (provisional mut): l'avís de Claude, tal com surt a la pantalla"
+   "captions": "Y antes de nada, Claude me avisa: ningún prompt te garantiza ganar dinero, y la mayoría de bots de particulares pierden. Su plan tiene cinco pasos: una hipótesis simple, datos históricos, backtesting, control del riesgo y, como mínimo, dos o tres meses con dinero ficticio.",
+   "reason": "bloc A (provisional mut): l'avís i el pla de Claude en targetes"
   },
   {
    "id": "p7",
@@ -244,11 +260,11 @@
   {
    "id": "vo-B",
    "source": "vo",
-   "inMs": 58000,
-   "outMs": 80000,
+   "inMs": 62000,
+   "outMs": 104000,
    "block": "veu-en-off",
-   "captions": "En la fase 1 me propuso tres hipótesis de estrategia. La primera, seguir la tendencia. La segunda, reversión a la media a corto plazo: por ejemplo, comprar el SPY cuando cae mucho en pocos días. Y la tercera, momentum relativo: cada mes, invertir en lo que más ha subido entre Bitcoin, Ethereum y el SPY. Y para operar con dinero ficticio, Alpaca Paper para las acciones y Bybit Demo para las cripto.",
-   "reason": "bloc B de veu en off (provisional mut): les tres hipòtesis i les plataformes, com surten a la pantalla"
+   "captions": "Me propone tres estrategias. La primera: seguir la tendencia con dos medias, una rápida y una lenta. Cuando la rápida cruza por encima de la lenta, el precio está cogiendo fuerza: compra. Cuando cruza por debajo: vende. La segunda: reversión a la media. Si un activo cae mucho en pocos días, apuesta a que vuelva a su precio normal. La tercera: momentum. Cada mes mira qué ha subido más entre Bitcoin, Ethereum y el SPY, y pone el dinero ahí. Y para practicar sin arriesgar, dos plataformas con dinero ficticio: Alpaca Paper para las acciones y Bybit Demo para las cripto.",
+   "reason": "bloc B (provisional mut): les tres estratègies explicades amb gràfics i les plataformes amb logos"
   },
   {
    "id": "t1",
@@ -289,20 +305,20 @@
   {
    "id": "vo-D",
    "source": "vo",
-   "inMs": 82000,
-   "outMs": 100000,
+   "inMs": 106000,
+   "outMs": 121000,
    "block": "veu-en-off",
-   "captions": "Y a partir de aquí, Claude Code se pone a trabajar solo: comprueba Python, crea la estructura del proyecto, escribe la descarga de datos de cripto y de ETF, la limpieza, los tests… y prueba a descargar datos reales de Bitcoin.",
-   "reason": "bloc D de veu en off (provisional mut): Claude Code treballant sol"
+   "captions": "Luego Claude Code se pone a trabajar solo: descarga los datos de Bybit y de Alpaca, los limpia, monta el backtesting y lo conecta todo a las cuentas de dinero ficticio. Y al final, un panel para verlo.",
+   "reason": "bloc D (provisional mut): què fa Claude Code, en passos"
   },
   {
    "id": "vo-C",
    "source": "vo",
-   "inMs": 102000,
-   "outMs": 124000,
+   "inMs": 123000,
+   "outMs": 135000,
    "block": "veu-en-off",
-   "captions": "En la fase 2 descargó y limpió los datos: velas diarias de Bitcoin desde 2020 y de Ethereum desde 2021. Y encontró cosas que yo no habría visto nunca. Por ejemplo, que mantener una posición larga en el perpetuo de Bitcoin ha costado, de media, un 12,7 % al año en funding. Y me avisó de que en cripto solo hay unos seis años de historial, así que la confianza en los resultados es limitada.",
-   "reason": "bloc C de veu en off (provisional mut): el que van mostrar les dades"
+   "captions": "Y con los datos encontró cosas que yo no habría visto: mantener una posición larga en Bitcoin ha costado, de media, un 12,7 % al año en funding.",
+   "reason": "bloc C (provisional mut): el que van mostrar les dades"
   },
   {
    "id": "f1",
@@ -348,6 +364,15 @@
    "block": "seccio:fondeo",
    "captions": "Sí o sí, si lo ves, para superar la fase necesitas un 8% de estos 5.000. Si pierdes un 6%, has perdido el reto, y ya has perdido 28 dólares.",
    "reason": "les regles: 8 % d'objectiu, 6 % de pèrdua màxima"
+  },
+  {
+   "id": "vo-G",
+   "source": "vo",
+   "inMs": 137000,
+   "outMs": 143000,
+   "block": "veu-en-off",
+   "captions": "Y si pasas el reto, te quedas el 75 % de lo que ganes.",
+   "reason": "bloc G (provisional mut): l'última peça del compte de fondeig (75 %)"
   },
   {
    "id": "f6a",
@@ -460,11 +485,29 @@
   {
    "id": "vo-F",
    "source": "vo",
-   "inMs": 126000,
-   "outMs": 176000,
+   "inMs": 145000,
+   "outMs": 189000,
    "block": "veu-en-off",
-   "captions": "Así funciona el bot. Se arranca con un doble clic en «iniciar bot», y si lo cierro, al volver retoma las posiciones donde las dejó. Este es el panel: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum, cada uno con su estrategia. La principal es un cruce de medias: si la media rápida está por encima de la lenta, entra en largo; si está por debajo, en corto. Cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro. ¿Los resultados? En la parte 2.",
-   "reason": "bloc F de veu en off (provisional mut): com funciona el bot, explicat sobre el panell real"
+   "captions": "Así funciona el bot. Se arranca con un doble clic en «iniciar bot», y si lo cierro, al volver retoma las posiciones donde las dejó. Este es el panel: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum, cada uno con su estrategia. La principal es un cruce de medias: si la media rápida está por encima de la lenta, entra en largo; si está por debajo, en corto. Cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro.",
+   "reason": "bloc F (provisional mut): com funciona el bot, sobre el panell real"
+  },
+  {
+   "id": "e1",
+   "source": "c5885",
+   "inMs": 0,
+   "outMs": 3550,
+   "block": "final",
+   "captions": "Bueno, me estoy yendo a la uni, entonces no he podido grabar la reacción.",
+   "reason": "tancament: selfie de camí a la uni"
+  },
+  {
+   "id": "e2",
+   "source": "c5885",
+   "inMs": 43550,
+   "outMs": 46550,
+   "block": "final",
+   "captions": "Pero que ahora mismo está en positivo, con 50 dólares.",
+   "reason": "el resultat, amb el panell real (l'usuari: no tapis els resultats)"
   },
   {
    "id": "h2",
@@ -473,7 +516,7 @@
    "outMs": 19800,
    "block": "final",
    "captions": "Y que coño, que funciona, es que de verdad funciona.",
-   "reason": "la reacció, sense xifres"
+   "reason": "la reacció"
   },
   {
    "id": "e3",
@@ -506,14 +549,13 @@
     "clip": {
      "screen": "yt3",
      "fromMs": 300,
-     "crop": "full"
+     "crop": "ytres",
+     "speed": 1.5
     },
     "zooms": [
      {
       "atMs": 0,
-      "zoom": 1.45,
-      "x": 0.36,
-      "y": 0.42
+      "zoom": 1.0
      }
     ],
     "what": "YouTube: ai trading bot",
@@ -531,14 +573,13 @@
     "clip": {
      "screen": "yt2",
      "fromMs": 500,
-     "crop": "full"
+     "crop": "ytres",
+     "speed": 1.5
     },
     "zooms": [
      {
       "atMs": 0,
-      "zoom": 1.45,
-      "x": 0.36,
-      "y": 0.4
+      "zoom": 1.0
      }
     ],
     "what": "YouTube: claude trading bot",
@@ -556,14 +597,13 @@
     "clip": {
      "screen": "yt4",
      "fromMs": 600,
-     "crop": "full"
+     "crop": "ytres",
+     "speed": 1.5
     },
     "zooms": [
      {
       "atMs": 0,
-      "zoom": 1.45,
-      "x": 0.36,
-      "y": 0.42
+      "zoom": 1.0
      }
     ],
     "what": "YouTube: rug pull crypto",
@@ -608,14 +648,13 @@
     "clip": {
      "screen": "yt5",
      "fromMs": 400,
-     "crop": "full"
+     "crop": "ytres",
+     "speed": 1.5
     },
     "zooms": [
      {
       "atMs": 0,
-      "zoom": 1.45,
-      "x": 0.36,
-      "y": 0.42
+      "zoom": 1.0
      }
     ],
     "what": "YouTube: while you sleep",
@@ -757,12 +796,11 @@
       "y": 0.45
      }
     ],
-    "what": "panel del bot (tapado)",
+    "what": "panel del bot",
     "cutIn": true,
-    "tag": "Dinero ficticio · paper trading",
-    "hidden": true
+    "tag": "Dinero ficticio · paper trading"
    },
-   "reason": "«operará por nosotros»: el panell del bot, TAPAT (sense resultats)"
+   "reason": "«operará por nosotros»: el panell real del bot"
   },
   {
    "id": "st-objetivo",
@@ -857,36 +895,18 @@
       "zoom": 1.7,
       "x": 0.53,
       "y": 0.34
+     },
+     {
+      "atMs": 2800,
+      "zoom": 1.94,
+      "x": 0.53,
+      "y": 0.34
      }
     ],
-    "what": "selector de modelos de Claude"
+    "what": "selector de modelos de Claude",
+    "pip": "right"
    },
    "reason": "el selector de models real (OBS1 1:51, sincronitzat: cara 5866 + 93 s)"
-  },
-  {
-   "id": "w-prompt1",
-   "type": "ScreenWindow",
-   "source": "c5866",
-   "anchorMs": 26200,
-   "durationMs": 17000,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 119000,
-     "crop": "app",
-     "speed": 1.15
-    },
-    "zooms": [
-     {
-      "atMs": 200,
-      "zoom": 1.6,
-      "x": 0.5,
-      "y": 0.55
-     }
-    ],
-    "what": "prompt inicial"
-   },
-   "reason": "el prompt escrivint-se de debò (OBS1 1:59–2:16), una mica accelerat (×1,15) perquè la veu va retallada"
   },
   {
    "id": "w-respuesta",
@@ -914,7 +934,8 @@
       "y": 0.5
      }
     ],
-    "what": "respuesta de Claude"
+    "what": "respuesta de Claude",
+    "pip": "right"
    },
    "reason": "la resposta real de Claude: primer l'avís («Ningún prompt te da la mejor IA ni rentabilidad garantizada… no soy asesor financiero»), després «Cómo lo haría»"
   },
@@ -930,113 +951,6 @@
     "label": "Claude Code"
    },
    "reason": "menciona Claude Code"
-  },
-  {
-   "id": "w-A1",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 36000,
-   "durationMs": 8000,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 172000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.45,
-      "x": 0.48,
-      "y": 0.27
-     }
-    ],
-    "what": "aviso de Claude",
-    "notes": [
-     {
-      "atMs": 400,
-      "box": [
-       0.24,
-       0.18,
-       0.48,
-       0.13
-      ],
-      "label": "El aviso de Claude"
-     }
-    ]
-   },
-   "reason": "l'avís real de Claude: «Ningún prompt te da la mejor IA… no soy asesor financiero» (OBS1 2:52)"
-  },
-  {
-   "id": "w-A2",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 44000,
-   "durationMs": 12000,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 172000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.35,
-      "x": 0.48,
-      "y": 0.57
-     }
-    ],
-    "what": "cómo lo haría",
-    "notes": [
-     {
-      "atMs": 0,
-      "toMs": 2900,
-      "box": [
-       0.25,
-       0.39,
-       0.47,
-       0.09
-      ],
-      "label": "Hipótesis simple"
-     },
-     {
-      "atMs": 3000,
-      "toMs": 5900,
-      "box": [
-       0.25,
-       0.55,
-       0.47,
-       0.07
-      ],
-      "label": "Backtesting realista"
-     },
-     {
-      "atMs": 6000,
-      "toMs": 8900,
-      "box": [
-       0.25,
-       0.64,
-       0.47,
-       0.06
-      ],
-      "label": "Gestión del riesgo"
-     },
-     {
-      "atMs": 9000,
-      "box": [
-       0.25,
-       0.7,
-       0.47,
-       0.06
-      ],
-      "label": "Paper trading 2-3 meses"
-     }
-    ]
-   },
-   "reason": "«Cómo lo haría»: els passos reals que proposa"
   },
   {
    "id": "w-prompt2",
@@ -1056,9 +970,16 @@
       "zoom": 1.5,
       "x": 0.5,
       "y": 0.38
+     },
+     {
+      "atMs": 3100,
+      "zoom": 1.72,
+      "x": 0.5,
+      "y": 0.38
      }
     ],
-    "what": "prompt generado por Claude"
+    "what": "prompt generado por Claude",
+    "pip": "right"
    },
    "reason": "el prompt generat real: «Actúa como ingeniero cuantitativo senior…» i el botó de copiar (OBS1 2:59–3:05)"
   },
@@ -1092,35 +1013,18 @@
       "zoom": 1.7,
       "x": 0.65,
       "y": 0.81
+     },
+     {
+      "atMs": 3400,
+      "zoom": 1.94,
+      "x": 0.65,
+      "y": 0.81
      }
     ],
-    "what": "Claude Code: Opus 5.5 · esfuerzo medio"
+    "what": "Claude Code: Opus 5.5 · esfuerzo medio",
+    "pip": "right"
    },
    "reason": "Claude Code real: model Opus 5.5 i esforç Medio (OBS1 3:11)"
-  },
-  {
-   "id": "w-ficticio",
-   "type": "ScreenWindow",
-   "source": "c5866",
-   "anchorMs": 113500,
-   "durationMs": 6500,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 207000,
-     "crop": "app"
-    },
-    "zooms": [
-     {
-      "atMs": 200,
-      "zoom": 1.5,
-      "x": 0.5,
-      "y": 0.75
-     }
-    ],
-    "what": "prompt + dinero ficticio"
-   },
-   "reason": "el que hi afegeix de debò: «vinculalo con alguna plataforma para poder operar de forma real pero con dinero ficticio» (OBS1 3:27)"
   },
   {
    "id": "g-ficticio",
@@ -1168,150 +1072,10 @@
       "y": 0.53
      }
     ],
-    "what": "fase 1: hipótesis"
+    "what": "fase 1: hipótesis",
+    "pip": "right"
    },
    "reason": "«Fase 1: tres hipótesis de estrategia y plataforma de paper trading» (OBS1 3:56)"
-  },
-  {
-   "id": "w-B1",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 58000,
-   "durationMs": 7000,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 238000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.4,
-      "x": 0.42,
-      "y": 0.62
-     }
-    ],
-    "what": "fase 1",
-    "notes": [
-     {
-      "atMs": 300,
-      "box": [
-       0.228,
-       0.512,
-       0.48,
-       0.032
-      ],
-      "label": "Fase 1"
-     },
-     {
-      "atMs": 2500,
-      "box": [
-       0.228,
-       0.708,
-       0.34,
-       0.032
-      ],
-      "label": "1 · Seguir la tendencia"
-     }
-    ]
-   },
-   "reason": "«Fase 1: tres hipótesis…» i «Hipótesis 1: Seguimiento de tendencia» (OBS1 3:58)"
-  },
-  {
-   "id": "w-B2",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 65000,
-   "durationMs": 8000,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 248000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.3,
-      "x": 0.36,
-      "y": 0.4
-     }
-    ],
-    "what": "hipótesis 2 y 3",
-    "notes": [
-     {
-      "atMs": 0,
-      "box": [
-       0.23,
-       0.125,
-       0.25,
-       0.035
-      ],
-      "label": "2 · Reversión a la media"
-     },
-     {
-      "atMs": 3500,
-      "box": [
-       0.23,
-       0.64,
-       0.3,
-       0.035
-      ],
-      "label": "3 · Momentum relativo"
-     }
-    ]
-   },
-   "reason": "«Hipótesis 2: Reversión a la media» i «Hipótesis 3: Momentum relativo» (OBS1 4:08)"
-  },
-  {
-   "id": "w-B3",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 73000,
-   "durationMs": 7000,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 256000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.3,
-      "x": 0.4,
-      "y": 0.36
-     }
-    ],
-    "what": "plataformas",
-    "notes": [
-     {
-      "atMs": 0,
-      "box": [
-       0.23,
-       0.17,
-       0.35,
-       0.06
-      ],
-      "label": "Bybit Demo: cripto"
-     },
-     {
-      "atMs": 3000,
-      "box": [
-       0.23,
-       0.448,
-       0.37,
-       0.035
-      ],
-      "label": "Alpaca Paper + Bybit Demo"
-     }
-    ]
-   },
-   "reason": "les plataformes de paper trading i «Mi propuesta: Alpaca Paper… y Bybit Demo» (OBS1 4:16)"
   },
   {
    "id": "s2",
@@ -1343,9 +1107,16 @@
       "zoom": 1.45,
       "x": 0.48,
       "y": 0.52
+     },
+     {
+      "atMs": 3100,
+      "zoom": 1.66,
+      "x": 0.48,
+      "y": 0.52
      }
     ],
-    "what": "preguntas antes de la fase 2"
+    "what": "preguntas antes de la fase 2",
+    "pip": "right"
    },
    "reason": "«Preguntas antes de la fase 2» reals (OBS1 5:47; cara 5867 + 344 s). Acaba abans de 6:00, on surt el selector de finestres"
   },
@@ -1392,6 +1163,12 @@
      {
       "atMs": 300,
       "zoom": 1.8,
+      "x": 0.61,
+      "y": 0.8
+     },
+     {
+      "atMs": 4300,
+      "zoom": 2.06,
       "x": 0.61,
       "y": 0.8
      }
@@ -1441,166 +1218,6 @@
    "reason": "el model i l'esforç que fa servir"
   },
   {
-   "id": "w-D",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 82000,
-   "durationMs": 18000,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 594000,
-     "crop": "app",
-     "speed": 1.4
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.5,
-      "x": 0.37,
-      "y": 0.62
-     }
-    ],
-    "what": "Claude Code trabajando",
-    "notes": [
-     {
-      "atMs": 600,
-      "box": [
-       0.235,
-       0.55,
-       0.27,
-       0.2
-      ],
-      "label": "Lo hace todo solo"
-     }
-    ]
-   },
-   "reason": "la llista real de tasques de Claude Code fent-se sola (OBS1 9:54–10:19)"
-  },
-  {
-   "id": "w-C1",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 102000,
-   "durationMs": 8000,
-   "props": {
-    "clip": {
-     "screen": "obs2",
-     "fromMs": 36000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.4,
-      "x": 0.48,
-      "y": 0.36
-     }
-    ],
-    "what": "datos reales",
-    "notes": [
-     {
-      "atMs": 300,
-      "toMs": 3900,
-      "box": [
-       0.25,
-       0.315,
-       0.48,
-       0.05
-      ],
-      "label": "Bitcoin: desde 2020"
-     },
-     {
-      "atMs": 4000,
-      "box": [
-       0.25,
-       0.37,
-       0.25,
-       0.025
-      ],
-      "label": "Ethereum: desde 2021",
-      "place": "below"
-     }
-    ]
-   },
-   "reason": "«Lo que han mostrado los datos reales» (OBS2 0:36)"
-  },
-  {
-   "id": "w-C2",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 110000,
-   "durationMs": 7000,
-   "props": {
-    "clip": {
-     "screen": "obs2",
-     "fromMs": 36000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.5,
-      "x": 0.48,
-      "y": 0.52
-     }
-    ],
-    "what": "funding",
-    "notes": [
-     {
-      "atMs": 300,
-      "box": [
-       0.25,
-       0.487,
-       0.48,
-       0.065
-      ],
-      "label": "Funding ≈ 12,7 % al año"
-     }
-    ]
-   },
-   "reason": "«Hallazgo importante: el funding medio de BTC ha sido de ~12,7 % anual a cargo de los largos»"
-  },
-  {
-   "id": "w-C3",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 117000,
-   "durationMs": 7000,
-   "props": {
-    "clip": {
-     "screen": "obs2",
-     "fromMs": 36000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.5,
-      "x": 0.48,
-      "y": 0.6
-     }
-    ],
-    "what": "poco historial",
-    "notes": [
-     {
-      "atMs": 300,
-      "box": [
-       0.25,
-       0.572,
-       0.48,
-       0.04
-      ],
-      "label": "Solo ~6 años de historial"
-     }
-    ]
-   },
-   "reason": "«Poco historial en crypto: unos 6 años en diario… la confianza estadística será limitada»"
-  },
-  {
    "id": "s3",
    "type": "SectionNumeral",
    "source": "c5867",
@@ -1633,7 +1250,8 @@
       "y": 0.45
      }
     ],
-    "what": "web de Ibero Funding"
+    "what": "web de Ibero Funding",
+    "pip": "right"
    },
    "reason": "la web real d'Ibero Funding: «La prop firm española de CFD y futuros» (OBS1 6:39). Només es veu 1,5 s abans que faci clic a Planes: a mitja velocitat"
   },
@@ -1642,7 +1260,7 @@
    "type": "ScreenWindow",
    "source": "c5867",
    "anchorMs": 56500,
-   "durationMs": 5400,
+   "durationMs": 3000,
    "props": {
     "clip": {
      "screen": "obs1",
@@ -1663,47 +1281,10 @@
       "y": 0.62
      }
     ],
-    "what": "planes de Ibero Funding"
+    "what": "planes de Ibero Funding",
+    "pip": "right"
    },
    "reason": "la taula de plans real: compte de 5K per 28 $ (OBS1 6:41)"
-  },
-  {
-   "id": "st-28",
-   "type": "StageStat",
-   "source": "c5867",
-   "anchorMs": 62200,
-   "durationMs": 2200,
-   "props": {
-    "tone": "light",
-    "from": "28 $",
-    "value": "5.000 $",
-    "caption": "de cuenta para operar"
-   },
-   "reason": "comparació de xifres dites (i visibles a la taula)"
-  },
-  {
-   "id": "w-reglas",
-   "type": "ScreenWindow",
-   "source": "c5867",
-   "anchorMs": 76500,
-   "durationMs": 6400,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 420000,
-     "crop": "browser"
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.65,
-      "x": 0.22,
-      "y": 0.6
-     }
-    ],
-    "what": "reglas: 8% y 6%"
-   },
-   "reason": "la taula real: Profit Target 8 %, Max Drawdown 6 % (OBS1 7:00)"
   },
   {
    "id": "fw-mental",
@@ -1728,49 +1309,6 @@
     "title": "Backtesting"
    },
    "reason": "secció IV"
-  },
-  {
-   "id": "w-backtesting",
-   "type": "ScreenWindow",
-   "source": "c5867",
-   "anchorMs": 146000,
-   "durationMs": 4600,
-   "props": {
-    "clip": {
-     "screen": "obs1",
-     "fromMs": 497000,
-     "crop": "browser"
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.25,
-      "x": 0.32,
-      "y": 0.3
-     },
-     {
-      "atMs": 2600,
-      "zoom": 1.3,
-      "x": 0.5,
-      "y": 0.33
-     }
-    ],
-    "what": "qué es el backtesting"
-   },
-   "reason": "la cerca real «backtesting free» i la web que va obrir: «Trading with confidence starts with backtesting» (FX Replay, OBS1 8:17–8:21)"
-  },
-  {
-   "id": "hw-pasado",
-   "type": "HandWritten",
-   "source": "c5867",
-   "anchorMs": 158800,
-   "durationMs": 2100,
-   "props": {
-    "text": "¿rentable en el *pasado*?",
-    "mode": "camera",
-    "side": "left"
-   },
-   "reason": "idea clau escrita a mà"
   },
   {
    "id": "w-calc5k",
@@ -1799,7 +1337,8 @@
      }
     ],
     "what": "calculadora: 5K al 5%",
-    "tag": "Simulación de la web, no es una promesa"
+    "tag": "Simulación de la web, no es una promesa",
+    "pip": "right"
    },
    "reason": "la calculadora real: 5K al 5 % → 188 $/mes, 2.250 $/any (OBS1 8:49). La mateixa web diu que és una simulació, no una promesa"
   },
@@ -1824,7 +1363,8 @@
      }
     ],
     "what": "calculadora: 50K al 5%",
-    "tag": "Simulación de la web, no es una promesa"
+    "tag": "Simulación de la web, no es una promesa",
+    "pip": "right"
    },
    "reason": "la calculadora real amb 50K → 1.875 $/mes (OBS1 9:11)"
   },
@@ -1860,7 +1400,8 @@
       "y": 0.68
      }
     ],
-    "what": "«hazlo todo, no quiero tocar nada»"
+    "what": "«hazlo todo, no quiero tocar nada»",
+    "pip": "right"
    },
    "reason": "el seu missatge real: «hazlo todo. No quiero tocar nada, lo tienes q hacer tú de forma autónoma» (OBS2 0:37)"
   },
@@ -1888,7 +1429,8 @@
       "y": 0.25
      }
     ],
-    "what": "iniciar bot"
+    "what": "iniciar bot",
+    "pip": "right"
    },
    "reason": "explorador amb «iniciar_bot» i la consola «Bot iniciado» (OBS3 0:15–0:23; cara 5883 − 9 s)"
   },
@@ -1924,9 +1466,16 @@
       "zoom": 1.4,
       "x": 0.5,
       "y": 0.56
+     },
+     {
+      "atMs": 3250,
+      "zoom": 1.61,
+      "x": 0.5,
+      "y": 0.56
      }
     ],
-    "what": "Claude crea el panel"
+    "what": "Claude crea el panel",
+    "pip": "right"
    },
    "reason": "«vale pero quiero ver como opera sabes!!!» i Claude creant el servidor local i la pàgina de gràfics (OBS3 1:21). No es fa servir 0:45–0:58, que és un terminal d'un altre projecte"
   },
@@ -1934,7 +1483,7 @@
    "id": "s6",
    "type": "SectionNumeral",
    "source": "vo",
-   "anchorMs": 126000,
+   "anchorMs": 145000,
    "durationMs": 1600,
    "props": {
     "numeral": "VI",
@@ -1946,7 +1495,7 @@
    "id": "w-F1",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 127600,
+   "anchorMs": 146600,
    "durationMs": 5000,
    "props": {
     "clip": {
@@ -1975,23 +1524,15 @@
       ],
       "label": "Se arranca con iniciar_bot"
      }
-    ],
-    "masks": [
-     [
-      0.23,
-      0.575,
-      0.5,
-      0.06
-     ]
     ]
    },
-   "reason": "«Arrancarlo: doble clic en iniciar_bot.bat. Retoma las posiciones…» (OBS3 1:04) Tapat «10.063 $ de equity ficticia» (resultat), que amb menys zoom entra al pla."
+   "reason": "«Arrancarlo: doble clic en iniciar_bot.bat. Retoma las posiciones…» (OBS3 1:04)"
   },
   {
    "id": "w-F2",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 132600,
+   "anchorMs": 151600,
    "durationMs": 6000,
    "props": {
     "clip": {
@@ -2006,38 +1547,6 @@
      }
     ],
     "what": "panel del bot",
-    "masks": [
-     [
-      0.018,
-      0.155,
-      0.1,
-      0.085
-     ],
-     [
-      0.212,
-      0.155,
-      0.075,
-      0.055
-     ],
-     [
-      0.408,
-      0.155,
-      0.06,
-      0.055
-     ],
-     [
-      0.6,
-      0.155,
-      0.07,
-      0.055
-     ],
-     [
-      0.798,
-      0.155,
-      0.065,
-      0.055
-     ]
-    ],
     "notes": [
      {
       "atMs": 300,
@@ -2069,7 +1578,7 @@
    "id": "w-F3",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 138600,
+   "anchorMs": 157600,
    "durationMs": 6500,
    "props": {
     "clip": {
@@ -2085,38 +1594,6 @@
      }
     ],
     "what": "cuatro mercados",
-    "masks": [
-     [
-      0.018,
-      0.155,
-      0.1,
-      0.085
-     ],
-     [
-      0.212,
-      0.155,
-      0.075,
-      0.055
-     ],
-     [
-      0.408,
-      0.155,
-      0.06,
-      0.055
-     ],
-     [
-      0.6,
-      0.155,
-      0.07,
-      0.055
-     ],
-     [
-      0.798,
-      0.155,
-      0.065,
-      0.055
-     ]
-    ],
     "notes": [
      {
       "atMs": 300,
@@ -2170,7 +1647,7 @@
    "id": "w-F4a",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 145100,
+   "anchorMs": 164100,
    "durationMs": 5000,
    "props": {
     "clip": {
@@ -2188,38 +1665,6 @@
      }
     ],
     "what": "cruce de medias",
-    "masks": [
-     [
-      0.018,
-      0.155,
-      0.1,
-      0.085
-     ],
-     [
-      0.212,
-      0.155,
-      0.075,
-      0.055
-     ],
-     [
-      0.408,
-      0.155,
-      0.06,
-      0.055
-     ],
-     [
-      0.6,
-      0.155,
-      0.07,
-      0.055
-     ],
-     [
-      0.798,
-      0.155,
-      0.065,
-      0.055
-     ]
-    ],
     "notes": [
      {
       "atMs": 400,
@@ -2251,7 +1696,7 @@
    "id": "w-F4b",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 150100,
+   "anchorMs": 169100,
    "durationMs": 4500,
    "props": {
     "clip": {
@@ -2269,26 +1714,6 @@
      }
     ],
     "what": "la regla",
-    "masks": [
-     [
-      0.355,
-      0.333,
-      0.125,
-      0.03
-     ],
-     [
-      0.4,
-      0.5,
-      0.08,
-      0.18
-     ],
-     [
-      0.5,
-      0.42,
-      0.48,
-      0.45
-     ]
-    ],
     "notes": [
      {
       "atMs": 300,
@@ -2309,7 +1734,7 @@
    "id": "w-F5a",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 154600,
+   "anchorMs": 173600,
    "durationMs": 3500,
    "props": {
     "clip": {
@@ -2327,38 +1752,6 @@
      }
     ],
     "what": "stop-loss",
-    "masks": [
-     [
-      0.018,
-      0.155,
-      0.1,
-      0.085
-     ],
-     [
-      0.212,
-      0.155,
-      0.075,
-      0.055
-     ],
-     [
-      0.408,
-      0.155,
-      0.06,
-      0.055
-     ],
-     [
-      0.6,
-      0.155,
-      0.07,
-      0.055
-     ],
-     [
-      0.798,
-      0.155,
-      0.065,
-      0.055
-     ]
-    ],
     "notes": [
      {
       "atMs": 300,
@@ -2390,7 +1783,7 @@
    "id": "w-F5b",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 158100,
+   "anchorMs": 177100,
    "durationMs": 3000,
    "props": {
     "clip": {
@@ -2408,26 +1801,6 @@
      }
     ],
     "what": "riesgo por operación",
-    "masks": [
-     [
-      0.355,
-      0.333,
-      0.125,
-      0.03
-     ],
-     [
-      0.4,
-      0.5,
-      0.08,
-      0.18
-     ],
-     [
-      0.5,
-      0.42,
-      0.48,
-      0.45
-     ]
-    ],
     "notes": [
      {
       "atMs": 300,
@@ -2448,8 +1821,8 @@
    "id": "w-F6",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 161100,
-   "durationMs": 7500,
+   "anchorMs": 180100,
+   "durationMs": 6000,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -2466,38 +1839,6 @@
      }
     ],
     "what": "límites de riesgo",
-    "masks": [
-     [
-      0.018,
-      0.155,
-      0.1,
-      0.085
-     ],
-     [
-      0.212,
-      0.155,
-      0.075,
-      0.055
-     ],
-     [
-      0.408,
-      0.155,
-      0.06,
-      0.055
-     ],
-     [
-      0.6,
-      0.155,
-      0.07,
-      0.055
-     ],
-     [
-      0.798,
-      0.155,
-      0.065,
-      0.055
-     ]
-    ],
     "notes": [
      {
       "atMs": 300,
@@ -2529,8 +1870,8 @@
    "id": "w-F7",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 168600,
-   "durationMs": 5500,
+   "anchorMs": 186100,
+   "durationMs": 2900,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -2547,26 +1888,6 @@
      }
     ],
     "what": "registro del bot",
-    "masks": [
-     [
-      0.355,
-      0.333,
-      0.125,
-      0.03
-     ],
-     [
-      0.4,
-      0.5,
-      0.08,
-      0.18
-     ],
-     [
-      0.5,
-      0.42,
-      0.48,
-      0.45
-     ]
-    ],
     "notes": [
      {
       "atMs": 300,
@@ -2582,44 +1903,6 @@
     ]
    },
    "reason": "l'activitat del bot (log) real"
-  },
-  {
-   "id": "pl-parte2",
-   "type": "PunchLines",
-   "source": "vo",
-   "anchorMs": 174100,
-   "durationMs": 2100,
-   "props": {
-    "script": "¿Los resultados? / En la parte 2",
-    "fontSize": 140
-   },
-   "reason": "teaser de la part 2 (sense ensenyar resultats)"
-  },
-  {
-   "id": "w-panel",
-   "type": "ScreenWindow",
-   "source": "c5885",
-   "anchorMs": 17100,
-   "durationMs": 2900,
-   "props": {
-    "clip": {
-     "screen": "obs3",
-     "fromMs": 150000,
-     "crop": "browser"
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.1,
-      "x": 0.5,
-      "y": 0.45
-     }
-    ],
-    "what": "panel del bot (tapado)",
-    "tag": "Resultados en la parte 2",
-    "hidden": true
-   },
-   "reason": "el panell del bot TAPAT: es veu que existeix i funciona, però cap xifra (l'usuari no vol ensenyar resultats; van a la part 2)"
   },
   {
    "id": "tl-aviso",
@@ -2645,6 +1928,489 @@
     "side": "right"
    },
    "reason": "CTA"
+  },
+  {
+   "id": "w-ficticio",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 113500,
+   "durationMs": 6000,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 207000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 200,
+      "zoom": 1.5,
+      "x": 0.5,
+      "y": 0.75
+     },
+     {
+      "atMs": 3250,
+      "zoom": 1.72,
+      "x": 0.5,
+      "y": 0.75
+     }
+    ],
+    "what": "prompt + dinero ficticio",
+    "pip": "right"
+   },
+   "reason": "el que hi afegeix de debò: «vinculalo con alguna plataforma para poder operar de forma real pero con dinero ficticio» (OBS1 3:27)"
+  },
+  {
+   "id": "w-home",
+   "type": "ScreenWindow",
+   "source": "c5866",
+   "anchorMs": 14400,
+   "durationMs": 4200,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 107000,
+     "crop": "app"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.15,
+      "x": 0.5,
+      "y": 0.42
+     }
+    ],
+    "what": "chat de Claude",
+    "pip": "right"
+   },
+   "reason": "«vamos a entrar primero al chat normal»: la pantalla d'inici real de Claude (OBS1 1:47)"
+  },
+  {
+   "id": "w-P",
+   "type": "ScreenWindow",
+   "source": "vo",
+   "anchorMs": 36000,
+   "durationMs": 8000,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 119000,
+     "crop": "app",
+     "speed": 4.0
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.35,
+      "x": 0.5,
+      "y": 0.52
+     },
+     {
+      "atMs": 4000,
+      "zoom": 1.6,
+      "x": 0.5,
+      "y": 0.55
+     }
+    ],
+    "what": "prompt acelerado",
+    "tag": "Acelerado ×4",
+    "notes": [
+     {
+      "atMs": 1500,
+      "box": [
+       0.32,
+       0.47,
+       0.37,
+       0.12
+      ],
+      "label": "Le pido el prompt, no el bot"
+     }
+    ]
+   },
+   "reason": "el prompt escrivint-se de debò, accelerat ×4 (OBS1 1:59–2:35): els 20 s de dictat eren lents"
+  },
+  {
+   "id": "w-A1",
+   "type": "ScreenWindow",
+   "source": "vo",
+   "anchorMs": 46000,
+   "durationMs": 3500,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 172000,
+     "crop": "app",
+     "still": true
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.45,
+      "x": 0.48,
+      "y": 0.3
+     }
+    ],
+    "what": "aviso de Claude",
+    "notes": [
+     {
+      "atMs": 300,
+      "box": [
+       0.24,
+       0.18,
+       0.48,
+       0.13
+      ],
+      "label": "El aviso de Claude"
+     }
+    ]
+   },
+   "reason": "l'avís real de Claude (OBS1 2:52)"
+  },
+  {
+   "id": "fs-plan",
+   "type": "FlowSteps",
+   "source": "vo",
+   "anchorMs": 49500,
+   "durationMs": 10500,
+   "props": {
+    "title": "El plan de Claude",
+    "steps": [
+     {
+      "value": "1",
+      "label": "Hipótesis simple",
+      "sub": "una idea que se pueda comprobar"
+     },
+     {
+      "value": "2",
+      "label": "Datos históricos",
+      "sub": "precios de años atrás"
+     },
+     {
+      "value": "3",
+      "label": "Backtesting",
+      "sub": "probarla en el pasado"
+     },
+     {
+      "value": "4",
+      "label": "Control del riesgo",
+      "sub": "stop-loss y límites"
+     },
+     {
+      "value": "5",
+      "label": "Paper trading",
+      "sub": "2-3 meses con dinero ficticio"
+     }
+    ]
+   },
+   "reason": "els cinc passos de «Cómo lo haría» de Claude (OBS1 2:52), explicats per a qui no en sap"
+  },
+  {
+   "id": "ce-cruce",
+   "type": "ChartExplainer",
+   "source": "vo",
+   "anchorMs": 62000,
+   "durationMs": 14000,
+   "props": {
+    "mode": "cruce",
+    "title": "1 · Seguir la tendencia",
+    "caption": "Rápida cruza por encima → compra · por debajo → vende"
+   },
+   "reason": "estratègia 1 de Claude (Hipótesis 1, OBS1 3:58) explicada amb un gràfic d'exemple"
+  },
+  {
+   "id": "ce-reversion",
+   "type": "ChartExplainer",
+   "source": "vo",
+   "anchorMs": 76000,
+   "durationMs": 10000,
+   "props": {
+    "mode": "reversion",
+    "title": "2 · Reversión a la media",
+    "caption": "Cae mucho de golpe → compra · vuelve a su media → vende"
+   },
+   "reason": "estratègia 2 (Hipótesis 2: comprar el SPY quan cau molt en pocs dies), amb gràfic d'exemple"
+  },
+  {
+   "id": "ce-momentum",
+   "type": "ChartExplainer",
+   "source": "vo",
+   "anchorMs": 86000,
+   "durationMs": 9000,
+   "props": {
+    "mode": "momentum",
+    "title": "3 · Momentum",
+    "caption": "Cada mes, el dinero va al que más ha subido",
+    "bars": [
+     {
+      "label": "Bitcoin",
+      "value": 8
+     },
+     {
+      "label": "Ethereum",
+      "value": 3
+     },
+     {
+      "label": "SPY",
+      "value": 1
+     }
+    ]
+   },
+   "reason": "estratègia 3 (Hipótesis 3: cada mes, l'actiu de {BTC, ETH, SPY} que més ha pujat), amb xifres d'exemple"
+  },
+  {
+   "id": "fs-plataformas",
+   "type": "FlowSteps",
+   "source": "vo",
+   "anchorMs": 95000,
+   "durationMs": 9000,
+   "props": {
+    "title": "Para practicar con dinero ficticio",
+    "steps": [
+     {
+      "logo": "marca:alpaca",
+      "label": "Alpaca Paper",
+      "sub": "acciones y ETF"
+     },
+     {
+      "mark": "BYBIT",
+      "label": "Bybit Demo",
+      "sub": "criptomonedas"
+     }
+    ]
+   },
+   "reason": "les dues plataformes que proposa Claude: «Mi propuesta: Alpaca Paper para SPY/ETF y Bybit Demo (vía ccxt) para BTC/ETH» (OBS1 4:16). Logo d'Alpaca del seu web; Bybit amb el nom"
+  },
+  {
+   "id": "fs-claudecode",
+   "type": "FlowSteps",
+   "source": "vo",
+   "anchorMs": 106000,
+   "durationMs": 11000,
+   "props": {
+    "title": "Lo que hace Claude Code, solo",
+    "steps": [
+     {
+      "logo": "logo:claudecode-color",
+      "label": "Descarga datos",
+      "sub": "Bybit y Alpaca"
+     },
+     {
+      "value": "2",
+      "label": "Los limpia",
+      "sub": "huecos, duplicados, errores"
+     },
+     {
+      "value": "3",
+      "label": "Backtesting",
+      "sub": "prueba las estrategias"
+     },
+     {
+      "value": "4",
+      "label": "Lo conecta",
+      "sub": "a las cuentas de dinero ficticio"
+     },
+     {
+      "value": "5",
+      "label": "Un panel",
+      "sub": "para verlo todo"
+     }
+    ]
+   },
+   "reason": "el que va fer Claude Code segons les seves tasques i fases reals (OBS1 9:54–10:19, OBS2, OBS3)"
+  },
+  {
+   "id": "w-D",
+   "type": "ScreenWindow",
+   "source": "vo",
+   "anchorMs": 117000,
+   "durationMs": 4000,
+   "props": {
+    "clip": {
+     "screen": "obs1",
+     "fromMs": 600000,
+     "crop": "app",
+     "speed": 2.0
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.5,
+      "x": 0.37,
+      "y": 0.62
+     }
+    ],
+    "what": "tareas de Claude Code",
+    "notes": [
+     {
+      "atMs": 300,
+      "box": [
+       0.235,
+       0.55,
+       0.27,
+       0.2
+      ],
+      "label": "Lo hace todo solo"
+     }
+    ]
+   },
+   "reason": "la llista real de tasques fent-se (OBS1 10:00, ×2)"
+  },
+  {
+   "id": "w-C2",
+   "type": "ScreenWindow",
+   "source": "vo",
+   "anchorMs": 123000,
+   "durationMs": 12000,
+   "props": {
+    "clip": {
+     "screen": "obs2",
+     "fromMs": 36000,
+     "crop": "app",
+     "still": true
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.4,
+      "x": 0.48,
+      "y": 0.45
+     },
+     {
+      "atMs": 5000,
+      "zoom": 1.55,
+      "x": 0.48,
+      "y": 0.52
+     }
+    ],
+    "what": "funding",
+    "notes": [
+     {
+      "atMs": 300,
+      "toMs": 4800,
+      "box": [
+       0.25,
+       0.315,
+       0.48,
+       0.05
+      ],
+      "label": "Datos reales desde 2020"
+     },
+     {
+      "atMs": 5200,
+      "box": [
+       0.25,
+       0.487,
+       0.48,
+       0.065
+      ],
+      "label": "Funding ≈ 12,7 % al año"
+     }
+    ]
+   },
+   "reason": "«Hallazgo importante: el funding medio de BTC ~12,7 % anual a cargo de los largos» (OBS2 0:36)"
+  },
+  {
+   "id": "fs-fondeo",
+   "type": "FlowSteps",
+   "source": "c5867",
+   "anchorMs": 59500,
+   "durationMs": 31400,
+   "props": {
+    "title": "Cómo funciona una cuenta de fondeo",
+    "pip": "right",
+    "steps": [
+     {
+      "anchorMs": 59880,
+      "value": "28 $",
+      "label": "Pagas el reto",
+      "sub": "plan de 5.000 $ (con descuento)"
+     },
+     {
+      "anchorMs": 63480,
+      "value": "5.000 $",
+      "label": "Operas con su dinero",
+      "sub": "no con el tuyo"
+     },
+     {
+      "anchorMs": 78680,
+      "value": "+8 %",
+      "tone": "up",
+      "label": "Objetivo: +400 $",
+      "sub": "si llegas, pasas"
+     },
+     {
+      "anchorMs": 83080,
+      "value": "−6 %",
+      "tone": "down",
+      "label": "Límite: −300 $",
+      "sub": "si llegas, pierdes el reto"
+     },
+     {
+      "anchorSource": "vo",
+      "anchorMs": 137200,
+      "value": "75 %",
+      "label": "Te quedas lo que ganes",
+      "sub": "el 75 % de los beneficios"
+     }
+    ]
+   },
+   "reason": "explicació del compte de fondeig amb les xifres de la web d'Ibero Funding (plans: 5K per 28 $, Profit Target 8 %, Max Drawdown 6 %, Profit Split 75 %), sobre la seva veu"
+  },
+  {
+   "id": "ce-backtest",
+   "type": "ChartExplainer",
+   "source": "c5867",
+   "anchorMs": 144950,
+   "durationMs": 17000,
+   "props": {
+    "mode": "backtest",
+    "title": "Backtesting: probar en el pasado",
+    "pip": "right",
+    "caption": "¿Habría ganado dinero? Así lo sabes antes de arriesgar"
+   },
+   "reason": "explicació visual del backtesting mentre ell el defineix (dades d'exemple)"
+  },
+  {
+   "id": "w-resultado",
+   "type": "ScreenWindow",
+   "source": "c5885",
+   "anchorMs": 43600,
+   "durationMs": 3600,
+   "props": {
+    "clip": {
+     "screen": "obs3",
+     "fromMs": 120000,
+     "crop": "browser"
+    },
+    "zooms": [
+     {
+      "atMs": 0,
+      "zoom": 1.0
+     },
+     {
+      "atMs": 600,
+      "zoom": 1.55,
+      "x": 0.25,
+      "y": 0.2
+     }
+    ],
+    "what": "resultado",
+    "tag": "Dinero ficticio · paper trading",
+    "notes": [
+     {
+      "atMs": 900,
+      "box": [
+       0.212,
+       0.11,
+       0.18,
+       0.16
+      ],
+      "label": "+46,54 $ en ~22 h"
+     }
+    ],
+    "pip": "right"
+   },
+   "reason": "el panell real a OBS3 2:00: Equity 10.046,54 $, Resultado abierto +46,54 $ (diners ficticis)"
   }
  ],
  "audio": {
@@ -2663,8 +2429,8 @@
   },
   {
    "what": "resultats del bot",
-   "why": "l'usuari no els vol ensenyar en aquest vídeo",
-   "impact": "fora «casi 50 euros», «50 dólares» i el panell amb xifres; el panell surt tapat al final. Van a la part 2"
+   "why": "l'usuari ara sí que els vol ensenyar",
+   "impact": "es veuen al panell (F) i al final (+46,54 $, diners ficticis)"
   },
   {
    "what": "Ibero Funding",

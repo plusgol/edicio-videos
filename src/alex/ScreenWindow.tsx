@@ -29,6 +29,8 @@ export type ScreenWindowProps = {
   notes?: ScreenNote[];
   // Entra amb tall sec, sense fos (plans ràpids de la intro i el primer fotograma del vídeo, que ha de ser contingut).
   cutIn?: boolean;
+  // Pantalla comentada: deixa lloc per a la finestreta de la cara a aquest costat (la pinta Video.tsx).
+  pip?: 'left' | 'right';
   tone?: 'light' | 'dark';
 };
 
@@ -54,11 +56,15 @@ const poseAt = (ms: number, zooms: ScreenZoom[]) => {
 };
 
 // Gravació de pantalla en una finestra flotant sobre l'escenari (estil tef), amb zooms a les xifres.
-export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = [], tag, hidden, masks = [], notes = [], cutIn, tone = 'light'}) => {
+export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = [], tag, hidden, masks = [], notes = [], cutIn, pip, tone = 'light'}) => {
   const frame = useCurrentFrame();
   const {fps, width, height, durationInFrames} = useVideoConfig();
   const exit = blurInOut(frame, durationInFrames, cutIn ? -100 : 0);
-  const w = Math.min(width * PANTALLA.maxW, height * PANTALLA.maxH * aspect);
+  // Amb finestreta de cara, la gravació ocupa la resta de l'amplada (més gran que sense: és el pla principal).
+  const reserve = pip ? PANTALLA.pip.w + PANTALLA.pip.margin + PANTALLA.pip.gap : 0;
+  const w = pip
+    ? Math.min(width - reserve - PANTALLA.pip.margin, height * 0.9 * aspect)
+    : Math.min(width * PANTALLA.maxW, height * PANTALLA.maxH * aspect);
   const h = w / aspect;
   const ms = (frame * 1000) / fps;
   const pose = poseAt(ms, zooms);
@@ -73,7 +79,15 @@ export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = 
   });
   return (
     <Stage tone={tone}>
-      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', opacity: exit.opacity, filter: exit.filter}}>
+      <AbsoluteFill
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          opacity: exit.opacity,
+          filter: exit.filter,
+          ...(pip ? {[pip === 'right' ? 'paddingRight' : 'paddingLeft']: reserve} : {}),
+        }}
+      >
         <div style={{width: w, height: h, position: 'relative', transform: `scale(${exit.scale})`}}>
         <div
           style={{

@@ -51,6 +51,8 @@ const TYPE_LABEL: Record<string, string> = {
   LogoPop: 'Logo',
   ScreenWindow: 'Pantalla',
   LogoCard: "Targeta d'eina",
+  FlowSteps: 'Explicació',
+  ChartExplainer: 'Gràfic explicatiu',
 };
 
 const BLOCK_LABEL = (block: string) => {
@@ -104,6 +106,10 @@ const summary = (type: string, p: Record<string, unknown>) => {
       return `${p.what ?? 'gravació de pantalla'}${p.tag ? ` · ${p.tag}` : ''}`;
     case 'LogoCard':
       return String(p.name ?? '');
+    case 'FlowSteps':
+      return String(p.title ?? ((p.steps as {label: string}[] | undefined) ?? []).map((x) => x.label).join(' → '));
+    case 'ChartExplainer':
+      return String(p.title ?? '');
     default:
       return String(p.text ?? '');
   }
@@ -261,6 +267,31 @@ const OverlayFields: React.FC<{id: string; type: string; props: Record<string, u
       return <ScreenFields id={id} props={p} set={set} />;
     case 'LogoCard':
       return text('name', "Nom de l'eina");
+    case 'FlowSteps': {
+      const steps = (p.steps as {label: string; value?: string; sub?: string}[]) ?? [];
+      return (
+        <>
+          {text('title', 'Títol')}
+          {steps.map((st, i) => (
+            <Field
+              key={i}
+              id={`${id}-st${i}`}
+              label={`Pas ${i + 1}`}
+              hint={st.value ? `Xifra: ${st.value}` : undefined}
+              value={st.label}
+              onChange={(v) => set({...p, steps: steps.map((m, k) => (k === i ? {...m, label: v} : m))})}
+            />
+          ))}
+        </>
+      );
+    }
+    case 'ChartExplainer':
+      return (
+        <>
+          {text('title', 'Títol')}
+          {text('caption', 'Frase')}
+        </>
+      );
     default:
       return text('text', 'Text');
   }

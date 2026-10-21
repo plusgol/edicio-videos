@@ -5,7 +5,9 @@ import {TerminalSimulator} from '@/components/snap-cn/terminal-simulator';
 import {TextHighlight} from '@/components/snap-cn/text-highlight';
 import {TextSwap} from '@/components/snap-cn/text-swap';
 import {COLOR} from '../brand/estil';
+import {ChartExplainer} from './alex/ChartExplainer';
 import {EmojiPop} from './alex/EmojiPop';
+import {FlowSteps} from './alex/FlowSteps';
 import {FloatingWords} from './alex/FloatingWords';
 import {GoldWord} from './alex/GoldWord';
 import {HandWritten} from './alex/HandWritten';
@@ -33,6 +35,8 @@ const ALEX_COMPONENTS: Record<string, React.FC<any>> = {
   LogoPop,
   ScreenWindow,
   LogoCard,
+  FlowSteps,
+  ChartExplainer,
 };
 
 export const isBehind = (o: Overlay) => o.type === 'GoldWord' && ((o.props.placement as string | undefined) ?? 'behind') === 'behind';

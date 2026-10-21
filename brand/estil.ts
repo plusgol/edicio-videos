@@ -287,9 +287,33 @@ export const PANTALLA = {
   maskVeil: 'rgba(16,16,20,.45)',
   // Etiqueta d'honestedat («Dinero ficticio», «paper trading»…) a baix a l'esquerra.
   tag: {bg: '#151515', ink: '#FFFFFF', dot: '#E5383B', fontPx: 34, padY: 12, padX: 22, radius: 999, bottom: 46, left: 70},
+  // Pantalla comentada (estil Adrián Sáez): la cara en una finestreta al costat de la gravació.
+  pip: {w: 340, h: 425, margin: 44, radius: 22, border: '3px solid rgba(255,255,255,.85)', shadow: '0 20px 50px rgba(0,0,0,.45)', gap: 36},
   // Clips extrets de l'original: amplada màxima i qualitat (CRF x264) per al render.
   clipMaxW: 1920,
   clipCrf: 16,
   // Targeta de logo a pantalla completa (com «coingecko API» a la referència).
   logoCard: {logoPx: 240, namePx: 150, gap: 44},
 } as const;
+
+// ---------- Explicacions animades (FlowSteps, ChartExplainer) ----------
+export const EXPLICA = {
+  ink: '#151515',
+  muted: '#5A5A5F',
+  card: '#FFFFFF',
+  cardShadow: '0 18px 40px rgba(0,0,0,.14), 0 0 0 1px rgba(0,0,0,.05)',
+  up: '#18A058',
+  down: '#E5383B',
+  price: '#2B2F36',
+  fast: '#F29F05',
+  slow: '#8B5CF6',
+  band: 'rgba(139,92,246,.12)',
+  past: 'rgba(21,21,21,.05)',
+  titlePx: 64,
+  labelPx: 34,
+  subPx: 26,
+  valuePx: 92,
+  stepInFrames: 9,
+  // La línia del gràfic es dibuixa en aquesta part de la durada; la resta, quieta per llegir-la.
+  drawFraction: 0.6,
+};

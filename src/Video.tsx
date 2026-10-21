@@ -1,6 +1,7 @@
 import {AbsoluteFill, Audio, Sequence} from 'remotion';
 import {resolveSrc} from './media';
 import {COLOR} from '../brand/estil';
+import {FacePip} from './alex/FacePip';
 import {CameraSegment} from './components/CameraSegment';
 import {Captions} from './components/Captions';
 import {isBehind, OverlayView} from './Overlays';
@@ -49,6 +50,22 @@ export const Video: React.FC<{plan: RenderPlan | null}> = ({plan}) => {
           </Sequence>
         ),
       )}
+      {/* Pantalla comentada: la cara en una finestreta mentre hi ha un recurs amb «pip». */}
+      {plan.overlays
+        .filter((o) => o.props.pip === 'left' || o.props.pip === 'right')
+        .flatMap((o) =>
+          plan.segments
+            .filter((s) => !s.noFace && s.fromFrame < o.fromFrame + o.durationInFrames && o.fromFrame < s.fromFrame + s.durationInFrames)
+            .map((s) => {
+              const from = Math.max(s.fromFrame, o.fromFrame);
+              const to = Math.min(s.fromFrame + s.durationInFrames, o.fromFrame + o.durationInFrames);
+              return (
+                <Sequence key={`pip-${o.id}-${s.fromFrame}`} from={from} durationInFrames={to - from} premountFor={30}>
+                  <FacePip segment={s} offset={from - s.fromFrame} side={o.props.pip as 'left' | 'right'} sinceStart={from - o.fromFrame} total={o.durationInFrames} />
+                </Sequence>
+              );
+            }),
+        )}
       {/* Veu muntada a part (scripts/munta.py): sense clics als talls i ja normalitzada. */}
       {plan.audioFromSegments ? null : <Audio src={resolveSrc(plan.voice)} />}
     </AbsoluteFill>

@@ -14,6 +14,8 @@ export type RenderSegment = {
   // Només a l'editor: fitxer només d'àudio de la presa. El so va a part del vídeo: si el vídeo es queda enrere carregant,
   // el reproductor el torna a situar i, si el so hi anés a dins, s'entretallaria.
   audioSrc?: string;
+  // Veu en off: no hi ha cara (la finestreta de la pantalla comentada no s'hi pinta).
+  noFace?: boolean;
 };
 
 export type CaptionPage = {

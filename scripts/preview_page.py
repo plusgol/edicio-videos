@@ -15,10 +15,11 @@ segs = [l for l in open(f"{proj}/work/muntatge.txt").read().split("\n") if "←"
 def seg_start(rid):
     for l in segs:
         if re.search(rf"\s{re.escape(rid)}\s", l): return float(l.split("s")[0])
-chap[-1]["t"] = seg_start("h2")
+chap[-1]["t"] = seg_start("e1")
 vo = []
-labels = {"vo-intro": "Intro", "vo-A": "A · L'avís de Claude", "vo-B": "B · Les tres hipòtesis", "vo-D": "D · Claude Code treballant sol",
-          "vo-C": "C · El que van mostrar les dades", "vo-F": "F · Així funciona el bot"}
+labels = {"vo-intro": "Intro", "vo-P": "P · El truc del prompt", "vo-A": "A · El pla de Claude", "vo-B": "B · Estratègies i plataformes",
+          "vo-D": "D · Què fa Claude Code", "vo-C": "C · El que van mostrar les dades", "vo-G": "G · Compte de fondeig: el 75 %",
+          "vo-F": "F · Així funciona el bot"}
 for rg in edl["ranges"]:
     if rg["source"] != "vo": continue
     starts = [float(l.split("s")[0]) for l in segs if re.search(rf"\s{re.escape(rg['id'])}\s", l)]

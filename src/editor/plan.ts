@@ -7,7 +7,7 @@ export type EditorData = {
   height: number;
   title: string;
   theme: RenderPlan['theme'];
-  sources: Record<string, {gainDb: number; person?: boolean; media?: string}>;
+  sources: Record<string, {gainDb: number; person?: boolean; media?: string; noFace?: boolean}>;
   ranges: {id: string; source: string; block: string; captions: string; reason: string; keep: boolean}[];
   segments: (Omit<RenderSegment, 'src' | 'fromFrame' | 'volumeDb'> & {range: string; source: string})[];
   overlays: {
@@ -77,6 +77,7 @@ export const buildPlan = (d: EditorData, rev: Revision, media: Record<string, st
       fromFrame: out,
       volumeDb: d.sources[s.source].gainDb - maxGain,
       ...(media[`${s.source}:audio`] ? {audioSrc: media[`${s.source}:audio`]} : {}),
+      ...(d.sources[s.source].noFace ? {noFace: true} : {}),
     });
     out += s.durationInFrames;
   }

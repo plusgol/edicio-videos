@@ -271,6 +271,7 @@ ROOT = Path(__file__).resolve().parent.parent
 ASSET_DIRS = {
     "emoji": (ROOT / "node_modules/@lobehub/fluent-emoji-3d/assets", ".webp"),  # Fluent Emoji 3D (MIT)
     "logo": (ROOT / "node_modules/@lobehub/icons-static-svg/icons", ".svg"),  # @lobehub/icons (MIT)
+    "marca": (ROOT / "brand/marques", ".png"),  # logos de marques que no són a @lobehub (p. ex. Alpaca), baixats del seu web
 }
 
 
@@ -346,6 +347,17 @@ for o in active_overlays:
     props = resolve_assets(o["props"])
     if o["type"] == "ScreenWindow" and "clip" in props:
         props = screen_clip(o, props)
+    if isinstance(props.get("steps"), list):
+        # Passos ancorats a una paraula (anchorMs a l'original, de la mateixa font o d'anchorSource) → ms des de l'inici del recurs.
+        steps = []
+        for st in props["steps"]:
+            if "anchorMs" in st:
+                t = src_to_out_ms(st.get("anchorSource", o.get("source")), st["anchorMs"])
+                st = {k: v for k, v in st.items() if k not in ("anchorMs", "anchorSource")}
+                if t is not None:
+                    st["atMs"] = max(0, round(t - at))
+            steps.append(st)
+        props = {**props, "steps": steps}
     if o["type"] in NEEDS_FACE and "faceX" not in props:
         face = face_at(f0)
         if face:
@@ -388,8 +400,10 @@ fade = A["fadeMs"] / 1000
 for k, s in enumerate(segments):
     a = s["trimBefore"] / FPS
     d = s["durationInFrames"] / FPS
+    # Filtre propi de la font (p. ex. una selfie al carrer, amb vent i trànsit), abans del comú.
+    pre = edl["sources"][s["source"]].get("audioFilter")
     chains.append(
-        f"[{names.index(s['source'])}:a]atrim=start={a:.6f}:duration={d:.6f},asetpts=PTS-STARTPTS,"
+        f"[{names.index(s['source'])}:a]atrim=start={a:.6f}:duration={d:.6f},asetpts=PTS-STARTPTS,{pre + ',' if pre else ''}"
         f"volume={gains[s['source']]:.2f}dB,afade=t=in:d={fade},afade=t=out:st={d - fade:.6f}:d={fade},"
         f"apad=whole_dur={d:.6f}[s{k}]"
     )
@@ -412,7 +426,9 @@ render = {
     "theme": edl["video"].get("theme", {}),
     "segments": [{"src": sources[s["source"]]["video"], "fromFrame": s["fromFrame"], "durationInFrames": s["durationInFrames"],
                   "trimBefore": s["trimBefore"], "scale": s["scale"], "originX": s["originX"], "originY": s["originY"],
-                  **({"personSrc": sources[s["source"]]["person"]} if sources[s["source"]].get("person") else {})}
+                  **({"personSrc": sources[s["source"]]["person"]} if sources[s["source"]].get("person") else {}),
+                  # Font sense càmera (veu en off): no hi ha cara per a la finestreta de la pantalla comentada.
+                  **({"noFace": True} if sources[s["source"]].get("noFace") else {})}
                  for s in segments],
     "captions": captions,
     "overlays": overlays,
@@ -426,7 +442,8 @@ editor = {
     "title": edl.get("title", {}).get("chosen", ""),
     "theme": edl["video"].get("theme", {}),
     # "media": nom base del vídeo reenquadrat (work/<media>.1920x1080.mp4), que scripts/editor.sh publica a media/<media>.*
-    "sources": {n: {"gainDb": round(g, 2), "person": bool(sources[n].get("person")), "media": Path(sources[n]["video"]).name.split(".")[0]}
+    "sources": {n: {"gainDb": round(g, 2), "person": bool(sources[n].get("person")), "media": Path(sources[n]["video"]).name.split(".")[0],
+                    **({"noFace": True} if sources[n].get("noFace") else {})}
                 for n, g in gains.items()},
     "ranges": [{"id": r["id"], "source": r["source"], "block": r["block"], "captions": r["captions"], "reason": r["reason"],
                 "keep": r.get("keep", True)} for r in edl["ranges"]],

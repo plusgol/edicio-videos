@@ -8,8 +8,8 @@
   "captions": false,
   "cameraScales": [
    1.0,
-   1.12,
-   1.22
+   1.15,
+   1.25
   ],
   "theme": {
    "mode": "dark",
@@ -55,8 +55,7 @@
    "video": "work/IMG_5885.1920x1080.mp4",
    "audio": "work/IMG_5885.48k.wav",
    "track": "work/IMG_5885.1920x1080.track.json",
-   "transcript": "work/IMG_5885.transcript.json",
-   "audioFilter": "highpass=f=140,afftdn=nr=16:nf=-38:tn=1"
+   "transcript": "work/IMG_5885.transcript.json"
   }
  },
  "screens": {
@@ -114,11 +113,11 @@
  },
  "cuts": {
   "silenceThresholdDbAboveFloor": 9,
-  "shortenSilenceLongerThanMs": 450,
+  "shortenSilenceLongerThanMs": 650,
   "keepAfterSpeechMs": 170,
   "keepBeforeSpeechMs": 130,
   "snapWindowMs": 100,
-  "_nota": "v2: menys agressius que a en-4-minutos (300/90/70). Parla a poc a poc i fent coses: amb pauses de 160 ms la veu sonava robòtica."
+  "_nota": "v7, kit d'Alex: només s'escurcen les pauses de més de 0,65 s (les respiracions de 0,4–0,6 s a mitja frase són naturals; tallar-les fa la veu robòtica)."
  },
  "ranges": [
   {
@@ -137,13 +136,14 @@
    "outMs": 157700,
    "block": "ganxo",
    "captions": "Yo sinceramente no tengo mucha idea de esto, entonces me fío completamente de la inteligencia artificial, que me sustituya por completo.",
-   "reason": "després de la veu en off, a càmera: no en sap i ho fa tot la IA"
+   "reason": "després de la veu en off, a càmera: no en sap i ho fa tot la IA · RETIRAT v7: repeteix el «no tinc ni idea, la IA» que ja diu la intro",
+   "keep": false
   },
   {
    "id": "p1",
    "source": "c5866",
    "inMs": 2500,
-   "outMs": 9950,
+   "outMs": 10100,
    "block": "seccio:prompt",
    "captions": "Vale, el primer paso es muy fácil: entra a Claude. Aquí tenemos diferentes planes de precios: el gratis, el de 20, el de 100. Yo voy a utilizar el de 20.",
    "reason": "pas 1: Claude i els plans"
@@ -152,7 +152,7 @@
    "id": "p2",
    "source": "c5866",
    "inMs": 10100,
-   "outMs": 14200,
+   "outMs": 14400,
    "block": "seccio:prompt",
    "captions": "A partir de aquí tenemos dos modelos: el Sonnet, que es el barato, y el Opus.",
    "reason": "els dos models"
@@ -161,7 +161,7 @@
    "id": "p3",
    "source": "c5866",
    "inMs": 14400,
-   "outMs": 18650,
+   "outMs": 18700,
    "block": "seccio:prompt",
    "captions": "Ahora mismo vamos a entrar primero al chat normal y le vamos a dar un poco de contexto.",
    "reason": "primer el xat normal"
@@ -170,7 +170,7 @@
    "id": "p4",
    "source": "c5866",
    "inMs": 18700,
-   "outMs": 24750,
+   "outMs": 24860,
    "block": "seccio:prompt",
    "captions": "Voy a poner aquí, en vez de Opus 5.5, que, como puedes ver, es para trabajos complejos... Para hacer un poco de búsqueda no hace falta.",
    "reason": "tria de model al xat"
@@ -178,7 +178,7 @@
   {
    "id": "p5",
    "source": "c5866",
-   "inMs": 24800,
+   "inMs": 24860,
    "outMs": 26900,
    "block": "seccio:prompt",
    "captions": "Entonces yo he escrito, tal cual:",
@@ -197,10 +197,10 @@
    "id": "p6",
    "source": "c5866",
    "inMs": 59300,
-   "outMs": 72000,
+   "outMs": 65640,
    "block": "seccio:prompt",
    "captions": "Vale, ya tenemos el prompt hecho. Entonces, con lo que nos dé de resultado, como podéis ver, pues cómo lo haría, el paso a paso, no hagáis nada: mandadlo directamente a Claude Code y este se encargará de crear la inteligencia artificial.",
-   "reason": "2a presa (la de 54,5 s es un intent superat)"
+   "reason": "2a presa (la de 54,5 s es un intent superat) · v7: acaba a «el paso a paso» (el «mandadlo a Claude Code» ja el diu a p8)"
   },
   {
    "id": "vo-A",
@@ -214,20 +214,31 @@
   {
    "id": "p7",
    "source": "c5866",
-   "inMs": 80900,
-   "outMs": 92550,
+   "inMs": 85800,
+   "outMs": 92650,
    "block": "seccio:prompt",
    "captions": "Vale, como puedes ver, con este prompt tan sencillo nos da el paso a paso. Bueno, aquí lo tenemos: objetivo, actúa como ingeniero cuantitativo senior. Yo no tengo ni idea, entonces lo voy a copiar",
-   "reason": "2a presa (la de 77,5 s es una represa)"
+   "reason": "2a presa (la de 77,5 s es una represa) · v7: comença a «Bueno, aquí lo tenemos» (el «paso a paso» ja és a p6)"
   },
   {
    "id": "p8",
    "source": "c5866",
    "inMs": 92650,
-   "outMs": 109850,
+   "outMs": 105020,
    "block": "seccio:prompt",
    "captions": "y aquí, si os fijáis, tenemos la opción de Claude Code. Aquí, en este equipo, y vamos a utilizar, en este caso, el modo Opus 5.5 en esfuerzo... es un esfuerzo medio. Le pegamos.",
-   "reason": "Claude Code amb Opus 5.5 i esforç mitjà"
+   "reason": "Claude Code amb Opus 5.5 i esforç mitjà · v7: fora l'ensopegada «versión, en formato o en esfuerzo, es un»: queda «el modo Opus 5.5 en esfuerzo medio»",
+   "exactOut": true
+  },
+  {
+   "id": "p8b",
+   "source": "c5866",
+   "inMs": 107740,
+   "outMs": 110100,
+   "block": "seccio:prompt",
+   "captions": "y aquí, si os fijáis, tenemos la opción de Claude Code. Aquí, en este equipo, y vamos a utilizar, en este caso, el modo Opus 5.5 en esfuerzo... es un esfuerzo medio. Le pegamos.",
+   "reason": "continuació de p8 (fora l'ensopegada «versión, en formato o en esfuerzo, es un»: queda «el modo Opus 5.5 en esfuerzo medio»)",
+   "exactIn": true
   },
   {
    "id": "p9",
@@ -288,7 +299,7 @@
    "id": "l1",
    "source": "c5867",
    "inMs": 214800,
-   "outMs": 242950,
+   "outMs": 243100,
    "block": "seccio:truco",
    "captions": "¿Qué pasa si tenemos la cuenta de Claude de 20 dólares? Aquí tenemos un contra, ¿no? Y es que, si os fijáis aquí, tenemos un límite de sesión. Es decir, cada 5 horas, si gastas el 100%, no vas a poder hacer nada hasta que pase ese tiempo. Y hay, evidentemente, un gasto semanal que se restablece cada sábado a la una de la tarde. Como podéis ver, llevamos un 2% y le hemos pasado ya todo el prompt y está haciendo un análisis.",
    "reason": "el límit del pla de 20 $ (3a presa; 198–214 s són represes). Reordenat: va després del truc, abans del fondeig"
@@ -324,7 +335,7 @@
    "id": "f1",
    "source": "c5867",
    "inMs": 30000,
-   "outMs": 50800,
+   "outMs": 51000,
    "block": "seccio:fondeo",
    "captions": "Vale, ¿cuál sería la utilidad real de esto? Ahora vamos a crear un prototipo, y al final esto no significa que como funciona aquí siempre va a funcionar. Vamos a hablar sobre las cuentas de fondeo. En este caso, yo la que más recomiendo siempre será Ibero Funding, porque es la única prop firm española que realmente da cuentas de fondeo.",
    "reason": "per a què serveix: comptes de fondeig. El nom és Ibero Funding (iberofunding.com, a la pantalla)"
@@ -423,10 +434,21 @@
    "id": "b3",
    "source": "c5867",
    "inMs": 166600,
+   "outMs": 168300,
+   "block": "seccio:backtesting",
+   "captions": "Vamos a poner un ejemplo, ¿no? Con una cuenta de 5.000 dólares, que equivale a 28 dólares pagando en Ibero Funding, si tenemos una rentabilidad mensual del 5%, que sí que es bastante, estás llegando a casi 200 dólares al mes, unos 2.200 al año.",
+   "reason": "exemple amb la calculadora de la web · v7: fora l'ensopegada «un altabaño de»: queda «con una cuenta de 5.000 dólares»",
+   "exactOut": true
+  },
+  {
+   "id": "b3b",
+   "source": "c5867",
+   "inMs": 169100,
    "outMs": 182800,
    "block": "seccio:backtesting",
    "captions": "Vamos a poner un ejemplo, ¿no? Con una cuenta de 5.000 dólares, que equivale a 28 dólares pagando en Ibero Funding, si tenemos una rentabilidad mensual del 5%, que sí que es bastante, estás llegando a casi 200 dólares al mes, unos 2.200 al año.",
-   "reason": "exemple amb la calculadora de la web"
+   "reason": "continuació de b3 (fora l'ensopegada «un altabaño de»: queda «con una cuenta de 5.000 dólares»)",
+   "exactIn": true
   },
   {
    "id": "b4",
@@ -441,7 +463,7 @@
    "id": "d1",
    "source": "c5883",
    "inMs": 10700,
-   "outMs": 17450,
+   "outMs": 17500,
    "block": "seccio:24h",
    "captions": "Vale, han pasado ya 24 horas. Al final, la vida del universitario es muy dura, pero ahora sí, ya tenemos todo preparado.",
    "reason": "el dia següent"
@@ -450,7 +472,7 @@
    "id": "d2",
    "source": "c5883",
    "inMs": 17500,
-   "outMs": 23600,
+   "outMs": 23650,
    "block": "seccio:24h",
    "captions": "Como podéis ver, me ha dicho que si tenía que hacer algo, le he dicho que no, que no quería hacer nada, que lo haría todo él,",
    "reason": "ho fa tot la IA"
@@ -459,10 +481,10 @@
    "id": "d3",
    "source": "c5883",
    "inMs": 23650,
-   "outMs": 39200,
+   "outMs": 33420,
    "block": "seccio:24h",
    "captions": "y ahora mismo tenemos, como podéis ver, en archivos, «iniciar bot». Vale, se va a iniciar un bot. Seguramente me estarán a punto de hackear, pero como veis, me ha abierto el explorador de archivos con «iniciar bot», y en esta carpeta pues tengo toda la información.",
-   "reason": "arrenca el bot"
+   "reason": "arrenca el bot · v7: acaba a «hackear» (el segon «iniciar bot» repetia)"
   },
   {
    "id": "d4",
@@ -477,18 +499,18 @@
    "id": "d5",
    "source": "c5883",
    "inMs": 55750,
-   "outMs": 69800,
+   "outMs": 64350,
    "block": "seccio:24h",
    "captions": "Vale, como puedes ver, también puede haber problemas. Que había pasado que me había creado el bot, pero que no se veía. Entonces ahora me está creando un servidor local con páginas. Entonces este 5% puede que aumente un poco, pero como podéis ver, siempre pueden haber errores.",
-   "reason": "els problemes (honest)"
+   "reason": "els problemes (honest) · v7: acaba a «servidor local con páginas» (el «5 %» ja és a d4)"
   },
   {
    "id": "vo-F",
    "source": "vo",
    "inMs": 145000,
-   "outMs": 189000,
+   "outMs": 183000,
    "block": "veu-en-off",
-   "captions": "Así funciona el bot. Se arranca con un doble clic en «iniciar bot», y si lo cierro, al volver retoma las posiciones donde las dejó. Este es el panel: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum, cada uno con su estrategia. La principal es un cruce de medias: si la media rápida está por encima de la lenta, entra en largo; si está por debajo, en corto. Cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro.",
+   "captions": "Este es el panel que me ha montado: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum. Usa la estrategia de las dos medias que os he explicado, y cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro.",
    "reason": "bloc F (provisional mut): com funciona el bot, sobre el panell real"
   },
   {
@@ -522,7 +544,7 @@
    "id": "e3",
    "source": "c5885",
    "inMs": 23000,
-   "outMs": 34800,
+   "outMs": 35050,
    "block": "final",
    "captions": "Al final son test, pero sí que es verdad que es una herramienta que te va a servir mucho a la larga para, sobre todo, practicar. Y si vas a ir modificando, puedes ver las estrategias, puedes hacer backtesting.",
    "reason": "la valoració honesta: són proves"
@@ -734,22 +756,22 @@
    "props": {
     "clip": {
      "screen": "obs3",
-     "fromMs": 20000,
-     "crop": "app",
+     "fromMs": 104000,
+     "crop": "browser",
      "still": true
     },
     "zooms": [
      {
       "atMs": 0,
-      "zoom": 1.6,
-      "x": 0.25,
-      "y": 0.25
+      "zoom": 1.5,
+      "x": 0.3,
+      "y": 0.2
      }
     ],
-    "what": "Bot iniciado",
+    "what": "panel del bot",
     "cutIn": true
    },
-   "reason": "«tendremos un bot que funciona»: la consola real «Bot iniciado» (OBS3 0:20, aturada)"
+   "reason": "«tendremos un bot que funciona»: la capçalera del panell real (la consola «Bot iniciado» ja surt a la secció V)"
   },
   {
    "id": "w-intro-datos",
@@ -820,37 +842,25 @@
    "id": "hook",
    "type": "HookText",
    "source": "c5866",
-   "anchorMs": 156100,
-   "durationMs": 1600,
+   "anchorMs": 2500,
+   "durationMs": 1550,
    "props": {
     "text": "Construí un bot de trading con IA"
    },
-   "reason": "títol del vídeo quan torna la cara"
+   "reason": "títol del vídeo quan surt la cara per primer cop"
   },
   {
    "id": "s1",
    "type": "SectionNumeral",
    "source": "c5866",
-   "anchorMs": 2500,
+   "anchorMs": 4160,
    "durationMs": 1600,
    "props": {
     "numeral": "I",
     "title": "El prompt",
     "logo": "logo:claude-color"
    },
-   "reason": "secció I"
-  },
-  {
-   "id": "lc-claude",
-   "type": "LogoCard",
-   "source": "c5866",
-   "anchorMs": 4150,
-   "durationMs": 1300,
-   "props": {
-    "logo": "logo:claude-color",
-    "name": "Claude"
-   },
-   "reason": "menciona Claude per primer cop → targeta d'eina (estil tef)"
+   "reason": "secció I, quan diu «entra a Claude»"
   },
   {
    "id": "hw-planes",
@@ -939,19 +949,6 @@
     "pip": "right"
    },
    "reason": "la resposta real de Claude: primer l'avís («Ningún prompt te da la mejor IA ni rentabilidad garantizada… no soy asesor financiero»), després «Cómo lo haría»"
-  },
-  {
-   "id": "lp-claudecode",
-   "type": "LogoPop",
-   "source": "c5866",
-   "anchorMs": 67900,
-   "durationMs": 1600,
-   "props": {
-    "src": "logo:claudecode-color",
-    "side": "right",
-    "label": "Claude Code"
-   },
-   "reason": "menciona Claude Code"
   },
   {
    "id": "w-prompt2",
@@ -1411,7 +1408,7 @@
    "type": "ScreenWindow",
    "source": "c5883",
    "anchorMs": 26000,
-   "durationMs": 8000,
+   "durationMs": 7400,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -1454,7 +1451,7 @@
    "type": "ScreenWindow",
    "source": "c5883",
    "anchorMs": 58300,
-   "durationMs": 6500,
+   "durationMs": 6000,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -1493,48 +1490,11 @@
    "reason": "secció VI: com funciona el bot"
   },
   {
-   "id": "w-F1",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 146600,
-   "durationMs": 5000,
-   "props": {
-    "clip": {
-     "screen": "obs3",
-     "fromMs": 64000,
-     "crop": "app",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.5,
-      "x": 0.48,
-      "y": 0.22
-     }
-    ],
-    "what": "cómo se arranca",
-    "notes": [
-     {
-      "atMs": 300,
-      "box": [
-       0.245,
-       0.085,
-       0.48,
-       0.04
-      ],
-      "label": "Se arranca con iniciar_bot"
-     }
-    ]
-   },
-   "reason": "«Arrancarlo: doble clic en iniciar_bot.bat. Retoma las posiciones…» (OBS3 1:04)"
-  },
-  {
    "id": "w-F2",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 151600,
-   "durationMs": 6000,
+   "anchorMs": 146600,
+   "durationMs": 7000,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -1561,7 +1521,7 @@
       "place": "below"
      },
      {
-      "atMs": 3000,
+      "atMs": 5000,
       "box": [
        0.77,
        0.015,
@@ -1579,8 +1539,8 @@
    "id": "w-F3",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 157600,
-   "durationMs": 6500,
+   "anchorMs": 153600,
+   "durationMs": 5000,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -1608,7 +1568,7 @@
       "place": "below"
      },
      {
-      "atMs": 1500,
+      "atMs": 1300,
       "box": [
        0.165,
        0.325,
@@ -1619,7 +1579,7 @@
       "place": "below"
      },
      {
-      "atMs": 2700,
+      "atMs": 2300,
       "box": [
        0.334,
        0.325,
@@ -1630,7 +1590,7 @@
       "place": "below"
      },
      {
-      "atMs": 3900,
+      "atMs": 3300,
       "box": [
        0.515,
        0.325,
@@ -1648,8 +1608,8 @@
    "id": "w-F4a",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 164100,
-   "durationMs": 5000,
+   "anchorMs": 158600,
+   "durationMs": 4000,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -1668,7 +1628,7 @@
     "what": "cruce de medias",
     "notes": [
      {
-      "atMs": 400,
+      "atMs": 300,
       "box": [
        0.17,
        0.6,
@@ -1679,7 +1639,7 @@
       "place": "above"
      },
      {
-      "atMs": 2200,
+      "atMs": 1800,
       "box": [
        0.34,
        0.7,
@@ -1694,48 +1654,10 @@
    "reason": "el gràfic real de GLD amb les dues mitjanes"
   },
   {
-   "id": "w-F4b",
-   "type": "ScreenWindow",
-   "source": "vo",
-   "anchorMs": 169100,
-   "durationMs": 4500,
-   "props": {
-    "clip": {
-     "screen": "obs3",
-     "fromMs": 183000,
-     "crop": "browser",
-     "still": true
-    },
-    "zooms": [
-     {
-      "atMs": 0,
-      "zoom": 1.4,
-      "x": 0.3,
-      "y": 0.31
-     }
-    ],
-    "what": "la regla",
-    "notes": [
-     {
-      "atMs": 300,
-      "box": [
-       0.025,
-       0.29,
-       0.54,
-       0.04
-      ],
-      "label": "Largo si la rápida va arriba; corto si va abajo",
-      "place": "below"
-     }
-    ]
-   },
-   "reason": "la regla, escrita al panell: «va LARGO si la media rápida está por encima de la lenta y CORTO si está por debajo»"
-  },
-  {
    "id": "w-F5a",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 173600,
+   "anchorMs": 162600,
    "durationMs": 3500,
    "props": {
     "clip": {
@@ -1784,8 +1706,8 @@
    "id": "w-F5b",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 177100,
-   "durationMs": 3000,
+   "anchorMs": 166100,
+   "durationMs": 3500,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -1822,8 +1744,8 @@
    "id": "w-F6",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 180100,
-   "durationMs": 6000,
+   "anchorMs": 169600,
+   "durationMs": 7500,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -1853,7 +1775,7 @@
       "place": "below"
      },
      {
-      "atMs": 3500,
+      "atMs": 4000,
       "box": [
        0.795,
        0.21,
@@ -1871,8 +1793,8 @@
    "id": "w-F7",
    "type": "ScreenWindow",
    "source": "vo",
-   "anchorMs": 186100,
-   "durationMs": 2900,
+   "anchorMs": 177100,
+   "durationMs": 5500,
    "props": {
     "clip": {
      "screen": "obs3",
@@ -2415,12 +2337,14 @@
   }
  ],
  "audio": {
-  "targetLufs": -16,
+  "targetLufs": -17,
   "maxTruePeakDb": -1.5,
-  "fadeMs": 12,
-  "highpassHz": 90,
-  "denoise": "afftdn=nr=10:nf=-40",
-  "music": null
+  "limiterDb": -6,
+  "crossfadeMs": 15,
+  "chain": "static",
+  "highpassHz": 80,
+  "music": null,
+  "_nota": "v7, kit d'Alex: fosa de 15 ms de potència constant a cada empalmament, sense reducció de soroll ni compressor, guany fix a −17 LUFS i limitador a −6 dBFS."
  },
  "pending": [
   {

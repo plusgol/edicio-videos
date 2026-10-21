@@ -63,7 +63,7 @@ export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = 
   // Amb finestreta de cara, la gravació ocupa la resta de l'amplada (més gran que sense: és el pla principal).
   const reserve = pip ? PANTALLA.pip.w + PANTALLA.pip.margin + PANTALLA.pip.gap : 0;
   const w = pip
-    ? Math.min(width - reserve - PANTALLA.pip.margin, height * 0.9 * aspect)
+    ? Math.min(width - reserve - PANTALLA.edge, height * 0.9 * aspect)
     : Math.min(width * PANTALLA.maxW, height * PANTALLA.maxH * aspect);
   const h = w / aspect;
   const ms = (frame * 1000) / fps;
@@ -85,7 +85,8 @@ export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = 
           justifyContent: 'center',
           opacity: exit.opacity,
           filter: exit.filter,
-          ...(pip ? {[pip === 'right' ? 'paddingRight' : 'paddingLeft']: reserve} : {}),
+          // L'espai de la cara a un costat i el marge de la vora a l'altre: la gravació no toca mai la vora.
+          ...(pip ? {[pip === 'right' ? 'paddingRight' : 'paddingLeft']: reserve, [pip === 'right' ? 'paddingLeft' : 'paddingRight']: PANTALLA.edge} : {}),
         }}
       >
         <div style={{width: w, height: h, position: 'relative', transform: `scale(${exit.scale})`}}>

@@ -24,7 +24,7 @@ Les animacions ja estan muntades amb aquest ritme. Entre parèntesis, què surt 
 8. «Entonces, ¿tengo un plan para hacer este bot?» *(rètol)*
 9. «No, para nada.» *(NO)*
 10. «Pero ¿tengo acceso a la IA? Sí.» *(targeta de Claude)*
-11. «Así que, al final de este vídeo, tendremos un bot que funciona,» *(la teva consola: «Bot iniciado»)*
+11. «Así que, al final de este vídeo, tendremos un bot que funciona,» *(la capçalera del teu panell: el bot en marcha)*
 12. «le daremos datos del mercado en directo» *(«Fase 2 terminada: descarga y limpieza de datos»)*
 13. «y operará por nosotros y nos hará ganar dinero real.» *(el panell, difuminat)*
 14. «Y mi objetivo son 10.000 dólares en un mes.» *(10.000 $, en or)*
@@ -43,7 +43,7 @@ Mentre parles, a la pantalla hi ha una explicació animada (o la teva pantalla a
 «Fijaos en el truco: no le pido el bot directamente. Le pido a Claude que me escriba el prompt perfecto para pedírselo.»
 *(La teva pantalla escrivint el prompt, accelerada ×4, amb el rètol «Le pido el prompt, no el bot».)*
 
-### A — El plan de Claude (va després de «mandadlo directamente a Claude Code»), ~14 s
+### A — El plan de Claude (va després de «como lo haría, el paso a paso»), ~14 s
 «Y antes de nada, Claude me avisa: ningún prompt te garantiza ganar dinero, y la mayoría de bots de particulares pierden. Su plan tiene cinco pasos: una hipótesis simple, datos históricos, backtesting, control del riesgo y, como mínimo, dos o tres meses con dinero ficticio.»
 *(L'avís de Claude i després els cinc passos en targetes.)*
 
@@ -62,6 +62,6 @@ Mentre parles, a la pantalla hi ha una explicació animada (o la teva pantalla a
 «Y si pasas el reto, te quedas el 75 % de lo que ganes.»
 *(Última targeta de l'explicació del compte de fondeig.)*
 
-### F — Així funciona el bot (va després de «siempre pueden haber errores»), ~44 s
-«Así funciona el bot. Se arranca con un doble clic en «iniciar bot», y si lo cierro, al volver retoma las posiciones donde las dejó. Este es el panel: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum, cada uno con su estrategia. La principal es un cruce de medias: si la media rápida está por encima de la lenta, entra en largo; si está por debajo, en corto. Cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro.»
-*(El teu panell amb un requadre i un rètol a cada part que expliques.)*
+### F — Així funciona el bot (va després de «me está creando un servidor local, con páginas»), ~38 s
+«Este es el panel que me ha montado: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum. Usa la estrategia de las dos medias que os he explicado, y cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro.»
+*(El teu panell amb un requadre i un rètol a cada part que expliques. Ja no torna a explicar com s'arrenca ni el creuament de mitjanes: això ja surt abans.)*

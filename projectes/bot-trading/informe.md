@@ -52,7 +52,35 @@ Sense tier list ni formats de contingut curt (decisió de l'usuari).
 - **Prompt:** fora els 20 s de dictat; el prompt es veu accelerat ×4 amb el bloc de veu en off P.
 - **Explicacions animades:** el pla de Claude (5 passos), les 3 estratègies amb gràfics d'exemple, les plataformes (Alpaca amb el logo del seu web; Bybit amb el nom), què fa Claude Code, el compte de fondeig (28 $ → 5.000 $ → +8 % → −6 % → 75 %, xifres de la web d'Ibero) i el backtesting.
 - **Resultats visibles:** el panell sense tapar i, al final, +46,54 $ en ~22 h (diners ficticis).
-- **So de la selfie del carrer:** filtre propi (passaalt a 140 Hz i reducció de soroll adaptativa). **Escolta humana pendent.**
+- **So de la selfie del carrer:** filtre propi (passaalt a 140 Hz i reducció de soroll adaptativa). **Retirat a la v7:** el reconeixement de veu entenia pitjor la veu filtrada.
+
+## Versió 7 (revisió: «errors amb els talls», «bon storytelling, no repeteixis», «la cara mal retallada»; kit d'Alex)
+Aplica les regles del kit d'edició d'Alex DiLorenzo (resum a `docs/KIT_ALEX.md`).
+
+- **Talls de veu:**
+  - només s'escurcen les pauses de més de 0,65 s (abans, 0,45 s): les respiracions a mitja frase es queden i hi ha molts menys talls;
+  - fosa de 15 ms a cada empalmament (abans, una fosa a zero que deixava un forat de so);
+  - fora la reducció de soroll i el compressor, que feien la veu metàl·lica; ara la cadena és passaalt, guany fix i limitador;
+  - el nivell de cada presa es mesura només sobre el que es queda.
+- **Talls revisats amb reconeixement de veu:**
+  - «no hace falta» ja no es menja el «falta»;
+  - els trams seguits de la mateixa presa s'enganxen sense micro-salts;
+  - fora dues ensopegades: «en versión, en formato o en esfuerzo, es un» (queda «el modo Opus 5.5 en esfuerzo medio») i «un altabaño de» (queda «con una cuenta de 5.000 dólares»).
+- **Zoom de càmera als talls:** ×1,15 / ×1,25 (abans ×1,12). Per sota de ×1,15 sembla que tremoli.
+- **Sense repeticions:**
+  - fora «yo no tengo mucha idea, me fío de la IA» just després de la intro, que ja ho diu; el títol surt quan apareix la cara per primer cop;
+  - «mandadlo directamente a Claude Code» només surt un cop;
+  - «con este prompt tan sencillo nos da el paso a paso» només surt un cop;
+  - «iniciar bot» només surt un cop;
+  - «este 5 % puede que aumente» fora: ja ho diu just abans;
+  - la targeta de Claude, un sol cop; fora el logo repetit de Claude Code;
+  - la intro ja no ensenya la consola «Bot iniciado» (surt a la secció V): ara ensenya la capçalera del panell.
+- **Bloc F de la veu en off reescrit** (~38 s, abans ~44 s): ja no torna a explicar com s'arrenca ni el creuament de mitjanes.
+- **Cara a la finestreta:**
+  - es retalla amb el seguiment de la cara: pla obert de cap i espatlles, centrat;
+  - finestreta quadrada de 300 px a la cantonada, com fa Alex;
+  - la gravació queda a 80 px de la vora.
+- **Durada:** 8:20 (els blocs de veu en off encara són muts).
 
 ## Decisions
 - **Reordenat:** el límit del pla de 20 $ (5867, 214–251 s) va just després del truc, perquè tot el que és «construir amb Claude» quedi junt.

@@ -274,6 +274,8 @@ export const MINIATURA = {
 export const PANTALLA = {
   // Amplada màxima i alçada màxima de la finestra (en fracció del quadre); la finestra manté l'aspecte del retall.
   maxW: 0.86,
+  // Distància mínima de qualsevol gravació a la vora del vídeo (kit d'Alex: 80 px a 1080p).
+  edge: 80,
   maxH: 0.84,
   radius: 18,
   shadow: '0 30px 70px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.08)',
@@ -288,7 +290,11 @@ export const PANTALLA = {
   // Etiqueta d'honestedat («Dinero ficticio», «paper trading»…) a baix a l'esquerra.
   tag: {bg: '#151515', ink: '#FFFFFF', dot: '#E5383B', fontPx: 34, padY: 12, padX: 22, radius: 999, bottom: 46, left: 70},
   // Pantalla comentada (estil Adrián Sáez): la cara en una finestreta al costat de la gravació.
-  pip: {w: 340, h: 425, margin: 44, radius: 22, border: '3px solid rgba(255,255,255,.85)', shadow: '0 20px 50px rgba(0,0,0,.45)', gap: 36},
+  // Finestreta de cara (kit d'Alex, «corner cam»): quadrada, 300 px a 1080p, a 30 px de la cantonada, radi 54, sense vora;
+  // pla obert (cap i espatlles) centrat a la cara. gap: espai fins a la pantalla que té al costat.
+  pip: {w: 300, h: 300, margin: 30, radius: 54, border: 'none', shadow: '0 9px 13px rgba(0,0,0,.45)', gap: 36,
+    // Enquadrament de la cara: alçada de la cara respecte de la finestreta i on cau el centre de la cara (fracció de l'alçada).
+    faceFill: 0.32, faceY: 0.42},
   // Clips extrets de l'original: amplada màxima i qualitat (CRF x264) per al render.
   clipMaxW: 1920,
   clipCrf: 16,

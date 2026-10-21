@@ -14,9 +14,16 @@ export const FacePip: React.FC<{segment: RenderSegment; offset: number; side: 'l
   total,
 }) => {
   const frame = useCurrentFrame() + sinceStart;
-  const {fps} = useVideoConfig();
+  // Les preses reenquadrades tenen la mida del vídeo (scripts/reencuadra.py).
+  const {fps, width: W, height: H} = useVideoConfig();
   const P = PANTALLA.pip;
   const enter = spring({frame, fps, config: {damping: 16, stiffness: 160, mass: 0.6}});
+  // Enquadrament amb el seguiment de la cara: la cara ocupa faceFill de l'alçada i el seu centre cau a faceY.
+  // L'escala mai deixa forat (el vídeo sempre cobreix la finestreta) i el desplaçament es limita a les vores.
+  const k = Math.max((P.h * P.faceFill) / (segment.faceH ?? H * 0.27), P.h / H, P.w / W);
+  const clamp = (v: number, min: number) => Math.min(0, Math.max(min, v));
+  const left = clamp(P.w / 2 - segment.originX * k, P.w - W * k);
+  const top = clamp(P.h * P.faceY - segment.originY * k, P.h - H * k);
   const exit = interpolate(frame, [total - 5, total], [1, 0], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
   return (
     <div
@@ -39,7 +46,7 @@ export const FacePip: React.FC<{segment: RenderSegment; offset: number; side: 'l
         src={resolveSrc(segment.src)}
         muted
         trimBefore={segment.trimBefore + offset}
-        style={{width: '100%', height: '100%', objectFit: 'cover', objectPosition: `${(100 * segment.originX) / 1920}% 50%`}}
+        style={{position: 'absolute', left, top, width: W * k, height: H * k, maxWidth: 'none'}}
       />
     </div>
   );

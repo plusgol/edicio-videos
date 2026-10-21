@@ -106,7 +106,9 @@ active_overlays = [o for o in edl["overlays"] if o.get("enabled", True)]
 segments = []
 for r in edl["ranges"]:
     src = sources[r["source"]]
-    a, b = snap(src, r["inMs"]), snap(src, min(r["outMs"], src["durMs"]))
+    # exactIn / exactOut: punt de tall triat a mà entre dues paraules enganxades (sense silenci on encaixar-lo).
+    a = r["inMs"] if r.get("exactIn") else snap(src, r["inMs"])
+    b = min(r["outMs"], src["durMs"]) if r.get("exactOut") else snap(src, min(r["outMs"], src["durMs"]))
     pieces = split_silences(src, a, b, r.get("silenceAboveFloorDb"))
     if r.get("splitAtWordGapsMs"):
         pieces = [q for pa, pb in pieces for q in split_word_gaps(src, pa, pb, r["splitAtWordGapsMs"])]
@@ -156,6 +158,7 @@ for s in segments:
     tr = sources[s["source"]]["track"][s["trimBefore"]:s["trimBefore"] + s["durationInFrames"]]
     s["originX"] = round(float(np.median([t["x"] for t in tr])), 1)
     s["originY"] = round(float(np.median([t["y"] for t in tr])), 1)
+    s["faceH"] = round(float(np.median([t["faceH"] for t in tr])), 1)
 total_frames = out
 
 
@@ -385,37 +388,70 @@ def loudness(path, filt=None):
 
 
 # Iguala el nivell de cada presa abans de muntar (les preses poden venir de llocs i moments diferents).
-def level_gain(path):
-    """Guany per deixar la presa a −20 LUFS. Una pista muda (p. ex. la provisional d'una veu en off encara no gravada) no es toca."""
-    i = float(loudness(path)["input_i"])
+def level_gain(name):
+    """Guany per deixar la presa a −20 LUFS, mesurat només sobre els trossos que es queden (kit d'Alex: el temps mort
+    abaixaria la mesura i la presa quedaria massa forta). Una pista muda (la provisional d'una veu en off) no es toca."""
+    kept = [s for s in segments if s["source"] == name]
+    if not kept:
+        return 0.0
+    sel = "+".join(f"between(t,{s['trimBefore'] / FPS:.3f},{(s['trimBefore'] + s['durationInFrames']) / FPS:.3f})" for s in kept)
+    i = float(loudness(proj / edl["sources"][name]["audio"], f"aselect='{sel}',asetpts=N/SR/TB")["input_i"])
     return 0.0 if not np.isfinite(i) or i < -70 else -20 - i
 
 
-gains = {n: level_gain(proj / s["audio"]) for n, s in edl["sources"].items()}
+gains = {n: level_gain(n) for n in edl["sources"]}
 names = list(edl["sources"])
 inputs, chains, labels = [], [], []
-for n in names:
-    inputs += ["-i", str(proj / edl["sources"][n]["audio"])]
-fade = A["fadeMs"] / 1000
+# Empalmaments: amb "crossfadeMs" (kit d'Alex), fosa de potència constant entre trossos, i cada tros s'allarga aquests ms
+# per sota del tall següent perquè la fosa barregi so de sala real (fondre a zero deixava forats de 8–13 dB a cada tall).
+# Sense, l'antic: fosa curta a zero a cada extrem.
+xf = A.get("crossfadeMs", 0) / 1000
+fade = A.get("fadeMs", 12) / 1000
+# Un tall entre dos trossos seguits de la mateixa presa (només hi canvia l'escala) no treu so: allà no hi ha fosa,
+# perquè barrejar el mateix so amb si mateix faria un pic de +3 dB.
+seamless = [k + 1 < len(segments) and segments[k + 1]["source"] == s["source"]
+            and segments[k + 1]["trimBefore"] == s["trimBefore"] + s["durationInFrames"] for k, s in enumerate(segments)]
 for k, s in enumerate(segments):
     a = s["trimBefore"] / FPS
     d = s["durationInFrames"] / FPS
+    ext = 0 if seamless[k] else xf
     # Filtre propi de la font (p. ex. una selfie al carrer, amb vent i trànsit), abans del comú.
     pre = edl["sources"][s["source"]].get("audioFilter")
+    edge = f"apad=whole_dur={d + ext:.6f}" if xf else f"afade=t=in:d={fade},afade=t=out:st={d - fade:.6f}:d={fade},apad=whole_dur={d:.6f}"
+    # Una entrada per tros (llegida des del seu punt): si diversos trossos llegeixen la mateixa entrada en desordre,
+    # ffmpeg perd so pel camí (amb acrossfade en cadena faltaven 97 s).
+    inputs += ["-ss", f"{a:.6f}", "-t", f"{d + ext + 0.1:.6f}", "-i", str(proj / edl["sources"][s["source"]]["audio"])]
     chains.append(
-        f"[{names.index(s['source'])}:a]atrim=start={a:.6f}:duration={d:.6f},asetpts=PTS-STARTPTS,{pre + ',' if pre else ''}"
-        f"volume={gains[s['source']]:.2f}dB,afade=t=in:d={fade},afade=t=out:st={d - fade:.6f}:d={fade},"
-        f"apad=whole_dur={d:.6f}[s{k}]"
+        f"[{k}:a]atrim=duration={d + (ext if xf else 0):.6f},asetpts=PTS-STARTPTS,{pre + ',' if pre else ''}"
+        f"volume={gains[s['source']]:.2f}dB,{edge}[s{k}]"
     )
     labels.append(f"[s{k}]")
-clean = f"highpass=f={A['highpassHz']},{A['denoise']},deesser=i=0.4,acompressor=threshold=-24dB:ratio=2.5:attack=10:release=150:makeup=2"
-graph = ";".join(chains) + ";" + "".join(labels) + f"concat=n={len(labels)}:v=0:a=1,{clean}[v]"
+if xf:
+    joins, cur = [], labels[0]
+    for k, lab in enumerate(labels[1:], 1):
+        joins.append(f"{cur}{lab}concat=n=2:v=0:a=1[x{k}]" if seamless[k - 1] else f"{cur}{lab}acrossfade=d={xf:.3f}:c1=qsin:c2=qsin[x{k}]")
+        cur = f"[x{k}]"
+    assembled = ";".join(joins) + f";{cur}" if joins else cur
+else:
+    assembled = "".join(labels) + f"concat=n={len(labels)}:v=0:a=1,"
+# Cadena "static" (kit d'Alex): només passaalt; el nivell es posa a sota amb un guany fix i un limitador.
+# Sense reducció de soroll ni compressor: tots dos fan la veu metàl·lica o fan bombar el fons.
+static = A.get("chain") == "static"
+clean = (f"highpass=f={A['highpassHz']}" if static else
+         f"highpass=f={A['highpassHz']},{A['denoise']},deesser=i=0.4,acompressor=threshold=-24dB:ratio=2.5:attack=10:release=150:makeup=2")
+graph = ";".join(chains) + ";" + assembled + f"{clean}[v]"
 raw = work / "voice.raw.wav"
+(work / "voice.graph.txt").write_text(graph.replace(";", ";\n"))
 subprocess.run(["ffmpeg", "-v", "error", "-y", *inputs, "-filter_complex", graph, "-map", "[v]", "-ar", "48000", "-ac", "1",
                 "-c:a", "pcm_s24le", str(raw)], check=True)
 m = loudness(raw)
-ln = (f"loudnorm=I={A['targetLufs']}:TP={A['maxTruePeakDb']}:LRA=7:measured_I={m['input_i']}:measured_TP={m['input_tp']}"
-      f":measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
+if static:
+    # Guany fix fins a l'objectiu i un limitador dur: sense loudnorm, que quan no arriba a l'objectiu passa a dinàmic i bomba.
+    lim = 10 ** (A["limiterDb"] / 20)
+    ln = f"volume={A['targetLufs'] - float(m['input_i']):.2f}dB,alimiter=limit={lim:.4f}:attack=5:release=50:level=disabled"
+else:
+    ln = (f"loudnorm=I={A['targetLufs']}:TP={A['maxTruePeakDb']}:LRA=7:measured_I={m['input_i']}:measured_TP={m['input_tp']}"
+          f":measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:linear=true")
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-af", ln, "-ar", "48000", "-ac", "1", "-c:a", "pcm_s16le",
                 str(work / "voice.wav")], check=True)
 final = loudness(work / "voice.wav")
@@ -426,6 +462,7 @@ render = {
     "theme": edl["video"].get("theme", {}),
     "segments": [{"src": sources[s["source"]]["video"], "fromFrame": s["fromFrame"], "durationInFrames": s["durationInFrames"],
                   "trimBefore": s["trimBefore"], "scale": s["scale"], "originX": s["originX"], "originY": s["originY"],
+                  "faceH": s["faceH"],
                   **({"personSrc": sources[s["source"]]["person"]} if sources[s["source"]].get("person") else {}),
                   # Font sense càmera (veu en off): no hi ha cara per a la finestreta de la pantalla comentada.
                   **({"noFace": True} if sources[s["source"]].get("noFace") else {})}
@@ -449,7 +486,8 @@ editor = {
                 "keep": r.get("keep", True)} for r in edl["ranges"]],
     "segments": [{"range": s["range"], "source": s["source"], "trimBefore": s["trimBefore"],
                   "durationInFrames": s["durationInFrames"], "scale": s.get("scale", 1.0),
-                  "originX": s.get("originX", edl["video"]["width"] / 2), "originY": s.get("originY", edl["video"]["height"] * 0.4)}
+                  "originX": s.get("originX", edl["video"]["width"] / 2), "originY": s.get("originY", edl["video"]["height"] * 0.4),
+                  "faceH": s.get("faceH", edl["video"]["height"] * 0.27)}
                  for s in all_segments],
     "overlays": [{"id": o["id"], "type": o["type"], "props": o.get("_resolvedProps") or resolve_assets(o["props"]), "reason": o.get("reason", ""),
                   "anchor": None if "atOutputMs" in o else {"source": o["source"], "ms": o["anchorMs"]},

@@ -2,12 +2,12 @@
 
 **Com gravar-ho**
 - Amb l'iPhone, a l'habitació en silenci, amb el mòbil a uns 20 cm de la boca.
-- **Un fitxer per bloc:** Intro, A, B, C, D i E.
+- **Un fitxer per bloc:** Intro, A, B, C, D i F.
 - Llegeix-ho amb naturalitat, no cal que sigui perfecte: les pauses i els errors els retallo jo.
 - Si t'equivoques, torna a dir la frase sencera.
 - Quan ho tinguis, puja-ho al Drive.
 
-Amb la intro i els cinc blocs, el vídeo passa de ~6:50 a **~8:30**.
+Amb la intro i els blocs A–F, el vídeo queda en **unes 9:00**.
 
 ---
 
@@ -51,6 +51,7 @@ Al vídeo es veu la teva pantalla mentre parles. Tot el que diuen aquests blocs 
 ### C — El que van mostrar les dades (va just després de D), ~22 s
 «En la fase 2 descargó y limpió los datos: velas diarias de Bitcoin desde 2020 y de Ethereum desde 2021. Y encontró cosas que yo no habría visto nunca. Por ejemplo, que mantener una posición larga en el perpetuo de Bitcoin ha costado, de media, un 12,7 % al año en funding. Y me avisó de que en cripto solo hay unos seis años de historial, así que la confianza en los resultados es limitada.»
 
-### E — El panell, sense resultats (va després de «siempre pueden haber errores»), ~18 s
-«Y este es el panel que me ha montado. Opera con oro, el SPY, Bitcoin y Ethereum, con precios reales y dinero ficticio. Tiene un límite de pérdida diaria del 3 %, y un kill switch: si cae un 8 % desde el máximo, se apaga solo. ¿Los resultados? En la parte 2.»
-*(Es veu el panell, però les xifres de guanys i pèrdues queden tapades.)*
+### F — Així funciona el bot (va després de «siempre pueden haber errores»), ~50 s
+«Así funciona el bot. Se arranca con un doble clic en «iniciar bot», y si lo cierro, al volver retoma las posiciones donde las dejó. Este es el panel: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum, cada uno con su estrategia. La principal es un cruce de medias: si la media rápida está por encima de la lenta, entra en largo; si está por debajo, en corto. Cada operación lleva su stop-loss: si el precio llega ahí, se cierra perdiendo solo un 0,5 % de la cuenta. Además, tiene un límite de pérdida diaria del 3 % y un kill switch: si cae un 8 % desde el máximo, se apaga solo. Y cada vez que se cierra una vela, calcula la señal y lo apunta todo en este registro. ¿Los resultados? En la parte 2.»
+
+*A la pantalla, el teu panell amb un requadre i un rètol a cada part que expliques: «Se arranca con iniciar_bot», «En marcha · riesgo OK», «Precios reales, dinero ficticio», els quatre mercats, «Media rápida / Media lenta», «Stop-loss», «Pierde como máximo un 0,5 %», «Pérdida diaria máx.: 3 %», «Kill switch: −8 %» i el registre. Les xifres de guanys i pèrdues queden tapades.*

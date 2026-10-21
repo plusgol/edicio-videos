@@ -38,7 +38,13 @@ Sense tier list ni formats de contingut curt (decisió de l'usuari).
 - **So que s'entretalla a l'editor:** el so anava dins de cada vídeo; quan el vídeo es quedava enrere carregant, el reproductor el tornava a situar i el so saltava. Ara l'editor reprodueix el so de fitxers només d'àudio i precarrega les gravacions de pantalla.
 - **Sense emojis** (regla fixa, a `SKILL.md` i `ESTIL_ALEX.md`).
 - **Intro amb veu en off:** traducció literal dels primers 32 s de tef (`guio_veu_en_off.md`), amb les animacions muntades. Font `vo` **provisional i muda** fins que arribi la gravació.
-- **Durada:** blocs extra A–E de veu en off sobre la pantalla (~1:40), amb text tret del que es veu a les gravacions. Amb tot plegat, ~8:30.
+- **Durada:** blocs extra de veu en off sobre la pantalla, amb text tret del que es veu a les gravacions.
+
+## Versió 4 («com funciona el bot», vídeo sencer maquetat, vista prèvia fluida)
+- **VI · Así funciona:** el panell real del bot amb requadres i rètols («En marcha · riesgo OK», els quatre mercats, «Media rápida / lenta», «Stop-loss», «Pierde como máximo un 0,5 %», «Pérdida diaria máx.: 3 %», «Kill switch: −8 %», registre). Les xifres de guanys i pèrdues van tapades (`masks`).
+- **Blocs de veu en off A–D** muntats amb captures reals aturades i rètols (l'avís de Claude, les hipòtesis, Claude Code treballant, les dades).
+- **Durada:** 9:01, amb els buits de veu en off encara muts.
+- **Vista prèvia:** vídeo renderitzat a 720p i servit en trossos de 10 s (HLS): es reprodueix d'una tirada, sense dependre de l'editor.
 
 ## Decisions
 - **Reordenat:** el límit del pla de 20 $ (5867, 214–251 s) va just després del truc, perquè tot el que és «construir amb Claude» quedi junt.

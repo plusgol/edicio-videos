@@ -9,6 +9,11 @@ import {Stage} from './Stage';
 // gravació retallada— amb el zoom indicat, i s'hi queda fins al següent. zoom 1 = tota la finestra.
 export type ScreenZoom = {atMs: number; zoom: number; x?: number; y?: number};
 
+// Rectangle normalitzat sobre la gravació retallada: [x, y, amplada, alçada], 0–1.
+export type ScreenRect = [number, number, number, number];
+// Nota: marca una zona (box) entre atMs i toMs i hi posa un rètol (label) a sobre o a sota.
+export type ScreenNote = {atMs: number; toMs?: number; box: ScreenRect; label?: string; place?: 'above' | 'below'};
+
 export type ScreenWindowProps = {
   // Clip de pantalla ja retallat i accelerat per munta.py (assets/pantalla/*.mp4).
   src: string;
@@ -19,6 +24,11 @@ export type ScreenWindowProps = {
   tag?: string;
   // Tapa el contingut (p. ex. resultats que es guarden per a la part 2): es veu la interfície però no es llegeix res.
   hidden?: boolean;
+  // Zones tapades (xifres de resultats): es veu la resta de la interfície.
+  masks?: ScreenRect[];
+  notes?: ScreenNote[];
+  // Entra amb tall sec, sense fos (plans ràpids de la intro i el primer fotograma del vídeo, que ha de ser contingut).
+  cutIn?: boolean;
   tone?: 'light' | 'dark';
 };
 
@@ -44,17 +54,27 @@ const poseAt = (ms: number, zooms: ScreenZoom[]) => {
 };
 
 // Gravació de pantalla en una finestra flotant sobre l'escenari (estil tef), amb zooms a les xifres.
-export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = [], tag, hidden, tone = 'light'}) => {
+export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = [], tag, hidden, masks = [], notes = [], cutIn, tone = 'light'}) => {
   const frame = useCurrentFrame();
   const {fps, width, height, durationInFrames} = useVideoConfig();
-  const exit = blurInOut(frame, durationInFrames, 0);
+  const exit = blurInOut(frame, durationInFrames, cutIn ? -100 : 0);
   const w = Math.min(width * PANTALLA.maxW, height * PANTALLA.maxH * aspect);
   const h = w / aspect;
-  const pose = poseAt((frame * 1000) / fps, zooms);
+  const ms = (frame * 1000) / fps;
+  const pose = poseAt(ms, zooms);
   const T = PANTALLA.tag;
+  const N = PANTALLA.note;
+  // Rectangle de la gravació → píxels dins de la finestra, amb el zoom del moment.
+  const place = ([x, y, rw, rh]: ScreenRect) => ({
+    left: w * (0.5 - pose.x * pose.zoom) + x * w * pose.zoom,
+    top: h * (0.5 - pose.y * pose.zoom) + y * h * pose.zoom,
+    width: rw * w * pose.zoom,
+    height: rh * h * pose.zoom,
+  });
   return (
     <Stage tone={tone}>
       <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', opacity: exit.opacity, filter: exit.filter}}>
+        <div style={{width: w, height: h, position: 'relative', transform: `scale(${exit.scale})`}}>
         <div
           style={{
             width: w,
@@ -65,7 +85,6 @@ export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = 
             position: 'relative',
             background: '#000',
             // Sense zoom lent: una finestra de 15 s creixeria un 45 % i sortiria de quadre. El moviment el donen els zooms.
-            transform: `scale(${exit.scale})`,
           }}
         >
           <OffthreadVideo
@@ -80,6 +99,62 @@ export const ScreenWindow: React.FC<ScreenWindowProps> = ({src, aspect, zooms = 
               filter: hidden ? `blur(${PANTALLA.hiddenBlurPx}px)` : undefined,
             }}
           />
+          {masks.map((m, i) => (
+            <div
+              key={i}
+              style={{
+                position: 'absolute',
+                ...place(m),
+                borderRadius: 8,
+                backdropFilter: `blur(${PANTALLA.hiddenBlurPx}px)`,
+                WebkitBackdropFilter: `blur(${PANTALLA.hiddenBlurPx}px)`,
+                background: PANTALLA.maskVeil,
+              }}
+            />
+          ))}
+        </div>
+        {notes
+          .filter((n) => ms >= n.atMs && ms < (n.toMs ?? Infinity))
+          .map((n, i) => {
+            const r = place(n.box);
+            const p = interpolate(ms - n.atMs, [0, (N.inFrames * 1000) / fps], [0, 1], {...clamp, easing: Easing.out(Easing.cubic)});
+            const above = (n.place ?? (r.top > N.labelPx * 2.5 ? 'above' : 'below')) === 'above';
+            return (
+              <div key={i} style={{position: 'absolute', ...r, opacity: p}}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: -N.strokePx,
+                    border: `${N.strokePx}px solid ${N.stroke}`,
+                    borderRadius: N.radius,
+                    boxShadow: N.glow,
+                    transform: `scale(${1.08 - 0.08 * p})`,
+                  }}
+                />
+                {n.label ? (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      left: -N.strokePx,
+                      ...(above ? {bottom: `calc(100% + ${N.labelGap + N.strokePx}px)`} : {top: `calc(100% + ${N.labelGap + N.strokePx}px)`}),
+                      padding: `${N.labelPadY}px ${N.labelPadX}px`,
+                      borderRadius: 999,
+                      background: N.labelBg,
+                      color: N.labelInk,
+                      fontFamily: WORDS,
+                      fontWeight: 600,
+                      fontSize: N.labelPx,
+                      whiteSpace: 'nowrap',
+                      transform: `translateY(${(1 - p) * (above ? 12 : -12)}px)`,
+                      boxShadow: '0 8px 20px rgba(0,0,0,.35)',
+                    }}
+                  >
+                    {n.label}
+                  </div>
+                ) : null}
+              </div>
+            );
+          })}
         </div>
       </AbsoluteFill>
       {tag ? (

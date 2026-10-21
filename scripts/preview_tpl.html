@@ -1,0 +1,113 @@
+<title>Muntatge · Bot de trading</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Sala de muntatge: el vídeo a dalt, una tira de temps amb capítols i blocs de veu en off, i el text que toca dir a sota. */
+:root {
+  --bg: #F3F3F1; --panel: #FFFFFF; --line: #DEDDD8; --fg: #18191C; --muted: #5F6167;
+  --accent: #A9790F; --accent-soft: rgba(169,121,15,.14); --chap: #C9C7C0;
+  --ui: 'Barlow', 'Segoe UI', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #111214; --panel: #1A1C20; --line: #2A2D33; --fg: #ECEAE5; --muted: #9C9DA3;
+  --accent: #F2C14E; --accent-soft: rgba(242,193,78,.16); --chap: #3A3E46; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #111214; --panel: #1A1C20; --line: #2A2D33; --fg: #ECEAE5; --muted: #9C9DA3;
+  --accent: #F2C14E; --accent-soft: rgba(242,193,78,.16); --chap: #3A3E46; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); font-family: var(--ui); font-size: 16px; line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 24px 48px; display: grid; gap: 18px; }
+header { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+h1 { margin: 0; font-size: clamp(22px, 3vw, 30px); font-weight: 700; letter-spacing: -.01em; text-wrap: balance; }
+.meta { color: var(--muted); font-size: 14px; }
+.tc { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.player { background: #000; border-radius: 12px; overflow: hidden; aspect-ratio: 16 / 9; max-width: 100%; }
+video { width: 100%; height: 100%; display: block; background: #000; }
+.strip { position: relative; height: 34px; border-radius: 8px; background: var(--panel); border: 1px solid var(--line); cursor: pointer; overflow: hidden; }
+.strip .ch { position: absolute; top: 0; bottom: 0; border-left: 1px solid var(--chap); }
+.strip .vo { position: absolute; top: 6px; bottom: 6px; background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 4px; }
+.strip .head { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--fg); transform: translateX(-1px); pointer-events: none; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; color: var(--muted); font-size: 13px; }
+.legend i { display: inline-block; width: 14px; height: 10px; border-radius: 3px; vertical-align: middle; margin-right: 6px; }
+.cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 18px; align-items: start; }
+@media (max-width: 760px) { .cols { grid-template-columns: 1fr; } }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; min-width: 0; }
+.card h2 { margin: 0 0 10px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+ol.chapters { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+ol.chapters button { width: 100%; display: flex; gap: 12px; align-items: baseline; text-align: left; font: inherit; color: var(--fg);
+  background: none; border: 0; border-radius: 8px; padding: 7px 10px; cursor: pointer; }
+ol.chapters button:hover, ol.chapters button:focus-visible { background: var(--accent-soft); outline: none; }
+ol.chapters button[aria-current="true"] { background: var(--accent-soft); font-weight: 600; }
+ol.chapters .tc { color: var(--muted); min-width: 4.2ch; }
+.vo-now .state { font-weight: 600; font-size: 18px; margin: 0 0 4px; }
+.vo-now .when { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
+.vo-now blockquote { margin: 0; padding: 12px 14px; border-left: 3px solid var(--accent); background: var(--accent-soft); border-radius: 0 8px 8px 0;
+  font-size: 17px; line-height: 1.55; max-width: 65ch; }
+.vo-now.off blockquote { opacity: .7; }
+.note { color: var(--muted); font-size: 14px; max-width: 70ch; }
+.err { color: var(--fg); background: var(--accent-soft); border-radius: 8px; padding: 10px 12px; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+</style>
+<div class="wrap">
+  <header>
+    <h1>Construí un bot de trading con IA</h1>
+    <span class="meta">Muntatge complet · <span class="tc" id="dur"></span> · veu en off pendent de gravar</span>
+  </header>
+  <div class="player"><video id="v" controls playsinline preload="metadata"></video></div>
+  <div class="strip" id="strip" role="slider" aria-label="Línia de temps" tabindex="0" aria-valuemin="0"></div>
+  <div class="legend"><span><i style="background:var(--accent-soft);border:1px solid var(--accent)"></i>Veu en off (ara sona en silenci)</span><span><i style="background:var(--chap)"></i>Inici de capítol</span></div>
+  <p class="err" id="err" hidden></p>
+  <div class="cols">
+    <section class="card"><h2>Capítols</h2><ol class="chapters" id="chapters"></ol></section>
+    <section class="card vo-now" id="vonow"><h2>Veu en off</h2><p class="state" id="vostate"></p><p class="when tc" id="vowhen"></p><blockquote id="votext"></blockquote></section>
+  </div>
+  <p class="note">Les parts de veu en off encara no tenen so: hi ha les animacions muntades amb el ritme del guió. Quan enviïs les gravacions, hi poso la teva veu i quadro cada animació amb les teves paraules.</p>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hls.js/1.5.13/hls.min.js"></script>
+<script>
+const D = __DATA__;
+const v = document.getElementById('v');
+const fmt = (s) => { s = Math.max(0, s); const m = Math.floor(s / 60); return m + ':' + String(Math.floor(s - m * 60)).padStart(2, '0'); };
+document.getElementById('dur').textContent = fmt(D.total);
+// La llista de trossos es publica com a .txt (els artefactes no serveixen .m3u8); hls.js no mira l'extensió.
+const src = 'hls/playlist.txt';
+if (window.Hls && Hls.isSupported()) {
+  const hls = new Hls({maxBufferLength: 40});
+  hls.loadSource(src); hls.attachMedia(v);
+  hls.on(Hls.Events.ERROR, (_, e) => { if (e.fatal) { const el = document.getElementById('err'); el.hidden = false; el.textContent = 'El vídeo no ha carregat (' + e.details + '). Torna a obrir la pàgina; si continua, digues-m\'ho.'; } });
+} else if (v.canPlayType('application/vnd.apple.mpegurl')) { v.src = src; }
+const strip = document.getElementById('strip');
+const pct = (t) => (100 * t / D.total) + '%';
+for (const b of D.vo) { const el = document.createElement('div'); el.className = 'vo'; el.style.left = pct(b.a); el.style.width = pct(b.b - b.a); el.title = b.label; strip.append(el); }
+for (const c of D.chapters) { const el = document.createElement('div'); el.className = 'ch'; el.style.left = pct(c.t); strip.append(el); }
+const head = document.createElement('div'); head.className = 'head'; strip.append(head);
+strip.setAttribute('aria-valuemax', String(Math.round(D.total)));
+const seek = (t) => { v.currentTime = t; v.play().catch(() => {}); };
+strip.addEventListener('click', (e) => { const r = strip.getBoundingClientRect(); seek(D.total * (e.clientX - r.left) / r.width); });
+strip.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') v.currentTime += 5; if (e.key === 'ArrowLeft') v.currentTime -= 5; });
+const list = document.getElementById('chapters');
+const btns = D.chapters.map((c) => { const li = document.createElement('li'); const b = document.createElement('button'); b.type = 'button';
+  b.innerHTML = '<span class="tc"></span><span></span>'; b.firstChild.textContent = fmt(c.t); b.lastChild.textContent = c.name;
+  b.addEventListener('click', () => seek(c.t)); li.append(b); list.append(li); return b; });
+const vo = { box: document.getElementById('vonow'), st: document.getElementById('vostate'), when: document.getElementById('vowhen'), tx: document.getElementById('votext') };
+let lastKey = '';
+function update() {
+  const t = v.currentTime || 0;
+  head.style.left = pct(t); strip.setAttribute('aria-valuenow', String(Math.round(t)));
+  let ci = 0; D.chapters.forEach((c, i) => { if (t >= c.t) ci = i; });
+  btns.forEach((b, i) => b.setAttribute('aria-current', String(i === ci)));
+  const cur = D.vo.find((b) => t >= b.a && t < b.b);
+  const next = D.vo.find((b) => b.a > t);
+  const b = cur || next || D.vo[D.vo.length - 1];
+  const key = (cur ? 'c' : 'n') + b.label;
+  if (key !== lastKey) {
+    lastKey = key;
+    vo.box.classList.toggle('off', !cur);
+    vo.st.textContent = (cur ? 'Ara: ' : 'Següent: ') + b.label;
+    vo.when.textContent = fmt(b.a) + '–' + fmt(b.b) + ' · ' + Math.round(b.b - b.a) + ' s';
+    vo.tx.textContent = b.text;
+  }
+}
+v.addEventListener('timeupdate', update); v.addEventListener('seeked', update); update();
+</script>

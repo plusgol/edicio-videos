@@ -281,6 +281,10 @@ export const PANTALLA = {
   zoomMoveMs: 550,
   // Contingut tapat (resultats que encara no s'ensenyen): desenfocament fort, que no es pugui llegir cap xifra.
   hiddenBlurPx: 14,
+  // Notes sobre la gravació: requadre que marca una zona i un rètol que diu què és.
+  note: {stroke: '#F2C14E', strokePx: 5, radius: 14, glow: '0 0 0 6px rgba(242,193,78,.18)', labelBg: '#F2C14E', labelInk: '#151515', labelPx: 38, labelPadY: 10, labelPadX: 20, labelGap: 12, inFrames: 8},
+  // Màscara sobre una xifra que no s'ha d'ensenyar (resultats): desenfocament i una vela fosca.
+  maskVeil: 'rgba(16,16,20,.45)',
   // Etiqueta d'honestedat («Dinero ficticio», «paper trading»…) a baix a l'esquerra.
   tag: {bg: '#151515', ink: '#FFFFFF', dot: '#E5383B', fontPx: 34, padY: 12, padX: 22, radius: 999, bottom: 46, left: 70},
   // Clips extrets de l'original: amplada màxima i qualitat (CRF x264) per al render.

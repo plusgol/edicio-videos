@@ -320,13 +320,17 @@ def screen_clip(o, props):
     x, y, w, h = edl["screenCrops"][c.get("crop", scr.get("crop", "full"))]
     speed = c.get("speed", 1.0)
     out_ms = o["durationMs"] + 1500  # marge: a l'editor el recurs es pot allargar una mica
-    name = f"{c['screen']}_{c['fromMs']}_{out_ms}_{speed:g}_{c.get('crop', scr.get('crop', 'full'))}.mp4"
+    name = f"{c['screen']}_{c['fromMs']}_{out_ms}_{speed:g}_{c.get('crop', scr.get('crop', 'full'))}{'_still' if c.get('still') else ''}.mp4"
     dst = proj / "assets" / "pantalla" / name
     if not dst.exists():
         dst.parent.mkdir(parents=True, exist_ok=True)
         vf = (f"crop={w}:{h}:{x}:{y},setpts=PTS/{speed},fps={FPS},"
               f"scale='min({pantalla_token('clipMaxW'):g},iw)':-2:flags=lanczos")
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{c['fromMs'] / 1000:.3f}", "-t", f"{out_ms * speed / 1000:.3f}",
+        if c.get("still"):
+            # Fotograma aturat (un text llarg que s'ha de poder llegir): el primer fotograma, allargat tota la durada.
+            vf += f",tpad=stop_mode=clone:stop_duration={out_ms / 1000:.3f}"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{c['fromMs'] / 1000:.3f}",
+                        "-t", f"{(1 / FPS if c.get('still') else out_ms * speed / 1000):.3f}",
                         "-i", str(proj / scr["video"]), "-vf", vf, "-an", "-c:v", "libx264", "-preset", "medium",
                         "-crf", f"{pantalla_token('clipCrf'):g}", "-pix_fmt", "yuv420p", "-movflags", "+faststart", str(dst)], check=True)
     rest = {k: v for k, v in props.items() if k != "clip"}

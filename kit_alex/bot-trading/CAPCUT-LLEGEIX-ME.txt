@@ -1,0 +1,58 @@
+BOT DE TRADING · PROJECTE DE CAPCUT
+=====================================
+
+Són 4 fitxers .zip (cap passa de 400 MB). Junts fan el projecte sencer:
+
+  1. capcut-bot-trading-1-projecte.zip   la carpeta «Bot de trading» (el projecte, els gràfics i els sons)
+  2. capcut-bot-trading-2-preses.zip     la carpeta «preses1» (les preses 1, 3 i 4 de la càmera)
+  3. capcut-bot-trading-3-preses.zip     la carpeta «preses2» (la presa 2 de la càmera)
+  4. capcut-bot-trading-4-textos.zip     la carpeta «textos» (els 17 textos animats)
+
+
+COM POSAR-HO A CAPCUT (5 minuts)
+--------------------------------
+
+1. Tanca CapCut del tot.
+
+2. Descomprimeix els 4 zips. Tindràs 4 carpetes: «Bot de trading», «preses1», «preses2» i «textos».
+
+3. Arrossega «preses1», «preses2» i «textos» A DINS de la carpeta «Bot de trading».
+   (Dins de «Bot de trading» hi ha d'haver: preses1, preses2, grafics, textos, sons, negre.mp4 i els fitxers draft_...)
+
+4. Copia la carpeta «Bot de trading» a la carpeta de projectes de CapCut:
+
+   Mac:      Finder > Anar > Anar a la carpeta… i enganxa:
+             ~/Movies/CapCut/User Data/Projects/com.lveditor.draft/
+
+   Windows:  a la barra de l'Explorador enganxa:
+             %LOCALAPPDATA%\CapCut\User Data\Projects\com.lveditor.draft\
+
+   (Si l'has canviat de lloc: CapCut > Configuració > Projectes > Ubicació dels esborranys.)
+
+5. Obre CapCut. «Bot de trading» surt a la llista de projectes. Obre'l.
+
+   Si en obrir-lo algun clip surt en vermell («Media not found» / «Vincula el material»):
+   prem «Vincula» (Link media), tria la carpeta «Bot de trading» i CapCut els troba tots alhora.
+
+
+QUÈ HI TROBARÀS
+---------------
+
+  Pista principal   El muntatge: cada tall és un clip de la teva presa original sencera,
+                    ja graduada de color i amb la veu igualada. Allarga o escurça qualsevol tall
+                    arrossegant-ne la vora: la presa hi és sencera, també el que vaig treure.
+                    Els trossos negres són la veu en off (encara provisional) i els buits dels títols.
+                    Els 8 zooms suaus d'èmfasi del vídeo final no hi són (a CapCut els fas amb fotogrames clau).
+
+  Capa 1            Tots els gràfics a pantalla completa (gravacions de pantalla, escenes, títols),
+                    tal com surten al vídeo final, amb la càmera de la cantonada inclosa.
+                    Per treure'n un: selecciona'l i prem Supr. Per moure'l: arrossega'l.
+
+  Capa 2            Els 17 textos animats de la part de baix (amb transparència).
+
+  Àudio             Els 107 efectes de so, cadascun en el seu lloc i al seu volum.
+                    Silencia'ls, puja'ls o esborra'ls com vulguis.
+
+Exporta a 1080p, 30 fps. CapCut et proposa HEVC: si el vols per a YouTube, H.264 és el més compatible.
+
+Si hi ha res que no s'obre bé, digues-m'ho amb una captura i ho arreglo.

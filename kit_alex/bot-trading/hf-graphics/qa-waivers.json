@@ -1,0 +1,155 @@
+{
+ "pip-r-home": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-modelos": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-prompt2": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-claudecode": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-ficticio": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-hipotesis": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own",
+  "holes": "chat-only lane: assemble.py composites rows in plan order (the cam after its recording), there is no overwriteClip; r-hipotesis sits on V4 only because ta-60's tail runs under it, and the corner cam is composited on top of it on every frame (checked on the render)"
+ },
+ "pip-r-preguntas": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-fs-fondeo1": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-ibero": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-fs-fondeo2": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-calc5k": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-calc50k": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-ce-backtest": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-hazlo": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-iniciar": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-panel-crea": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "pip-r-resultado": {
+  "band": "the preset's corner cam (README § Recording sections): a 300 px square at x1590 y750 on the 1080 frame, so its box ends at y1050 / x1890 by spec; it is footage, not type, and the low band rule is for type",
+  "exit": "the corner cam is footage riding its recording cell: it hard-cuts with that cell's own cut (the cut is the exit), it never fades on its own"
+ },
+ "r-hipotesis": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-preguntas": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-resultado": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-iniciar": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-modelos": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-prompt2": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-ficticio": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-hazlo": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-ibero": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-calc5k": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-calc50k": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-claudecode": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-panel-crea": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "r-home": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "ce-backtest": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "fs-fondeo2": {
+  "centre": "this recording/scene carries the corner cam: the composed box yields the cam's column (x1590-1890 plus its shadow and a margin), so it centres on the free width left of the cam, not on the frame"
+ },
+ "t-i": {
+  "source": "a section title card built and rendered by the kit's own titles/ builder (presets/youtube/default/titles): 3 s opaque card, no float, its own animation; the copy in gfx/compositions exists only so sfx-plan.py resolves the card for its Genius Intro Sound",
+  "font": "rendered from hf-graphics/titles/ (titles/render.sh), where assets/fonts/Inter-Bold.otf exists; the gfx/compositions copy is never rendered"
+ },
+ "t-ii": {
+  "source": "a section title card built and rendered by the kit's own titles/ builder (presets/youtube/default/titles): 3 s opaque card, no float, its own animation; the copy in gfx/compositions exists only so sfx-plan.py resolves the card for its Genius Intro Sound",
+  "font": "rendered from hf-graphics/titles/ (titles/render.sh), where assets/fonts/Inter-Bold.otf exists; the gfx/compositions copy is never rendered"
+ },
+ "t-iii": {
+  "source": "a section title card built and rendered by the kit's own titles/ builder (presets/youtube/default/titles): 3 s opaque card, no float, its own animation; the copy in gfx/compositions exists only so sfx-plan.py resolves the card for its Genius Intro Sound",
+  "font": "rendered from hf-graphics/titles/ (titles/render.sh), where assets/fonts/Inter-Bold.otf exists; the gfx/compositions copy is never rendered"
+ },
+ "t-iv": {
+  "source": "a section title card built and rendered by the kit's own titles/ builder (presets/youtube/default/titles): 3 s opaque card, no float, its own animation; the copy in gfx/compositions exists only so sfx-plan.py resolves the card for its Genius Intro Sound",
+  "font": "rendered from hf-graphics/titles/ (titles/render.sh), where assets/fonts/Inter-Bold.otf exists; the gfx/compositions copy is never rendered"
+ },
+ "t-v": {
+  "source": "a section title card built and rendered by the kit's own titles/ builder (presets/youtube/default/titles): 3 s opaque card, no float, its own animation; the copy in gfx/compositions exists only so sfx-plan.py resolves the card for its Genius Intro Sound",
+  "font": "rendered from hf-graphics/titles/ (titles/render.sh), where assets/fonts/Inter-Bold.otf exists; the gfx/compositions copy is never rendered"
+ },
+ "t-vi": {
+  "source": "a section title card built and rendered by the kit's own titles/ builder (presets/youtube/default/titles): 3 s opaque card, no float, its own animation; the copy in gfx/compositions exists only so sfx-plan.py resolves the card for its Genius Intro Sound",
+  "font": "rendered from hf-graphics/titles/ (titles/render.sh), where assets/fonts/Inter-Bold.otf exists; the gfx/compositions copy is never rendered"
+ },
+ "b-gente1": {
+  "source": "a footage cutaway (stock clip, full frame, creative-moves move 8): its motion is the camera() 1.04 push over the clip; a float on footage reads as a wobble of the shot, not a graphic"
+ },
+ "b-gente2": {
+  "source": "a footage cutaway (stock clip, full frame, creative-moves move 8): its motion is the camera() 1.04 push over the clip; a float on footage reads as a wobble of the shot, not a graphic"
+ },
+ "b-rug": {
+  "source": "a footage cutaway (stock clip, full frame, creative-moves move 8): its motion is the camera() 1.04 push over the clip; a float on footage reads as a wobble of the shot, not a graphic"
+ },
+ "b-sleep": {
+  "source": "a footage cutaway (stock clip, full frame, creative-moves move 8): its motion is the camera() 1.04 push over the clip; a float on footage reads as a wobble of the shot, not a graphic"
+ }
+}

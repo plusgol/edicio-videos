@@ -1,0 +1,10 @@
+{
+ "graphics": {
+  "b-sleep": {
+   "off": true
+  },
+  "r-intro-bot": {
+   "off": true
+  }
+ }
+}

@@ -1,0 +1,770 @@
+{
+ "segments": [
+  {
+   "clip": "vo-provisional.mov",
+   "start": 0.0,
+   "end": 34.7,
+   "transcript": "",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "vo-intro"
+  },
+  {
+   "clip": "pausa-titulos.mov",
+   "start": 0.0,
+   "end": 3.0,
+   "transcript": "",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "titulo-I"
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 2.9,
+   "end": 9.866666666666667,
+   "transcript": "Vale, el primer paso es muy f\u00e1cil, entrar a Cloth. Aqu\u00ed tenemos diferentes planes de precios, el gratis, el de 20, el de 100, yo voy a utilizar el de 20.",
+   "_range": "p1",
+   "_refine": {
+    "orig_start": 2.987,
+    "orig_end": 9.849
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 10.2,
+   "end": 14.333333333333334,
+   "transcript": "A partir de aqu\u00ed tenemos dos modelos, el Sonet, que es el barato, y el Opus.",
+   "_range": "p2",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 14.533333333333333,
+   "end": 18.233333333333334,
+   "transcript": "Ahora mismo vamos a entrar primero al chat normal y le vamos a dar un poco de contexto.",
+   "_range": "p3",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 18.933333333333334,
+   "end": 24.866666666666667,
+   "transcript": "Voy a poner aqu\u00ed, en vez de Opus 5.5, que pod\u00e9is ver, para trabajos complejos, para hacer un poco de b\u00fasqueda no hace falta.",
+   "_range": "p4",
+   "no_refine": true
+  },
+  {
+   "clip": "vo-provisional.mov",
+   "start": 36.0,
+   "end": 44.0,
+   "transcript": "Fijaos: no le pido el bot directamente. Le pido a Claude que me escriba el prompt perfecto para ped\u00edrselo.",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "vo-P"
+  },
+  {
+   "clip": "vo-provisional.mov",
+   "start": 46.0,
+   "end": 60.0,
+   "transcript": "Y antes de nada, Claude me avisa: ning\u00fan prompt te garantiza ganar dinero, y la mayor\u00eda de bots de particulares pierden. Su plan tiene cinco pasos: una hip\u00f3tesis simple, datos hist\u00f3ricos, backtesting, control del riesgo y, como m\u00ednimo, dos o tres meses con dinero ficticio.",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "vo-A"
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 85.8,
+   "end": 92.36666666666666,
+   "transcript": "Bueno, aqu\u00ed lo tenemos, \u00bfno? Act\u00faa como ingeniero cuantitativo senior. Yo no tengo ni idea, entonces lo voy a copiar.",
+   "_range": "p7",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 92.7,
+   "end": 97.56666666666666,
+   "transcript": "Y aqu\u00ed, si os fij\u00e1is, tenemos la opci\u00f3n de Load Code.",
+   "_range": "p8",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 99.73333333333333,
+   "end": 101.4,
+   "transcript": "y vamos a utilizar en este caso",
+   "_range": "p8c",
+   "_refine": {
+    "orig_start": 99.75,
+    "orig_end": 105.02
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 102.06666666666666,
+   "end": 105.03333333333333,
+   "transcript": "el modo Opus 5.5 en",
+   "_range": "p8c",
+   "pin_out": true,
+   "_refine": {
+    "orig_start": 99.75,
+    "orig_end": 105.02
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 107.73333333333333,
+   "end": 108.53333333333333,
+   "transcript": "esfuerzo",
+   "_range": "p8b",
+   "pin_in": true,
+   "_refine": {
+    "orig_start": 107.74,
+    "orig_end": 109.815
+   },
+   "no_refine": true,
+   "pin_out": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 109.13333333333334,
+   "end": 110.03333333333333,
+   "transcript": "Le pegamos.",
+   "_range": "p8b",
+   "pin_in": true,
+   "_refine": {
+    "orig_start": 107.74,
+    "orig_end": 109.815
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 110.43333333333334,
+   "end": 114.53333333333333,
+   "transcript": "Y a partir de aqu\u00ed le tenemos que decir, sobre todo, que v\u00ednculalo",
+   "_range": "p9",
+   "_refine": {
+    "orig_start": 110.484,
+    "orig_end": 127.773
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 115.66666666666667,
+   "end": 116.53333333333333,
+   "transcript": "con alguna plataforma",
+   "_range": "p9",
+   "_refine": {
+    "orig_start": 110.484,
+    "orig_end": 127.773
+   },
+   "no_refine": true,
+   "pin_out": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 118.43333333333334,
+   "end": 119.86666666666666,
+   "transcript": "para poder operar",
+   "_range": "p9",
+   "_refine": {
+    "orig_start": 110.484,
+    "orig_end": 127.773
+   },
+   "no_refine": true,
+   "pin_in": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 121.33333333333333,
+   "end": 122.63333333333334,
+   "transcript": "de forma real,",
+   "_range": "p9",
+   "_refine": {
+    "orig_start": 110.484,
+    "orig_end": 127.773
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 123.56666666666666,
+   "end": 125.76666666666667,
+   "transcript": "pero sin dinero.",
+   "_range": "p9",
+   "_refine": {
+    "orig_start": 110.484,
+    "orig_end": 127.773
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 126.56666666666666,
+   "end": 127.86666666666666,
+   "transcript": "Por tanto, ficticio.",
+   "_range": "p9",
+   "_refine": {
+    "orig_start": 110.484,
+    "orig_end": 127.773
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-prompt.mov",
+   "start": 141.86666666666667,
+   "end": 151.56666666666666,
+   "transcript": "Vale, ahora mismo tenemos literalmente el 60% de las tareas hechas. Hemos hecho el prompt y aqu\u00ed b\u00e1sicamente va a ir creando hip\u00f3tesis.",
+   "_range": "p11",
+   "beat": true,
+   "_refine": {
+    "orig_start": 141.885,
+    "orig_end": 151.296
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "vo-provisional.mov",
+   "start": 62.0,
+   "end": 104.0,
+   "transcript": "Me propone tres estrategias. La primera: seguir la tendencia con dos medias, una r\u00e1pida y una lenta. Cuando la r\u00e1pida cruza por encima de la lenta, el precio est\u00e1 cogiendo fuerza: compra. Cuando cruza por debajo: vende. La segunda: reversi\u00f3n a la media. Si un activo cae mucho en pocos d\u00edas, apuesta a que vuelva a su precio normal. La tercera: momentum. Cada mes mira qu\u00e9 ha subido m\u00e1s entre Bitcoin, Ethereum y el SPY, y pone el dinero ah\u00ed. Y para practicar sin arriesgar, dos plataformas con dinero ficticio: Alpaca Paper para las acciones y Bybit Demo para las cripto.",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "vo-B"
+  },
+  {
+   "clip": "pausa-titulos.mov",
+   "start": 3.0,
+   "end": 6.0,
+   "transcript": "",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "titulo-II"
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 0.5,
+   "end": 6.8,
+   "transcript": "Os voy a dar un truco para saber si realmente el prompt es bueno. Si os fij\u00e1is, he enviado este prompt y aqu\u00ed",
+   "_range": "t1",
+   "_refine": {
+    "orig_start": 0.523,
+    "orig_end": 14.828
+   },
+   "no_refine": true,
+   "pin_out": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 7.4,
+   "end": 14.966666666666667,
+   "transcript": "nos hace unas preguntas antes de la fase 2. \u00bfPor qu\u00e9? Porque as\u00ed gastan menos cr\u00e9ditos, menos tokens, \u00bfno? En vez de hacer dos aplicaciones,",
+   "_range": "t1",
+   "_refine": {
+    "orig_start": 0.523,
+    "orig_end": 14.828
+   },
+   "no_refine": true,
+   "pin_in": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 23.3,
+   "end": 27.733333333333334,
+   "transcript": "entonces con estas preguntas las respondemos y as\u00ed crear\u00e1 un prototipo much\u00edsimo mejor.",
+   "_range": "t2",
+   "_refine": {
+    "orig_start": 23.4,
+    "orig_end": 27.249
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 215.13333333333333,
+   "end": 225.06666666666666,
+   "transcript": "\u00bfQu\u00e9 pasa si tenemos la cuenta de cloud de 20 d\u00f3lares? Aqu\u00ed tenemos un contra, \u00bfno? Y es que si os fij\u00e1is aqu\u00ed, tenemos un l\u00edmite de sesi\u00f3n. Es decir, cada 5 horas...",
+   "_range": "l1",
+   "no_refine": true,
+   "pin_out": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 225.7,
+   "end": 233.46666666666667,
+   "transcript": "Si gastas el 100%, no vas a poder hacer nada hasta que pase ese tiempo. Y hay evidentemente un gasto semanal",
+   "_range": "l1",
+   "no_refine": true,
+   "pin_in": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 236.46666666666667,
+   "end": 242.83333333333334,
+   "transcript": "Como pod\u00e9is ver, llevamos un 2% y le hemos pasado ya todo el PROM y est\u00e1 haciendo una an\u00e1lisis.",
+   "_range": "l1b",
+   "_refine": {
+    "orig_start": 236.45,
+    "orig_end": 242.722
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 243.23333333333332,
+   "end": 250.93333333333334,
+   "transcript": "Entonces, vamos a ver si realmente con Opus 5.5 en esfuerzo medio nos da para crear este bot\u00f3n.",
+   "_range": "l2",
+   "beat": true,
+   "_refine": {
+    "orig_start": 243.303,
+    "orig_end": 250.729
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "vo-provisional.mov",
+   "start": 106.0,
+   "end": 121.0,
+   "transcript": "Luego Claude Code se pone a trabajar solo: descarga los datos de Bybit y de Alpaca, los limpia, monta el backtesting y lo conecta todo a las cuentas de dinero ficticio. Y al final, un panel para verlo.",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "vo-D"
+  },
+  {
+   "clip": "vo-provisional.mov",
+   "start": 123.0,
+   "end": 135.0,
+   "transcript": "Y con los datos encontr\u00f3 cosas que yo no habr\u00eda visto: por ejemplo, mantener una posici\u00f3n larga en Bitcoin ha costado, de media, un 12,7 % al a\u00f1o solo en comisiones de financiaci\u00f3n.",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "vo-C"
+  },
+  {
+   "clip": "pausa-titulos.mov",
+   "start": 6.0,
+   "end": 9.0,
+   "transcript": "",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "titulo-III"
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 30.1,
+   "end": 32.46666666666667,
+   "transcript": "Vale, \u00bfcu\u00e1l ser\u00eda la utilidad real de esto?",
+   "_range": "f1",
+   "pin_out": true,
+   "_refine": {
+    "orig_start": 30.136,
+    "orig_end": 32.45
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 51.2,
+   "end": 54.36666666666667,
+   "transcript": "Para empezar, \u00bfqu\u00e9 es una cuenta de fondeo? B\u00e1sicamente, una empresa,",
+   "_range": "f3",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 59.63333333333333,
+   "end": 60.333333333333336,
+   "transcript": "t\u00fa pagas",
+   "_range": "f3b",
+   "_refine": {
+    "orig_start": 59.6,
+    "orig_end": 65.135
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 61.0,
+   "end": 65.16666666666667,
+   "transcript": "28 d\u00f3lares y tienes una cuenta de 5.000 d\u00f3lares para operar.",
+   "_range": "f3b",
+   "_refine": {
+    "orig_start": 59.6,
+    "orig_end": 65.135
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 40.333333333333336,
+   "end": 42.4,
+   "transcript": "En este caso, yo la que m\u00e1s recomiendo...",
+   "_range": "f1b",
+   "_refine": {
+    "orig_start": 40.4,
+    "orig_end": 50.683
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 43.36666666666667,
+   "end": 50.766666666666666,
+   "transcript": "siempre ser\u00e1 Iberofounding porque es la \u00fanica firma espa\u00f1ola que realmente da cuentas de fondeo.",
+   "_range": "f1b",
+   "_refine": {
+    "orig_start": 40.4,
+    "orig_end": 50.683
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 65.83333333333333,
+   "end": 66.76666666666667,
+   "transcript": "\u00bfC\u00f3mo puede ser?",
+   "_range": "f4",
+   "_refine": {
+    "orig_start": 66.203,
+    "orig_end": 66.8
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 67.63333333333334,
+   "end": 72.6,
+   "transcript": "B\u00e1sicamente porque aqu\u00ed tienes unas obligaciones, por as\u00ed decirlo.",
+   "_range": "f4b",
+   "_refine": {
+    "orig_start": 67.664,
+    "orig_end": 72.505
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 76.66666666666667,
+   "end": 80.76666666666667,
+   "transcript": "para superar la fase necesitas un 8% de estos 5.000.",
+   "_range": "f5",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 81.93333333333334,
+   "end": 85.2,
+   "transcript": "Si pierdes un 6%, Has perdido el reto",
+   "_range": "f5",
+   "pin_out": true,
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 86.33333333333333,
+   "end": 87.46666666666667,
+   "transcript": "has perdido 28 d\u00f3lares.",
+   "_range": "f5b",
+   "pin_in": true,
+   "no_refine": true
+  },
+  {
+   "clip": "vo-provisional.mov",
+   "start": 137.0,
+   "end": 143.0,
+   "transcript": "Y si pasas el reto, te quedas el 75 % de lo que ganes.",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "vo-G"
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 88.16666666666667,
+   "end": 89.2,
+   "transcript": "Esto es lo m\u00e1s complicado.",
+   "_range": "f6a",
+   "_refine": {
+    "orig_start": 88.185,
+    "orig_end": 89.1
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 98.66666666666667,
+   "end": 112.13333333333334,
+   "transcript": "Es decir, pues hacer un 8% con 5.000 d\u00f3lares no es hacer una operaci\u00f3n y ya. Tienes que hacer varias y sobre todo al final el trading se trata mucho a nivel mental. Porque t\u00fa puedes tener una estrategia muy clara, pero por los nervios o por la presi\u00f3n o por",
+   "_range": "f6",
+   "pin_in": true,
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 112.7,
+   "end": 116.1,
+   "transcript": "impulsos, acabes operando de una forma que no es la correcta.",
+   "_range": "f6",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 167.0,
+   "end": 168.3,
+   "transcript": "Vamos a poner un ejemplo, \u00bfno?",
+   "_range": "b3",
+   "pin_out": true,
+   "_refine": {
+    "orig_start": 167.023,
+    "orig_end": 168.3
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 169.1,
+   "end": 182.8,
+   "transcript": "una cuenta de 5.000 d\u00f3lares, que equivale a 28 d\u00f3lares pagando en Iberofound, si tenemos una rentabilidad mensual del 5%, que s\u00ed que es bastante, est\u00e1s llegando a casi 200 d\u00f3lares al mes, unos 2.200.",
+   "_range": "b3b",
+   "pin_in": true,
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 183.4,
+   "end": 189.96666666666667,
+   "transcript": "Aqu\u00ed, como pod\u00e9is ver, evidentemente, si tenemos una cuenta de 50.000 y hacemos un 5%, ganamos casi 2.000 d\u00f3lares.",
+   "_range": "b4",
+   "beat": true,
+   "_refine": {
+    "orig_start": 183.506,
+    "orig_end": 189.598
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "pausa-titulos.mov",
+   "start": 9.0,
+   "end": 12.0,
+   "transcript": "",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "titulo-IV"
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 119.66666666666667,
+   "end": 129.83333333333334,
+   "transcript": "A partir de aqu\u00ed, lo que tenemos que mirar es realmente si podemos llegar a ser rentables. Por esto creamos este bot de trading, para probar diferentes estrategias y hacer un poco lo que es el backtesting.",
+   "_range": "b1",
+   "_refine": {
+    "orig_start": 119.713,
+    "orig_end": 129.8
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 145.43333333333334,
+   "end": 154.36666666666667,
+   "transcript": "El backtesting b\u00e1sicamente sirve para comprobar estrategias. Coge un momento del mercado anterior y t\u00fa, sin saber lo que va a pasar a futuro, pruebas la estrategia.",
+   "_range": "b2a",
+   "_refine": {
+    "orig_start": 145.48,
+    "orig_end": 154.349
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-truco.mov",
+   "start": 156.4,
+   "end": 161.6,
+   "transcript": "as\u00ed puedes llegar a ver si realmente tu estrategia hubiera sido rentable en el pasado",
+   "_range": "b2b",
+   "pin_out": true,
+   "beat": true,
+   "_refine": {
+    "orig_start": 156.55,
+    "orig_end": 161.59
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "pausa-titulos.mov",
+   "start": 12.0,
+   "end": 15.0,
+   "transcript": "",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "titulo-V"
+  },
+  {
+   "clip": "cam-24h.mov",
+   "start": 10.966666666666667,
+   "end": 17.066666666666666,
+   "transcript": "Vale, han pasado ya 24 horas, al final la vida del universitario es muy dura, pero ahora s\u00ed ya tenemos todo preparado.",
+   "_range": "d1",
+   "_refine": {
+    "orig_start": 10.998,
+    "orig_end": 17.5
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-24h.mov",
+   "start": 17.066666666666666,
+   "end": 23.6,
+   "transcript": "Como pod\u00e9is ver, me ha dicho que si ten\u00eda que vincular algo, le he dicho que no, que no quer\u00eda hacer nada, que lo har\u00eda todo \u00e9l.",
+   "_range": "d2",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-24h.mov",
+   "start": 23.833333333333332,
+   "end": 26.866666666666667,
+   "transcript": "Y ahora mismo tenemos, como pod\u00e9is ver, en archivos,",
+   "_range": "d3",
+   "_refine": {
+    "orig_start": 23.845,
+    "orig_end": 28.988
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-24h.mov",
+   "start": 28.033333333333335,
+   "end": 29.1,
+   "transcript": "iniciar bot.",
+   "_range": "d3",
+   "_refine": {
+    "orig_start": 23.845,
+    "orig_end": 28.988
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-24h.mov",
+   "start": 31.2,
+   "end": 33.03333333333333,
+   "transcript": "seguramente me estar\u00e1n a punto de hackear,",
+   "_range": "d3b",
+   "_refine": {
+    "orig_start": 31.25,
+    "orig_end": 32.976
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-24h.mov",
+   "start": 38.833333333333336,
+   "end": 42.7,
+   "transcript": "Entonces vamos a ver si realmente funciona este bot que hemos creado.",
+   "_range": "d4",
+   "_refine": {
+    "orig_start": 39.25,
+    "orig_end": 48.033
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-24h.mov",
+   "start": 43.233333333333334,
+   "end": 48.2,
+   "transcript": "Literalmente me ha gastado un 5% semanal crear el bot,",
+   "_range": "d4",
+   "_refine": {
+    "orig_start": 39.25,
+    "orig_end": 48.033
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-24h.mov",
+   "start": 56.1,
+   "end": 64.4,
+   "transcript": "Vale, como pod\u00e9is ver, tambi\u00e9n puede haber problemas. \u00bfQu\u00e9 hab\u00eda pasado? Que me hab\u00eda creado el bot, pero que no se ve\u00eda. Entonces ahora me est\u00e1 creando un servidor local con p\u00e1ginas.",
+   "_range": "d5",
+   "beat": true,
+   "_refine": {
+    "orig_start": 56.214,
+    "orig_end": 64.037
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "pausa-titulos.mov",
+   "start": 15.0,
+   "end": 18.0,
+   "transcript": "",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "titulo-VI"
+  },
+  {
+   "clip": "vo-provisional.mov",
+   "start": 145.0,
+   "end": 183.0,
+   "transcript": "Este es el panel que me ha montado: el bot en marcha, el riesgo bajo control, y todo con precios reales pero dinero ficticio. Opera en cuatro mercados: el oro, el SPY, Bitcoin y Ethereum. Usa la estrategia de las dos medias que os he explicado, y cada operaci\u00f3n lleva su stop-loss: si el precio llega ah\u00ed, se cierra perdiendo solo un 0,5 % de la cuenta. Adem\u00e1s, tiene un l\u00edmite de p\u00e9rdida diaria del 3 % y un kill switch: si cae un 8 % desde el m\u00e1ximo, se apaga solo. Y cada vez que se cierra una vela, calcula la se\u00f1al y lo apunta todo en este registro.",
+   "no_refine": true,
+   "keep_pauses": true,
+   "_range": "vo-F"
+  },
+  {
+   "clip": "cam-calle.mov",
+   "start": 0.06666666666666667,
+   "end": 3.3,
+   "transcript": "Bueno, me estoy yendo a la uni, entonces no he podido grabar la reacci\u00f3n.",
+   "_range": "e1",
+   "pin_out": true,
+   "_refine": {
+    "orig_start": 0.111,
+    "orig_end": 3.3
+   },
+   "no_refine": true
+  },
+  {
+   "clip": "cam-calle.mov",
+   "start": 43.833333333333336,
+   "end": 46.5,
+   "transcript": "pero que ahora mismo est\u00e9 en positivo, con 50 d\u00f3lares.",
+   "_range": "e2",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-calle.mov",
+   "start": 17.033333333333335,
+   "end": 19.433333333333334,
+   "transcript": "que, co\u00f1o, que funciona, que de verdad funciona.",
+   "_range": "h2",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-calle.mov",
+   "start": 22.866666666666667,
+   "end": 24.066666666666666,
+   "transcript": "Al final es un test.",
+   "_range": "e3",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-calle.mov",
+   "start": 24.966666666666665,
+   "end": 34.333333333333336,
+   "transcript": "Pero s\u00ed que es verdad que es una herramienta que te va a servir mucho, \u00bfno? A la larga para sobre todo practicar. Y si vas a ir modificando, puedes ver las estrategias, puedes hacer",
+   "_range": "e3",
+   "no_refine": true
+  },
+  {
+   "clip": "cam-calle.mov",
+   "start": 35.166666666666664,
+   "end": 41.1,
+   "transcript": "Pero bueno, yo muy sorprendido. Y a ver, realmente, si quer\u00e9is una parte 2, a ver cu\u00e1nto dinero puede llegar a ganar.",
+   "_range": "e4",
+   "beat": true,
+   "no_refine": true
+  }
+ ]
+}

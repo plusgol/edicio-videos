@@ -1,0 +1,365 @@
+[
+ {
+  "gid": "t-i",
+  "event": "title-card",
+  "at": 0.0,
+  "note": "section boundary: the Genius Intro Sound is the card whoosh (README § Title card)",
+  "drop": [
+   "cut-in"
+  ]
+ },
+ {
+  "gid": "pip-r-home",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-modelos",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-prompt2",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-claudecode",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-ficticio",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-hipotesis",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "t-ii",
+  "event": "title-card",
+  "at": 0.0,
+  "note": "section boundary: the Genius Intro Sound is the card whoosh (README § Title card)",
+  "drop": [
+   "cut-in"
+  ]
+ },
+ {
+  "gid": "pip-r-preguntas",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "t-iii",
+  "event": "title-card",
+  "at": 0.0,
+  "note": "section boundary: the Genius Intro Sound is the card whoosh (README § Title card)",
+  "drop": [
+   "cut-in"
+  ]
+ },
+ {
+  "gid": "pip-fs-fondeo1",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-ibero",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-fs-fondeo2",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-calc5k",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-calc50k",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "t-iv",
+  "event": "title-card",
+  "at": 0.0,
+  "note": "section boundary: the Genius Intro Sound is the card whoosh (README § Title card)",
+  "drop": [
+   "cut-in"
+  ]
+ },
+ {
+  "gid": "pip-ce-backtest",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "t-v",
+  "event": "title-card",
+  "at": 0.0,
+  "note": "section boundary: the Genius Intro Sound is the card whoosh (README § Title card)",
+  "drop": [
+   "cut-in"
+  ]
+ },
+ {
+  "gid": "pip-r-hazlo",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-iniciar",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "pip-r-panel-crea",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "t-vi",
+  "event": "title-card",
+  "at": 0.0,
+  "note": "section boundary: the Genius Intro Sound is the card whoosh (README § Title card)",
+  "drop": [
+   "cut-in"
+  ]
+ },
+ {
+  "gid": "pip-r-resultado",
+  "silent": true,
+  "note": "corner cam: footage, no sound"
+ },
+ {
+  "gid": "b-rug",
+  "silent": true,
+  "note": "footage b-roll page: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "b-gente1",
+  "silent": true,
+  "note": "the video opens on it: frame 0 is no cut, so no cut-in whoosh",
+  "drop": [
+   "cut-in"
+  ]
+ },
+ {
+  "gid": "b-gente2",
+  "silent": true,
+  "note": "footage b-roll page: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-intro-datos",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-intro-opera",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-home",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-modelos",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-P",
+  "event": "drawOn",
+  "at": 1.5,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-A1",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-prompt2",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-claudecode",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-ficticio",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-hipotesis",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-preguntas",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-limite",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-limite2",
+  "event": "drawOn",
+  "at": 2.972,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-D",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-C2",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-C2",
+  "event": "drawOn",
+  "at": 5.2,
+  "note": "red box 1"
+ },
+ {
+  "gid": "r-ibero",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-calc5k",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-calc50k",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-hazlo",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-iniciar",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-panel-crea",
+  "silent": true,
+  "note": "screen recording: the cut-in whoosh is its sound"
+ },
+ {
+  "gid": "r-F2",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-F2",
+  "event": "drawOn",
+  "at": 5.0,
+  "note": "red box 1"
+ },
+ {
+  "gid": "r-F3",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-F3",
+  "event": "drawOn",
+  "at": 1.3,
+  "note": "red box 1"
+ },
+ {
+  "gid": "r-F3",
+  "event": "drawOn",
+  "at": 2.3,
+  "note": "red box 2"
+ },
+ {
+  "gid": "r-F3",
+  "event": "drawOn",
+  "at": 3.3,
+  "note": "red box 3"
+ },
+ {
+  "gid": "r-F4a",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-F4a",
+  "event": "drawOn",
+  "at": 1.8,
+  "note": "red box 1"
+ },
+ {
+  "gid": "r-F5a",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-F5a",
+  "event": "drawOn",
+  "at": 1.5,
+  "note": "red box 1"
+ },
+ {
+  "gid": "r-F5b",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-F6",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 0"
+ },
+ {
+  "gid": "r-F6",
+  "event": "drawOn",
+  "at": 4.0,
+  "note": "red box 1"
+ },
+ {
+  "gid": "r-F7",
+  "event": "drawOn",
+  "at": 0.3,
+  "note": "red box 1"
+ },
+ {
+  "gid": "r-resultado",
+  "event": "drawOn",
+  "at": 1.4,
+  "note": "red box 0"
+ }
+]

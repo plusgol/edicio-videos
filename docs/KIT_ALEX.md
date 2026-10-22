@@ -12,6 +12,8 @@ Font: «EDITOR DE VIDEO | ALEX DILORENZO v1.0.1.zip», el paquet de la versió 2
 
 Les regles que valen la pena les hem portat a `scripts/munta.py` i als components de `src/alex/`.
 
+**Des del 21/10/2026 també el fem servir sencer**, amb tres pegats (castellà, 1080p, muntatge per trams): com muntar-lo en una sessió nova, l'editor web i el projecte de CapCut són a la skill `kit-alex` (`.claude/skills/kit-alex/SKILL.md`) i la nostra feina a `kit_alex/`. El kit continua fora del repositori.
+
 On aquest document xoca amb `ESTIL_ALEX.md`, mana aquest: és el sistema del mateix Alex.
 
 ## 1. Talls de veu (el que fa que no soni robòtica)

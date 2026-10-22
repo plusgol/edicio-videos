@@ -1,0 +1,161 @@
+diff -ru a/.claude/skills/rough-cut/scripts/export-transcript.py b/.claude/skills/rough-cut/scripts/export-transcript.py
+--- a/.claude/skills/rough-cut/scripts/export-transcript.py
++++ b/.claude/skills/rough-cut/scripts/export-transcript.py
+@@ -185,7 +185,7 @@
+     with open(out_path, "w", encoding="utf-8") as f:
+         json.dump({
+             "text": text,
+-            "language_code": "en",
++            "language_code": "es",
+             "engine": "whisperx-large-v3 (remapped from raw cut, no re-transcription)",
+             "words": out_words,
+         }, f, indent=2)
+diff -ru a/.claude/skills/rough-cut/scripts/realign-spans.py b/.claude/skills/rough-cut/scripts/realign-spans.py
+--- a/.claude/skills/rough-cut/scripts/realign-spans.py
++++ b/.claude/skills/rough-cut/scripts/realign-spans.py
+@@ -113,7 +113,7 @@
+     print(f"[realign] {os.path.basename(path)}: {len(spans)} spans, "
+           f"{spans[0][0]:.1f}–{spans[-1][1]:.1f} s")
+     audio = whisperx.load_audio(path)
+-    model, meta = whisperx.load_align_model(language_code="en", device="cpu")
++    model, meta = whisperx.load_align_model(language_code="es", device="cpu")
+     al = whisperx.align([{"start": s, "end": e, "text": t} for s, e, t in spans],
+                         model, meta, audio, "cpu", return_char_alignments=False)
+ 
+diff -ru a/.claude/skills/rough-cut/scripts/splice.sh b/.claude/skills/rough-cut/scripts/splice.sh
+--- a/.claude/skills/rough-cut/scripts/splice.sh
++++ b/.claude/skills/rough-cut/scripts/splice.sh
+@@ -276,6 +276,8 @@
+     return float(segs[i].get("xfade", XF)) if 0 < i < len(segs) else 0.0
+ max_shift = 0.0
+ n = len(segs)
++PER_SEG = os.environ.get("VE_SPLICE_PER_SEGMENT") == "1"
++seg_inputs = []
+ for i, seg in enumerate(segs):
+     a, b = float(seg["start"]), float(seg["end"])
+     if b <= a:
+@@ -292,7 +294,16 @@
+     # 30000/1001 r_frame_rate), so a time trim straight off the stream kept one frame too many or too few at some
+     # joints and the flat cut's V1 cuts landed a frame off the EDL (2 of 6 on a real job, 2026-09-27; the flash scan
+     # of the chat-only composite caught it). fps= puts every frame on the grid the boundaries were snapped to.
+-    parts.append(f"[{k}:v]fps={fn}/{fd},trim={a}:{b},setpts=PTS-STARTPTS{fit}[v{i}]")
++    # VE_SPLICE_PER_SEGMENT=1: every segment reads its OWN input, seeked to a second before it, so a long multi-take EDL
++    # played out of raw order never makes one decoded stream buffer frames for every later trim (bot-trading, 2026-10-21:
++    # 72 segments over 6 raws, reordered, took ffmpeg to 14 GB and the OOM killer). Same trims, same graph otherwise.
++    if PER_SEG:
++        ss0 = max(0.0, a - 1.0)
++        seg_inputs.append((inputs[k], ss0, (b - a) + 1.0 + 0.5))
++        k_in, a_in, b_in = len(seg_inputs) - 1, a - ss0, b - ss0
++    else:
++        k_in, a_in, b_in = k, a, b
++    parts.append(f"[{k_in}:v]fps={fn}/{fd},trim={a_in}:{b_in},setpts=PTS-STARTPTS{fit}[v{i}]")
+     ext = xf_into(i + 1) if i < n - 1 else 0.0   # tail extension feeds the next joint's crossfade
+     edge = ""
+     if i == 0:
+@@ -305,7 +316,7 @@
+     # aresample's own output-layout option was renamed in 5.1 and its old name dropped in 7.0, so no one spelling of it
+     # runs on Ubuntu 22.04's 4.4 and on 9 (test_splice_guard.py bans both).
+     up = "pan=stereo|c0=c0|c1=c0" if chans[k] == 1 else "aformat=channel_layouts=stereo"
+-    parts.append(f"[{k}:a]atrim={a}:{b + ext},asetpts=PTS-STARTPTS,{up},aresample=48000{edge}[a{i}]")
++    parts.append(f"[{k_in}:a]atrim={a_in}:{b_in + ext},asetpts=PTS-STARTPTS,{up},aresample=48000{edge}[a{i}]")
+     vlabels.append(f"[v{i}]")
+ parts.append("".join(vlabels) + f"concat=n={n}:v=1:a=0[vc]")
+ cur = "a0"
+@@ -374,8 +385,12 @@
+     sys.exit(0)
+ 
+ cmd = ["ffmpeg", "-nostdin", "-hide_banner", "-loglevel", "error", "-y"]
+-for p in inputs:
+-    cmd += ["-i", p]
++if PER_SEG:
++    for p, ss0, dur in seg_inputs:
++        cmd += ["-ss", f"{ss0:.6f}", "-t", f"{dur:.6f}", "-i", p]
++else:
++    for p in inputs:
++        cmd += ["-i", p]
+ # Windows caps a command line at 32,767 characters, and the graph grows ~250 a segment: past ~140 segments the
+ # render died with WinError 206 before the EDL was persisted (2026-10-13). There the graph goes in a file, read with
+ # the option this ffmpeg has (ffmpeg_compat.graph_file(): -/filter_complex from 7.0, -filter_complex_script on 5.1 to
+diff -ru a/.claude/skills/rough-cut/scripts/transcribe.sh b/.claude/skills/rough-cut/scripts/transcribe.sh
+--- a/.claude/skills/rough-cut/scripts/transcribe.sh
++++ b/.claude/skills/rough-cut/scripts/transcribe.sh
+@@ -483,10 +483,10 @@
+ 
+ def load_stack(device, compute_type):
+     print(f"[transcribe] loading whisperx large-v3 ({device}, {compute_type})", file=sys.stderr)
+-    asr = whisperx.load_model("large-v3", device, compute_type=compute_type, language="en",
++    asr = whisperx.load_model("large-v3", device, compute_type=compute_type, language="es",
+                               vad_options=vad_options)
+     print("[transcribe] loading wav2vec2 alignment model", file=sys.stderr)
+-    align, meta = whisperx.load_align_model(language_code="en", device=device)
++    align, meta = whisperx.load_align_model(language_code="es", device=device)
+     return asr, align, meta
+ 
+ for i, (device, compute_type, batch_size) in enumerate(tiers):
+@@ -505,7 +505,7 @@
+ 
+ def process(path):
+     audio = whisperx.load_audio(path)
+-    tr = asr_model.transcribe(audio, batch_size=batch_size, language="en", **chunk_kw)
++    tr = asr_model.transcribe(audio, batch_size=batch_size, language="es", **chunk_kw)
+     al = whisperx.align(
+         tr["segments"], align_model, align_metadata, audio, device,
+         return_char_alignments=False)
+diff -ru a/workflows/asr_cli.py b/workflows/asr_cli.py
+--- a/workflows/asr_cli.py
++++ b/workflows/asr_cli.py
+@@ -222,6 +222,7 @@
+             _models[(dev, ct)] = WhisperModel(FW_MODEL, device=dev, compute_type=ct)
+         segs, _ = _models[(dev, ct)].transcribe(a.audio, word_timestamps=a.word_timestamps == "True",
+                                                 condition_on_previous_text=a.condition_on_previous_text == "True",
++                                                language=os.environ.get("VE_LANG", "es"),
+                                                 vad_filter=False)
+         # the segments are a generator: CUDA's cuBLAS loads lazily, on the first encode, so a missing DLL
+         # raises HERE, never at WhisperModel() (Windows, ctranslate2 4.8.2: "cublas64_12.dll is not found")
+diff -ru a/workflows/deliver.py b/workflows/deliver.py
+--- a/workflows/deliver.py
++++ b/workflows/deliver.py
+@@ -29,7 +29,7 @@
+ pts moved a tick, and it scored lower), so its file has no B-frames and every keyframe is an IDR: the GOP is closed.
+ Its CBR adds no filler, so an easy picture lands a little under the target (a talking head: 47.5 Mbps of 50).
+ """
+-import argparse, functools, importlib.util, json, subprocess, sys
++import argparse, functools, os, importlib.util, json, subprocess, sys
+ from fractions import Fraction
+ from pathlib import Path
+ 
+@@ -53,6 +53,10 @@
+ def target(W, H, fps, secs, shorts=False):
+     """(out W, out H, Mbps, H.264 level, vertical 1080 file?) for a W x H master."""
+     hfr = fps > 30.5
++    # VE_LONG_1080=1 (this job: the creator asked for 1080, not 4K): the landscape file stays 1920x1080, CBR 16
++    # (24 above 30 fps), level 4.2, every other number as locked.
++    if W > H and not shorts and os.environ.get("VE_LONG_1080") == "1":
++        return 1920, 1080, 24 if hfr else 16, '4.2', False
+     if W > H or shorts:
+         return (*((3840, 2160) if W > H else (2160, 3840)), LONG_HFR_MBPS if hfr else LONG_MBPS,
+                 '5.2' if hfr else '5.1', False)
+diff -ru a/workflows/voice-gain.py b/workflows/voice-gain.py
+--- a/workflows/voice-gain.py
++++ b/workflows/voice-gain.py
+@@ -362,8 +362,20 @@
+     cuts = json.loads(edl.read_text(encoding="utf-8"))['segments']
+     raws = sorted(job.glob('raw/*'))
+     by_clip = {}
++    # a clip with NO transcribed words (a silent voice-over placeholder, a black gap held for a title card) carries no
++    # voice to measure: its digital silence has no true peak and its seconds would drag the kept-time weighting down
++    # (bot-trading, 2026-10-21: the measurement failed on the -inf peak). Skipped, and named.
++    try:
++        _wj = json.load(open(job / 'transcript' / 'words.json', encoding='utf-8'))
++        _silent = {os.path.basename(c['clip']) for c in _wj.get('clips', []) if not c.get('words')}
++    except Exception:
++        _silent = set()
++    for _c in sorted(_silent):
++        print(f'· {_c}: no transcribed words, not measured', file=sys.stderr)
+     for s in cuts:
+         clip = os.path.basename(s.get('clip') or '')
++        if clip in _silent:
++            continue
+         # inserted media (a meme or b-roll insert laid from its own file) is not the creator's voice; without this the
+         # one-raw fallback below measured its span of the RAW (2026-09-28: pre-roll dead air, the gain read +12 for +11)
+         if s.get('media') and not any(p.name == clip for p in raws):

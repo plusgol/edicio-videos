@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Audio, Easing, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {NIGHT, TIMING, TYPE, UNI} from '../../brand/unimatx';
 import {ANTON, JAKARTA, POPPINS, beatAt, clamp, ease, type Guio, type Timing, type Word} from './base';
-import {Scene} from './Scenes';
+import {Scene, type SceneSpec} from './Scenes';
 import {SERIE_SPECS} from './serieSpecs';
 
 // Fórmula sèrie (vídeo del zombie): il·lustració 2D de nit, un pla per frase amb apropament lent, xip d'hora a dalt a
@@ -14,6 +14,20 @@ const Chip: React.FC<{t: string; sub?: string; p: number}> = ({t, sub, p}) => (
     {sub && <div style={{fontSize: TYPE.chipSub, fontWeight: 800, color: '#fff', letterSpacing: '0.1em', marginTop: 6}}>{sub}</div>}
   </div>
 );
+
+// On mira el pla tancat de cada escena (cara, mòbil, pissarra…).
+const focusOf = (sc: SceneSpec): [number, number] => {
+  switch (sc.s) {
+    case 'bedroom': return sc.who ? [420, 760] : [830, 1010];
+    case 'desk': return [540, 840];
+    case 'class': return sc.bubbles ? [480, 1000] : sc.focus ? [930, 1450] : [420, 620];
+    case 'lab': return [540, 820];
+    case 'hand': return [540, 700];
+    case 'monitor': return [540, 620];
+    case 'face': return [540, 880];
+    default: return [540, 960];
+  }
+};
 
 const Notif: React.FC<{head: string; body: string; p: number}> = ({head, body, p}) => (
   <div style={{position: 'absolute', left: 70, right: 70, top: 280, transform: `translateY(${(1 - p) * -60}px)`, opacity: p, background: 'rgba(255,255,255,0.96)', borderRadius: 28, padding: '22px 26px', fontFamily: POPPINS, boxShadow: '0 30px 70px rgba(0,0,0,0.45)'}}>
@@ -52,9 +66,10 @@ const Karaoke: React.FC<{words: Word[]; t: number}> = ({words, t}) => {
   if (g < 0) return null;
   const cur = gs[g];
   const lastEnd = cur[cur.length - 1].end;
+  const pop = interpolate((t - cur[0].start) * 30, [0, 6], [0.82, 1], {...clamp, easing: Easing.out(Easing.back(2.2))});
   if (g === gs.length - 1 && t > lastEnd + 0.6) return null;
   return (
-    <div style={{position: 'absolute', left: 40, right: 40, top: 1350, textAlign: 'center', fontFamily: ANTON, fontSize: TYPE.caption, lineHeight: 1.05, color: NIGHT.caption, textTransform: 'uppercase', letterSpacing: '0.01em', textShadow: '0 5px 0 rgba(6,9,24,0.9), 0 0 24px rgba(0,0,0,0.6)'}}>
+    <div style={{position: 'absolute', left: 40, right: 40, top: 1350, transform: `scale(${pop})`, textAlign: 'center', fontFamily: ANTON, fontSize: TYPE.caption, lineHeight: 1.05, color: NIGHT.caption, textTransform: 'uppercase', letterSpacing: '0.01em', textShadow: '0 5px 0 rgba(6,9,24,0.9), 0 0 24px rgba(0,0,0,0.6)'}}>
       {cur.map((w, i) => {
         const on = t >= w.start - 0.03 && (i === cur.length - 1 || t < cur[i + 1].start - 0.03);
         return (
@@ -100,6 +115,13 @@ export const SerieReel: React.FC<{guio: Guio; timing: Timing}> = ({guio, timing}
 
   // Apropament lent i constant de cada pla.
   const push = 1 + TIMING.pushPerShot * Math.min(1, f / Math.max(1, shotLen));
+  // Plans de TIMING.subShot segons: cada frase llarga es parteix en pla obert / pla tancat amb tall sec.
+  const nSub = Math.max(1, Math.round(shotLen / (TIMING.subShot * fps)));
+  const sub = Math.min(nSub - 1, Math.floor((f * nSub) / Math.max(1, shotLen)));
+  const close = sub % 2 === 1;
+  const [fx, fy] = focusOf(b.scene);
+  const subF = f - Math.floor((sub * shotLen) / nSub);
+  const subPush = 1 + 0.03 * Math.min(1, subF / (TIMING.subShot * fps));
 
   // El xip es queda fins que un altre el canvia.
   let ci = bi;
@@ -122,7 +144,7 @@ export const SerieReel: React.FC<{guio: Guio; timing: Timing}> = ({guio, timing}
     <AbsoluteFill style={{background: NIGHT.bg, overflow: 'hidden'}}>
       {!tail && (
         <>
-          <AbsoluteFill style={{transform: `scale(${push}) translateY(${rw * Math.sin(frame * 3) * 14}px)`, filter: rw ? `saturate(${1 - rw * 0.7}) contrast(${1 + rw * 0.2})` : undefined}}>
+          <AbsoluteFill style={{transform: `scale(${push * subPush * (close ? TIMING.closeUp : 1)}) translateY(${rw * Math.sin(frame * 3) * 14}px)`, transformOrigin: `${fx}px ${fy}px`, filter: rw ? `saturate(${1 - rw * 0.7}) contrast(${1 + rw * 0.2})` : undefined}}>
             <Scene spec={b.scene} f={f} />
             {b.scene.s === 'class' && b.scene.bubbles && <Bubbles labels={b.scene.bubbles} f={f} />}
           </AbsoluteFill>

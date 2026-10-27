@@ -1,610 +1,610 @@
 {
- "duration": 47.078,
+ "duration": 39.409,
  "beats": [
   {
    "start": 0.25,
-   "end": 4.955,
+   "end": 4.471,
    "words": [
     {
      "text": "El",
-     "start": 0.185,
-     "end": 0.345
+     "start": 0.193,
+     "end": 0.336
     },
     {
      "text": "test",
-     "start": 0.409,
-     "end": 0.665
+     "start": 0.393,
+     "end": 0.622
     },
     {
      "text": "comparava",
-     "start": 0.711,
-     "end": 1.145
+     "start": 0.663,
+     "end": 1.05
     },
     {
      "text": "661",
-     "start": 1.305,
-     "end": 2.345
+     "start": 1.193,
+     "end": 2.122
     },
     {
      "text": "graus.",
-     "start": 2.385,
-     "end": 3.065
+     "start": 2.157,
+     "end": 2.764
     },
     {
      "text": "La",
-     "start": 3.172,
-     "end": 3.385
+     "start": 2.86,
+     "end": 3.05
     },
     {
      "text": "Júlia",
-     "start": 3.465,
-     "end": 3.785
+     "start": 3.122,
+     "end": 3.407
     },
     {
      "text": "en",
-     "start": 3.812,
-     "end": 3.865
+     "start": 3.431,
+     "end": 3.479
     },
     {
      "text": "coneixia",
-     "start": 3.913,
-     "end": 4.425
+     "start": 3.522,
+     "end": 3.979
     },
     {
      "text": "set.",
-     "start": 4.525,
-     "end": 4.985
+     "start": 4.068,
+     "end": 4.479
     }
    ]
   },
   {
-   "start": 5.405,
-   "end": 8.387,
+   "start": 4.671,
+   "end": 7.351,
    "words": [
     {
      "text": "Aquella",
-     "start": 5.405,
-     "end": 5.805
+     "start": 4.671,
+     "end": 5.029
     },
     {
      "text": "tarda,",
-     "start": 5.869,
-     "end": 6.285
+     "start": 5.086,
+     "end": 5.457
     },
     {
      "text": "a",
-     "start": 6.325,
-     "end": 6.365
+     "start": 5.493,
+     "end": 5.529
     },
     {
      "text": "classe,",
-     "start": 6.434,
-     "end": 6.925
+     "start": 5.59,
+     "end": 6.029
     },
     {
      "text": "tothom",
-     "start": 7.005,
-     "end": 7.405
+     "start": 6.1,
+     "end": 6.457
     },
     {
      "text": "deia",
-     "start": 7.458,
-     "end": 7.725
+     "start": 6.504,
+     "end": 6.743
     },
     {
      "text": "la",
-     "start": 7.778,
-     "end": 7.885
+     "start": 6.79,
+     "end": 6.886
     },
     {
      "text": "seva.",
-     "start": 7.938,
-     "end": 8.524
+     "start": 6.933,
+     "end": 7.457
     }
    ]
   },
   {
-   "start": 8.837,
-   "end": 13.87,
+   "start": 7.551,
+   "end": 12.056,
    "words": [
     {
      "text": "Medicina.",
-     "start": 8.827,
-     "end": 10.087
+     "start": 7.551,
+     "end": 8.676
     },
     {
      "text": "ADE.",
-     "start": 10.087,
-     "end": 11.347
+     "start": 8.676,
+     "end": 9.801
     },
     {
      "text": "Dret.",
-     "start": 11.347,
-     "end": 12.607
+     "start": 9.801,
+     "end": 10.926
     },
     {
      "text": "Psicologia.",
-     "start": 12.607,
-     "end": 13.867
+     "start": 10.926,
+     "end": 12.051
     }
    ]
   },
   {
-   "start": 14.32,
-   "end": 15.84,
+   "start": 12.256,
+   "end": 13.613,
    "words": [
     {
      "text": "La",
-     "start": 14.22,
-     "end": 14.38
+     "start": 12.156,
+     "end": 12.299
     },
     {
      "text": "Júlia",
-     "start": 14.46,
-     "end": 14.86
+     "start": 12.37,
+     "end": 12.727
     },
     {
      "text": "no",
-     "start": 14.913,
-     "end": 15.02
+     "start": 12.775,
+     "end": 12.87
     },
     {
      "text": "deia",
-     "start": 15.073,
-     "end": 15.34
+     "start": 12.917,
+     "end": 13.156
     },
     {
      "text": "res.",
-     "start": 15.42,
-     "end": 15.82
+     "start": 13.227,
+     "end": 13.584
     }
    ]
   },
   {
-   "start": 16.29,
-   "end": 18.264,
+   "start": 13.813,
+   "end": 15.572,
    "words": [
     {
      "text": "A",
-     "start": 16.252,
-     "end": 16.332
+     "start": 13.775,
+     "end": 13.846
     },
     {
      "text": "la",
-     "start": 16.359,
-     "end": 16.412
+     "start": 13.87,
+     "end": 13.918
     },
     {
      "text": "nit,",
-     "start": 16.492,
-     "end": 16.932
+     "start": 13.989,
+     "end": 14.382
     },
     {
      "text": "va",
-     "start": 16.999,
-     "end": 17.132
+     "start": 14.442,
+     "end": 14.56
     },
     {
      "text": "començar",
-     "start": 17.192,
-     "end": 17.612
+     "start": 14.614,
+     "end": 14.989
     },
     {
      "text": "el",
-     "start": 17.639,
-     "end": 17.692
+     "start": 15.013,
+     "end": 15.06
     },
     {
      "text": "test.",
-     "start": 17.772,
-     "end": 18.252
+     "start": 15.132,
+     "end": 15.56
     }
    ]
   },
   {
-   "start": 18.714,
-   "end": 21.227,
+   "start": 15.772,
+   "end": 18.045,
    "words": [
     {
      "text": "No",
-     "start": 18.687,
-     "end": 18.767
+     "start": 15.757,
+     "end": 15.829
     },
     {
      "text": "hi",
-     "start": 18.82,
-     "end": 18.927
+     "start": 15.876,
+     "end": 15.972
     },
     {
      "text": "havia",
-     "start": 18.967,
-     "end": 19.247
+     "start": 16.007,
+     "end": 16.257
     },
     {
      "text": "respostes",
-     "start": 19.307,
-     "end": 19.887
+     "start": 16.311,
+     "end": 16.829
     },
     {
      "text": "bones",
-     "start": 19.954,
-     "end": 20.287
+     "start": 16.889,
+     "end": 17.186
     },
     {
      "text": "ni",
-     "start": 20.34,
-     "end": 20.447
+     "start": 17.233,
+     "end": 17.329
     },
     {
      "text": "dolentes.",
-     "start": 20.487,
-     "end": 21.247
+     "start": 17.364,
+     "end": 18.043
     }
    ]
   },
   {
-   "start": 21.677,
-   "end": 25.506,
+   "start": 18.245,
+   "end": 21.682,
    "words": [
     {
      "text": "En",
-     "start": 21.611,
-     "end": 21.691
+     "start": 18.192,
+     "end": 18.264
     },
     {
      "text": "una",
-     "start": 21.731,
-     "end": 21.851
+     "start": 18.299,
+     "end": 18.407
     },
     {
      "text": "pregunta,",
-     "start": 21.913,
-     "end": 22.811
+     "start": 18.462,
+     "end": 19.264
     },
     {
      "text": "va",
-     "start": 22.838,
-     "end": 22.891
+     "start": 19.288,
+     "end": 19.335
     },
     {
      "text": "escriure",
-     "start": 22.944,
-     "end": 23.291
+     "start": 19.382,
+     "end": 19.692
     },
     {
      "text": "una",
-     "start": 23.351,
-     "end": 23.531
+     "start": 19.746,
+     "end": 19.907
     },
     {
      "text": "cosa",
-     "start": 23.563,
-     "end": 23.691
+     "start": 19.935,
+     "end": 20.049
     },
     {
      "text": "que",
-     "start": 23.751,
-     "end": 23.931
+     "start": 20.103,
+     "end": 20.264
     },
     {
      "text": "no",
-     "start": 23.984,
-     "end": 24.091
+     "start": 20.311,
+     "end": 20.407
     },
     {
      "text": "havia",
-     "start": 24.131,
-     "end": 24.411
+     "start": 20.442,
+     "end": 20.692
     },
     {
      "text": "dit",
-     "start": 24.451,
-     "end": 24.571
+     "start": 20.728,
+     "end": 20.835
     },
     {
      "text": "mai",
-     "start": 24.651,
-     "end": 24.891
+     "start": 20.907,
+     "end": 21.121
     },
     {
      "text": "a",
-     "start": 24.931,
-     "end": 24.971
+     "start": 21.157,
+     "end": 21.192
     },
     {
      "text": "ningú.",
-     "start": 25.019,
-     "end": 25.371
+     "start": 21.235,
+     "end": 21.549
     }
    ]
   },
   {
-   "start": 25.956,
-   "end": 28.708,
+   "start": 21.882,
+   "end": 24.336,
    "words": [
     {
      "text": "Que",
-     "start": 25.885,
-     "end": 25.965
+     "start": 21.82,
+     "end": 21.892
     },
     {
      "text": "li",
-     "start": 25.992,
-     "end": 26.045
+     "start": 21.916,
+     "end": 21.963
     },
     {
      "text": "agradava",
-     "start": 26.085,
-     "end": 26.525
+     "start": 21.999,
+     "end": 22.392
     },
     {
      "text": "més",
-     "start": 26.565,
-     "end": 26.685
+     "start": 22.427,
+     "end": 22.535
     },
     {
      "text": "arreglar",
-     "start": 26.738,
-     "end": 27.085
+     "start": 22.582,
+     "end": 22.892
     },
     {
      "text": "coses",
-     "start": 27.145,
-     "end": 27.565
+     "start": 22.945,
+     "end": 23.32
     },
     {
      "text": "que",
-     "start": 27.585,
-     "end": 27.645
+     "start": 23.338,
+     "end": 23.392
     },
     {
      "text": "estudiar-les.",
-     "start": 27.698,
-     "end": 28.685
+     "start": 23.439,
+     "end": 24.32
     }
    ]
   },
   {
-   "start": 29.158,
-   "end": 33.923,
+   "start": 24.536,
+   "end": 28.799,
    "words": [
     {
      "text": "El",
-     "start": 29.115,
-     "end": 29.195
+     "start": 24.502,
+     "end": 24.574
     },
     {
      "text": "test",
-     "start": 29.259,
-     "end": 29.515
+     "start": 24.631,
+     "end": 24.86
     },
     {
      "text": "va",
-     "start": 29.568,
-     "end": 29.675
+     "start": 24.907,
+     "end": 25.002
     },
     {
      "text": "comparar",
-     "start": 29.721,
-     "end": 30.075
+     "start": 25.044,
+     "end": 25.36
     },
     {
      "text": "les",
-     "start": 30.115,
-     "end": 30.235
+     "start": 25.395,
+     "end": 25.502
     },
     {
      "text": "seves",
-     "start": 30.288,
-     "end": 30.555
+     "start": 25.55,
+     "end": 25.788
     },
     {
      "text": "respostes",
-     "start": 30.615,
-     "end": 31.195
+     "start": 25.842,
+     "end": 26.36
     },
     {
      "text": "amb",
-     "start": 31.275,
-     "end": 31.515
+     "start": 26.431,
+     "end": 26.645
     },
     {
      "text": "cada",
-     "start": 31.563,
-     "end": 31.755
+     "start": 26.688,
+     "end": 26.86
     },
     {
      "text": "grau,",
-     "start": 31.815,
-     "end": 32.155
+     "start": 26.913,
+     "end": 27.217
     },
     {
      "text": "assignatura",
-     "start": 32.235,
-     "end": 32.955
+     "start": 27.288,
+     "end": 27.931
     },
     {
      "text": "per",
-     "start": 32.995,
-     "end": 33.115
+     "start": 27.967,
+     "end": 28.074
     },
     {
      "text": "assignatura.",
-     "start": 33.161,
-     "end": 33.915
+     "start": 28.115,
+     "end": 28.788
     }
    ]
   },
   {
-   "start": 34.373,
-   "end": 37.671,
+   "start": 28.999,
+   "end": 31.954,
    "words": [
     {
      "text": "El",
-     "start": 34.3,
-     "end": 34.46
+     "start": 28.937,
+     "end": 29.08
     },
     {
      "text": "primer",
-     "start": 34.506,
-     "end": 34.78
+     "start": 29.121,
+     "end": 29.366
     },
     {
      "text": "del",
-     "start": 34.82,
-     "end": 34.94
+     "start": 29.402,
+     "end": 29.509
     },
     {
      "text": "top",
-     "start": 34.98,
-     "end": 35.1
+     "start": 29.545,
+     "end": 29.652
     },
     {
      "text": "3",
-     "start": 35.26,
-     "end": 35.5
+     "start": 29.795,
+     "end": 30.009
     },
     {
      "text": "era",
-     "start": 35.54,
-     "end": 35.66
+     "start": 30.045,
+     "end": 30.152
     },
     {
      "text": "un",
-     "start": 35.713,
-     "end": 35.82
+     "start": 30.199,
+     "end": 30.295
     },
     {
      "text": "grau",
-     "start": 35.86,
-     "end": 36.06
+     "start": 30.33,
+     "end": 30.509
     },
     {
      "text": "que",
-     "start": 36.1,
-     "end": 36.22
+     "start": 30.545,
+     "end": 30.652
     },
     {
      "text": "no",
-     "start": 36.273,
-     "end": 36.38
+     "start": 30.699,
+     "end": 30.795
     },
     {
      "text": "sabia",
-     "start": 36.42,
-     "end": 36.7
+     "start": 30.83,
+     "end": 31.08
     },
     {
      "text": "que",
-     "start": 36.72,
-     "end": 36.78
+     "start": 31.098,
+     "end": 31.152
     },
     {
      "text": "existia.",
-     "start": 36.847,
-     "end": 37.66
+     "start": 31.212,
+     "end": 31.937
     }
    ]
   },
   {
-   "start": 38.121,
-   "end": 40.648,
+   "start": 32.154,
+   "end": 34.434,
    "words": [
     {
      "text": "El",
-     "start": 38.087,
-     "end": 38.167
+     "start": 32.138,
+     "end": 32.21
     },
     {
      "text": "va",
-     "start": 38.22,
-     "end": 38.327
+     "start": 32.257,
+     "end": 32.353
     },
     {
      "text": "obrir",
-     "start": 38.387,
-     "end": 38.727
+     "start": 32.406,
+     "end": 32.71
     },
     {
      "text": "per",
-     "start": 38.787,
-     "end": 38.967
+     "start": 32.763,
+     "end": 32.924
     },
     {
      "text": "veure",
-     "start": 39.02,
-     "end": 39.287
+     "start": 32.971,
+     "end": 33.21
     },
     {
      "text": "què",
-     "start": 39.34,
-     "end": 39.527
+     "start": 33.257,
+     "end": 33.424
     },
     {
      "text": "s'hi",
-     "start": 39.607,
-     "end": 39.847
+     "start": 33.496,
+     "end": 33.71
     },
     {
      "text": "estudiava.",
-     "start": 39.867,
-     "end": 40.327
+     "start": 33.728,
+     "end": 34.138
     }
    ]
   },
   {
-   "start": 41.098,
-   "end": 44.428,
+   "start": 34.634,
+   "end": 37.609,
    "words": [
     {
      "text": "I",
-     "start": 41.058,
-     "end": 41.138
+     "start": 34.608,
+     "end": 34.68
     },
     {
      "text": "a",
-     "start": 41.178,
-     "end": 41.218
+     "start": 34.716,
+     "end": 34.751
     },
     {
      "text": "la",
-     "start": 41.271,
-     "end": 41.378
+     "start": 34.799,
+     "end": 34.894
     },
     {
      "text": "primera",
-     "start": 41.418,
-     "end": 41.698
+     "start": 34.93,
+     "end": 35.18
     },
     {
      "text": "assignatura",
-     "start": 41.744,
-     "end": 42.258
+     "start": 35.221,
+     "end": 35.68
     },
     {
      "text": "del",
-     "start": 42.318,
-     "end": 42.498
+     "start": 35.734,
+     "end": 35.894
     },
     {
      "text": "primer",
-     "start": 42.532,
-     "end": 42.738
+     "start": 35.925,
+     "end": 36.108
     },
     {
      "text": "curs,",
-     "start": 42.818,
-     "end": 43.378
+     "start": 36.18,
+     "end": 36.68
     },
     {
      "text": "va",
-     "start": 43.405,
-     "end": 43.458
+     "start": 36.704,
+     "end": 36.751
     },
     {
      "text": "somriure.",
-     "start": 43.538,
-     "end": 44.418
+     "start": 36.823,
+     "end": 37.608
     }
    ]
   }

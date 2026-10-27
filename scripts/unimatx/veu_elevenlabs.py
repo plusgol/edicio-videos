@@ -21,8 +21,9 @@ import numpy as np
 SR = 48000
 MODEL = "eleven_v3"
 STYLE = {
-    "ab": dict(beat=0.16, silence=0.6, speed=1.08),
-    "serie": dict(beat=0.45, silence=1.3, speed=1.0),
+    # Ritme «dopamina» (l'usuari: «no pot estar 3 s sense passar res»): veu més àgil i gairebé sense aire entre plans.
+    "ab": dict(beat=0.06, silence=0.3, speed=1.18),
+    "serie": dict(beat=0.2, silence=0.6, speed=1.12),
 }
 SAY = {"amb dades d'AQU Catalunya": "amb dades oficials", "ADE": "A, D, E", "UniMatx": "Uni Match"}
 
@@ -103,7 +104,7 @@ def build(root: Path, video: dict, voice: str):
         gap = st["silence"] if "Silenci" in b["visual"] else st["beat"]
         pieces.append(np.zeros(int(gap * SR), np.float32))
         t += gap
-    tail = 2.2 if video["kind"] == "serie" else 1.2
+    tail = 1.6 if video["kind"] == "serie" else 0.9
     pieces.append(np.zeros(int(tail * SR), np.float32))
     audio = np.concatenate(pieces)
     audio = audio / max(1e-6, float(np.max(np.abs(audio)))) * 0.7

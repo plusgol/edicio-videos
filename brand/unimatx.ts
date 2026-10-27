@@ -67,6 +67,11 @@ export const TIMING = {
   musicSerie: 0.22,
   sfx: 0.5,
   captionMaxChars: 16,
+  // Ritme «dopamina»: res no s'aguanta quiet més d'un segon i mig.
+  punch: 1.5, // segons entre cop i cop de càmera (A-B)
+  punchZoom: 0.1, // quant s'apropa cada cop
+  subShot: 1.5, // segons per pla abans d'un tall a pla tancat (sèrie)
+  closeUp: 1.3, // escala del pla tancat (sèrie)
 } as const;
 
 export const TYPE = {

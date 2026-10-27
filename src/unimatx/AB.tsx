@@ -83,10 +83,15 @@ export const ABReel: React.FC<{guio: Guio; timing: Timing}> = ({guio, timing}) =
   const cur = camOf(bi);
   const k = bi === 0 ? 1 : ease(frame - startF(bi), 0, TIMING.camEase);
   const drift = Math.sin(t / 3.2) * 22;
+  // Cop de càmera cada TIMING.punch segons dins del pla: alterna apropat i obert amb una corba curta.
+  const sinceBeat = frame - startF(bi);
+  const slot = Math.floor(sinceBeat / (TIMING.punch * fps));
+  const pk = ease(sinceBeat - slot * TIMING.punch * fps, 0, 7, 0, 1, Easing.out(Easing.cubic));
+  const punch = slot === 0 ? 1 : slot % 2 === 1 ? 1 + TIMING.punchZoom * pk : 1 + TIMING.punchZoom * (1 - pk);
   const cam: Cam = {
     x: prev.x + (cur.x - prev.x) * k + drift,
     y: prev.y + (cur.y - prev.y) * k,
-    zoom: (prev.zoom + (cur.zoom - prev.zoom) * k) * (1 + 0.012 * Math.sin(t / 2.1)),
+    zoom: (prev.zoom + (cur.zoom - prev.zoom) * k) * (1 + 0.012 * Math.sin(t / 2.1)) * punch,
     ax: prev.ax + (cur.ax - prev.ax) * k,
     ay: prev.ay + (cur.ay - prev.ay) * k,
   };
@@ -145,7 +150,9 @@ export const ABReel: React.FC<{guio: Guio; timing: Timing}> = ({guio, timing}) =
                   </span>
                 ))}
               </div>
-              <Phone screen={beat.phone as Screen} since={startF(screenFrom)} inP={phoneIn} style={{left: 560, top: 860}} />
+              <div style={{position: 'absolute', inset: 0, transform: `scale(${1 + (punch - 1) * 0.5})`, transformOrigin: '775px 1300px'}}>
+                <Phone screen={beat.phone as Screen} since={startF(screenFrom)} inP={phoneIn} style={{left: 560, top: 860}} />
+              </div>
             </>
           )}
           {scene === 'cta' ? (

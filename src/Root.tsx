@@ -8,6 +8,7 @@ import {Reel, reelMetadata, type ReelProps} from './unimatx/Reel';
 import {DemoRapida, demoMetadata} from './demo/DemoRapida';
 import {LAUNCH} from '../brand/unimatx';
 import {LLANCAMENT_DURATION, Llancament} from './llancament/Llancament';
+import {BOOM_DURATION, Boom} from './llancament/boom/Boom';
 
 // El projecte es tria amb --public-dir=projectes/<nom>; el pla ve de work/render.json.
 export const Root: React.FC = () => (
@@ -51,5 +52,7 @@ export const Root: React.FC = () => (
   <Composition id="DemoRapida" component={DemoRapida} width={1920} height={1080} fps={30} durationInFrames={1} defaultProps={{data: null}} calculateMetadata={demoMetadata} />
   {/* Vídeo de presentació d'UniMatx (launch-video-kit): --public-dir=projectes/unimatx-llancament/remotion */}
   <Composition id="UniLlancament" component={Llancament} width={LAUNCH.width} height={LAUNCH.height} fps={LAUNCH.fps} durationInFrames={LLANCAMENT_DURATION} />
+  {/* Versió «BOOM» (v2) del mateix vídeo: ganxo, silenci, entrada amb cop, preu i contrast */}
+  <Composition id="UniLlancamentBoom" component={Boom} width={LAUNCH.width} height={LAUNCH.height} fps={LAUNCH.fps} durationInFrames={BOOM_DURATION} />
   </>
 );

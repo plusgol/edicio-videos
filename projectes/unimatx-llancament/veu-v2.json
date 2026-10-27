@@ -1,0 +1,105 @@
+{
+  "voice": "FGY2WhTYpPnrIDTdsKH5",
+  "speed": 1.1,
+  "loudnorm": {
+    "I": -16,
+    "TP": -1.5,
+    "LRA": 11
+  },
+  "lines": [
+    {
+      "id": "01",
+      "text": "Tens disset anys."
+    },
+    {
+      "id": "02",
+      "text": "Sis-cents seixanta graus."
+    },
+    {
+      "id": "03",
+      "text": "I n'has de triar un."
+    },
+    {
+      "id": "04",
+      "text": "Més d'un vint per cent abandona o canvia d'estudis."
+    },
+    {
+      "id": "05",
+      "text": "Pot ser un any perdut."
+    },
+    {
+      "id": "06",
+      "text": "Fins ara.",
+      "say": "[whispers] Fins ara."
+    },
+    {
+      "id": "07",
+      "text": "Vint minuts."
+    },
+    {
+      "id": "08",
+      "text": "Casos de feina. Res de tests de personalitat."
+    },
+    {
+      "id": "09",
+      "text": "Un torn de feina, simulat."
+    },
+    {
+      "id": "10",
+      "text": "Si no vols mates, t'avisa."
+    },
+    {
+      "id": "11",
+      "text": "Sis-cents seixanta graus."
+    },
+    {
+      "id": "12",
+      "text": "Quaranta mil assignatures."
+    },
+    {
+      "id": "13",
+      "text": "Comparats un a un."
+    },
+    {
+      "id": "14",
+      "text": "I el teu top tres."
+    },
+    {
+      "id": "15",
+      "text": "Amb els motius."
+    },
+    {
+      "id": "16",
+      "text": "Les notes de tall."
+    },
+    {
+      "id": "17",
+      "text": "Els preus."
+    },
+    {
+      "id": "18",
+      "text": "Les sortides."
+    },
+    {
+      "id": "19",
+      "text": "Des de nou euros noranta-nou."
+    },
+    {
+      "id": "20",
+      "text": "Un any a la carrera equivocada."
+    },
+    {
+      "id": "21",
+      "text": "O vint minuts."
+    },
+    {
+      "id": "22",
+      "text": "Tu decideixes."
+    },
+    {
+      "id": "23",
+      "text": "UniMatx. Troba la teva carrera ideal.",
+      "say": "Iuni Match. Troba la teva carrera ideal."
+    }
+  ]
+}

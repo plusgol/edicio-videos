@@ -1,0 +1,665 @@
+{
+ "fps": 30,
+ "voice": "elevenlabs:eleven_v3:FGY2WhTYpPnrIDTdsKH5",
+ "lines": [
+  {
+   "id": "01",
+   "text": "Tens disset anys.",
+   "dur": 1.188,
+   "frames": 36,
+   "words": [
+    {
+     "text": "Tens",
+     "start": -0.043,
+     "end": 0.175
+    },
+    {
+     "text": "disset",
+     "start": 0.23,
+     "end": 0.612
+    },
+    {
+     "text": "anys.",
+     "start": 0.685,
+     "end": 1.194
+    }
+   ]
+  },
+  {
+   "id": "02",
+   "text": "Sis-cents seixanta graus.",
+   "dur": 1.758,
+   "frames": 53,
+   "words": [
+    {
+     "text": "Sis-cents",
+     "start": 0.0,
+     "end": 0.509
+    },
+    {
+     "text": "seixanta",
+     "start": 0.582,
+     "end": 1.018
+    },
+    {
+     "text": "graus.",
+     "start": 1.091,
+     "end": 1.745
+    }
+   ]
+  },
+  {
+   "id": "03",
+   "text": "I n'has de triar un.",
+   "dur": 0.999,
+   "frames": 30,
+   "words": [
+    {
+     "text": "I",
+     "start": -0.016,
+     "end": 0.057
+    },
+    {
+     "text": "n'has",
+     "start": 0.093,
+     "end": 0.275
+    },
+    {
+     "text": "de",
+     "start": 0.299,
+     "end": 0.348
+    },
+    {
+     "text": "triar",
+     "start": 0.402,
+     "end": 0.638
+    },
+    {
+     "text": "un.",
+     "start": 0.711,
+     "end": 1.002
+    }
+   ]
+  },
+  {
+   "id": "04",
+   "text": "Més d'un vint per cent abandona o canvia d'estudis.",
+   "dur": 2.424,
+   "frames": 73,
+   "words": [
+    {
+     "text": "Més",
+     "start": 0.0,
+     "end": 0.145
+    },
+    {
+     "text": "d'un",
+     "start": 0.182,
+     "end": 0.291
+    },
+    {
+     "text": "vint",
+     "start": 0.327,
+     "end": 0.436
+    },
+    {
+     "text": "per",
+     "start": 0.491,
+     "end": 0.655
+    },
+    {
+     "text": "cent",
+     "start": 0.698,
+     "end": 0.873
+    },
+    {
+     "text": "abandona",
+     "start": 0.897,
+     "end": 1.309
+    },
+    {
+     "text": "o",
+     "start": 1.345,
+     "end": 1.382
+    },
+    {
+     "text": "canvia",
+     "start": 1.436,
+     "end": 1.745
+    },
+    {
+     "text": "d'estudis.",
+     "start": 1.782,
+     "end": 2.4
+    }
+   ]
+  },
+  {
+   "id": "05",
+   "text": "Pot ser un any perdut.",
+   "dur": 1.193,
+   "frames": 36,
+   "words": [
+    {
+     "text": "Pot",
+     "start": -0.073,
+     "end": 0.072
+    },
+    {
+     "text": "ser",
+     "start": 0.127,
+     "end": 0.291
+    },
+    {
+     "text": "un",
+     "start": 0.315,
+     "end": 0.363
+    },
+    {
+     "text": "any",
+     "start": 0.4,
+     "end": 0.509
+    },
+    {
+     "text": "perdut.",
+     "start": 0.567,
+     "end": 1.163
+    }
+   ]
+  },
+  {
+   "id": "06",
+   "text": "Fins ara.",
+   "dur": 0.678,
+   "frames": 21,
+   "words": [
+    {
+     "text": "Fins",
+     "start": -0.087,
+     "end": 0.968
+    },
+    {
+     "text": "ara.",
+     "start": 0.968,
+     "end": 2.022
+    }
+   ]
+  },
+  {
+   "id": "07",
+   "text": "Vint minuts.",
+   "dur": 0.968,
+   "frames": 30,
+   "words": [
+    {
+     "text": "Vint",
+     "start": 0.0,
+     "end": 0.218
+    },
+    {
+     "text": "minuts.",
+     "start": 0.273,
+     "end": 1.091
+    }
+   ]
+  },
+  {
+   "id": "08",
+   "text": "Casos de feina. Res de tests de personalitat.",
+   "dur": 2.961,
+   "frames": 89,
+   "words": [
+    {
+     "text": "Casos",
+     "start": -0.062,
+     "end": 0.302
+    },
+    {
+     "text": "de",
+     "start": 0.35,
+     "end": 0.447
+    },
+    {
+     "text": "feina.",
+     "start": 0.496,
+     "end": 0.884
+    },
+    {
+     "text": "Res",
+     "start": 1.029,
+     "end": 1.466
+    },
+    {
+     "text": "de",
+     "start": 1.49,
+     "end": 1.538
+    },
+    {
+     "text": "tests",
+     "start": 1.599,
+     "end": 1.902
+    },
+    {
+     "text": "de",
+     "start": 1.95,
+     "end": 2.047
+    },
+    {
+     "text": "personalitat.",
+     "start": 2.087,
+     "end": 2.993
+    }
+   ]
+  },
+  {
+   "id": "09",
+   "text": "Un torn de feina, simulat.",
+   "dur": 1.897,
+   "frames": 57,
+   "words": [
+    {
+     "text": "Un",
+     "start": -0.014,
+     "end": 0.058
+    },
+    {
+     "text": "torn",
+     "start": 0.117,
+     "end": 0.349
+    },
+    {
+     "text": "de",
+     "start": 0.374,
+     "end": 0.422
+    },
+    {
+     "text": "feina,",
+     "start": 0.495,
+     "end": 1.149
+    },
+    {
+     "text": "simulat.",
+     "start": 1.21,
+     "end": 1.877
+    }
+   ]
+  },
+  {
+   "id": "10",
+   "text": "Si no vols mates, t'avisa.",
+   "dur": 1.736,
+   "frames": 53,
+   "words": [
+    {
+     "text": "Si",
+     "start": -0.02,
+     "end": 0.052
+    },
+    {
+     "text": "no",
+     "start": 0.101,
+     "end": 0.198
+    },
+    {
+     "text": "vols",
+     "start": 0.234,
+     "end": 0.416
+    },
+    {
+     "text": "mates,",
+     "start": 0.489,
+     "end": 0.925
+    },
+    {
+     "text": "t'avisa.",
+     "start": 1.071,
+     "end": 1.871
+    }
+   ]
+  },
+  {
+   "id": "11",
+   "text": "Sis-cents seixanta graus.",
+   "dur": 1.758,
+   "frames": 53,
+   "words": [
+    {
+     "text": "Sis-cents",
+     "start": 0.0,
+     "end": 0.509
+    },
+    {
+     "text": "seixanta",
+     "start": 0.582,
+     "end": 1.018
+    },
+    {
+     "text": "graus.",
+     "start": 1.091,
+     "end": 1.745
+    }
+   ]
+  },
+  {
+   "id": "12",
+   "text": "Quaranta mil assignatures.",
+   "dur": 1.737,
+   "frames": 53,
+   "words": [
+    {
+     "text": "Quaranta",
+     "start": -0.037,
+     "end": 0.327
+    },
+    {
+     "text": "mil",
+     "start": 0.399,
+     "end": 0.618
+    },
+    {
+     "text": "assignatures.",
+     "start": 0.669,
+     "end": 1.854
+    }
+   ]
+  },
+  {
+   "id": "13",
+   "text": "Comparats un a un.",
+   "dur": 1.41,
+   "frames": 43,
+   "words": [
+    {
+     "text": "Comparats",
+     "start": -0.078,
+     "end": 0.504
+    },
+    {
+     "text": "un",
+     "start": 0.625,
+     "end": 0.867
+    },
+    {
+     "text": "a",
+     "start": 0.904,
+     "end": 0.94
+    },
+    {
+     "text": "un.",
+     "start": 1.037,
+     "end": 1.522
+    }
+   ]
+  },
+  {
+   "id": "14",
+   "text": "I el teu top tres.",
+   "dur": 1.689,
+   "frames": 51,
+   "words": [
+    {
+     "text": "I",
+     "start": 0.0,
+     "end": 0.073
+    },
+    {
+     "text": "el",
+     "start": 0.121,
+     "end": 0.218
+    },
+    {
+     "text": "teu",
+     "start": 0.291,
+     "end": 0.509
+    },
+    {
+     "text": "top",
+     "start": 0.636,
+     "end": 1.018
+    },
+    {
+     "text": "tres.",
+     "start": 1.12,
+     "end": 1.673
+    }
+   ]
+  },
+  {
+   "id": "15",
+   "text": "Amb els motius.",
+   "dur": 0.878,
+   "frames": 27,
+   "words": [
+    {
+     "text": "Amb",
+     "start": -0.055,
+     "end": 0.091
+    },
+    {
+     "text": "els",
+     "start": 0.127,
+     "end": 0.236
+    },
+    {
+     "text": "motius.",
+     "start": 0.309,
+     "end": 0.963
+    }
+   ]
+  },
+  {
+   "id": "16",
+   "text": "Les notes de tall.",
+   "dur": 1.211,
+   "frames": 37,
+   "words": [
+    {
+     "text": "Les",
+     "start": -0.04,
+     "end": 0.178
+    },
+    {
+     "text": "notes",
+     "start": 0.226,
+     "end": 0.469
+    },
+    {
+     "text": "de",
+     "start": 0.517,
+     "end": 0.614
+    },
+    {
+     "text": "tall.",
+     "start": 0.702,
+     "end": 1.342
+    }
+   ]
+  },
+  {
+   "id": "17",
+   "text": "Els preus.",
+   "dur": 0.786,
+   "frames": 24,
+   "words": [
+    {
+     "text": "Els",
+     "start": -0.036,
+     "end": 0.11
+    },
+    {
+     "text": "preus.",
+     "start": 0.164,
+     "end": 0.91
+    }
+   ]
+  },
+  {
+   "id": "18",
+   "text": "Les sortides.",
+   "dur": 0.855,
+   "frames": 26,
+   "words": [
+    {
+     "text": "Les",
+     "start": -0.018,
+     "end": 0.128
+    },
+    {
+     "text": "sortides.",
+     "start": 0.172,
+     "end": 0.855
+    }
+   ]
+  },
+  {
+   "id": "19",
+   "text": "Des de nou euros noranta-nou.",
+   "dur": 1.666,
+   "frames": 50,
+   "words": [
+    {
+     "text": "Des",
+     "start": -0.014,
+     "end": 0.131
+    },
+    {
+     "text": "de",
+     "start": 0.156,
+     "end": 0.204
+    },
+    {
+     "text": "nou",
+     "start": 0.259,
+     "end": 0.422
+    },
+    {
+     "text": "euros",
+     "start": 0.483,
+     "end": 0.786
+    },
+    {
+     "text": "noranta-nou.",
+     "start": 0.822,
+     "end": 1.659
+    }
+   ]
+  },
+  {
+   "id": "20",
+   "text": "Un any a la carrera equivocada.",
+   "dur": 1.655,
+   "frames": 50,
+   "words": [
+    {
+     "text": "Un",
+     "start": -0.037,
+     "end": 0.108
+    },
+    {
+     "text": "any",
+     "start": 0.163,
+     "end": 0.327
+    },
+    {
+     "text": "a",
+     "start": 0.363,
+     "end": 0.399
+    },
+    {
+     "text": "la",
+     "start": 0.448,
+     "end": 0.545
+    },
+    {
+     "text": "carrera",
+     "start": 0.581,
+     "end": 0.836
+    },
+    {
+     "text": "equivocada.",
+     "start": 0.884,
+     "end": 1.636
+    }
+   ]
+  },
+  {
+   "id": "21",
+   "text": "O vint minuts.",
+   "dur": 0.816,
+   "frames": 25,
+   "words": [
+    {
+     "text": "O",
+     "start": -0.037,
+     "end": 0.036
+    },
+    {
+     "text": "vint",
+     "start": 0.073,
+     "end": 0.182
+    },
+    {
+     "text": "minuts.",
+     "start": 0.218,
+     "end": 0.909
+    }
+   ]
+  },
+  {
+   "id": "22",
+   "text": "Tu decideixes.",
+   "dur": 1.052,
+   "frames": 32,
+   "words": [
+    {
+     "text": "Tu",
+     "start": -0.04,
+     "end": 0.033
+    },
+    {
+     "text": "decideixes.",
+     "start": 0.096,
+     "end": 1.051
+    }
+   ]
+  },
+  {
+   "id": "23",
+   "text": "UniMatx. Troba la teva carrera ideal.",
+   "dur": 2.743,
+   "frames": 83,
+   "words": [
+    {
+     "text": "UniMatx.",
+     "start": -0.015,
+     "end": 0.458
+    },
+    {
+     "text": "Troba",
+     "start": 0.458,
+     "end": 0.93
+    },
+    {
+     "text": "la",
+     "start": 0.93,
+     "end": 1.403
+    },
+    {
+     "text": "teva",
+     "start": 1.403,
+     "end": 1.876
+    },
+    {
+     "text": "carrera",
+     "start": 1.876,
+     "end": 2.348
+    },
+    {
+     "text": "ideal.",
+     "start": 2.348,
+     "end": 2.821
+    }
+   ]
+  }
+ ]
+}

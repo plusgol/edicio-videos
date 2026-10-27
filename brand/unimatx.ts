@@ -132,3 +132,20 @@ export const LAUNCH = {
   sfx: 0.35,
   duck: {base: 0.8, under: 0.22, ramp: 9, pad: 6},
 } as const;
+
+// Versió «BOOM» del vídeo de presentació (v2): més cop, talls a cada temps, sacsejades i flaixos a les entrades.
+export const BOOM = {
+  danger: '#FF4D5E', // el +20% i l'any perdut
+  beat: 15, // 120 ppm a 30 fps
+  bar: 60,
+  camEase: 14, // viatges de càmera més curts que a la v1
+  punch: 1.08, // escala d'entrada de cada pla, que torna a 1
+  punchFrames: 10,
+  slam: 7, // fotogrames que triga una paraula a caure
+  shake: 18, // píxels de la sacsejada als cops
+  shakeFrames: 12,
+  flash: 8,
+  caption: 62,
+  duck: {base: 0.85, under: 0.3, ramp: 6, pad: 4},
+  sfx: 0.45,
+} as const;

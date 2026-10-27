@@ -1,6 +1,8 @@
 """Locució per línies per al vídeo de presentació d'UniMatx (mètode del launch-video-kit, amb ElevenLabs en català).
 
-Ús: ELEVENLABS_API_KEY=… python3 scripts/unimatx/veu_linies.py projectes/unimatx-llancament [--only 03,09] [--force]
+Ús: ELEVENLABS_API_KEY=… python3 scripts/unimatx/veu_linies.py projectes/unimatx-llancament [--nom v2] [--only 03,09] [--force]
+
+Amb --nom X llegeix veu-X.json i escriu remotion/vo-X/ i vo-X.json (una altra versió del vídeo al mateix projecte).
 
 Com `gen-voice.mjs` del kit: un fitxer per línia (`remotion/vo/vo-NN.wav`, carpeta pública de Remotion), sense silencis al cap i a la cua i
 normalitzat amb loudnorm. A més desa `vo.json` amb la durada en fotogrames i el temps de cada paraula (per als
@@ -24,11 +26,12 @@ def main():
     args = sys.argv[2:]
     only = set(args[args.index("--only") + 1].split(",")) if "--only" in args else None
     force = "--force" in args
-    cfg = json.loads((root / "veu.json").read_text())
+    sfx = f"-{args[args.index('--nom') + 1]}" if "--nom" in args else ""
+    cfg = json.loads((root / f"veu{sfx}.json").read_text())
     ln = cfg["loudnorm"]
-    out_dir = root / "remotion" / "vo"
+    out_dir = root / "remotion" / f"vo{sfx}"
     out_dir.mkdir(parents=True, exist_ok=True)
-    meta_f = root / "vo.json"
+    meta_f = root / f"vo{sfx}.json"
     meta = {m["id"]: m for m in json.loads(meta_f.read_text())["lines"]} if meta_f.exists() else {}
     print("id   dur      frames  estat       text")
     for line in cfg["lines"]:

@@ -77,3 +77,17 @@ export const TYPE = {
   chip: 40,
   chipSub: 22,
 } as const;
+
+// Demo per a centres en versió ràpida (projectes/demo-escoles): zooms a l'acció, càmera en bombolla, rètols de part.
+export const DEMO = {
+  width: 1920,
+  height: 1080,
+  fps: 30,
+  ease: 12, // fotogrames del zoom dins d'un tros (entre trossos, el canvi és sec)
+  drift: 0.012, // apropament lent per segon quan el pla s'aguanta
+  bubble: 230, // diàmetre de la bombolla de la càmera
+  bubbleMargin: 28,
+  music: 0.05, // música de fons, molt per sota de la veu
+  chip: 30, // mida del rètol de part
+  progress: 6, // gruix de la barra de progrés
+} as const;

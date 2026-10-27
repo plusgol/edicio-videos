@@ -5,6 +5,7 @@ import {Miniatura, type MiniaturaProps} from './miniatura/Miniatura';
 import {Video} from './Video';
 import type {RenderPlan} from './types';
 import {Reel, reelMetadata, type ReelProps} from './unimatx/Reel';
+import {DemoRapida, demoMetadata} from './demo/DemoRapida';
 
 // El projecte es tria amb --public-dir=projectes/<nom>; el pla ve de work/render.json.
 export const Root: React.FC = () => (
@@ -44,5 +45,7 @@ export const Root: React.FC = () => (
     defaultProps={{code: 'A1', guio: null, timing: null} as ReelProps}
     calculateMetadata={reelMetadata}
   />
+  {/* Demo de pantalla amb ritme (projectes/demo-escoles): --public-dir=projectes/demo-escoles/remotion */}
+  <Composition id="DemoRapida" component={DemoRapida} width={1920} height={1080} fps={30} durationInFrames={1} defaultProps={{data: null}} calculateMetadata={demoMetadata} />
   </>
 );

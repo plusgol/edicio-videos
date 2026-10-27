@@ -1,6 +1,8 @@
 import re, sys, html
 sys.path.insert(0, sys.argv[1])
-from data import AB, SERIE
+from pathlib import Path
+from data import AB, QPS, SERIE
+V = Path(sys.argv[1]) / 'v'
 
 def mk(s, cls="pill"):
     s = html.escape(s, quote=False).replace("&lt;br&gt;", "<br>")
@@ -27,7 +29,7 @@ def tile(t):
     big = " big" if t.get("big") else ""
     return f'<figure class="fr fr-{k}" aria-hidden="true"><div class="ttl{big}">{mk(t["t"])}</div><div class="iso"></div>{phone}</figure>'
 
-RATE = {"ab": (3.2, 0.35), "serie": (2.45, 0.55)}  # paraules/s i pausa per pla, mesurats als dos vídeos de referència
+RATE = {"ab": (3.2, 0.35), "serie": (2.45, 0.55), "qps": (2.45, 0.55)}  # paraules/s i pausa per pla, mesurats als dos vídeos de referència
 
 def retime(s, kind):
     r, pause = RATE[kind]
@@ -40,9 +42,12 @@ def retime(s, kind):
 
 def script(s, kind):
     retime(s, kind)
+    media = (f'''<div class="media"><video controls playsinline preload="metadata" poster="v/{s['code']}.jpg" src="v/{s['code']}.mp4"></video>
+      <div class="vnote">Veu: ElevenLabs · Laura</div></div>''' if (V / f"{s['code']}.mp4").exists()
+             else '<div class="media"><div class="todo">Guió nou: encara sense vídeo</div></div>')
     vo = " ".join(b[2] for b in s["beats"])
     words = len(vo.split())
-    tiles = "".join(tile(t) for t in s["tiles"])
+    tiles = "".join(tile(t) for t in s.get("tiles", []))
     col4 = "Text en pantalla" if kind == "ab" else "Xip, targeta o rètol"
     rows = []
     for tc, vis, veu, txt in s["beats"]:
@@ -60,8 +65,7 @@ def script(s, kind):
     <button class="copy" type="button" data-vo="{html.escape(vo)}">Copia la veu en off</button></header>
   <div class="meta">{meta}</div>
   <div class="body">
-    <div class="media"><video controls playsinline preload="metadata" poster="v/{s['code']}.jpg" src="v/{s['code']}.mp4"></video>
-      <div class="vnote">Veu: ElevenLabs · Laura</div></div>
+    {media}
     <div class="tbl" role="table" aria-label="Guió {s['code']}">
       <div class="row hd" role="row"><div>Temps</div><div>Imatge</div><div>Veu en off</div><div>{col4}</div></div>
       {''.join(rows)}
@@ -72,9 +76,11 @@ def script(s, kind):
 </article>'''
 
 tpl = open(sys.argv[2]).read()
-nav = "".join(f'<a href="#{s["code"].lower()}"><b>{s["code"]}</b>{html.escape(s["title"])}</a>' for s in AB + SERIE)
+nav = "".join(f'<a href="#{s["code"].lower()}"><b>{s["code"]}</b>{html.escape(s["title"])}</a>' for s in AB + SERIE + QPS) + '<a href="#demo"><b>D</b>Demo per a centres</a>'
 out = (tpl.replace("{{NAV}}", nav)
           .replace("{{AB}}", "".join(script(s, "ab") for s in AB))
-          .replace("{{SERIE}}", "".join(script(s, "serie") for s in SERIE)))
+          .replace("{{SERIE}}", "".join(script(s, "serie") for s in SERIE))
+          .replace("{{QPS}}", "".join(script(s, "qps") for s in QPS))
+          .replace("{{DEMO}}", '<video controls playsinline preload="metadata" poster="v/demo.jpg" src="v/demo.mp4"></video>' if (V / "demo.mp4").exists() else ''))
 open(sys.argv[3], "w").write(out)
 print(len(out))

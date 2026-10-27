@@ -109,6 +109,8 @@ mark.kw { background: none; color: var(--f-yellow); }
 .body { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 28px; align-items: start; }
 .media { position: sticky; top: calc(16px + env(safe-area-inset-top, 0px)); display: grid; gap: 8px; }
 .media video { width: 100%; max-width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; background: var(--ink); display: block; }
+.todo { aspect-ratio: 9 / 16; border-radius: 14px; border: 2px dashed var(--rule); display: grid; place-items: center; text-align: center; padding: 16px; font: 600 15px/1.4 var(--display); color: var(--muted); }
+.demo video { width: 100%; max-width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; background: var(--ink); display: block; }
 .vnote { font: 500 13px/1.3 var(--display); color: var(--muted); text-align: center; }
 @media (max-width: 860px) { .body { grid-template-columns: minmax(0, 1fr); } .media { position: static; max-width: 320px; margin: 0 auto; width: 100%; } }
 /* beat sheet */
@@ -187,6 +189,18 @@ mark.kw { background: none; color: var(--f-yellow); }
   <section class="sec" aria-labelledby="h-se">
     <header><div class="eyebrow">Format 2</div><h2 id="h-se">Sèrie · Què passaria si…</h2></header>
     {{SERIE}}
+  </section>
+
+  <section class="sec" aria-labelledby="h-qp">
+    <header><div class="eyebrow">Format 3 · idea nova</div><h2 id="h-qp">Què passaria si…</h2>
+      <p>Apocalipsi de ficció, exagerada i amb humor, que acaba en el problema de debò: triar carrera sense informació. Es fa amb el mateix motor que la sèrie. Sempre amb el rètol «Història de ficció» i sense xifres inventades.</p></header>
+    {{QPS}}
+  </section>
+
+  <section class="sec demo" id="demo" aria-labelledby="h-de">
+    <header><div class="eyebrow">Per a centres</div><h2 id="h-de">Demo d'UniMatx</h2>
+      <p>La demo gravada a l'OBS, amb ritme: l'última presa de cada frase, pauses curtes, zooms cap a on passa l'acció, la càmera en una bombolla i un rètol per a cada part.</p></header>
+    {{DEMO}}
   </section>
 
   <section class="sec" aria-labelledby="h-nx">

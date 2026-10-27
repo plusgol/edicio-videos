@@ -1,6 +1,6 @@
 """Munta una gravació llarga a partir d'una llista de trams bons (EDL), sense efectes: talls nets i prou.
 
-Ús: python3 scripts/talla_preses.py projectes/<nom>        (llegeix <nom>/edl.json i work/vad.json)
+Ús: python3 scripts/talla_preses.py projectes/<nom> [edl.json]   (i work/vad.json)
 
 edl.json:
   {"source": "input/raw.mkv", "width": 1920, "fps": 30, "loudness": -16,
@@ -12,16 +12,17 @@ edl.json:
 - Cada tros es codifica a part (busca exacta) i després s'enganxen; a cada unió, 15 ms de fosa d'àudio perquè no faci clic.
 - Àudio final a 48 kHz: passa-alt, equalització de veu, de-esser, compressor suau i volum a `loudness` LUFS.
 - Amb "cover" a l'EDL, també treu una versió on la càmera de la cantonada queda tapada.
+- Ritme: "pace" = {lead, tail, maxPause, keepPause} en segons i "speed" (1.1 = un 10 % més ràpid, sense canviar el to).
+  Escriu work/<edl>.trossos.json amb on cau cada tros a la sortida (per posar-hi rètols o zooms després).
 """
 import json
 import subprocess
 import sys
 from pathlib import Path
 
-LEAD, TAIL, MAXPAUSE, KEEPPAUSE = 0.12, 0.25, 0.8, 0.4
-
-
-def pieces(keep, vad):
+def pieces(keep, vad, pace=None):
+    p = pace or {}
+    LEAD, TAIL, MAXPAUSE, KEEPPAUSE = (p.get(k, d) for k, d in (("lead", 0.12), ("tail", 0.25), ("maxPause", 0.8), ("keepPause", 0.4)))
     out = []
     for k in keep:
         a, b = k["from"], k["to"]
@@ -50,30 +51,38 @@ def pieces(keep, vad):
 
 def main():
     root = Path(sys.argv[1])
-    edl = json.loads((root / "edl.json").read_text())
+    name = sys.argv[2] if len(sys.argv) > 2 else "edl.json"
+    edl = json.loads((root / name).read_text())
+    speed = edl.get("speed", 1.0)
     vad = json.loads((root / "work/vad.json").read_text())
     src = root / edl["source"]
     W, FPS = edl.get("width", 1920), edl.get("fps", 30)
-    ps = pieces(edl["keep"], vad)
-    tmp = root / "work/trossos"
+    ps = pieces(edl["keep"], vad, edl.get("pace"))
+    tmp = root / "work" / ("trossos" if name == "edl.json" else f"trossos-{Path(name).stem}")
     tmp.mkdir(parents=True, exist_ok=True)
     for f in tmp.glob("*.mkv"):
         f.unlink()
     lst = []
     for i, (s, e) in enumerate(ps):
-        n = max(1, round((e - s) * FPS))  # tros d'un nombre exacte de fotogrames, i l'àudio igual de llarg: cap desfasament
+        n = max(1, round((e - s) / speed * FPS))  # tros d'un nombre exacte de fotogrames, i l'àudio igual de llarg: cap desfasament
         d = n / FPS
         f = tmp / f"{i:04d}.mkv"
         subprocess.run([
-            "ffmpeg", "-v", "error", "-y", "-ss", f"{s:.3f}", "-i", str(src), "-t", f"{d + 0.2:.3f}",
-            "-vf", f"scale={W}:-2:flags=lanczos,fps={FPS},format=yuv420p", "-frames:v", str(n),
-            "-af", f"aresample=48000,apad,atrim=0:{d:.6f},afade=t=in:d=0.015,afade=t=out:st={max(0, d - 0.015):.3f}:d=0.015",
+            "ffmpeg", "-v", "error", "-y", "-ss", f"{s:.3f}", "-i", str(src), "-t", f"{d * speed + 0.2:.3f}",
+            "-vf", f"setpts=PTS/{speed},scale={W}:-2:flags=lanczos,fps={FPS},format=yuv420p", "-frames:v", str(n),
+            "-af", f"aresample=48000,atempo={speed},apad,atrim=0:{d:.6f},afade=t=in:d=0.015,afade=t=out:st={max(0, d - 0.015):.3f}:d=0.015",
             "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-g", str(FPS * 2),
             "-c:a", "pcm_s16le", "-ac", "2", str(f)], check=True)
         lst.append(f"file '{f.name}'")
         print(f"{i:3d} {s:8.2f}-{e:8.2f} ({d:5.1f} s)", flush=True)
     (tmp / "llista.txt").write_text("\n".join(lst) + "\n")
-    joined = root / "work/muntat.mkv"
+    t, rows = 0.0, []
+    for s, e in ps:
+        n = max(1, round((e - s) / speed * FPS))
+        rows.append({"src": [s, e], "out": [round(t, 3), round(t + n / FPS, 3)]})
+        t += n / FPS
+    (root / "work" / f"{Path(name).stem}.trossos.json").write_text(json.dumps(rows, indent=0))
+    joined = root / "work" / ("muntat.mkv" if name == "edl.json" else f"muntat-{Path(name).stem}.mkv")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "concat", "-safe", "0", "-i", str(tmp / "llista.txt"), "-c", "copy", str(joined)], check=True)
     L = edl.get("loudness", -16)
     out = root / "out" / edl.get("output", "video.mp4")

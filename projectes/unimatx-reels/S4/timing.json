@@ -1,0 +1,612 @@
+{
+ "duration": 52.766,
+ "beats": [
+  {
+   "start": 0.25,
+   "end": 5.168,
+   "words": [
+    {
+     "text": "El",
+     "start": 0.25,
+     "end": 0.546
+    },
+    {
+     "text": "test",
+     "start": 0.546,
+     "end": 0.911
+    },
+    {
+     "text": "comparava",
+     "start": 0.911,
+     "end": 2.131
+    },
+    {
+     "text": "661",
+     "start": 2.131,
+     "end": 2.462
+    },
+    {
+     "text": "graus.",
+     "start": 2.462,
+     "end": 2.895
+    },
+    {
+     "text": "La",
+     "start": 3.275,
+     "end": 3.496
+    },
+    {
+     "text": "Júlia",
+     "start": 3.496,
+     "end": 3.963
+    },
+    {
+     "text": "en",
+     "start": 3.963,
+     "end": 4.184
+    },
+    {
+     "text": "coneixia",
+     "start": 4.184,
+     "end": 4.897
+    },
+    {
+     "text": "set.",
+     "start": 4.897,
+     "end": 5.168
+    }
+   ]
+  },
+  {
+   "start": 6.048,
+   "end": 9.271,
+   "words": [
+    {
+     "text": "Aquella",
+     "start": 6.048,
+     "end": 6.539
+    },
+    {
+     "text": "tarda,",
+     "start": 6.539,
+     "end": 6.891
+    },
+    {
+     "text": "a",
+     "start": 7.111,
+     "end": 7.283
+    },
+    {
+     "text": "classe,",
+     "start": 7.283,
+     "end": 7.738
+    },
+    {
+     "text": "tothom",
+     "start": 7.958,
+     "end": 8.403
+    },
+    {
+     "text": "deia",
+     "start": 8.403,
+     "end": 8.649
+    },
+    {
+     "text": "la",
+     "start": 8.649,
+     "end": 8.849
+    },
+    {
+     "text": "seva.",
+     "start": 8.849,
+     "end": 9.271
+    }
+   ]
+  },
+  {
+   "start": 10.151,
+   "end": 14.316,
+   "words": [
+    {
+     "text": "Medicina.",
+     "start": 10.151,
+     "end": 10.908
+    },
+    {
+     "text": "ADE.",
+     "start": 11.288,
+     "end": 12.431
+    },
+    {
+     "text": "Dret.",
+     "start": 12.811,
+     "end": 13.13
+    },
+    {
+     "text": "Psicologia.",
+     "start": 13.51,
+     "end": 14.316
+    }
+   ]
+  },
+  {
+   "start": 15.196,
+   "end": 16.919,
+   "words": [
+    {
+     "text": "La",
+     "start": 15.196,
+     "end": 15.458
+    },
+    {
+     "text": "Júlia",
+     "start": 15.458,
+     "end": 16.012
+    },
+    {
+     "text": "no",
+     "start": 16.012,
+     "end": 16.274
+    },
+    {
+     "text": "deia",
+     "start": 16.274,
+     "end": 16.596
+    },
+    {
+     "text": "res.",
+     "start": 16.596,
+     "end": 16.919
+    }
+   ]
+  },
+  {
+   "start": 17.799,
+   "end": 19.855,
+   "words": [
+    {
+     "text": "A",
+     "start": 17.799,
+     "end": 17.965
+    },
+    {
+     "text": "la",
+     "start": 17.965,
+     "end": 18.153
+    },
+    {
+     "text": "nit,",
+     "start": 18.153,
+     "end": 18.384
+    },
+    {
+     "text": "va",
+     "start": 18.604,
+     "end": 18.794
+    },
+    {
+     "text": "començar",
+     "start": 18.794,
+     "end": 19.409
+    },
+    {
+     "text": "el",
+     "start": 19.409,
+     "end": 19.599
+    },
+    {
+     "text": "test.",
+     "start": 19.599,
+     "end": 19.855
+    }
+   ]
+  },
+  {
+   "start": 20.735,
+   "end": 23.326,
+   "words": [
+    {
+     "text": "No",
+     "start": 20.735,
+     "end": 20.921
+    },
+    {
+     "text": "hi",
+     "start": 20.921,
+     "end": 21.107
+    },
+    {
+     "text": "havia",
+     "start": 21.107,
+     "end": 21.501
+    },
+    {
+     "text": "respostes",
+     "start": 21.501,
+     "end": 22.123
+    },
+    {
+     "text": "bones",
+     "start": 22.123,
+     "end": 22.517
+    },
+    {
+     "text": "ni",
+     "start": 22.517,
+     "end": 22.703
+    },
+    {
+     "text": "dolentes.",
+     "start": 22.703,
+     "end": 23.326
+    }
+   ]
+  },
+  {
+   "start": 24.206,
+   "end": 28.412,
+   "words": [
+    {
+     "text": "En",
+     "start": 24.206,
+     "end": 24.36
+    },
+    {
+     "text": "una",
+     "start": 24.36,
+     "end": 24.649
+    },
+    {
+     "text": "pregunta,",
+     "start": 24.649,
+     "end": 25.163
+    },
+    {
+     "text": "va",
+     "start": 25.383,
+     "end": 25.554
+    },
+    {
+     "text": "escriure",
+     "start": 25.554,
+     "end": 26.107
+    },
+    {
+     "text": "una",
+     "start": 26.107,
+     "end": 26.43
+    },
+    {
+     "text": "cosa",
+     "start": 26.43,
+     "end": 26.772
+    },
+    {
+     "text": "que",
+     "start": 26.772,
+     "end": 26.963
+    },
+    {
+     "text": "no",
+     "start": 26.963,
+     "end": 27.134
+    },
+    {
+     "text": "havia",
+     "start": 27.134,
+     "end": 27.497
+    },
+    {
+     "text": "dit",
+     "start": 27.497,
+     "end": 27.688
+    },
+    {
+     "text": "mai",
+     "start": 27.688,
+     "end": 27.879
+    },
+    {
+     "text": "a",
+     "start": 27.879,
+     "end": 28.03
+    },
+    {
+     "text": "ningú.",
+     "start": 28.03,
+     "end": 28.412
+    }
+   ]
+  },
+  {
+   "start": 29.292,
+   "end": 32.133,
+   "words": [
+    {
+     "text": "Que",
+     "start": 29.292,
+     "end": 29.465
+    },
+    {
+     "text": "li",
+     "start": 29.465,
+     "end": 29.621
+    },
+    {
+     "text": "agradava",
+     "start": 29.621,
+     "end": 30.243
+    },
+    {
+     "text": "més",
+     "start": 30.243,
+     "end": 30.417
+    },
+    {
+     "text": "arreglar",
+     "start": 30.417,
+     "end": 30.919
+    },
+    {
+     "text": "coses",
+     "start": 30.919,
+     "end": 31.248
+    },
+    {
+     "text": "que",
+     "start": 31.248,
+     "end": 31.422
+    },
+    {
+     "text": "estudiar-les.",
+     "start": 31.422,
+     "end": 32.133
+    }
+   ]
+  },
+  {
+   "start": 33.013,
+   "end": 37.829,
+   "words": [
+    {
+     "text": "El",
+     "start": 33.013,
+     "end": 33.18
+    },
+    {
+     "text": "test",
+     "start": 33.18,
+     "end": 33.385
+    },
+    {
+     "text": "va",
+     "start": 33.385,
+     "end": 33.552
+    },
+    {
+     "text": "comparar",
+     "start": 33.552,
+     "end": 34.09
+    },
+    {
+     "text": "les",
+     "start": 34.09,
+     "end": 34.276
+    },
+    {
+     "text": "seves",
+     "start": 34.276,
+     "end": 34.629
+    },
+    {
+     "text": "respostes",
+     "start": 34.629,
+     "end": 35.186
+    },
+    {
+     "text": "amb",
+     "start": 35.186,
+     "end": 35.372
+    },
+    {
+     "text": "cada",
+     "start": 35.372,
+     "end": 35.705
+    },
+    {
+     "text": "grau,",
+     "start": 35.705,
+     "end": 35.93
+    },
+    {
+     "text": "assignatura",
+     "start": 36.15,
+     "end": 36.899
+    },
+    {
+     "text": "per",
+     "start": 36.899,
+     "end": 37.062
+    },
+    {
+     "text": "assignatura.",
+     "start": 37.062,
+     "end": 37.829
+    }
+   ]
+  },
+  {
+   "start": 38.709,
+   "end": 42.373,
+   "words": [
+    {
+     "text": "El",
+     "start": 38.709,
+     "end": 38.901
+    },
+    {
+     "text": "primer",
+     "start": 38.901,
+     "end": 39.33
+    },
+    {
+     "text": "del",
+     "start": 39.33,
+     "end": 39.545
+    },
+    {
+     "text": "top",
+     "start": 39.545,
+     "end": 39.76
+    },
+    {
+     "text": "3",
+     "start": 39.76,
+     "end": 39.93
+    },
+    {
+     "text": "era",
+     "start": 39.93,
+     "end": 40.293
+    },
+    {
+     "text": "un",
+     "start": 40.293,
+     "end": 40.485
+    },
+    {
+     "text": "grau",
+     "start": 40.485,
+     "end": 40.722
+    },
+    {
+     "text": "que",
+     "start": 40.722,
+     "end": 40.937
+    },
+    {
+     "text": "no",
+     "start": 40.937,
+     "end": 41.129
+    },
+    {
+     "text": "sabia",
+     "start": 41.129,
+     "end": 41.536
+    },
+    {
+     "text": "que",
+     "start": 41.536,
+     "end": 41.751
+    },
+    {
+     "text": "existia.",
+     "start": 41.751,
+     "end": 42.373
+    }
+   ]
+  },
+  {
+   "start": 43.253,
+   "end": 45.438,
+   "words": [
+    {
+     "text": "El",
+     "start": 43.253,
+     "end": 43.41
+    },
+    {
+     "text": "va",
+     "start": 43.41,
+     "end": 43.567
+    },
+    {
+     "text": "obrir",
+     "start": 43.567,
+     "end": 43.899
+    },
+    {
+     "text": "per",
+     "start": 43.899,
+     "end": 44.074
+    },
+    {
+     "text": "veure",
+     "start": 44.074,
+     "end": 44.406
+    },
+    {
+     "text": "què",
+     "start": 44.406,
+     "end": 44.581
+    },
+    {
+     "text": "s'hi",
+     "start": 44.581,
+     "end": 44.774
+    },
+    {
+     "text": "estudiava.",
+     "start": 44.774,
+     "end": 45.438
+    }
+   ]
+  },
+  {
+   "start": 46.318,
+   "end": 49.686,
+   "words": [
+    {
+     "text": "I",
+     "start": 46.318,
+     "end": 46.441
+    },
+    {
+     "text": "a",
+     "start": 46.441,
+     "end": 46.564
+    },
+    {
+     "text": "la",
+     "start": 46.564,
+     "end": 46.703
+    },
+    {
+     "text": "primera",
+     "start": 46.703,
+     "end": 47.136
+    },
+    {
+     "text": "assignatura",
+     "start": 47.136,
+     "end": 47.847
+    },
+    {
+     "text": "del",
+     "start": 47.847,
+     "end": 48.002
+    },
+    {
+     "text": "primer",
+     "start": 48.002,
+     "end": 48.312
+    },
+    {
+     "text": "curs,",
+     "start": 48.312,
+     "end": 48.499
+    },
+    {
+     "text": "va",
+     "start": 48.719,
+     "end": 48.941
+    },
+    {
+     "text": "somriure.",
+     "start": 48.941,
+     "end": 49.686
+    }
+   ]
+  }
+ ]
+}

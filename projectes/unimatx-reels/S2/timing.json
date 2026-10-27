@@ -1,0 +1,718 @@
+{
+ "duration": 59.513,
+ "beats": [
+  {
+   "start": 0.25,
+   "end": 3.922,
+   "words": [
+    {
+     "text": "El",
+     "start": 0.25,
+     "end": 0.437
+    },
+    {
+     "text": "formulari",
+     "start": 0.437,
+     "end": 1.204
+    },
+    {
+     "text": "tenia",
+     "start": 1.204,
+     "end": 1.599
+    },
+    {
+     "text": "vuit",
+     "start": 1.599,
+     "end": 1.829
+    },
+    {
+     "text": "caselles.",
+     "start": 1.829,
+     "end": 2.453
+    },
+    {
+     "text": "I",
+     "start": 2.833,
+     "end": 2.964
+    },
+    {
+     "text": "tancava",
+     "start": 2.964,
+     "end": 3.426
+    },
+    {
+     "text": "l'endemà.",
+     "start": 3.426,
+     "end": 3.922
+    }
+   ]
+  },
+  {
+   "start": 4.802,
+   "end": 6.841,
+   "words": [
+    {
+     "text": "El",
+     "start": 4.802,
+     "end": 4.989
+    },
+    {
+     "text": "Pol",
+     "start": 4.989,
+     "end": 5.197
+    },
+    {
+     "text": "només",
+     "start": 5.197,
+     "end": 5.592
+    },
+    {
+     "text": "n'havia",
+     "start": 5.592,
+     "end": 6.03
+    },
+    {
+     "text": "omplert",
+     "start": 6.03,
+     "end": 6.468
+    },
+    {
+     "text": "una.",
+     "start": 6.468,
+     "end": 6.841
+    }
+   ]
+  },
+  {
+   "start": 7.721,
+   "end": 11.172,
+   "words": [
+    {
+     "text": "Tres",
+     "start": 7.721,
+     "end": 7.942
+    },
+    {
+     "text": "setmanes",
+     "start": 7.942,
+     "end": 8.52
+    },
+    {
+     "text": "abans,",
+     "start": 8.52,
+     "end": 8.919
+    },
+    {
+     "text": "havia",
+     "start": 9.139,
+     "end": 9.506
+    },
+    {
+     "text": "rebut",
+     "start": 9.506,
+     "end": 9.874
+    },
+    {
+     "text": "la",
+     "start": 9.874,
+     "end": 10.048
+    },
+    {
+     "text": "nota",
+     "start": 10.048,
+     "end": 10.396
+    },
+    {
+     "text": "de",
+     "start": 10.396,
+     "end": 10.57
+    },
+    {
+     "text": "les",
+     "start": 10.57,
+     "end": 10.764
+    },
+    {
+     "text": "proves.",
+     "start": 10.764,
+     "end": 11.172
+    }
+   ]
+  },
+  {
+   "start": 12.052,
+   "end": 17.236,
+   "words": [
+    {
+     "text": "Un",
+     "start": 12.052,
+     "end": 12.308
+    },
+    {
+     "text": "nou",
+     "start": 12.308,
+     "end": 12.594
+    },
+    {
+     "text": "amb",
+     "start": 12.594,
+     "end": 12.88
+    },
+    {
+     "text": "dos.",
+     "start": 12.88,
+     "end": 13.195
+    },
+    {
+     "text": "Prou",
+     "start": 13.575,
+     "end": 13.772
+    },
+    {
+     "text": "per",
+     "start": 13.772,
+     "end": 13.95
+    },
+    {
+     "text": "a",
+     "start": 13.95,
+     "end": 14.092
+    },
+    {
+     "text": "la",
+     "start": 14.092,
+     "end": 14.252
+    },
+    {
+     "text": "carrera",
+     "start": 14.252,
+     "end": 14.751
+    },
+    {
+     "text": "que",
+     "start": 14.751,
+     "end": 14.929
+    },
+    {
+     "text": "volia",
+     "start": 14.929,
+     "end": 15.268
+    },
+    {
+     "text": "des",
+     "start": 15.268,
+     "end": 15.447
+    },
+    {
+     "text": "de",
+     "start": 15.447,
+     "end": 15.607
+    },
+    {
+     "text": "petit.",
+     "start": 15.607,
+     "end": 15.964
+    },
+    {
+     "text": "O",
+     "start": 16.344,
+     "end": 16.525
+    },
+    {
+     "text": "això",
+     "start": 16.525,
+     "end": 16.936
+    },
+    {
+     "text": "creia.",
+     "start": 16.936,
+     "end": 17.236
+    }
+   ]
+  },
+  {
+   "start": 18.116,
+   "end": 23.884,
+   "words": [
+    {
+     "text": "La",
+     "start": 18.116,
+     "end": 18.305
+    },
+    {
+     "text": "seva",
+     "start": 18.305,
+     "end": 18.684
+    },
+    {
+     "text": "germana",
+     "start": 18.684,
+     "end": 19.273
+    },
+    {
+     "text": "li",
+     "start": 19.273,
+     "end": 19.462
+    },
+    {
+     "text": "va",
+     "start": 19.462,
+     "end": 19.652
+    },
+    {
+     "text": "enviar",
+     "start": 19.652,
+     "end": 20.074
+    },
+    {
+     "text": "un",
+     "start": 20.074,
+     "end": 20.263
+    },
+    {
+     "text": "enllaç:",
+     "start": 20.263,
+     "end": 20.707
+    },
+    {
+     "text": "mira",
+     "start": 21.087,
+     "end": 21.422
+    },
+    {
+     "text": "on",
+     "start": 21.422,
+     "end": 21.59
+    },
+    {
+     "text": "arribes,",
+     "start": 21.59,
+     "end": 22.131
+    },
+    {
+     "text": "abans",
+     "start": 22.351,
+     "end": 22.91
+    },
+    {
+     "text": "d'omplir",
+     "start": 22.91,
+     "end": 23.559
+    },
+    {
+     "text": "res.",
+     "start": 23.559,
+     "end": 23.884
+    }
+   ]
+  },
+  {
+   "start": 24.764,
+   "end": 28.499,
+   "words": [
+    {
+     "text": "Vint",
+     "start": 24.764,
+     "end": 25.013
+    },
+    {
+     "text": "minuts",
+     "start": 25.013,
+     "end": 25.465
+    },
+    {
+     "text": "de",
+     "start": 25.465,
+     "end": 25.668
+    },
+    {
+     "text": "preguntes.",
+     "start": 25.668,
+     "end": 26.369
+    },
+    {
+     "text": "Després,",
+     "start": 26.749,
+     "end": 27.473
+    },
+    {
+     "text": "una",
+     "start": 27.693,
+     "end": 28.062
+    },
+    {
+     "text": "taula.",
+     "start": 28.062,
+     "end": 28.499
+    }
+   ]
+  },
+  {
+   "start": 29.379,
+   "end": 33.517,
+   "words": [
+    {
+     "text": "Cada",
+     "start": 29.379,
+     "end": 29.742
+    },
+    {
+     "text": "universitat",
+     "start": 29.742,
+     "end": 30.668
+    },
+    {
+     "text": "que",
+     "start": 30.668,
+     "end": 30.87
+    },
+    {
+     "text": "la",
+     "start": 30.87,
+     "end": 31.051
+    },
+    {
+     "text": "feia,",
+     "start": 31.051,
+     "end": 31.295
+    },
+    {
+     "text": "amb",
+     "start": 31.515,
+     "end": 31.719
+    },
+    {
+     "text": "la",
+     "start": 31.719,
+     "end": 31.903
+    },
+    {
+     "text": "nota",
+     "start": 31.903,
+     "end": 32.269
+    },
+    {
+     "text": "de",
+     "start": 32.269,
+     "end": 32.453
+    },
+    {
+     "text": "tall",
+     "start": 32.453,
+     "end": 32.678
+    },
+    {
+     "text": "de",
+     "start": 32.678,
+     "end": 32.862
+    },
+    {
+     "text": "l'últim",
+     "start": 32.862,
+     "end": 33.292
+    },
+    {
+     "text": "any.",
+     "start": 33.292,
+     "end": 33.517
+    }
+   ]
+  },
+  {
+   "start": 34.397,
+   "end": 35.929,
+   "words": [
+    {
+     "text": "A",
+     "start": 34.397,
+     "end": 34.572
+    },
+    {
+     "text": "quatre,",
+     "start": 34.572,
+     "end": 35.034
+    },
+    {
+     "text": "hi",
+     "start": 35.254,
+     "end": 35.386
+    },
+    {
+     "text": "arribava.",
+     "start": 35.386,
+     "end": 35.929
+    }
+   ]
+  },
+  {
+   "start": 36.809,
+   "end": 39.729,
+   "words": [
+    {
+     "text": "A",
+     "start": 36.809,
+     "end": 36.935
+    },
+    {
+     "text": "la",
+     "start": 36.935,
+     "end": 37.078
+    },
+    {
+     "text": "que",
+     "start": 37.078,
+     "end": 37.236
+    },
+    {
+     "text": "somiava,",
+     "start": 37.236,
+     "end": 37.696
+    },
+    {
+     "text": "li",
+     "start": 37.916,
+     "end": 38.101
+    },
+    {
+     "text": "faltaven",
+     "start": 38.101,
+     "end": 38.698
+    },
+    {
+     "text": "tres",
+     "start": 38.698,
+     "end": 38.926
+    },
+    {
+     "text": "centèsimes.",
+     "start": 38.926,
+     "end": 39.729
+    }
+   ]
+  },
+  {
+   "start": 41.509,
+   "end": 45.811,
+   "words": [
+    {
+     "text": "Ara",
+     "start": 41.509,
+     "end": 41.842
+    },
+    {
+     "text": "faltaven",
+     "start": 41.842,
+     "end": 42.414
+    },
+    {
+     "text": "vuit",
+     "start": 42.414,
+     "end": 42.632
+    },
+    {
+     "text": "minuts",
+     "start": 42.632,
+     "end": 43.027
+    },
+    {
+     "text": "per",
+     "start": 43.027,
+     "end": 43.225
+    },
+    {
+     "text": "a",
+     "start": 43.225,
+     "end": 43.381
+    },
+    {
+     "text": "mitjanit,",
+     "start": 43.381,
+     "end": 43.974
+    },
+    {
+     "text": "i",
+     "start": 44.194,
+     "end": 44.311
+    },
+    {
+     "text": "la",
+     "start": 44.311,
+     "end": 44.443
+    },
+    {
+     "text": "primera",
+     "start": 44.443,
+     "end": 44.855
+    },
+    {
+     "text": "casella",
+     "start": 44.855,
+     "end": 45.267
+    },
+    {
+     "text": "esperava.",
+     "start": 45.267,
+     "end": 45.811
+    }
+   ]
+  },
+  {
+   "start": 46.691,
+   "end": 49.532,
+   "words": [
+    {
+     "text": "Si",
+     "start": 46.691,
+     "end": 46.876
+    },
+    {
+     "text": "posava",
+     "start": 46.876,
+     "end": 47.431
+    },
+    {
+     "text": "la",
+     "start": 47.431,
+     "end": 47.616
+    },
+    {
+     "text": "que",
+     "start": 47.616,
+     "end": 47.823
+    },
+    {
+     "text": "somiava",
+     "start": 47.823,
+     "end": 48.4
+    },
+    {
+     "text": "i",
+     "start": 48.4,
+     "end": 48.563
+    },
+    {
+     "text": "no",
+     "start": 48.563,
+     "end": 48.748
+    },
+    {
+     "text": "hi",
+     "start": 48.748,
+     "end": 48.934
+    },
+    {
+     "text": "entrava…",
+     "start": 48.934,
+     "end": 49.532
+    }
+   ]
+  },
+  {
+   "start": 50.412,
+   "end": 53.252,
+   "words": [
+    {
+     "text": "i",
+     "start": 50.412,
+     "end": 50.554
+    },
+    {
+     "text": "si",
+     "start": 50.554,
+     "end": 50.715
+    },
+    {
+     "text": "no",
+     "start": 50.715,
+     "end": 50.875
+    },
+    {
+     "text": "la",
+     "start": 50.875,
+     "end": 51.036
+    },
+    {
+     "text": "posava,",
+     "start": 51.036,
+     "end": 51.537
+    },
+    {
+     "text": "i",
+     "start": 51.757,
+     "end": 51.883
+    },
+    {
+     "text": "aquest",
+     "start": 51.883,
+     "end": 52.202
+    },
+    {
+     "text": "any",
+     "start": 52.202,
+     "end": 52.361
+    },
+    {
+     "text": "la",
+     "start": 52.361,
+     "end": 52.504
+    },
+    {
+     "text": "nota",
+     "start": 52.504,
+     "end": 52.79
+    },
+    {
+     "text": "baixava?",
+     "start": 52.79,
+     "end": 53.252
+    }
+   ]
+  },
+  {
+   "start": 54.132,
+   "end": 56.433,
+   "words": [
+    {
+     "text": "Va",
+     "start": 54.132,
+     "end": 54.29
+    },
+    {
+     "text": "escriure",
+     "start": 54.29,
+     "end": 54.8
+    },
+    {
+     "text": "un",
+     "start": 54.8,
+     "end": 54.958
+    },
+    {
+     "text": "nom",
+     "start": 54.958,
+     "end": 55.134
+    },
+    {
+     "text": "a",
+     "start": 55.134,
+     "end": 55.273
+    },
+    {
+     "text": "la",
+     "start": 55.273,
+     "end": 55.431
+    },
+    {
+     "text": "primera",
+     "start": 55.431,
+     "end": 55.923
+    },
+    {
+     "text": "casella.",
+     "start": 55.923,
+     "end": 56.433
+    }
+   ]
+  }
+ ]
+}

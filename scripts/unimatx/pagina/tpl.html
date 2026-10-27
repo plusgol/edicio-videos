@@ -1,0 +1,232 @@
+<title>Guions UniMatx</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+/* Layout: a script book. Intro and the two formulas up top, then each script as storyboard strip + beat sheet. */
+:root {
+  --paper: #F5F6FA; --sheet: #FFFFFF; --ink: #161A33; --muted: #5B6180; --rule: #DDE0EC;
+  --indigo: #4741D1; --indigo-soft: #ECEBFC; --mint: #5BE3A0; --mint-ink: #0B3B26;
+  --warn: #9A4A10; --warn-soft: #FFF3E6;
+  /* video-frame worlds: fixed colours, the same in both themes (they are pictures of the video) */
+  --f-sky1: #3E8BF0; --f-sky2: #CFE6FF; --f-ground: #EEE7DC; --f-roof: #D9643E; --f-street: #C9C4BD;
+  --f-dusk1: #2B2F6B; --f-dusk2: #E9A26B; --f-night: #0B1026; --f-night2: #1A2147; --f-lamp: #FFC873;
+  --f-ink: #121527; --f-white: #FFFFFF; --f-yellow: #FFD23F; --f-red: #E5484D; --f-phone: #FFFFFF;
+  --display: "Plus Jakarta Sans", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --cond: "Anton", "Impact", "Arial Narrow", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --paper: #0F1120; --sheet: #171A2E; --ink: #E7E9F6; --muted: #A0A6C4; --rule: #2A2E48;
+  --indigo: #9A96FF; --indigo-soft: #232552; --mint-ink: #0B3B26; --warn: #F2B27A; --warn-soft: #2C2016; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --paper: #0F1120; --sheet: #171A2E; --ink: #E7E9F6; --muted: #A0A6C4; --rule: #2A2E48;
+  --indigo: #9A96FF; --indigo-soft: #232552; --mint-ink: #0B3B26; --warn: #F2B27A; --warn-soft: #2C2016; color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font: 17px/1.55 var(--body); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-block: 40px 80px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid; gap: 56px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; letter-spacing: -0.01em; }
+h1 { font-size: clamp(34px, 6vw, 56px); font-weight: 800; line-height: 1.02; }
+h2 { font-size: clamp(24px, 3.4vw, 32px); font-weight: 800; }
+h3 { font-size: 24px; font-weight: 800; }
+p { margin: 0; max-width: 68ch; }
+.eyebrow { font: 700 12px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--indigo); }
+mark.pill { background: var(--mint); color: var(--mint-ink); border-radius: 0.3em; padding: 0 0.22em; }
+
+.intro { display: grid; gap: 18px; }
+.intro .lede { font-size: 19px; color: var(--muted); }
+.nav { display: flex; flex-wrap: wrap; gap: 8px; }
+.nav a { display: inline-flex; gap: 8px; align-items: baseline; padding: 7px 12px; border: 1px solid var(--rule); border-radius: 999px;
+  color: var(--ink); text-decoration: none; font: 600 14px/1.2 var(--display); background: var(--sheet); }
+.nav a b { font-family: var(--mono); font-size: 12px; color: var(--indigo); }
+.nav a:hover, .nav a:focus-visible { border-color: var(--indigo); outline: none; }
+
+.formulas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.formula { background: var(--sheet); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.formula h2 { font-size: 22px; }
+.formula .src { font: 500 13px/1.4 var(--display); color: var(--muted); }
+dl.spec { display: grid; grid-template-columns: 8.5em 1fr; gap: 8px 14px; margin: 0; font-size: 15px; line-height: 1.45; }
+dl.spec dt { font: 700 12px/1.6 var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+dl.spec dd { margin: 0; min-width: 0; }
+
+.sec { display: grid; gap: 28px; }
+.sec > header { display: grid; gap: 8px; border-top: 2px solid var(--ink); padding-top: 18px; }
+.sc { background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px; padding: 24px; display: grid; gap: 18px; scroll-margin-top: 16px; min-width: 0; }
+.sch { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.code { font: 700 13px/1 var(--mono); color: var(--sheet); background: var(--indigo); padding: 6px 8px; border-radius: 6px; }
+.sch h3 { flex: 1 1 auto; }
+.copy { font: 600 14px/1 var(--display); color: var(--indigo); background: var(--indigo-soft); border: 0; border-radius: 999px; padding: 10px 14px; cursor: pointer; }
+.copy:hover, .copy:focus-visible { outline: 2px solid var(--indigo); outline-offset: 2px; }
+.meta { display: flex; flex-wrap: wrap; gap: 6px 18px; font: 500 14px/1.4 var(--display); color: var(--muted); }
+.meta span + span::before { content: "·"; margin-right: 18px; color: var(--rule); }
+
+/* storyboard strip: 9:16 frames drawn in the formula's own look */
+.strip { display: grid; grid-template-columns: repeat(4, minmax(0, 150px)); gap: 12px; }
+@media (max-width: 560px) { .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.fr { margin: 0; position: relative; aspect-ratio: 9 / 16; max-width: 100%; border-radius: 10px; overflow: hidden; container-type: inline-size; }
+.fr-day { background: linear-gradient(var(--f-sky1) 0, var(--f-sky2) 30%, var(--f-ground) 30%); }
+.fr-dusk { background: linear-gradient(var(--f-dusk1) 0, var(--f-dusk2) 30%, var(--f-ground) 30%); }
+.fr-night { background: radial-gradient(circle at 50% 62%, var(--f-night2) 0, var(--f-night) 60%); }
+.fr .iso { position: absolute; inset: 30% 0 0; opacity: 0.55;
+  background: repeating-linear-gradient(30deg, transparent 0 9cqw, var(--f-street) 9cqw 10.5cqw),
+              repeating-linear-gradient(150deg, transparent 0 9cqw, var(--f-street) 9cqw 10.5cqw); }
+.fr-day .iso::after, .fr-dusk .iso::after { content: ""; position: absolute; left: 22%; top: 30%; width: 22cqw; height: 12cqw; background: var(--f-roof); transform: skewY(-30deg); border-radius: 2px; box-shadow: 34cqw 18cqw 0 var(--f-roof); }
+.fr-night .iso { display: none; }
+.fr-night::after { content: ""; position: absolute; left: 50%; top: 60%; width: 34cqw; height: 34cqw; transform: translate(-50%, -50%); border-radius: 50%;
+  background: radial-gradient(circle, var(--f-lamp) 0, transparent 65%); opacity: 0.45; }
+.ttl { position: absolute; top: 14%; left: 6%; right: 6%; z-index: 2; text-align: center; font: 800 8.4cqw/1.15 var(--display); color: var(--f-ink); }
+.fr-night .ttl, .fr-dusk .ttl { color: var(--f-white); }
+.ttl.big { top: 22%; font-size: 10cqw; }
+.ttl mark.pill { color: var(--f-ink); }
+.ph { position: absolute; right: 6%; bottom: 7%; width: 54%; z-index: 2; background: var(--f-phone); color: var(--f-ink); border-radius: 6cqw; padding: 5cqw 4cqw; border: 1.6cqw solid var(--f-ink);
+  font: 600 4.2cqw/1.3 var(--display); }
+.ph b { display: block; font-size: 4.8cqw; margin-bottom: 2cqw; }
+.ph ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6cqw; }
+.ph li { border-top: 1px solid var(--f-street); padding-top: 1.4cqw; }
+
+.fr-b { background: linear-gradient(var(--f-night2), var(--f-night)); }
+.fr-b .win { position: absolute; left: 12%; right: 12%; top: 34%; height: 26%; border: 1.4cqw solid var(--f-ground); opacity: 0.22;
+  background: repeating-linear-gradient(90deg, transparent 0 14cqw, var(--f-ground) 14cqw 15.4cqw); }
+.chip { position: absolute; left: 6%; top: 6%; z-index: 2; background: var(--f-night); border: 0.8cqw solid var(--f-yellow); border-radius: 2cqw; padding: 1.6cqw 2.6cqw;
+  font: 700 5.6cqw/1.1 var(--display); color: var(--f-yellow); display: grid; }
+.chip span { font-size: 3.6cqw; color: var(--f-white); letter-spacing: 0.06em; }
+.ntf { position: absolute; left: 6%; right: 6%; top: 20%; z-index: 2; background: var(--f-white); color: var(--f-ink); border-radius: 3cqw; padding: 3cqw 3.6cqw;
+  font: 600 4.6cqw/1.25 var(--display); display: grid; gap: 1cqw; }
+.ntf b { font-size: 3.6cqw; letter-spacing: 0.06em; color: var(--f-red); display: flex; align-items: center; gap: 1.6cqw; }
+.ntf b i { width: 2.4cqw; height: 2.4cqw; border-radius: 50%; background: var(--f-red); }
+.ntf small { font: 500 3cqw/1.2 var(--display); color: var(--f-street); }
+.cap { position: absolute; left: 4%; right: 4%; top: 68%; z-index: 2; text-align: center; font: 9cqw/1.05 var(--cond); color: var(--f-white); letter-spacing: 0.01em;
+  text-shadow: 0 0.6cqw 0 var(--f-night); }
+mark.kw { background: none; color: var(--f-yellow); }
+.p2 { position: absolute; left: 50%; bottom: 7%; transform: translateX(-50%); z-index: 2; font: 700 4.4cqw/1 var(--mono); color: var(--f-night); background: var(--f-white); padding: 1.6cqw 2.6cqw; border-radius: 1.4cqw; letter-spacing: 0.1em; }
+
+/* vídeo al costat del guió */
+.body { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 28px; align-items: start; }
+.media { position: sticky; top: calc(16px + env(safe-area-inset-top, 0px)); display: grid; gap: 8px; }
+.media video { width: 100%; max-width: 100%; aspect-ratio: 9 / 16; border-radius: 14px; background: var(--ink); display: block; }
+.vnote { font: 500 13px/1.3 var(--display); color: var(--muted); text-align: center; }
+@media (max-width: 860px) { .body { grid-template-columns: minmax(0, 1fr); } .media { position: static; max-width: 320px; margin: 0 auto; width: 100%; } }
+/* beat sheet */
+.tbl { display: grid; border-top: 1px solid var(--rule); }
+.row { display: grid; grid-template-columns: 4.2em minmax(0, 1.05fr) minmax(0, 1.25fr) minmax(0, 0.9fr); gap: 16px; padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 15px; line-height: 1.45; }
+.row > div { min-width: 0; }
+.row.hd { font: 700 11.5px/1.4 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-block: 8px; }
+.tc { font: 700 13px/1.6 var(--mono); color: var(--indigo); font-variant-numeric: tabular-nums; }
+.vis { color: var(--muted); }
+.veu { font-size: 16.5px; }
+.osd { font: 600 14.5px/1.4 var(--display); }
+.dash { color: var(--rule); }
+@media (max-width: 720px) {
+  .row { grid-template-columns: 3.4em minmax(0, 1fr); gap: 4px 12px; }
+  .row.hd { display: none; }
+  .row .vis, .row .veu, .row .osd { grid-column: 2; }
+  .row .osd:has(.dash) { display: none; }
+}
+.p2txt { font-size: 16px; background: var(--indigo-soft); border-radius: 10px; padding: 12px 14px; max-width: none; }
+.nts { margin: 0; padding: 12px 14px 12px 32px; background: var(--warn-soft); color: var(--ink); border-radius: 10px; font-size: 15px; display: grid; gap: 4px; }
+.nts li::marker { color: var(--warn); }
+
+.next { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.next > div { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.next ul { margin: 0; padding-left: 20px; display: grid; gap: 6px; }
+.toast { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--paper);
+  font: 600 14px/1 var(--display); padding: 12px 16px; border-radius: 999px; }
+@media (prefers-reduced-motion: no-preference) { .nav a, .copy { transition: border-color .15s, background .15s; } }
+</style>
+
+<main class="wrap">
+  <section class="intro">
+    <div class="eyebrow">UniMatx · vídeos verticals · 8 guions</div>
+    <h1>Guions UniMatx</h1>
+    <p class="lede">Els vuit vídeos ja estan fets: cada guió porta el seu a sota. La veu és sintètica i provisional (en català, per guiar el ritme), i la música i els efectes estan generats aquí mateix: tot es pot canviar per una veu real sense tocar res més. Quatre vídeos A-B, amb la fórmula del vídeo dels clubs, i quatre sèries en dues parts, amb la del vídeo del zombie. Tot el que s'hi ensenya de l'app surt de la demo real: el test, el top 3, les notes de tall, l'informe i el tauler del centre. Els personatges i les situacions són de ficció i es diuen així a la pantalla.</p>
+    <nav class="nav" aria-label="Guions">{{NAV}}</nav>
+  </section>
+
+  <section class="formulas" aria-label="Les dues fórmules">
+    <div class="formula">
+      <div class="eyebrow">Fórmula A-B</div>
+      <h2>Dues situacions iguals, un sol canvi</h2>
+      <div class="src">Del vídeo de ClubOS · 51 s · 1080×1920</div>
+      <dl class="spec">
+        <dt>Món</dt><dd>Un sol escenari isomètric de dia. Una càmera que vola d'un lloc a l'altre, sense talls fins al «mentrestant».</dd>
+        <dt>Text</dt><dd>Al terç de dalt, frases curtes que resumeixen la veu. La paraula clau, en una píndola verd menta (el verd de la marca).</dd>
+        <dt>Producte</dt><dd>Un mòbil entra per la dreta amb la funció que diu la veu. A dalt, les molles marquen el pas: TEST · TOP 3 · NOTES · FEINA.</dd>
+        <dt>Contrast</dt><dd>El «sense» és de nit: habitació fosca, una sola llum, una bombolla vermella amb un número.</dd>
+        <dt>Ritme</dt><dd>3,4 paraules per segon, pauses de menys de 0,6 s. Uns 140 mots en 50 s.</dd>
+        <dt>So</dt><dd>Música de fons tot el vídeo i un «pop» suau a cada element que apareix. −14 LUFS.</dd>
+        <dt>Tancament</dt><dd>Logo sobre blanc → «Quin dels dos vols ser?» → «Comenta PARAULA». Acaba amb el pla de l'inici perquè faci bucle.</dd>
+      </dl>
+    </div>
+    <div class="formula">
+      <div class="eyebrow">Fórmula sèrie</div>
+      <h2>Comença pel final, salta enrere, talla al millor moment</h2>
+      <div class="src">Del vídeo del zombie · 75 s · part 1</div>
+      <dl class="spec">
+        <dt>Món</dt><dd>Il·lustració 2D plana, de nit, en blaus foscos. Un sol accent de llum càlida: aquí, la pantalla del mòbil.</dd>
+        <dt>Text</dt><dd>Subtítols karaoke al terç de baix, en majúscules condensades blanques. La paraula que es diu, en groc.</dd>
+        <dt>Temps</dt><dd>Un xip d'hora a dalt a l'esquerra fa avançar la història. «◀◀ ENRERE» marca el salt.</dd>
+        <dt>Fil</dt><dd>Targetes de notificació, sempre amb «avís fictici de la sèrie».</dd>
+        <dt>Plans</dt><dd>De 2 a 6 s, amb un apropament lent. Tall sec a cada frase. Alguns plans emmarcats, com vistos per una finestra.</dd>
+        <dt>Ritme</dt><dd>2,4 paraules per segon, amb silencis de fins a 1,5 s abans de cada revelació.</dd>
+        <dt>So</dt><dd>Un fons ambiental fosc que no para mai, i un cop sec a cada revelació. −17 LUFS.</dd>
+        <dt>Final</dt><dd>Cliffhanger sense CTA. La part 2 resol la història i fa d'A-B: els dos camins del mateix personatge.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-ab">
+    <header><div class="eyebrow">Format 1</div><h2 id="h-ab">A-B · amb UniMatx i sense</h2></header>
+    {{AB}}
+  </section>
+
+  <section class="sec" aria-labelledby="h-se">
+    <header><div class="eyebrow">Format 2</div><h2 id="h-se">Sèrie · Què passaria si…</h2></header>
+    {{SERIE}}
+  </section>
+
+  <section class="sec" aria-labelledby="h-nx">
+    <header><div class="eyebrow">Abans de produir</div><h2 id="h-nx">Per on començaria i què falta</h2></header>
+    <div class="next">
+      <div>
+        <h3>Per on començaria</h3>
+        <p>Per A1 i S1. A1 ven directe. La part 2 de S1 és un A-B amb el mateix personatge, que és la barreja que proposaves. Si el client ven als centres, A2 abans que A1.</p>
+      </div>
+      <div>
+        <h3>Què falta</h3>
+        <ul>
+          <li>Captures de l'app en mòbil: les de la demo són d'escriptori.</li>
+          <li>La veu en off: la teva, la del client o una de sintètica.</li>
+          <li>Qui respon els comentaris del CTA, i amb quin enllaç.</li>
+          <li>El calendari i les regles de la preinscripció (S1, S2), comprovats a la font oficial.</li>
+          <li>Preguntes reals del test per substituir les d'exemple (S1).</li>
+          <li>Música i efectes amb llicència per a xarxes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+(() => {
+  const toast = document.getElementById('toast');
+  let t;
+  const say = (m) => { toast.textContent = m; toast.hidden = false; clearTimeout(t); t = setTimeout(() => { toast.hidden = true; }, 1800); };
+  document.querySelectorAll('.copy').forEach((b) => b.addEventListener('click', () => {
+    const txt = b.dataset.vo;
+    const fallback = () => {
+      const ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+      ta.remove(); say(ok ? 'Veu en off copiada' : 'No s\'ha pogut copiar: selecciona el text de la columna «Veu en off»');
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(() => say('Veu en off copiada'), fallback);
+    else fallback();
+  }));
+})();
+</script>

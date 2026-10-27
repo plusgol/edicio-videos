@@ -1,0 +1,714 @@
+{
+ "duration": 45.327,
+ "beats": [
+  {
+   "start": 0.25,
+   "end": 3.451,
+   "words": [
+    {
+     "text": "Mateix",
+     "start": 0.25,
+     "end": 0.618
+    },
+    {
+     "text": "institut,",
+     "start": 0.618,
+     "end": 1.171
+    },
+    {
+     "text": "dues",
+     "start": 1.291,
+     "end": 1.495
+    },
+    {
+     "text": "tutories",
+     "start": 1.495,
+     "end": 2.03
+    },
+    {
+     "text": "de",
+     "start": 2.03,
+     "end": 2.196
+    },
+    {
+     "text": "segon",
+     "start": 2.196,
+     "end": 2.546
+    },
+    {
+     "text": "de",
+     "start": 2.546,
+     "end": 2.712
+    },
+    {
+     "text": "batxillerat.",
+     "start": 2.712,
+     "end": 3.451
+    }
+   ]
+  },
+  {
+   "start": 3.851,
+   "end": 7.739,
+   "words": [
+    {
+     "text": "Els",
+     "start": 3.851,
+     "end": 4.028
+    },
+    {
+     "text": "mateixos",
+     "start": 4.028,
+     "end": 4.542
+    },
+    {
+     "text": "alumnes,",
+     "start": 4.542,
+     "end": 5.056
+    },
+    {
+     "text": "la",
+     "start": 5.176,
+     "end": 5.373
+    },
+    {
+     "text": "mateixa",
+     "start": 5.373,
+     "end": 5.985
+    },
+    {
+     "text": "pressió:",
+     "start": 5.985,
+     "end": 6.47
+    },
+    {
+     "text": "la",
+     "start": 6.689,
+     "end": 6.903
+    },
+    {
+     "text": "preinscripció.",
+     "start": 6.903,
+     "end": 7.739
+    }
+   ]
+  },
+  {
+   "start": 8.139,
+   "end": 12.132,
+   "words": [
+    {
+     "text": "Una",
+     "start": 8.139,
+     "end": 8.423
+    },
+    {
+     "text": "tutora",
+     "start": 8.423,
+     "end": 8.874
+    },
+    {
+     "text": "sap",
+     "start": 8.874,
+     "end": 9.041
+    },
+    {
+     "text": "en",
+     "start": 9.041,
+     "end": 9.192
+    },
+    {
+     "text": "quin",
+     "start": 9.192,
+     "end": 9.377
+    },
+    {
+     "text": "punt",
+     "start": 9.377,
+     "end": 9.562
+    },
+    {
+     "text": "és",
+     "start": 9.562,
+     "end": 9.712
+    },
+    {
+     "text": "cada",
+     "start": 9.712,
+     "end": 10.013
+    },
+    {
+     "text": "alumne.",
+     "start": 10.013,
+     "end": 10.481
+    },
+    {
+     "text": "L'altra",
+     "start": 10.701,
+     "end": 11.043
+    },
+    {
+     "text": "ho",
+     "start": 11.043,
+     "end": 11.189
+    },
+    {
+     "text": "pregunta",
+     "start": 11.189,
+     "end": 11.661
+    },
+    {
+     "text": "un",
+     "start": 11.661,
+     "end": 11.807
+    },
+    {
+     "text": "per",
+     "start": 11.807,
+     "end": 11.969
+    },
+    {
+     "text": "un.",
+     "start": 11.969,
+     "end": 12.132
+    }
+   ]
+  },
+  {
+   "start": 12.532,
+   "end": 13.258,
+   "words": [
+    {
+     "text": "Saps",
+     "start": 12.532,
+     "end": 12.782
+    },
+    {
+     "text": "per",
+     "start": 12.782,
+     "end": 13.008
+    },
+    {
+     "text": "què?",
+     "start": 13.008,
+     "end": 13.258
+    }
+   ]
+  },
+  {
+   "start": 13.658,
+   "end": 14.391,
+   "words": [
+    {
+     "text": "Té",
+     "start": 13.658,
+     "end": 13.827
+    },
+    {
+     "text": "un",
+     "start": 13.827,
+     "end": 13.995
+    },
+    {
+     "text": "tauler.",
+     "start": 13.995,
+     "end": 14.391
+    }
+   ]
+  },
+  {
+   "start": 14.791,
+   "end": 18.612,
+   "words": [
+    {
+     "text": "Cada",
+     "start": 14.791,
+     "end": 15.122
+    },
+    {
+     "text": "alumne",
+     "start": 15.122,
+     "end": 15.62
+    },
+    {
+     "text": "fa",
+     "start": 15.62,
+     "end": 15.785
+    },
+    {
+     "text": "el",
+     "start": 15.785,
+     "end": 15.951
+    },
+    {
+     "text": "test",
+     "start": 15.951,
+     "end": 16.155
+    },
+    {
+     "text": "pel",
+     "start": 16.155,
+     "end": 16.34
+    },
+    {
+     "text": "seu",
+     "start": 16.34,
+     "end": 16.525
+    },
+    {
+     "text": "compte,",
+     "start": 16.525,
+     "end": 16.914
+    },
+    {
+     "text": "en",
+     "start": 17.034,
+     "end": 17.215
+    },
+    {
+     "text": "vint",
+     "start": 17.215,
+     "end": 17.439
+    },
+    {
+     "text": "o",
+     "start": 17.439,
+     "end": 17.599
+    },
+    {
+     "text": "seixanta",
+     "start": 17.599,
+     "end": 18.186
+    },
+    {
+     "text": "minuts.",
+     "start": 18.186,
+     "end": 18.612
+    }
+   ]
+  },
+  {
+   "start": 19.012,
+   "end": 22.592,
+   "words": [
+    {
+     "text": "Al",
+     "start": 19.012,
+     "end": 19.157
+    },
+    {
+     "text": "tauler",
+     "start": 19.157,
+     "end": 19.479
+    },
+    {
+     "text": "veu",
+     "start": 19.479,
+     "end": 19.64
+    },
+    {
+     "text": "qui",
+     "start": 19.64,
+     "end": 19.802
+    },
+    {
+     "text": "no",
+     "start": 19.802,
+     "end": 19.946
+    },
+    {
+     "text": "ha",
+     "start": 19.946,
+     "end": 20.091
+    },
+    {
+     "text": "començat,",
+     "start": 20.091,
+     "end": 20.574
+    },
+    {
+     "text": "qui",
+     "start": 20.694,
+     "end": 20.84
+    },
+    {
+     "text": "va",
+     "start": 20.84,
+     "end": 20.97
+    },
+    {
+     "text": "per",
+     "start": 20.97,
+     "end": 21.115
+    },
+    {
+     "text": "la",
+     "start": 21.115,
+     "end": 21.245
+    },
+    {
+     "text": "fase",
+     "start": 21.245,
+     "end": 21.505
+    },
+    {
+     "text": "tres",
+     "start": 21.505,
+     "end": 21.666
+    },
+    {
+     "text": "i",
+     "start": 21.666,
+     "end": 21.781
+    },
+    {
+     "text": "qui",
+     "start": 21.781,
+     "end": 21.926
+    },
+    {
+     "text": "ja",
+     "start": 21.926,
+     "end": 22.056
+    },
+    {
+     "text": "ha",
+     "start": 22.056,
+     "end": 22.186
+    },
+    {
+     "text": "acabat.",
+     "start": 22.186,
+     "end": 22.592
+    }
+   ]
+  },
+  {
+   "start": 22.992,
+   "end": 25.831,
+   "words": [
+    {
+     "text": "L'informe,",
+     "start": 22.992,
+     "end": 23.574
+    },
+    {
+     "text": "només",
+     "start": 23.694,
+     "end": 24.014
+    },
+    {
+     "text": "si",
+     "start": 24.014,
+     "end": 24.165
+    },
+    {
+     "text": "l'alumne",
+     "start": 24.165,
+     "end": 24.652
+    },
+    {
+     "text": "decideix",
+     "start": 24.652,
+     "end": 25.14
+    },
+    {
+     "text": "compartir-lo.",
+     "start": 25.14,
+     "end": 25.831
+    }
+   ]
+  },
+  {
+   "start": 26.231,
+   "end": 28.85,
+   "words": [
+    {
+     "text": "I",
+     "start": 26.231,
+     "end": 26.366
+    },
+    {
+     "text": "els",
+     "start": 26.366,
+     "end": 26.535
+    },
+    {
+     "text": "interessos",
+     "start": 26.535,
+     "end": 27.179
+    },
+    {
+     "text": "de",
+     "start": 27.179,
+     "end": 27.332
+    },
+    {
+     "text": "tot",
+     "start": 27.332,
+     "end": 27.502
+    },
+    {
+     "text": "el",
+     "start": 27.502,
+     "end": 27.654
+    },
+    {
+     "text": "grup,",
+     "start": 27.654,
+     "end": 27.859
+    },
+    {
+     "text": "d'un",
+     "start": 27.979,
+     "end": 28.26
+    },
+    {
+     "text": "cop",
+     "start": 28.26,
+     "end": 28.516
+    },
+    {
+     "text": "d'ull.",
+     "start": 28.516,
+     "end": 28.85
+    }
+   ]
+  },
+  {
+   "start": 29.25,
+   "end": 31.18,
+   "words": [
+    {
+     "text": "Mentrestant,",
+     "start": 29.25,
+     "end": 29.991
+    },
+    {
+     "text": "a",
+     "start": 30.111,
+     "end": 30.258
+    },
+    {
+     "text": "l'altra",
+     "start": 30.258,
+     "end": 30.646
+    },
+    {
+     "text": "tutoria…",
+     "start": 30.646,
+     "end": 31.18
+    }
+   ]
+  },
+  {
+   "start": 31.58,
+   "end": 36.841,
+   "words": [
+    {
+     "text": "Dimarts,",
+     "start": 31.58,
+     "end": 32.118
+    },
+    {
+     "text": "deu",
+     "start": 32.238,
+     "end": 32.44
+    },
+    {
+     "text": "de",
+     "start": 32.44,
+     "end": 32.622
+    },
+    {
+     "text": "la",
+     "start": 32.622,
+     "end": 32.803
+    },
+    {
+     "text": "nit.",
+     "start": 32.803,
+     "end": 33.027
+    },
+    {
+     "text": "Un",
+     "start": 33.247,
+     "end": 33.427
+    },
+    {
+     "text": "full",
+     "start": 33.427,
+     "end": 33.65
+    },
+    {
+     "text": "de",
+     "start": 33.65,
+     "end": 33.83
+    },
+    {
+     "text": "càlcul,",
+     "start": 33.83,
+     "end": 34.254
+    },
+    {
+     "text": "disset",
+     "start": 34.374,
+     "end": 34.772
+    },
+    {
+     "text": "noms",
+     "start": 34.772,
+     "end": 34.992
+    },
+    {
+     "text": "i",
+     "start": 34.992,
+     "end": 35.15
+    },
+    {
+     "text": "un",
+     "start": 35.15,
+     "end": 35.329
+    },
+    {
+     "text": "correu",
+     "start": 35.329,
+     "end": 35.728
+    },
+    {
+     "text": "de",
+     "start": 35.728,
+     "end": 35.906
+    },
+    {
+     "text": "cada",
+     "start": 35.906,
+     "end": 36.264
+    },
+    {
+     "text": "família.",
+     "start": 36.264,
+     "end": 36.841
+    }
+   ]
+  },
+  {
+   "start": 37.241,
+   "end": 38.928,
+   "words": [
+    {
+     "text": "Aquest",
+     "start": 37.241,
+     "end": 37.625
+    },
+    {
+     "text": "tauler",
+     "start": 37.625,
+     "end": 38.008
+    },
+    {
+     "text": "es",
+     "start": 38.008,
+     "end": 38.181
+    },
+    {
+     "text": "diu",
+     "start": 38.181,
+     "end": 38.372
+    },
+    {
+     "text": "UniMatx.",
+     "start": 38.372,
+     "end": 38.928
+    }
+   ]
+  },
+  {
+   "start": 39.328,
+   "end": 40.974,
+   "words": [
+    {
+     "text": "Quina",
+     "start": 39.328,
+     "end": 39.64
+    },
+    {
+     "text": "de",
+     "start": 39.64,
+     "end": 39.788
+    },
+    {
+     "text": "les",
+     "start": 39.788,
+     "end": 39.953
+    },
+    {
+     "text": "dues",
+     "start": 39.953,
+     "end": 40.134
+    },
+    {
+     "text": "tutories",
+     "start": 40.134,
+     "end": 40.611
+    },
+    {
+     "text": "vols",
+     "start": 40.611,
+     "end": 40.792
+    },
+    {
+     "text": "ser?",
+     "start": 40.792,
+     "end": 40.974
+    }
+   ]
+  },
+  {
+   "start": 41.374,
+   "end": 43.727,
+   "words": [
+    {
+     "text": "Comenta",
+     "start": 41.374,
+     "end": 41.828
+    },
+    {
+     "text": "CENTRE",
+     "start": 41.828,
+     "end": 42.153
+    },
+    {
+     "text": "i",
+     "start": 42.153,
+     "end": 42.282
+    },
+    {
+     "text": "t'ensenyo",
+     "start": 42.282,
+     "end": 42.769
+    },
+    {
+     "text": "com",
+     "start": 42.769,
+     "end": 42.932
+    },
+    {
+     "text": "quedaria",
+     "start": 42.932,
+     "end": 43.402
+    },
+    {
+     "text": "al",
+     "start": 43.402,
+     "end": 43.548
+    },
+    {
+     "text": "teu.",
+     "start": 43.548,
+     "end": 43.727
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,652 @@
+{
+ "videos": [
+  {
+   "code": "A1",
+   "kind": "ab",
+   "title": "Mateixa nota",
+   "who": "Alumnes de 2n de batxillerat",
+   "cta": "TEST",
+   "part2": null,
+   "notes": [
+    "«Mateixa nota» i «tria el que tria el seu amic» són personatges de ficció, no un resultat del producte."
+   ],
+   "beats": [
+    {
+     "visual": "Ciutat isomètrica de dia. La càmera baixa cap a dues cases iguals a banda i banda d'un institut.",
+     "veu": "Al mateix institut hi ha dos alumnes amb la mateixa nota.",
+     "text": "Mateix institut. / Mateixa **nota**."
+    },
+    {
+     "visual": "Etiqueta flotant «9,1» sobre cada casa.",
+     "veu": "Tots dos faran la preinscripció aquest juliol.",
+     "text": "Mateixa **preinscripció**."
+    },
+    {
+     "visual": "La càmera s'acosta a la casa de l'esquerra.",
+     "veu": "Un tria sabent què hi trobarà. L'altre tria el que tria el seu amic.",
+     "text": "Un tria **sabent-ho**."
+    },
+    {
+     "visual": "La càmera s'atura un moment.",
+     "veu": "Saps per què?",
+     "text": "Per què?"
+    },
+    {
+     "visual": "Entra el mòbil per la dreta. A dalt, les molles: TEST · TOP 3 · NOTES · FEINA.",
+     "veu": "Perquè va fer servir un mètode.",
+     "text": "Té un **mètode**."
+    },
+    {
+     "visual": "Mòbil: «Què vols aclarir sobre els teus estudis?»",
+     "veu": "Va respondre el test des del sofà, en vint minuts.",
+     "text": "Test en **20 minuts**."
+    },
+    {
+     "visual": "Mòbil: el top 3 amb l'índex d'encaix de cada carrera.",
+     "veu": "Va rebre el seu top 3 de carreres, cadascuna amb el perquè.",
+     "text": "El teu **top 3**."
+    },
+    {
+     "visual": "Mòbil: taula d'universitats amb la píndola verda «Hi arribaries».",
+     "veu": "Per a cada universitat, la nota de tall, les places i el preu. I si amb la seva nota hi arriba.",
+     "text": "Hi **arribaries**."
+    },
+    {
+     "visual": "Mòbil: la pàgina «Què hauràs d'acceptar».",
+     "veu": "I abans de triar, el que la carrera li demanarà: matemàtiques, laboratori, exàmens que pesen.",
+     "text": "El que hauràs d'**acceptar**."
+    },
+    {
+     "visual": "Es fa de nit. Habitació fosca de l'altre alumne, només la llum de la pantalla.",
+     "veu": "Mentrestant, l'altre alumne…",
+     "text": "Mentrestant…"
+    },
+    {
+     "visual": "Portàtil amb moltes pestanyes. Bombolla vermella amb 47 al grup de classe.",
+     "veu": "Diumenge, onze de la nit. Trenta pestanyes obertes i el grup de classe: tu què poses?",
+     "text": "Diumenge, **23:00**."
+    },
+    {
+     "visual": "Pla blanc amb el logo.",
+     "veu": "Aquest mètode es diu UniMatx.",
+     "text": "UniMatx · Troba la teva carrera ideal"
+    },
+    {
+     "visual": "Torna el pla de la ciutat de l'inici (el vídeo fa bucle).",
+     "veu": "I tu, quin dels dos vols ser?",
+     "text": "Quin dels **dos** vols ser?"
+    },
+    {
+     "visual": "CTA sobre la ciutat.",
+     "veu": "Comenta TEST i t'envio l'enllaç.",
+     "text": "Comenta **TEST**"
+    }
+   ]
+  },
+  {
+   "code": "A2",
+   "kind": "ab",
+   "title": "Dues tutories",
+   "who": "Orientadors i direccions de centre",
+   "cta": "CENTRE",
+   "part2": null,
+   "notes": [
+    "És el que s'assembla més al vídeo de ClubOS: es ven a qui gestiona (el centre), no a l'usuari final.",
+    "Les captures del tauler s'han de fer amb alumnes ficticis, com a la demo («Demostració · Alumnes ficticis»)."
+   ],
+   "beats": [
+    {
+     "visual": "Institut isomètric de dia. Dues aules iguals amb el sostre obert.",
+     "veu": "Mateix institut, dues tutories de segon de batxillerat.",
+     "text": "Mateix institut. / Dues **tutories**."
+    },
+    {
+     "visual": "Etiqueta «17 alumnes» sobre cada aula.",
+     "veu": "Els mateixos alumnes, la mateixa pressió: la preinscripció.",
+     "text": "Mateixa **preinscripció**."
+    },
+    {
+     "visual": "Aula de l'esquerra tranquil·la. A la dreta, la tutora amb una fila d'alumnes.",
+     "veu": "Una tutora sap en quin punt és cada alumne. L'altra ho pregunta un per un.",
+     "text": "Una ho **sap**."
+    },
+    {
+     "visual": "La càmera s'atura.",
+     "veu": "Saps per què?",
+     "text": "Per què?"
+    },
+    {
+     "visual": "Entra una tauleta. Molles: TEST · PROGRÉS · INFORMES · GRUP.",
+     "veu": "Té un tauler.",
+     "text": "Té un **tauler**."
+    },
+    {
+     "visual": "Tauler: «La teva classe, d'un cop d'ull».",
+     "veu": "Cada alumne fa el test pel seu compte, en vint o seixanta minuts.",
+     "text": "**20 o 60** minuts."
+    },
+    {
+     "visual": "Comptadors: sense començar · en curs · test acabat. Una fila: «En curs · fase 3 de 6».",
+     "veu": "Al tauler veu qui no ha començat, qui va per la fase tres i qui ja ha acabat.",
+     "text": "El **progrés**, en directe."
+    },
+    {
+     "visual": "Fitxa d'un alumne amb «Informe disponible».",
+     "veu": "L'informe, només si l'alumne decideix compartir-lo.",
+     "text": "Si l'alumne el **comparteix**."
+    },
+    {
+     "visual": "Desplegable «Interessos i opcions del grup».",
+     "veu": "I els interessos de tot el grup, d'un cop d'ull.",
+     "text": "Tot el **grup**."
+    },
+    {
+     "visual": "Es fa de nit. Casa de l'altra tutora.",
+     "veu": "Mentrestant, a l'altra tutoria…",
+     "text": "Mentrestant…"
+    },
+    {
+     "visual": "Full de càlcul i safata de correu amb 31 sense llegir.",
+     "veu": "Dimarts, deu de la nit. Un full de càlcul, disset noms i un correu de cada família.",
+     "text": "Dimarts, **22:00**."
+    },
+    {
+     "visual": "Pla blanc amb el logo.",
+     "veu": "Aquest tauler es diu UniMatx.",
+     "text": "UniMatx"
+    },
+    {
+     "visual": "Torna l'institut de dia.",
+     "veu": "Quina de les dues tutories vols ser?",
+     "text": "Quina de les **dues**?"
+    },
+    {
+     "visual": "CTA.",
+     "veu": "Comenta CENTRE i t'ensenyo com quedaria al teu.",
+     "text": "Comenta **CENTRE**"
+    }
+   ]
+  },
+  {
+   "code": "A3",
+   "kind": "ab",
+   "title": "Tres centèsimes",
+   "who": "Alumnes i famílies, temporada de PAU",
+   "cta": "NOTA",
+   "part2": null,
+   "notes": [
+    "La nota de tall de l'any en curs no es coneix fins a la primera assignació (ho diu el mateix informe). Per això el guió parla de «la de l'últim any».",
+    "Les files del mòbil són il·lustratives. Si s'hi posen xifres, que siguin les d'un informe real."
+   ],
+   "beats": [
+    {
+     "visual": "Mapa isomètric de Catalunya. Els campus com a edificis, sense logos.",
+     "veu": "Dos alumnes volen fer la mateixa carrera, amb la mateixa nota.",
+     "text": "Mateixa carrera. / Mateixa **nota**."
+    },
+    {
+     "visual": "Dos camins surten del mateix poble cap a campus diferents.",
+     "veu": "Un entra a la seva primera opció. L'altre es queda fora per tres centèsimes.",
+     "text": "Fora per **0,03**."
+    },
+    {
+     "visual": "La càmera s'atura.",
+     "veu": "Saps per què?",
+     "text": "Per què?"
+    },
+    {
+     "visual": "Entra el mòbil. Molles: OFERTES · NOTES · PLACES · PREU.",
+     "veu": "Perquè va mirar on arribava abans d'ordenar la preinscripció.",
+     "text": "Va mirar on **arribava**."
+    },
+    {
+     "visual": "Mòbil: totes les universitats que fan la carrera.",
+     "veu": "Va veure totes les universitats que la fan.",
+     "text": "Totes les **ofertes**."
+    },
+    {
+     "visual": "Mòbil: columnes de nota de tall, places i preu.",
+     "veu": "La nota de tall de l'últim any, les places i el preu de cada curs.",
+     "text": "Nota, places, **preu**."
+    },
+    {
+     "visual": "Mòbil: files amb «Hi arribaries» en verd i una amb «Et falten 0,03» en vermell.",
+     "veu": "I amb la seva nota al costat: hi arribaries, o et falten tres centèsimes.",
+     "text": "Et falten **0,03**."
+    },
+    {
+     "visual": "Mòbil: l'etiqueta «Dada oficial» al marge.",
+     "veu": "Cada dada, amb la seva font.",
+     "text": "Amb **font**."
+    },
+    {
+     "visual": "Es fa de nit.",
+     "veu": "Mentrestant, l'altre…",
+     "text": "Mentrestant…"
+    },
+    {
+     "visual": "Habitació fosca. Formulari de preinscripció amb només la primera casella plena.",
+     "veu": "Va posar primer la universitat on anaven els seus amics. I darrere, cap opció on arribés segur.",
+     "text": "Primera opció: **la dels amics**."
+    },
+    {
+     "visual": "Pla blanc amb el logo.",
+     "veu": "Això es diu UniMatx.",
+     "text": "UniMatx"
+    },
+    {
+     "visual": "Torna el mapa de dia.",
+     "veu": "Quin dels dos vols ser?",
+     "text": "Quin dels **dos**?"
+    },
+    {
+     "visual": "CTA.",
+     "veu": "Comenta NOTA i t'envio el test.",
+     "text": "Comenta **NOTA**"
+    }
+   ]
+  },
+  {
+   "code": "A4",
+   "kind": "ab",
+   "title": "Dos sopars",
+   "who": "Pares i mares",
+   "cta": "INFORME",
+   "part2": null,
+   "notes": [
+    "Per al CTA hi ha informes d'exemple a la mateixa web (la demo els obre en PDF)."
+   ],
+   "beats": [
+    {
+     "visual": "Barri isomètric al vespre. Dues finestres il·luminades, dues taules parades.",
+     "veu": "Dues famílies, el mateix sopar, la mateixa pregunta.",
+     "text": "Mateix sopar. / Mateixa **pregunta**."
+    },
+    {
+     "visual": "La mateixa bafarada sobre les dues taules.",
+     "veu": "I tu, què estudiaràs?",
+     "text": "Què **estudiaràs**?"
+    },
+    {
+     "visual": "Una finestra amb llum càlida; l'altra parpelleja.",
+     "veu": "En una casa acaba en discussió. A l'altra, en un pla.",
+     "text": "Acaba en un **pla**."
+    },
+    {
+     "visual": "La càmera s'atura.",
+     "veu": "Saps per què?",
+     "text": "Per què?"
+    },
+    {
+     "visual": "Un mòbil sobre la taula. Molles: TOP 3 · UNIVERSITATS · FEINA · FONTS.",
+     "veu": "Perquè tenen un informe.",
+     "text": "Tenen un **informe**."
+    },
+    {
+     "visual": "Informe: «El teu top 3».",
+     "veu": "Les tres carreres que més encaixen amb el seu fill, i el perquè de cadascuna.",
+     "text": "El seu **top 3**."
+    },
+    {
+     "visual": "Informe: quant triguen a trobar feina i quin contracte tenen.",
+     "veu": "Quant triguen els titulats a trobar feina i quin contracte tenen, amb dades d'AQU Catalunya.",
+     "text": "Dades **oficials**."
+    },
+    {
+     "visual": "Les dues etiquetes del marge: «Dada oficial» i «Lectura UniMatx».",
+     "veu": "I el que és opinió va marcat com a opinió.",
+     "text": "L'opinió, **marcada**."
+    },
+    {
+     "visual": "Informe: «Què hauràs d'acceptar».",
+     "veu": "Fins i tot el que la carrera li costarà.",
+     "text": "El que **costarà**."
+    },
+    {
+     "visual": "La càmera passa a l'altra finestra. To fred.",
+     "veu": "Mentrestant, a l'altra casa…",
+     "text": "Mentrestant…"
+    },
+    {
+     "visual": "Taula amb tres mòbils, un rànquing d'internet i tothom parlant alhora.",
+     "veu": "L'opinió d'un cosí, un rànquing d'internet i ningú que s'entén.",
+     "text": "Tres **opinions**. / Zero dades."
+    },
+    {
+     "visual": "Pla blanc amb el logo.",
+     "veu": "Aquest informe es fa amb UniMatx.",
+     "text": "UniMatx"
+    },
+    {
+     "visual": "Tornen les dues finestres.",
+     "veu": "Quin sopar voleu tenir?",
+     "text": "Quin **sopar**?"
+    },
+    {
+     "visual": "CTA.",
+     "veu": "Comenta INFORME i t'ensenyo un exemple.",
+     "text": "Comenta **INFORME**"
+    }
+   ]
+  },
+  {
+   "code": "S1",
+   "kind": "serie",
+   "title": "L'assignació",
+   "who": "Alumnes de batxillerat",
+   "cta": null,
+   "part2": "Les dues Laies, a pantalla partida a l'octubre: la que va seguir l'informe i la que va seguir l'amiga. Es revela quin nom hi havia a l'assignació. La part 2 és un A-B.",
+   "notes": [
+    "Les activitats del test són exemples: «muntar components electrònics» surt a la demo; les altres dues s'han de canviar per preguntes reals del test."
+   ],
+   "beats": [
+    {
+     "visual": "Habitació a les fosques. Un mòbil s'encén sobre la tauleta.",
+     "veu": "La notificació deia: ja pots consultar la teva assignació.",
+     "text": "Xip «JULIOL · 09:00 / ASSIGNACIÓ». Targeta «PREINSCRIPCIÓ · Ja pots consultar la teva assignació» (avís fictici de la sèrie)."
+    },
+    {
+     "visual": "La Laia, asseguda al llit, amb el mòbil a la mà sense obrir-lo.",
+     "veu": "La Laia no la va obrir.",
+     "text": ""
+    },
+    {
+     "visual": "Rebobinat (ratlles horitzontals). Hivern.",
+     "veu": "Sis mesos abans, tenia una llista de carreres al mòbil.",
+     "text": "Xip «GENER / ◀◀ ENRERE»."
+    },
+    {
+     "visual": "Primer pla de la llista: tot ratllat menys una línia.",
+     "veu": "Totes ratllades menys una: la que faria la seva millor amiga.",
+     "text": ""
+    },
+    {
+     "visual": "Aula. La tutora davant la pissarra.",
+     "veu": "Al febrer, la tutora va passar un enllaç a tota la classe.",
+     "text": "Xip «FEBRER». Targeta «TUTORIA · Feu el test abans de divendres»."
+    },
+    {
+     "visual": "Habitació de nit, la llum de la pantalla a la cara.",
+     "veu": "La Laia el va obrir un dijous a les dotze de la nit.",
+     "text": "Xip «DIJOUS · 00:04»."
+    },
+    {
+     "visual": "El mòbil a la mà, preguntes del test.",
+     "veu": "No li preguntava què volia ser.",
+     "text": ""
+    },
+    {
+     "visual": "Les preguntes passen una a una.",
+     "veu": "Li preguntava quant li agradaria muntar un circuit. O escriure un reportatge. O passar una tarda al laboratori.",
+     "text": ""
+    },
+    {
+     "visual": "Barra de fases que avança: Context, RIASEC, Casos, Grau…",
+     "veu": "Vint minuts després, l'informe tenia tres carreres.",
+     "text": ""
+    },
+    {
+     "visual": "Pla tancat de la llista de tres. Silenci d'un segon i mig.",
+     "veu": "La de la seva amiga no hi era.",
+     "text": ""
+    },
+    {
+     "visual": "Tornem a la tauleta de nit, a l'estiu.",
+     "veu": "Al juliol, el mòbil vibrava una altra vegada.",
+     "text": "Xip «JULIOL · 09:02»."
+    },
+    {
+     "visual": "Record del formulari de preinscripció.",
+     "veu": "A la preinscripció, hi havia posat primer una de les tres.",
+     "text": ""
+    },
+    {
+     "visual": "L'última casella del formulari.",
+     "veu": "I la de la seva amiga, al final. Per si de cas.",
+     "text": ""
+    },
+    {
+     "visual": "Obre la notificació. La llum li il·lumina la cara.",
+     "veu": "Va obrir l'assignació.",
+     "text": ""
+    },
+    {
+     "visual": "La cara de la Laia. Tall a negre abans de veure la pantalla.",
+     "veu": "I hi havia un nom que no esperava.",
+     "text": "«PART 2»."
+    }
+   ]
+  },
+  {
+   "code": "S2",
+   "kind": "serie",
+   "title": "Vuit caselles",
+   "who": "Alumnes la setmana de la preinscripció",
+   "cta": null,
+   "part2": "Què va escriure. Payoff útil i cert: la nota de tall no es coneix fins a la primera assignació, per això pots posar primer la que somies i darrere opcions on arribes segur.",
+   "notes": [
+    "Cal confirmar el nombre de preferències de la preinscripció a Catalunya i les dates del calendari abans de gravar.",
+    "El 9,2 és del personatge, no és una dada."
+   ],
+   "beats": [
+    {
+     "visual": "Pantalla d'ordinador amb un formulari de vuit caselles buides.",
+     "veu": "El formulari tenia vuit caselles. I tancava l'endemà.",
+     "text": "Xip «DIUMENGE · 23:41 / TANCA DEMÀ»."
+    },
+    {
+     "visual": "El Pol davant l'ordinador. Només una casella plena.",
+     "veu": "El Pol només n'havia omplert una.",
+     "text": ""
+    },
+    {
+     "visual": "Rebobinat.",
+     "veu": "Tres setmanes abans, havia rebut la nota de les proves.",
+     "text": "Xip «◀◀ 3 SETMANES». Targeta «RESULTATS · Ja pots consultar la teva qualificació» (fictícia)."
+    },
+    {
+     "visual": "El Pol salta a l'habitació. Després, quiet.",
+     "veu": "Un nou amb dos. Prou per a la carrera que volia des de petit. O això creia.",
+     "text": ""
+    },
+    {
+     "visual": "Mòbil: missatge de la seva germana.",
+     "veu": "La seva germana li va enviar un enllaç: mira on arribes, abans d'omplir res.",
+     "text": "Targeta de missatge «Marta: mira on arribes abans d'omplir res»."
+    },
+    {
+     "visual": "El Pol al sofà amb el mòbil.",
+     "veu": "Vint minuts de preguntes. Després, una taula.",
+     "text": ""
+    },
+    {
+     "visual": "Taula d'universitats. Zoom lent.",
+     "veu": "Cada universitat que la feia, amb la nota de tall de l'últim any.",
+     "text": "Xip «DIUMENGE · 23:20»."
+    },
+    {
+     "visual": "Files amb «Hi arribaries» en verd.",
+     "veu": "A quatre, hi arribava.",
+     "text": ""
+    },
+    {
+     "visual": "La fila de dalt: «Et falten 0,03» en vermell. Silenci.",
+     "veu": "A la que somiava, li faltaven tres centèsimes.",
+     "text": ""
+    },
+    {
+     "visual": "Tornem al present.",
+     "veu": "Ara faltaven vuit minuts per a mitjanit, i la primera casella esperava.",
+     "text": "Xip «DIUMENGE · 23:52»."
+    },
+    {
+     "visual": "Primer pla del cursor que parpelleja.",
+     "veu": "Si posava la que somiava i no hi entrava…",
+     "text": ""
+    },
+    {
+     "visual": "Mateix pla.",
+     "veu": "…i si no la posava, i aquest any la nota baixava?",
+     "text": ""
+    },
+    {
+     "visual": "El Pol escriu. Tall a negre abans de veure què.",
+     "veu": "Va escriure un nom a la primera casella.",
+     "text": "«PART 2»."
+    }
+   ]
+  },
+  {
+   "code": "S3",
+   "kind": "serie",
+   "title": "Quatre hores de laboratori",
+   "who": "Alumnes que trien per la nota que treuen",
+   "cta": null,
+   "part2": "Quina era la segona carrera del top 3. I el Marc que sí que va llegir l'informe un any abans (A-B). La carrera de la part 1 no queda malament: el que falla és triar sense saber-ho.",
+   "notes": [
+    "La pàgina «Què hauràs d'acceptar de…» existeix a l'informe complet; la llista ha de ser la de la carrera que s'ensenyi."
+   ],
+   "beats": [
+    {
+     "visual": "Laboratori ple de bates blanques. Rellotge de paret.",
+     "veu": "A la primera pràctica, el Marc va entendre què volia dir quatre hores de laboratori.",
+     "text": "Xip «OCTUBRE · 08:02 / PRIMER CURS»."
+    },
+    {
+     "visual": "El Marc amb guants, mirant el rellotge.",
+     "veu": "A les nou, ja mirava el rellotge.",
+     "text": "Xip «09:00»."
+    },
+    {
+     "visual": "Rebobinat.",
+     "veu": "Un any abans, havia triat la carrera per una raó.",
+     "text": "Xip «◀◀ UN ANY ABANS»."
+    },
+    {
+     "visual": "El butlletí de notes; una assignatura amb la nota més alta.",
+     "veu": "Era la seva millor nota de batxillerat.",
+     "text": ""
+    },
+    {
+     "visual": "El Marc a l'habitació, amb el portàtil.",
+     "veu": "A tutoria els van fer fer un test. A ell també.",
+     "text": "Targeta «TUTORIA · Teniu l'informe al correu»."
+    },
+    {
+     "visual": "Safata d'entrada amb un correu sense obrir.",
+     "veu": "L'informe li va arribar al correu.",
+     "text": ""
+    },
+    {
+     "visual": "Mateix pla. Silenci.",
+     "veu": "No el va obrir.",
+     "text": ""
+    },
+    {
+     "visual": "Tornem al laboratori.",
+     "veu": "Ara, a la pausa, el Marc va buscar aquell correu.",
+     "text": "Xip «OCTUBRE · 11:40»."
+    },
+    {
+     "visual": "El mòbil a la mà, una pàgina de l'informe.",
+     "veu": "Hi havia una pàgina que es deia: què hauràs d'acceptar.",
+     "text": ""
+    },
+    {
+     "visual": "Llista: matemàtiques i física · molt laboratori · exàmens amb molt de pes.",
+     "veu": "Matemàtiques i física. Molt laboratori. Exàmens que pesen molt a la nota.",
+     "text": ""
+    },
+    {
+     "visual": "El Marc abaixa el mòbil.",
+     "veu": "Tot hi era. Un any abans.",
+     "text": ""
+    },
+    {
+     "visual": "Fa scroll i s'atura.",
+     "veu": "Però el que el va deixar quiet va ser la segona carrera del seu top 3.",
+     "text": ""
+    },
+    {
+     "visual": "La seva cara. Tall a negre.",
+     "veu": "No l'havia considerat mai.",
+     "text": "Xip «OCTUBRE · 11:42». «PART 2»."
+    }
+   ]
+  },
+  {
+   "code": "S4",
+   "kind": "serie",
+   "title": "Un entre 661",
+   "who": "Alumnes que no saben què volen",
+   "cta": null,
+   "part2": "Quin grau era, què s'hi estudia el primer curs i quins camins professionals obre (tal com ho explica l'informe).",
+   "notes": [
+    "«661 graus comparats assignatura per assignatura» surt a la portada de la web. Si la xifra canvia, s'ha d'actualitzar.",
+    "Si s'ensenya l'exploració oberta, s'ha d'ensenyar la casella de permís per a l'anàlisi amb IA tal com és."
+   ],
+   "beats": [
+    {
+     "visual": "Pantalla del mòbil a les fosques. Una pluja de noms de graus.",
+     "veu": "El test comparava 661 graus. La Júlia en coneixia set.",
+     "text": "Xip «DIMECRES · 00:12»."
+    },
+    {
+     "visual": "Rebobinat.",
+     "veu": "Aquella tarda, a classe, tothom deia la seva.",
+     "text": "Xip «◀◀ AQUELLA TARDA»."
+    },
+    {
+     "visual": "Aula amb bafarades: Medicina, ADE, Dret, Psicologia.",
+     "veu": "Medicina. ADE. Dret. Psicologia.",
+     "text": ""
+    },
+    {
+     "visual": "La Júlia, sense bafarada.",
+     "veu": "La Júlia no deia res.",
+     "text": ""
+    },
+    {
+     "visual": "Tornem a la nit.",
+     "veu": "A la nit, va començar el test.",
+     "text": "Xip «DIMECRES · 23:48»."
+    },
+    {
+     "visual": "Fases del test a dalt: Context, RIASEC, Casos…",
+     "veu": "No hi havia respostes bones ni dolentes.",
+     "text": ""
+    },
+    {
+     "visual": "Pantalla «Exploració oberta: explica experiències i dubtes amb les teves paraules».",
+     "veu": "En una pregunta, va escriure una cosa que no havia dit mai a ningú.",
+     "text": ""
+    },
+    {
+     "visual": "Primer pla del text, desenfocat.",
+     "veu": "Que li agradava més arreglar coses que estudiar-les.",
+     "text": ""
+    },
+    {
+     "visual": "Animació d'espera.",
+     "veu": "El test va comparar les seves respostes amb cada grau, assignatura per assignatura.",
+     "text": ""
+    },
+    {
+     "visual": "Apareix el top 3. El primer, desenfocat.",
+     "veu": "El primer del top 3 era un grau que no sabia que existia.",
+     "text": ""
+    },
+    {
+     "visual": "La Júlia s'acosta a la pantalla.",
+     "veu": "El va obrir per veure què s'hi estudiava.",
+     "text": ""
+    },
+    {
+     "visual": "La seva cara. Tall a negre.",
+     "veu": "I a la primera assignatura del primer curs, va somriure.",
+     "text": "Xip «DIJOUS · 00:12». «PART 2»."
+    }
+   ]
+  }
+ ]
+}

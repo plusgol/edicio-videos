@@ -1,0 +1,634 @@
+{
+ "duration": 40.191,
+ "beats": [
+  {
+   "start": 0.25,
+   "end": 3.295,
+   "words": [
+    {
+     "text": "Dues",
+     "start": 0.25,
+     "end": 0.502
+    },
+    {
+     "text": "famílies,",
+     "start": 0.502,
+     "end": 1.188
+    },
+    {
+     "text": "el",
+     "start": 1.308,
+     "end": 1.452
+    },
+    {
+     "text": "mateix",
+     "start": 1.452,
+     "end": 1.771
+    },
+    {
+     "text": "sopar,",
+     "start": 1.771,
+     "end": 2.09
+    },
+    {
+     "text": "la",
+     "start": 2.21,
+     "end": 2.355
+    },
+    {
+     "text": "mateixa",
+     "start": 2.355,
+     "end": 2.808
+    },
+    {
+     "text": "pregunta.",
+     "start": 2.808,
+     "end": 3.295
+    }
+   ]
+  },
+  {
+   "start": 3.695,
+   "end": 5.059,
+   "words": [
+    {
+     "text": "I",
+     "start": 3.695,
+     "end": 3.873
+    },
+    {
+     "text": "tu,",
+     "start": 3.873,
+     "end": 4.097
+    },
+    {
+     "text": "què",
+     "start": 4.217,
+     "end": 4.389
+    },
+    {
+     "text": "estudiaràs?",
+     "start": 4.389,
+     "end": 5.059
+    }
+   ]
+  },
+  {
+   "start": 5.459,
+   "end": 8.879,
+   "words": [
+    {
+     "text": "En",
+     "start": 5.459,
+     "end": 5.604
+    },
+    {
+     "text": "una",
+     "start": 5.604,
+     "end": 5.879
+    },
+    {
+     "text": "casa",
+     "start": 5.879,
+     "end": 6.171
+    },
+    {
+     "text": "acaba",
+     "start": 6.171,
+     "end": 6.592
+    },
+    {
+     "text": "en",
+     "start": 6.592,
+     "end": 6.737
+    },
+    {
+     "text": "discussió.",
+     "start": 6.737,
+     "end": 7.242
+    },
+    {
+     "text": "A",
+     "start": 7.462,
+     "end": 7.646
+    },
+    {
+     "text": "l'altra,",
+     "start": 7.646,
+     "end": 8.157
+    },
+    {
+     "text": "en",
+     "start": 8.277,
+     "end": 8.463
+    },
+    {
+     "text": "un",
+     "start": 8.463,
+     "end": 8.65
+    },
+    {
+     "text": "pla.",
+     "start": 8.65,
+     "end": 8.879
+    }
+   ]
+  },
+  {
+   "start": 9.279,
+   "end": 9.929,
+   "words": [
+    {
+     "text": "Saps",
+     "start": 9.279,
+     "end": 9.503
+    },
+    {
+     "text": "per",
+     "start": 9.503,
+     "end": 9.705
+    },
+    {
+     "text": "què?",
+     "start": 9.705,
+     "end": 9.929
+    }
+   ]
+  },
+  {
+   "start": 10.329,
+   "end": 11.571,
+   "words": [
+    {
+     "text": "Perquè",
+     "start": 10.329,
+     "end": 10.652
+    },
+    {
+     "text": "tenen",
+     "start": 10.652,
+     "end": 10.959
+    },
+    {
+     "text": "un",
+     "start": 10.959,
+     "end": 11.103
+    },
+    {
+     "text": "informe.",
+     "start": 11.103,
+     "end": 11.571
+    }
+   ]
+  },
+  {
+   "start": 11.971,
+   "end": 16.237,
+   "words": [
+    {
+     "text": "Les",
+     "start": 11.971,
+     "end": 12.176
+    },
+    {
+     "text": "tres",
+     "start": 12.176,
+     "end": 12.402
+    },
+    {
+     "text": "carreres",
+     "start": 12.402,
+     "end": 12.994
+    },
+    {
+     "text": "que",
+     "start": 12.994,
+     "end": 13.198
+    },
+    {
+     "text": "més",
+     "start": 13.198,
+     "end": 13.403
+    },
+    {
+     "text": "encaixen",
+     "start": 13.403,
+     "end": 13.995
+    },
+    {
+     "text": "amb",
+     "start": 13.995,
+     "end": 14.2
+    },
+    {
+     "text": "el",
+     "start": 14.2,
+     "end": 14.383
+    },
+    {
+     "text": "seu",
+     "start": 14.383,
+     "end": 14.588
+    },
+    {
+     "text": "fill,",
+     "start": 14.588,
+     "end": 14.834
+    },
+    {
+     "text": "i",
+     "start": 14.954,
+     "end": 15.076
+    },
+    {
+     "text": "el",
+     "start": 15.076,
+     "end": 15.213
+    },
+    {
+     "text": "perquè",
+     "start": 15.213,
+     "end": 15.519
+    },
+    {
+     "text": "de",
+     "start": 15.519,
+     "end": 15.656
+    },
+    {
+     "text": "cadascuna.",
+     "start": 15.656,
+     "end": 16.237
+    }
+   ]
+  },
+  {
+   "start": 16.637,
+   "end": 21.168,
+   "words": [
+    {
+     "text": "Quant",
+     "start": 16.637,
+     "end": 16.846
+    },
+    {
+     "text": "triguen",
+     "start": 16.846,
+     "end": 17.209
+    },
+    {
+     "text": "els",
+     "start": 17.209,
+     "end": 17.382
+    },
+    {
+     "text": "titulats",
+     "start": 17.382,
+     "end": 17.883
+    },
+    {
+     "text": "a",
+     "start": 17.883,
+     "end": 18.02
+    },
+    {
+     "text": "trobar",
+     "start": 18.02,
+     "end": 18.366
+    },
+    {
+     "text": "feina",
+     "start": 18.366,
+     "end": 18.694
+    },
+    {
+     "text": "i",
+     "start": 18.694,
+     "end": 18.831
+    },
+    {
+     "text": "quin",
+     "start": 18.831,
+     "end": 19.022
+    },
+    {
+     "text": "contracte",
+     "start": 19.022,
+     "end": 19.541
+    },
+    {
+     "text": "tenen,",
+     "start": 19.541,
+     "end": 19.886
+    },
+    {
+     "text": "amb",
+     "start": 20.006,
+     "end": 20.142
+    },
+    {
+     "text": "dades",
+     "start": 20.142,
+     "end": 20.398
+    },
+    {
+     "text": "d'AQU",
+     "start": 20.398,
+     "end": 20.655
+    },
+    {
+     "text": "Catalunya.",
+     "start": 20.655,
+     "end": 21.168
+    }
+   ]
+  },
+  {
+   "start": 21.568,
+   "end": 24.014,
+   "words": [
+    {
+     "text": "I",
+     "start": 21.568,
+     "end": 21.709
+    },
+    {
+     "text": "el",
+     "start": 21.709,
+     "end": 21.868
+    },
+    {
+     "text": "que",
+     "start": 21.868,
+     "end": 22.046
+    },
+    {
+     "text": "és",
+     "start": 22.046,
+     "end": 22.205
+    },
+    {
+     "text": "opinió",
+     "start": 22.205,
+     "end": 22.684
+    },
+    {
+     "text": "va",
+     "start": 22.684,
+     "end": 22.843
+    },
+    {
+     "text": "marcat",
+     "start": 22.843,
+     "end": 23.199
+    },
+    {
+     "text": "com",
+     "start": 23.199,
+     "end": 23.376
+    },
+    {
+     "text": "a",
+     "start": 23.376,
+     "end": 23.517
+    },
+    {
+     "text": "opinió.",
+     "start": 23.517,
+     "end": 24.014
+    }
+   ]
+  },
+  {
+   "start": 24.414,
+   "end": 26.225,
+   "words": [
+    {
+     "text": "Fins",
+     "start": 24.414,
+     "end": 24.577
+    },
+    {
+     "text": "i",
+     "start": 24.577,
+     "end": 24.694
+    },
+    {
+     "text": "tot",
+     "start": 24.694,
+     "end": 24.841
+    },
+    {
+     "text": "el",
+     "start": 24.841,
+     "end": 24.974
+    },
+    {
+     "text": "que",
+     "start": 24.974,
+     "end": 25.121
+    },
+    {
+     "text": "la",
+     "start": 25.121,
+     "end": 25.253
+    },
+    {
+     "text": "carrera",
+     "start": 25.253,
+     "end": 25.665
+    },
+    {
+     "text": "li",
+     "start": 25.665,
+     "end": 25.798
+    },
+    {
+     "text": "costarà.",
+     "start": 25.798,
+     "end": 26.225
+    }
+   ]
+  },
+  {
+   "start": 26.625,
+   "end": 28.271,
+   "words": [
+    {
+     "text": "Mentrestant,",
+     "start": 26.625,
+     "end": 27.343
+    },
+    {
+     "text": "a",
+     "start": 27.463,
+     "end": 27.596
+    },
+    {
+     "text": "l'altra",
+     "start": 27.596,
+     "end": 27.951
+    },
+    {
+     "text": "casa…",
+     "start": 27.951,
+     "end": 28.271
+    }
+   ]
+  },
+  {
+   "start": 28.671,
+   "end": 32.353,
+   "words": [
+    {
+     "text": "L'opinió",
+     "start": 28.671,
+     "end": 29.232
+    },
+    {
+     "text": "d'un",
+     "start": 29.232,
+     "end": 29.445
+    },
+    {
+     "text": "cosí,",
+     "start": 29.445,
+     "end": 29.812
+    },
+    {
+     "text": "un",
+     "start": 29.932,
+     "end": 30.111
+    },
+    {
+     "text": "rànquing",
+     "start": 30.111,
+     "end": 30.553
+    },
+    {
+     "text": "d'internet",
+     "start": 30.553,
+     "end": 31.173
+    },
+    {
+     "text": "i",
+     "start": 31.173,
+     "end": 31.332
+    },
+    {
+     "text": "ningú",
+     "start": 31.332,
+     "end": 31.711
+    },
+    {
+     "text": "que",
+     "start": 31.711,
+     "end": 31.911
+    },
+    {
+     "text": "s'entén.",
+     "start": 31.911,
+     "end": 32.353
+    }
+   ]
+  },
+  {
+   "start": 32.753,
+   "end": 34.546,
+   "words": [
+    {
+     "text": "Aquest",
+     "start": 32.753,
+     "end": 33.095
+    },
+    {
+     "text": "informe",
+     "start": 33.095,
+     "end": 33.573
+    },
+    {
+     "text": "es",
+     "start": 33.573,
+     "end": 33.726
+    },
+    {
+     "text": "fa",
+     "start": 33.726,
+     "end": 33.879
+    },
+    {
+     "text": "amb",
+     "start": 33.879,
+     "end": 34.051
+    },
+    {
+     "text": "UniMatx.",
+     "start": 34.051,
+     "end": 34.546
+    }
+   ]
+  },
+  {
+   "start": 34.946,
+   "end": 35.867,
+   "words": [
+    {
+     "text": "Quin",
+     "start": 34.946,
+     "end": 35.094
+    },
+    {
+     "text": "sopar",
+     "start": 35.094,
+     "end": 35.347
+    },
+    {
+     "text": "voleu",
+     "start": 35.347,
+     "end": 35.6
+    },
+    {
+     "text": "tenir?",
+     "start": 35.6,
+     "end": 35.867
+    }
+   ]
+  },
+  {
+   "start": 36.267,
+   "end": 38.591,
+   "words": [
+    {
+     "text": "Comenta",
+     "start": 36.267,
+     "end": 36.76
+    },
+    {
+     "text": "INFORME",
+     "start": 36.76,
+     "end": 37.253
+    },
+    {
+     "text": "i",
+     "start": 37.253,
+     "end": 37.393
+    },
+    {
+     "text": "t'ensenyo",
+     "start": 37.393,
+     "end": 37.922
+    },
+    {
+     "text": "un",
+     "start": 37.922,
+     "end": 38.08
+    },
+    {
+     "text": "exemple.",
+     "start": 38.08,
+     "end": 38.591
+    }
+   ]
+  }
+ ]
+}

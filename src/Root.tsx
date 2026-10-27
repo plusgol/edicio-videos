@@ -4,6 +4,7 @@ import {GALERIA_SECCIONS, Galeria} from './Galeria';
 import {Miniatura, type MiniaturaProps} from './miniatura/Miniatura';
 import {Video} from './Video';
 import type {RenderPlan} from './types';
+import {Reel, reelMetadata, type ReelProps} from './unimatx/Reel';
 
 // El projecte es tria amb --public-dir=projectes/<nom>; el pla ve de work/render.json.
 export const Root: React.FC = () => (
@@ -31,6 +32,17 @@ export const Root: React.FC = () => (
     fps={30}
     durationInFrames={1}
     defaultProps={{variant: 'cine', person: '', background: '', photoW: 1, photoH: 1, face: {x: 0, eyesY: 0, h: 1}} as MiniaturaProps}
+  />
+  {/* Reels d'UniMatx (A1–A4, S1–S4): --public-dir=projectes/unimatx-reels --props='{"code":"A1"}' */}
+  <Composition
+    id="UniReel"
+    component={Reel}
+    width={1080}
+    height={1920}
+    fps={30}
+    durationInFrames={1}
+    defaultProps={{code: 'A1', guio: null, timing: null} as ReelProps}
+    calculateMetadata={reelMetadata}
   />
   </>
 );

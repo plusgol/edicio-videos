@@ -13,4 +13,5 @@ __pycache__/
 *.webm
 referencies/
 projectes/*/*/el/
+projectes/*/el/
 projectes/*/remotion/

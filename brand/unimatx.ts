@@ -96,3 +96,39 @@ export const DEMO = {
   chip: 30, // mida del rètol de part
   progress: 6, // gruix de la barra de progrés
 } as const;
+
+// Vídeo de presentació (projectes/unimatx-llancament): colors exactes de la web, presos amb getComputedStyle i de
+// les captures de pantalla del test (27-10-2026).
+export const WEB = {
+  gradient: 'linear-gradient(90deg, #3B1E90 0%, #5A3CC4 30%, #3A6EF0 100%)', // portada
+  phase: 'linear-gradient(140deg, #3B1E90 0%, #4542AB 55%, #4B57D1 100%)', // targetes de fase del test
+  night: '#120A3A', // fons del cold open
+  purple: '#3B1E90',
+  blue: '#116EEE', // «Matx», enllaços, opció triada
+  mint: '#11EE92', // botons i «carrera ideal»
+  mintInk: '#0D2A1C',
+  ink: '#252B2F',
+  inkSoft: '#5E6672',
+  page: '#F2F7FD',
+  card: '#FFFFFF',
+  line: '#E3E8F0',
+  warn: '#FFF6E5', // «Com hi intervenen els límits que has confirmat»
+  warnLine: '#F0C979',
+  social: '#DC714D',
+  cientific: '#178478',
+  artistic: '#7958A6',
+} as const;
+
+export const LAUNCH = {
+  width: 1920,
+  height: 1080,
+  fps: 30,
+  camEase: 24, // fotogrames del viatge de càmera (launch-video-kit: quieta i viatges curts)
+  enter: 9, // entrada d'una pantalla nova (puja i apareix)
+  flicker: 3, // fotogrames per nom de grau al cold open
+  cursor: 46, // mida del cursor
+  musicAt: 252, // la música entra amb la marca, a 120 ppm: un compàs = 60 fotogrames
+  bar: 60,
+  sfx: 0.35,
+  duck: {base: 0.8, under: 0.22, ramp: 9, pad: 6},
+} as const;

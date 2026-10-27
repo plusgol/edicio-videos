@@ -1,0 +1,61 @@
+{
+  "voice": "FGY2WhTYpPnrIDTdsKH5",
+  "speed": 1.08,
+  "loudnorm": {
+    "I": -16,
+    "TP": -1.5,
+    "LRA": 11
+  },
+  "lines": [
+    {
+      "id": "01",
+      "text": "Més d'un vint per cent dels universitaris abandonen o canvien d'estudis."
+    },
+    {
+      "id": "02",
+      "text": "Triar només pel nom d'una carrera surt car."
+    },
+    {
+      "id": "03",
+      "text": "Per això existeix UniMatx.",
+      "say": "Per això, existeix Iuni Match."
+    },
+    {
+      "id": "04",
+      "text": "No et direm com ets. Mirarem què estudiaries."
+    },
+    {
+      "id": "05",
+      "text": "Respons casos concrets del teu àmbit: què faries tu?"
+    },
+    {
+      "id": "06",
+      "text": "Fins i tot fas un torn de feina simulat.",
+      "say": "Fins i tot fas un torn de feina, simulat."
+    },
+    {
+      "id": "07",
+      "text": "I ho contrastem amb uns sis-cents seixanta graus i més de quaranta mil assignatures."
+    },
+    {
+      "id": "08",
+      "text": "Si no vols gaires mates, t'avisem dels graus on són obligatòries."
+    },
+    {
+      "id": "09",
+      "text": "Al final, el teu top tres, amb els motius de cada proposta."
+    },
+    {
+      "id": "10",
+      "text": "I un informe personal: notes, preus, feina i futur."
+    },
+    {
+      "id": "11",
+      "text": "Les fitxes de tots els graus són gratis, sense compte."
+    },
+    {
+      "id": "12",
+      "text": "UniMatx. Troba la teva carrera ideal."
+    }
+  ]
+}

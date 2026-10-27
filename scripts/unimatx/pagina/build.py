@@ -61,7 +61,7 @@ def script(s, kind):
   <div class="meta">{meta}</div>
   <div class="body">
     <div class="media"><video controls playsinline preload="metadata" poster="v/{s['code']}.jpg" src="v/{s['code']}.mp4"></video>
-      <div class="vnote">Veu sintètica provisional</div></div>
+      <div class="vnote">Veu: ElevenLabs · Laura</div></div>
     <div class="tbl" role="table" aria-label="Guió {s['code']}">
       <div class="row hd" role="row"><div>Temps</div><div>Imatge</div><div>Veu en off</div><div>{col4}</div></div>
       {''.join(rows)}

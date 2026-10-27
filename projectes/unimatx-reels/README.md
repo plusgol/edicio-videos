@@ -9,7 +9,10 @@ Vuit vídeos verticals (1080×1920, 30 fps) per a UniMatx, fets sencers en codi:
 
 ## Com es fan
 1. **Guió:** `guions.json` (veu i rètols de cada pla). La pàgina de guions es fa amb `scripts/unimatx/pagina/build.py`.
-2. **Veu provisional:** `/home/user/tools/piper-venv/bin/python scripts/unimatx/veu.py projectes/unimatx-reels tots`
+2. **Veu (la bona):** `ELEVENLABS_API_KEY=… python3 scripts/unimatx/veu_elevenlabs.py projectes/unimatx-reels FGY2WhTYpPnrIDTdsKH5 tots`
+   (ElevenLabs, model `eleven_v3`, català, veu Laura). Cada pla es desa a `<codi>/el/` (no es versiona) i no es torna a pagar.
+   «UniMatx» es llegeix «Uni Match»; on una frase sortia «un imatge», `<codi>/veu_say.json` hi posa una grafia comprovada amb transcripció.
+   **Veu provisional sense clau:** `/home/user/tools/piper-venv/bin/python scripts/unimatx/veu.py projectes/unimatx-reels tots`
    (Piper, veu `ca_ES-upc_ona-medium`, dades CC BY-SA 3.0 ES). Escriu `<codi>/veu.wav` i `<codi>/timing.json`.
    Per posar-hi una veu real: grava-la per plans, substitueix `veu.wav` i torna a fer el `timing.json` amb els temps de cada pla.
 3. **Música i efectes:** `python scripts/unimatx/so.py projectes/unimatx-reels/so` (sintetitzats, sense mostres de tercers).

@@ -1,764 +1,765 @@
 {
- "duration": 48.115,
+ "duration": 46.014,
  "beats": [
   {
    "start": 0.25,
-   "end": 3.204,
+   "end": 3.274,
    "words": [
     {
      "text": "Al",
-     "start": 0.25,
-     "end": 0.397
+     "start": 0.233,
+     "end": 0.307
     },
     {
      "text": "mateix",
-     "start": 0.397,
-     "end": 0.726
+     "start": 0.351,
+     "end": 0.603
     },
     {
      "text": "institut",
-     "start": 0.726,
-     "end": 1.203
+     "start": 0.656,
+     "end": 1.196
     },
     {
      "text": "hi",
-     "start": 1.203,
-     "end": 1.35
+     "start": 1.245,
+     "end": 1.344
     },
     {
      "text": "ha",
-     "start": 1.35,
-     "end": 1.497
+     "start": 1.393,
+     "end": 1.492
     },
     {
      "text": "dos",
-     "start": 1.497,
-     "end": 1.662
+     "start": 1.529,
+     "end": 1.64
     },
     {
      "text": "alumnes",
-     "start": 1.662,
-     "end": 2.121
+     "start": 1.7,
+     "end": 2.085
     },
     {
      "text": "amb",
-     "start": 2.121,
-     "end": 2.286
+     "start": 2.122,
+     "end": 2.233
     },
     {
      "text": "la",
-     "start": 2.286,
-     "end": 2.433
+     "start": 2.258,
+     "end": 2.307
     },
     {
      "text": "mateixa",
-     "start": 2.433,
-     "end": 2.892
+     "start": 2.351,
+     "end": 2.677
     },
     {
      "text": "nota.",
-     "start": 2.892,
-     "end": 3.204
+     "start": 2.751,
+     "end": 3.27
     }
    ]
   },
   {
-   "start": 3.604,
-   "end": 6.109,
+   "start": 3.434,
+   "end": 5.826,
    "words": [
     {
      "text": "Tots",
-     "start": 3.604,
-     "end": 3.827
+     "start": 3.365,
+     "end": 3.587
     },
     {
      "text": "dos",
-     "start": 3.827,
-     "end": 4.029
+     "start": 3.642,
+     "end": 3.809
     },
     {
      "text": "faran",
-     "start": 4.029,
-     "end": 4.411
+     "start": 3.846,
+     "end": 4.031
     },
     {
      "text": "la",
-     "start": 4.411,
-     "end": 4.592
+     "start": 4.08,
+     "end": 4.18
     },
     {
      "text": "preinscripció",
-     "start": 4.592,
-     "end": 5.281
+     "start": 4.217,
+     "end": 4.846
     },
     {
      "text": "aquest",
-     "start": 5.281,
-     "end": 5.684
+     "start": 4.92,
+     "end": 5.142
     },
     {
      "text": "juliol.",
-     "start": 5.684,
-     "end": 6.109
+     "start": 5.18,
+     "end": 5.809
     }
    ]
   },
   {
-   "start": 6.509,
-   "end": 10.157,
+   "start": 5.986,
+   "end": 9.488,
    "words": [
     {
      "text": "Un",
-     "start": 6.509,
-     "end": 6.658
+     "start": 5.968,
+     "end": 6.042
     },
     {
      "text": "tria",
-     "start": 6.658,
-     "end": 6.843
+     "start": 6.098,
+     "end": 6.338
     },
     {
      "text": "sabent",
-     "start": 6.843,
-     "end": 7.176
+     "start": 6.394,
+     "end": 6.709
     },
     {
      "text": "què",
-     "start": 7.176,
-     "end": 7.343
+     "start": 6.734,
+     "end": 6.857
     },
     {
      "text": "hi",
-     "start": 7.343,
-     "end": 7.493
+     "start": 6.882,
+     "end": 6.931
     },
     {
      "text": "trobarà.",
-     "start": 7.493,
-     "end": 7.977
+     "start": 6.949,
+     "end": 7.375
     },
     {
      "text": "L'altre",
-     "start": 8.197,
-     "end": 8.609
+     "start": 7.561,
+     "end": 7.968
     },
     {
      "text": "tria",
-     "start": 8.609,
-     "end": 8.825
+     "start": 8.024,
+     "end": 8.264
     },
     {
      "text": "el",
-     "start": 8.825,
-     "end": 9.001
+     "start": 8.289,
+     "end": 8.338
     },
     {
      "text": "que",
-     "start": 9.001,
-     "end": 9.197
+     "start": 8.375,
+     "end": 8.487
     },
     {
      "text": "tria",
-     "start": 9.197,
-     "end": 9.414
+     "start": 8.524,
+     "end": 8.709
     },
     {
      "text": "el",
-     "start": 9.414,
-     "end": 9.589
+     "start": 8.734,
+     "end": 8.783
     },
     {
      "text": "seu",
-     "start": 9.589,
-     "end": 9.785
+     "start": 8.838,
+     "end": 9.005
     },
     {
      "text": "amic.",
-     "start": 9.785,
-     "end": 10.157
+     "start": 9.054,
+     "end": 9.672
     }
    ]
   },
   {
-   "start": 10.557,
-   "end": 11.189,
+   "start": 9.648,
+   "end": 10.343,
    "words": [
     {
      "text": "Saps",
-     "start": 10.557,
-     "end": 10.775
+     "start": 9.611,
+     "end": 9.833
     },
     {
      "text": "per",
-     "start": 10.775,
-     "end": 10.972
+     "start": 9.87,
+     "end": 9.981
     },
     {
      "text": "què?",
-     "start": 10.972,
-     "end": 11.189
+     "start": 10.03,
+     "end": 10.499
     }
    ]
   },
   {
-   "start": 11.589,
-   "end": 13.119,
+   "start": 10.503,
+   "end": 11.808,
    "words": [
     {
      "text": "Perquè",
-     "start": 11.589,
-     "end": 11.908
+     "start": 10.445,
+     "end": 10.667
     },
     {
      "text": "va",
-     "start": 11.908,
-     "end": 12.051
+     "start": 10.716,
+     "end": 10.815
     },
     {
      "text": "fer",
-     "start": 12.051,
-     "end": 12.211
+     "start": 10.833,
+     "end": 10.889
     },
     {
      "text": "servir",
-     "start": 12.211,
-     "end": 12.53
+     "start": 10.933,
+     "end": 11.185
     },
     {
      "text": "un",
-     "start": 12.53,
-     "end": 12.673
+     "start": 11.21,
+     "end": 11.259
     },
     {
      "text": "mètode.",
-     "start": 12.673,
-     "end": 13.119
+     "start": 11.296,
+     "end": 11.778
     }
    ]
   },
   {
-   "start": 13.519,
-   "end": 16.204,
+   "start": 11.968,
+   "end": 14.499,
    "words": [
     {
      "text": "Va",
-     "start": 13.519,
-     "end": 13.675
+     "start": 11.951,
+     "end": 12.025
     },
     {
      "text": "respondre",
-     "start": 13.675,
-     "end": 14.197
+     "start": 12.071,
+     "end": 12.47
     },
     {
      "text": "el",
-     "start": 14.197,
-     "end": 14.353
+     "start": 12.495,
+     "end": 12.544
     },
     {
      "text": "test",
-     "start": 14.353,
-     "end": 14.545
+     "start": 12.588,
+     "end": 12.766
     },
     {
      "text": "des",
-     "start": 14.545,
-     "end": 14.719
+     "start": 12.803,
+     "end": 12.914
     },
     {
      "text": "del",
-     "start": 14.719,
-     "end": 14.893
+     "start": 12.951,
+     "end": 13.062
     },
     {
      "text": "sofà,",
-     "start": 14.893,
-     "end": 15.223
+     "start": 13.118,
+     "end": 13.581
     },
     {
      "text": "en",
-     "start": 15.343,
-     "end": 15.532
+     "start": 13.63,
+     "end": 13.729
     },
     {
      "text": "vint",
-     "start": 15.532,
-     "end": 15.763
+     "start": 13.766,
+     "end": 13.877
     },
     {
      "text": "minuts.",
-     "start": 15.763,
-     "end": 16.204
+     "start": 13.932,
+     "end": 14.544
     }
    ]
   },
   {
-   "start": 16.604,
-   "end": 19.986,
+   "start": 14.659,
+   "end": 18.045,
    "words": [
     {
      "text": "Va",
-     "start": 16.604,
-     "end": 16.779
+     "start": 14.659,
+     "end": 14.733
     },
     {
      "text": "rebre",
-     "start": 16.779,
-     "end": 17.147
+     "start": 14.789,
+     "end": 15.029
     },
     {
      "text": "el",
-     "start": 17.147,
-     "end": 17.321
+     "start": 15.054,
+     "end": 15.103
     },
     {
      "text": "seu",
-     "start": 17.321,
-     "end": 17.516
+     "start": 15.159,
+     "end": 15.326
     },
     {
      "text": "top",
-     "start": 17.516,
-     "end": 17.71
+     "start": 15.381,
+     "end": 15.548
     },
     {
      "text": "3",
-     "start": 17.71,
-     "end": 17.864
+     "start": 15.622,
+     "end": 15.77
     },
     {
      "text": "de",
-     "start": 17.864,
-     "end": 18.038
+     "start": 15.819,
+     "end": 15.918
     },
     {
      "text": "carreres,",
-     "start": 18.038,
-     "end": 18.621
+     "start": 15.963,
+     "end": 16.511
     },
     {
      "text": "cadascuna",
-     "start": 18.741,
-     "end": 19.338
+     "start": 16.548,
+     "end": 17.103
     },
     {
      "text": "amb",
-     "start": 19.338,
-     "end": 19.5
+     "start": 17.177,
+     "end": 17.4
     },
     {
      "text": "el",
-     "start": 19.5,
-     "end": 19.645
+     "start": 17.449,
+     "end": 17.548
     },
     {
      "text": "perquè.",
-     "start": 19.645,
-     "end": 19.986
+     "start": 17.603,
+     "end": 18.066
     }
    ]
   },
   {
-   "start": 20.386,
-   "end": 25.943,
+   "start": 18.205,
+   "end": 24.083,
    "words": [
     {
      "text": "Per",
-     "start": 20.386,
-     "end": 20.545
+     "start": 18.152,
+     "end": 18.226
     },
     {
      "text": "a",
-     "start": 20.545,
-     "end": 20.672
+     "start": 18.263,
+     "end": 18.3
     },
     {
      "text": "cada",
-     "start": 20.672,
-     "end": 20.959
+     "start": 18.344,
+     "end": 18.522
     },
     {
      "text": "universitat,",
-     "start": 20.959,
-     "end": 21.708
+     "start": 18.578,
+     "end": 19.485
     },
     {
      "text": "la",
-     "start": 21.828,
-     "end": 22.021
+     "start": 19.51,
+     "end": 19.559
     },
     {
      "text": "nota",
-     "start": 22.021,
-     "end": 22.408
+     "start": 19.618,
+     "end": 19.855
     },
     {
      "text": "de",
-     "start": 22.408,
-     "end": 22.601
+     "start": 19.904,
+     "end": 20.003
     },
     {
      "text": "tall,",
-     "start": 22.601,
-     "end": 22.861
+     "start": 20.048,
+     "end": 20.374
     },
     {
      "text": "les",
-     "start": 22.981,
-     "end": 23.176
+     "start": 20.429,
+     "end": 20.596
     },
     {
      "text": "places",
-     "start": 23.176,
-     "end": 23.568
+     "start": 20.66,
+     "end": 21.04
     },
     {
      "text": "i",
-     "start": 23.568,
-     "end": 23.723
+     "start": 21.152,
+     "end": 21.263
     },
     {
      "text": "el",
-     "start": 23.723,
-     "end": 23.898
+     "start": 21.288,
+     "end": 21.337
     },
     {
      "text": "preu.",
-     "start": 23.898,
-     "end": 24.134
+     "start": 21.392,
+     "end": 21.929
     },
     {
      "text": "I",
-     "start": 24.354,
-     "end": 24.47
+     "start": 22.04,
+     "end": 22.152
     },
     {
      "text": "si",
-     "start": 24.47,
-     "end": 24.601
+     "start": 22.201,
+     "end": 22.3
     },
     {
      "text": "amb",
-     "start": 24.601,
-     "end": 24.748
+     "start": 22.337,
+     "end": 22.448
     },
     {
      "text": "la",
-     "start": 24.748,
-     "end": 24.879
+     "start": 22.473,
+     "end": 22.522
     },
     {
      "text": "seva",
-     "start": 24.879,
-     "end": 25.141
+     "start": 22.571,
+     "end": 22.818
     },
     {
      "text": "nota",
-     "start": 25.141,
-     "end": 25.404
+     "start": 22.878,
+     "end": 23.115
     },
     {
      "text": "hi",
-     "start": 25.404,
-     "end": 25.535
+     "start": 23.214,
+     "end": 23.411
     },
     {
      "text": "arriba.",
-     "start": 25.535,
-     "end": 25.943
+     "start": 23.46,
+     "end": 24.078
     }
    ]
   },
   {
-   "start": 26.343,
-   "end": 32.302,
+   "start": 24.243,
+   "end": 29.959,
    "words": [
     {
      "text": "I",
-     "start": 26.343,
-     "end": 26.522
+     "start": 24.243,
+     "end": 24.317
     },
     {
      "text": "abans",
-     "start": 26.522,
-     "end": 26.949
+     "start": 24.366,
+     "end": 24.614
     },
     {
      "text": "de",
-     "start": 26.949,
-     "end": 27.151
+     "start": 24.639,
+     "end": 24.688
     },
     {
      "text": "triar,",
-     "start": 27.151,
-     "end": 27.446
+     "start": 24.725,
+     "end": 25.354
     },
     {
      "text": "el",
-     "start": 27.566,
-     "end": 27.701
+     "start": 25.379,
+     "end": 25.428
     },
     {
      "text": "que",
-     "start": 27.701,
-     "end": 27.852
+     "start": 25.466,
+     "end": 25.577
     },
     {
      "text": "la",
-     "start": 27.852,
-     "end": 27.988
+     "start": 25.602,
+     "end": 25.651
     },
     {
      "text": "carrera",
-     "start": 27.988,
-     "end": 28.409
+     "start": 25.697,
+     "end": 26.021
     },
     {
      "text": "li",
-     "start": 28.409,
-     "end": 28.545
+     "start": 26.07,
+     "end": 26.169
     },
     {
      "text": "demanarà:",
-     "start": 28.545,
-     "end": 29.102
+     "start": 26.206,
+     "end": 26.984
     },
     {
      "text": "matemàtiques,",
-     "start": 29.322,
-     "end": 30.122
+     "start": 27.021,
+     "end": 27.873
     },
     {
      "text": "laboratori,",
-     "start": 30.242,
-     "end": 30.992
+     "start": 27.898,
+     "end": 28.54
     },
     {
      "text": "exàmens",
-     "start": 31.112,
-     "end": 31.686
+     "start": 28.614,
+     "end": 29.058
     },
     {
      "text": "que",
-     "start": 31.686,
-     "end": 31.891
+     "start": 29.077,
+     "end": 29.132
     },
     {
      "text": "pesen.",
-     "start": 31.891,
-     "end": 32.302
+     "start": 29.206,
+     "end": 29.947
     }
    ]
   },
   {
-   "start": 32.702,
-   "end": 34.435,
+   "start": 30.119,
+   "end": 32.014,
    "words": [
     {
      "text": "Mentrestant,",
-     "start": 32.702,
-     "end": 33.398
+     "start": 30.079,
+     "end": 30.82
     },
     {
      "text": "l'altre",
-     "start": 33.518,
-     "end": 33.912
+     "start": 30.931,
+     "end": 31.338
     },
     {
      "text": "alumne…",
-     "start": 33.912,
-     "end": 34.435
+     "start": 31.383,
+     "end": 32.005
     }
    ]
   },
   {
-   "start": 34.835,
-   "end": 40.435,
+   "start": 32.174,
+   "end": 38.191,
    "words": [
     {
      "text": "Diumenge,",
-     "start": 34.835,
-     "end": 35.549
+     "start": 32.153,
+     "end": 32.894
     },
     {
      "text": "onze",
-     "start": 35.669,
-     "end": 36.008
+     "start": 32.938,
+     "end": 33.116
     },
     {
      "text": "de",
-     "start": 36.008,
-     "end": 36.177
+     "start": 33.165,
+     "end": 33.264
     },
     {
      "text": "la",
-     "start": 36.177,
-     "end": 36.346
+     "start": 33.289,
+     "end": 33.338
     },
     {
      "text": "nit.",
-     "start": 36.346,
-     "end": 36.555
+     "start": 33.412,
+     "end": 33.708
     },
     {
      "text": "Trenta",
-     "start": 36.775,
-     "end": 37.178
+     "start": 33.831,
+     "end": 34.597
     },
     {
      "text": "pestanyes",
-     "start": 37.178,
-     "end": 37.783
+     "start": 34.627,
+     "end": 35.079
     },
     {
      "text": "obertes",
-     "start": 37.783,
-     "end": 38.346
+     "start": 35.116,
+     "end": 35.56
     },
     {
      "text": "i",
-     "start": 38.346,
-     "end": 38.506
+     "start": 35.671,
+     "end": 35.782
     },
     {
      "text": "el",
-     "start": 38.506,
-     "end": 38.687
+     "start": 35.807,
+     "end": 35.856
     },
     {
      "text": "grup",
-     "start": 38.687,
-     "end": 38.91
+     "start": 35.901,
+     "end": 36.079
     },
     {
      "text": "de",
-     "start": 38.91,
-     "end": 39.09
+     "start": 36.128,
+     "end": 36.227
     },
     {
      "text": "classe:",
-     "start": 39.09,
-     "end": 39.515
+     "start": 36.28,
+     "end": 36.671
     },
     {
      "text": "tu",
-     "start": 39.735,
-     "end": 39.896
+     "start": 36.844,
+     "end": 37.19
     },
     {
      "text": "què",
-     "start": 39.896,
-     "end": 40.075
+     "start": 37.239,
+     "end": 37.412
     },
     {
      "text": "poses?",
-     "start": 40.075,
-     "end": 40.435
+     "start": 37.511,
+     "end": 38.301
     }
    ]
   },
   {
-   "start": 40.835,
-   "end": 42.43,
+   "start": 38.351,
+   "end": 40.336,
    "words": [
     {
      "text": "Aquest",
-     "start": 40.835,
-     "end": 41.171
+     "start": 38.318,
+     "end": 38.718
     },
     {
      "text": "mètode",
-     "start": 41.171,
-     "end": 41.624
+     "start": 38.718,
+     "end": 39.118
     },
     {
      "text": "es",
-     "start": 41.624,
-     "end": 41.775
+     "start": 39.118,
+     "end": 39.518
     },
     {
      "text": "diu",
-     "start": 41.775,
-     "end": 41.943
+     "start": 39.518,
+     "end": 39.918
     },
     {
      "text": "UniMatx.",
-     "start": 41.943,
-     "end": 42.43
+     "start": 39.918,
+     "end": 40.318
     }
    ]
   },
   {
-   "start": 42.83,
-   "end": 44.377,
+   "start": 40.496,
+   "end": 42.201,
    "words": [
     {
      "text": "I",
-     "start": 42.83,
-     "end": 43.009
+     "start": 40.484,
+     "end": 40.558
     },
     {
      "text": "tu,",
-     "start": 43.009,
-     "end": 43.235
+     "start": 40.607,
+     "end": 41.077
     },
     {
      "text": "quin",
-     "start": 43.355,
-     "end": 43.563
+     "start": 41.102,
+     "end": 41.299
     },
     {
      "text": "dels",
-     "start": 43.563,
-     "end": 43.771
+     "start": 41.336,
+     "end": 41.558
     },
     {
      "text": "dos",
-     "start": 43.771,
-     "end": 43.96
+     "start": 41.586,
+     "end": 41.669
     },
     {
      "text": "vols",
-     "start": 43.96,
-     "end": 44.168
+     "start": 41.706,
+     "end": 41.892
     },
     {
      "text": "ser?",
-     "start": 44.168,
-     "end": 44.377
+     "start": 41.929,
+     "end": 42.188
     }
    ]
   },
   {
-   "start": 44.777,
-   "end": 46.515,
+   "start": 42.361,
+   "end": 44.654,
    "words": [
     {
      "text": "Comenta",
-     "start": 44.777,
-     "end": 45.31
+     "start": 42.34,
+     "end": 42.784
     },
     {
      "text": "TEST",
-     "start": 45.31,
-     "end": 45.521
+     "start": 42.888,
+     "end": 43.303
     },
     {
      "text": "i",
-     "start": 45.521,
-     "end": 45.672
+     "start": 43.377,
+     "end": 43.451
     },
     {
      "text": "t'envio",
-     "start": 45.672,
-     "end": 46.074
+     "start": 43.525,
+     "end": 43.969
     },
     {
      "text": "l'enllaç.",
-     "start": 46.074,
-     "end": 46.515
+     "start": 44.006,
+     "end": 44.636
     }
    ]
   }
- ]
+ ],
+ "voice": "elevenlabs:eleven_v3:FGY2WhTYpPnrIDTdsKH5"
 }

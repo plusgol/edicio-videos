@@ -1,0 +1,221 @@
+{
+ "source": "input/raw.mkv",
+ "output": "demo-unimatx-escoles.mp4",
+ "width": 1920,
+ "fps": 30,
+ "loudness": -16,
+ "keep": [
+  {
+   "from": 3.4,
+   "to": 25.3,
+   "reason": "Presentació i com s'entra (l'intent dels primers 2 s es treu)"
+  },
+  {
+   "from": 48.1,
+   "to": 51.5,
+   "reason": "El codi d'accés per correu (es treu la safata d'entrada del correu, que mostrava el codi i altres correus)"
+  },
+  {
+   "from": 91.1,
+   "to": 100.6,
+   "reason": "L'espai del centre: què hi veu el professorat"
+  },
+  {
+   "from": 340.9,
+   "to": 377.4,
+   "reason": "Última presa del perfil de l'Arnau Puig, els tres informes i el top 3 (les preses de 106-334 s es treuen)"
+  },
+  {
+   "from": 381.9,
+   "to": 385.8,
+   "reason": "L'informe compara les tres opcions"
+  },
+  {
+   "from": 405.4,
+   "to": 407.6,
+   "reason": "Pla d'estudis"
+  },
+  {
+   "from": 419.3,
+   "to": 422.17,
+   "reason": "Objectius i competències d'estudiar aquella carrera; es talla abans de «i a més a més…», que es repeteix i millora a 456 s",
+   "hardTo": true
+  },
+  {
+   "from": 456.6,
+   "to": 468.6,
+   "reason": "Última presa de la situació laboral (dades de l'AQU)"
+  },
+  {
+   "from": 480.1,
+   "to": 484.3,
+   "reason": "Última presa de l'anàlisi del sector"
+  },
+  {
+   "from": 577.5,
+   "to": 583.5,
+   "reason": "Última presa de l'informe extens (Espanya, Europa i món)"
+  },
+  {
+   "from": 669.9,
+   "to": 685.5,
+   "reason": "Última presa dels dubtes de l'alumne i la resposta de l'informe"
+  },
+  {
+   "from": 784.7,
+   "to": 788.2,
+   "reason": "Última presa de l'entrada al test"
+  },
+  {
+   "from": 852.6,
+   "to": 868.0,
+   "reason": "Última presa de les dues exploracions (guiada i oberta)"
+  },
+  {
+   "from": 877.9,
+   "to": 898.1,
+   "reason": "Els tres punts de partida segons què sap l'alumne"
+  },
+  {
+   "from": 922.6,
+   "to": 931.2,
+   "reason": "Última presa de l'elecció d'àmbit («Sempre és a partir de quin àmbit…»), amb la pausa del mig escurçada"
+  },
+  {
+   "from": 940.9,
+   "to": 943.9,
+   "reason": "Última presa: posar àmbits d'interès"
+  },
+  {
+   "from": 949.4,
+   "to": 957.1,
+   "reason": "Informació addicional (ciutat, nota, matrícula)"
+  },
+  {
+   "from": 983.5,
+   "to": 993.7,
+   "reason": "Última presa de la profunditat del test i els codis d'invitació; després hi ha un minut sense tu i l'OBS, que es treu"
+  },
+  {
+   "from": 1103.0,
+   "to": 1108.6,
+   "reason": "Fase 1, RIASEC"
+  },
+  {
+   "from": 1113.1,
+   "to": 1116.6,
+   "reason": "Les preguntes s'adapten als àmbits"
+  },
+  {
+   "from": 1126.5,
+   "to": 1136.0,
+   "reason": "Exemple: àmbit social i economia"
+  },
+  {
+   "from": 1152.7,
+   "to": 1158.5,
+   "reason": "Primera fotografia dels interessos"
+  },
+  {
+   "from": 1161.1,
+   "to": 1166.8,
+   "reason": "Fase 2, casos pràctics"
+  },
+  {
+   "from": 1211.8,
+   "to": 1218.5,
+   "reason": "Última presa de la fase 3; just després hi ha un editor de codi, que es treu"
+  },
+  {
+   "from": 1298.6,
+   "to": 1313.9,
+   "reason": "Última presa de com fa servir el pla d'estudis"
+  },
+  {
+   "from": 1332.9,
+   "to": 1338.9,
+   "reason": "Fase 4, sortides professionals"
+  },
+  {
+   "from": 1366.9,
+   "to": 1370.6,
+   "reason": "Última presa de la fase 5"
+  },
+  {
+   "from": 1381.3,
+   "to": 1386.9,
+   "reason": "Simulació d'un torn de feina"
+  },
+  {
+   "from": 1408.8,
+   "to": 1414.0,
+   "reason": "Última presa de la fase final, propostes"
+  },
+  {
+   "from": 1424.1,
+   "to": 1434.1,
+   "reason": "Exemple: sense estadística ni matemàtiques"
+  },
+  {
+   "from": 1463.0,
+   "to": 1476.3,
+   "reason": "Última presa de les prioritats (sou, continuïtat, utilitat)"
+  },
+  {
+   "from": 1488.2,
+   "to": 1497.4,
+   "reason": "Última presa de l'última pregunta"
+  },
+  {
+   "from": 1534.4,
+   "to": 1538.7,
+   "reason": "Última presa: la IA respon la pregunta"
+  },
+  {
+   "from": 1559.8,
+   "to": 1571.8,
+   "reason": "Última presa del resultat: les millors opcions i l'índex d'encaix"
+  },
+  {
+   "from": 1580.8,
+   "to": 1584.3,
+   "reason": "Per què surt la primera opció"
+  },
+  {
+   "from": 1658.1,
+   "to": 1679.4,
+   "reason": "Última presa: quan la segona opció encaixa més però es recomana menys"
+  },
+  {
+   "from": 1697.2,
+   "to": 1711.7,
+   "reason": "Com es genera l'informe (3-5 minuts)"
+  },
+  {
+   "from": 1802.1,
+   "to": 1827.1,
+   "reason": "Última presa de l'informe generat"
+  },
+  {
+   "from": 1842.4,
+   "to": 1848.7,
+   "reason": "Última presa: explorar tots els graus de franc"
+  },
+  {
+   "from": 1871.8,
+   "to": 1876.36,
+   "reason": "Graus per àmbit; es talla abans de la fitxa, que es repeteix sencera a 1901 s",
+   "hardTo": true
+  },
+  {
+   "from": 1901.3,
+   "to": 1939.8,
+   "reason": "Última presa de la fitxa d'un grau"
+  },
+  {
+   "from": 1959.0,
+   "to": 1966.3,
+   "reason": "Última presa del tancament"
+  }
+ ]
+}

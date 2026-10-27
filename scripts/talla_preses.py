@@ -10,7 +10,8 @@ edl.json:
   0,25 s després de l'última, sense menjar-se cap paraula.
 - Dins d'un tram, les pauses de més de 0,8 s es deixen en 0,4 s (el silenci del mig es treu).
 - Cada tros es codifica a part (busca exacta) i després s'enganxen; a cada unió, 15 ms de fosa d'àudio perquè no faci clic.
-- Àudio final: filtre passa-alt a 80 Hz, reducció suau de soroll i volum a `loudness` LUFS.
+- Àudio final a 48 kHz: passa-alt, equalització de veu, de-esser, compressor suau i volum a `loudness` LUFS.
+- Amb "cover" a l'EDL, també treu una versió on la càmera de la cantonada queda tapada.
 """
 import json
 import subprocess
@@ -60,12 +61,13 @@ def main():
         f.unlink()
     lst = []
     for i, (s, e) in enumerate(ps):
-        d = e - s
+        n = max(1, round((e - s) * FPS))  # tros d'un nombre exacte de fotogrames, i l'àudio igual de llarg: cap desfasament
+        d = n / FPS
         f = tmp / f"{i:04d}.mkv"
         subprocess.run([
-            "ffmpeg", "-v", "error", "-y", "-ss", f"{s:.3f}", "-i", str(src), "-t", f"{d:.3f}",
-            "-vf", f"scale={W}:-2:flags=lanczos,fps={FPS},format=yuv420p",
-            "-af", f"aresample=48000,afade=t=in:d=0.015,afade=t=out:st={max(0, d - 0.015):.3f}:d=0.015",
+            "ffmpeg", "-v", "error", "-y", "-ss", f"{s:.3f}", "-i", str(src), "-t", f"{d + 0.2:.3f}",
+            "-vf", f"scale={W}:-2:flags=lanczos,fps={FPS},format=yuv420p", "-frames:v", str(n),
+            "-af", f"aresample=48000,apad,atrim=0:{d:.6f},afade=t=in:d=0.015,afade=t=out:st={max(0, d - 0.015):.3f}:d=0.015",
             "-c:v", "libx264", "-preset", "medium", "-crf", "18", "-g", str(FPS * 2),
             "-c:a", "pcm_s16le", "-ac", "2", str(f)], check=True)
         lst.append(f"file '{f.name}'")
@@ -76,14 +78,30 @@ def main():
     L = edl.get("loudness", -16)
     out = root / "out" / edl.get("output", "video.mp4")
     out.parent.mkdir(exist_ok=True)
-    pre = "highpass=f=80,afftdn=nf=-30"
+    # Veu: fora els greus que retrumben, menys «caixa» (250 Hz), més presència (3,5 kHz), sibilants suaus i nivell
+    # igualat. Sense reducció de soroll: la de l'OBS ja hi és i una segona dona so «aquós».
+    pre = ("aresample=48000,highpass=f=90,equalizer=f=250:t=o:w=1:g=-3,equalizer=f=3500:t=o:w=1.2:g=3,"
+           "deesser=i=0.3,acompressor=threshold=-24dB:ratio=3:attack=10:release=150:makeup=3")
     meas = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(joined), "-af", f"{pre},loudnorm=I={L}:TP=-1.5:LRA=11:print_format=json", "-f", "null", "-"],
                           capture_output=True, text=True).stderr
     j = json.loads(meas[meas.rindex("{"): meas.rindex("}") + 1])
     ln = (f"loudnorm=I={L}:TP=-1.5:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
           f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,alimiter=limit=0.84:level=false")
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(joined), "-c:v", "copy", "-af", f"{pre},{ln}", "-c:a", "aac", "-b:a", "192k",
-                    "-movflags", "+faststart", str(out)], check=True)
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(joined), "-c:v", "copy", "-af", f"{pre},{ln},aresample=48000", "-c:a", "aac",
+                    "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", str(out)], check=True)
+    # Versió sense la càmera de la cantonada: "cover" = {x, y, w, h, chrome} en píxels de la gravació original.
+    # Les files de la barra del navegador (fins a «chrome») s'allarguen de costat; la resta s'allarga des de sota.
+    c = edl.get("cover")
+    if c:
+        k = W / json.loads(subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v", "-show_entries", "stream=width", "-of", "json", str(src)],
+                                          capture_output=True, text=True).stdout)["streams"][0]["width"]
+        x, y, w, h, ch = (round(c[v] * k) for v in ("x", "y", "w", "h", "chrome"))
+        fc = (f"[0:v]split=3[a][b][c];[b]crop=4:{ch}:{x - 8}:{y},scale={w}:{ch}:flags=neighbor,boxblur=4:1[t];"
+              f"[c]crop={w}:4:{x}:{y + h + 3},scale={w}:{h - ch}:flags=neighbor,boxblur=1:1:4:1[m];[a][t]overlay={x}:{y}[a1];[a1][m]overlay={x}:{y + ch}[v]")
+        out2 = out.with_name(out.stem + "-sense-cara" + out.suffix)
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(out), "-filter_complex", fc, "-map", "[v]", "-map", "0:a", "-c:v", "libx264",
+                        "-preset", "medium", "-crf", "18", "-c:a", "copy", "-movflags", "+faststart", str(out2)], check=True)
+        print("->", out2)
     total = sum(e - s for s, e in ps)
     print(f"{len(ps)} trossos, {total / 60:.1f} min -> {out}")
 

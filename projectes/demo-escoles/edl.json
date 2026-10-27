@@ -217,5 +217,13 @@
    "to": 1966.3,
    "reason": "Última presa del tancament"
   }
- ]
+ ],
+ "cover": {
+  "x": 2166,
+  "y": 0,
+  "w": 714,
+  "h": 402,
+  "chrome": 166,
+  "reason": "Càmera de l'OBS a dalt a la dreta; la versió sense cara la tapa perquè hi vagi el vídeo nou"
+ }
 }

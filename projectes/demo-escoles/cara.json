@@ -1,0 +1,145 @@
+{
+ "demo": "/home/user/edicio-videos/projectes/demo-escoles/out/demo-unimatx-escoles-sense-cara.mp4",
+ "demo_h": 1014,
+ "clips": "/home/user/edicio-videos/projectes/demo-escoles/input/cara",
+ "output": "demo-unimatx-escoles-amb-cara.mp4",
+ "bubble": {
+  "d": 260,
+  "margin": 32,
+  "border": 7
+ },
+ "crop": {
+  "IMG_5992": [
+   936,
+   470,
+   820
+  ],
+  "IMG_5999": [
+   816,
+   450,
+   820
+  ],
+  "IMG_6005": [
+   864,
+   470,
+   820
+  ],
+  "IMG_6008": [
+   864,
+   470,
+   820
+  ],
+  "IMG_6012": [
+   744,
+   450,
+   820
+  ],
+  "IMG_6017": [
+   888,
+   450,
+   820
+  ],
+  "IMG_6032": [
+   888,
+   450,
+   820
+  ],
+  "IMG_6037": [
+   888,
+   450,
+   820
+  ],
+  "IMG_6038": [
+   840,
+   450,
+   820
+  ],
+  "IMG_6039": [
+   792,
+   450,
+   820
+  ]
+ },
+ "runs": [
+  {
+   "clip": "IMG_5992",
+   "v0": 0.0,
+   "v1": 60.24,
+   "hold": 0,
+   "c": -1.81,
+   "reason": "Presentació: «Bon dia…» fins al top 3 del PDF"
+  },
+  {
+   "clip": "IMG_5999",
+   "v0": 60.24,
+   "v1": 118.175,
+   "hold": 0,
+   "c": 57.38,
+   "reason": "La presa de 5999 torna a començar a «Com podeu veure, aquest PDF…»"
+  },
+  {
+   "clip": "IMG_6005",
+   "v0": 118.175,
+   "v1": 176.01,
+   "hold": 0,
+   "c": 111.59,
+   "reason": "5999 acaba amb «Ara ens hi anem una mica» a mitges; 6005 el torna a fer"
+  },
+  {
+   "clip": "IMG_6008",
+   "v0": 176.01,
+   "v1": 210.205,
+   "hold": 0,
+   "c": 175.76,
+   "reason": "6008 refà «Abans de començar el test…» i els codis d'invitació"
+  },
+  {
+   "clip": "IMG_6012",
+   "v0": 210.205,
+   "v1": 254.68,
+   "hold": 0,
+   "c": 209.96,
+   "reason": "6008 acaba amb «La segona fase es va…» a mitges; 6012 la refà"
+  },
+  {
+   "clip": "IMG_6017",
+   "v0": 254.68,
+   "v1": 283.505,
+   "hold": 0,
+   "c": 252.14,
+   "reason": "6017 refà «Finalment, l'última fase…» (6012 acaba amb «Bàsicament, quin…» a mitges)"
+  },
+  {
+   "clip": "IMG_6032",
+   "v0": 283.505,
+   "v1": 297.1,
+   "hold": 0,
+   "c": 283.08,
+   "reason": "6032 refà «I, com he comentat abans…» (6017 acaba amb «Mitjançant l'interès artificial…» a mitges)"
+  },
+  {
+   "clip": "IMG_6037",
+   "v0": 297.1,
+   "v1": 336.86,
+   "hold": 1.92,
+   "c": 293.56,
+   "reason": "6037 refà des de «Un cop acabat el test…»"
+  },
+  {
+   "clip": "IMG_6038",
+   "v0": 334.94,
+   "v1": 386.22,
+   "hold": 0.12,
+   "c": 334.14,
+   "reason": "6038 refà des de «Ara, per veure l'informe…» (6037 acaba amb «En primer lloc, empresa…» a mitges)"
+  },
+  {
+   "clip": "IMG_6039",
+   "v0": 386.1,
+   "v1": 423.567,
+   "hold": 0,
+   "c": 382.74,
+   "reason": "6039 refà des de «Bàsicament, surt la nota de tall…»"
+  }
+ ]
+}

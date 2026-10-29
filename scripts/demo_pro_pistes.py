@@ -12,7 +12,8 @@ remotion-pro/ (la carpeta pública de la composició):
   work/pro/cara.mp4  cada tros de cara, retallat al voltant de la cara (16:9, 960×540), també amb H segons de marge
                 (només si encara no hi és: alfa.mp4 de retall_fons.py hi va lligat fotograma a fotograma)
   veu.wav       la veu ja muntada i normalitzada (la de out/demo-unimatx-escoles-amb-cara.mp4)
-  dades.json    on va cada pla a la sortida i d'on es llegeix, en fotogrames, i els temps de les paraules
+  dades.json    on va cada pla a la sortida i d'on es llegeix, en fotogrames, els temps de les paraules i la mida
+                de pantalla.mp4 (DemoPro la llegeix d'aquí)
 """
 import json
 import subprocess
@@ -23,6 +24,7 @@ FPS = 30
 H = 0.5  # segons de marge per als fosos
 SCREEN_W = 1600  # amplada de la finestra a DemoPro (brand/unimatx.ts → DEMO_PRO.win.w)
 CRF_SCREEN = 10  # gairebé sense pèrdua: el text de la pantalla és el que més es nota
+TRIM_TOP = 24  # files de la gravació just sota la barra del navegador: la cantonada fosca arrodonida de la pàgina
 
 
 def run(cmd):
@@ -49,17 +51,18 @@ def main():
     rw, rh = (int(v) for v in subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height',
                                              '-of', 'csv=p=0', str(raw)], capture_output=True, text=True, check=True).stdout.split(','))
     c = edl['cover']
-    x, w, h, ch = c['x'], c['w'], c['h'], c['chrome']
-    sh = int(SCREEN_W * (rh - ch) / rw) // 2 * 2
+    x, w, h = c['x'], c['w'], c['h']
+    top = c['chrome'] + TRIM_TOP
+    sh = int(SCREEN_W * (rh - top) / rw) // 2 * 2
     crop_h = round(sh * rw / SCREEN_W)
-    cover = (f"fps={FPS},crop={rw}:{crop_h}:0:{ch},split=2[a][c];[c]crop={w}:4:{x}:{h - ch + 3},scale={w}:{h - ch}:flags=neighbor,"
+    cover = (f"fps={FPS},crop={rw}:{crop_h}:0:{top},split=2[a][c];[c]crop={w}:4:{x}:{h - top + 3},scale={w}:{h - top}:flags=neighbor,"
              f"boxblur=1:1:4:1[m];[a][m]overlay={x}:0,scale={SCREEN_W}:{sh}:flags=lanczos,format=yuv420p[v]")
     lst, fpos, pmap = [], 0, []
     for p in pieces:
         a, b = p['src']
         s0 = max(0.0, a - H)
         n = frames((b + H) - s0)
-        f = tmp / f"p{p['i']:02d}-{SCREEN_W}.mp4"
+        f = tmp / f"p{p['i']:02d}-{SCREEN_W}x{sh}.mp4"
         if not f.exists():
             run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-ss', f'{s0:.3f}', '-i', str(raw), '-t', f'{n / FPS + 0.2:.3f}',
                  '-filter_complex', cover, '-map', '[v]', '-frames:v', str(n), '-an', '-c:v', 'libx264', '-crf', str(CRF_SCREEN),
@@ -127,7 +130,7 @@ def main():
             if r['v0'] <= v < r['v1'] - r.get('hold', 0):
                 return round((r['out0'] + frames(v - r['v0'])) / FPS, 2)
         return None
-    data = {'fps': FPS, 'durationInFrames': O, 'shots': shots, 'faces': faces, 'words': words,
+    data = {'fps': FPS, 'durationInFrames': O, 'screen': {'w': SCREEN_W, 'h': sh}, 'shots': shots, 'faces': faces, 'words': words,
             'pieceStart': {p['i']: demo_to_out(p['demo'][0] + 0.01) for p in pmap}}
     (out / 'dades.json').write_text(json.dumps(data, ensure_ascii=False))
     print(len(shots), 'plans de pantalla,', len(faces), 'trossos de cara,', O, 'fotogrames')

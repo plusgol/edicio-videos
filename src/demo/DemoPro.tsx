@@ -12,7 +12,7 @@ import {UniMark, clamp} from '../unimatx/base';
 
 type Shot = {piece: number; from: number; dur: number; file: number; freeze?: boolean};
 type Face = {run: number; clip: string; from: number; dur: number; file: number};
-export type ProData = {fps: number; durationInFrames: number; shots: Shot[]; faces: Face[]};
+export type ProData = {fps: number; durationInFrames: number; screen: {w: number; h: number}; shots: Shot[]; faces: Face[]};
 export type Variant = keyof typeof P.variants;
 export type DemoProProps = {variant: Variant; data: ProData | null};
 
@@ -72,7 +72,7 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
   const t = frame / fps;
   const W = P.win;
   // La pantalla ja ve sense la barra del navegador i a la mida de la finestra (demo_pro_pistes.py): hi va píxel a píxel.
-  const contentH = Math.floor((W.w * (P.screenH - P.chrome)) / 1920 / 2) * 2;
+  const contentH = data.screen.h;
 
   // Part on som (ruta de dalt).
   let ci = 0;

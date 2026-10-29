@@ -156,8 +156,10 @@ export const DEMO_PRO = {
   win: {x: 160, y: 150, w: 1600, bar: 44, radius: 16},
   chrome: 111, // files de la barra del navegador a la gravació (a 1920 d'ample), que es tapen amb una barra neta
   screenH: 1014,
-  // Ha de tapar la càmera antiga ja tapada a la gravació (a la finestra cau a x 1363–1760, y fins a 352).
-  cam: {x: 1320, y: 44, w: 560, h: 315, radius: 18},
+  // Just on era la càmera de l'OBS a la gravació (edl.json cover: 1444,0 476×268 a 1920 d'ample), escalada a la
+  // finestra (x 1363–1760, y fins a 325) amb 7 px de marge: tapa el forat que ja no tenia la gravació i res més.
+  // Mides exteriors (vora inclosa).
+  cam: {x: 1356, y: 105, w: 404, h: 227, radius: 16},
   strip: 1013, // centre vertical de la franja de baix (rètols)
   crumb: 96, // línia de base de la ruta de dalt a l'esquerra
   fade: 8, // fotogrames de fos entre talls de pantalla

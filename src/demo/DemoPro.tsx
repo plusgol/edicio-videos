@@ -121,8 +121,8 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
         </div>
       </div>
 
-      {/* càmera: on era la de l'OBS, a dalt a la dreta */}
-      <div style={{position: 'absolute', left: P.cam.x, top: P.cam.y, width: P.cam.w, height: P.cam.h, borderRadius: P.cam.radius, overflow: 'hidden', border: `3px solid ${v.camBorder}`, boxShadow: v.shadow, background: '#000', zIndex: 5}}>
+      {/* càmera: exactament on era la de l'OBS, perquè no tapi res més de la gravació */}
+      <div style={{position: 'absolute', left: P.cam.x, top: P.cam.y, width: P.cam.w, height: P.cam.h, borderRadius: P.cam.radius, overflow: 'hidden', boxSizing: 'border-box', border: `3px solid ${v.camBorder}`, boxShadow: v.shadow, background: '#000', zIndex: 5}}>
         <Track items={data.faces} src={`cara-${variant}.mp4`} fade={P.faceFade} cut={() => true} style={{position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover'}} />
       </div>
 

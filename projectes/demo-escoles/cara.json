@@ -3,61 +3,56 @@
  "demo_h": 1014,
  "clips": "/home/user/edicio-videos/projectes/demo-escoles/input/cara",
  "output": "demo-unimatx-escoles-amb-cara.mp4",
- "bubble": {
-  "d": 260,
-  "margin": 32,
-  "border": 7
- },
  "crop": {
   "IMG_5992": [
    936,
-   470,
-   820
+   400,
+   1280
   ],
   "IMG_5999": [
    816,
-   450,
-   820
+   400,
+   1280
   ],
   "IMG_6005": [
    864,
-   470,
-   820
+   400,
+   1280
   ],
   "IMG_6008": [
    864,
-   470,
-   820
+   400,
+   1280
   ],
   "IMG_6012": [
    744,
-   450,
-   820
+   400,
+   1280
   ],
   "IMG_6017": [
    888,
-   450,
-   820
+   400,
+   1280
   ],
   "IMG_6032": [
    888,
-   450,
-   820
+   400,
+   1280
   ],
   "IMG_6037": [
    888,
-   450,
-   820
+   400,
+   1280
   ],
   "IMG_6038": [
    840,
-   450,
-   820
+   400,
+   1280
   ],
   "IMG_6039": [
    792,
-   450,
-   820
+   400,
+   1280
   ]
  },
  "runs": [
@@ -140,6 +135,24 @@
    "hold": 0,
    "c": 382.74,
    "reason": "6039 refà des de «Bàsicament, surt la nota de tall…»"
+  }
+ ],
+ "cam": {
+  "mode": "rect",
+  "x": 1444,
+  "y": 33,
+  "w": 476,
+  "h": 268,
+  "reason": "Mateix lloc i mida que la càmera de la gravació original (a dalt a la dreta), que la versió sense cara tapava"
+ },
+ "overlays": [
+  {
+   "png": "work/cara/correu.png",
+   "x": 575,
+   "y": 783,
+   "v_from": 416.0,
+   "v_to": 423.567,
+   "reason": "«Contacteu-me per aquest correu»: el correu en pantalla des de «Fins aquí aquesta petita demostració»"
   }
  ]
 }

@@ -156,7 +156,8 @@ export const DEMO_PRO = {
   win: {x: 160, y: 150, w: 1600, bar: 44, radius: 16},
   chrome: 111, // files de la barra del navegador a la gravació (a 1920 d'ample), que es tapen amb una barra neta
   screenH: 1014,
-  cam: {x: 1420, y: 40, w: 460, h: 259, radius: 18},
+  // Ha de tapar la càmera antiga ja tapada a la gravació (a la finestra cau a x 1363–1760, y fins a 352).
+  cam: {x: 1320, y: 44, w: 560, h: 315, radius: 18},
   strip: 1013, // centre vertical de la franja de baix (rètols)
   crumb: 96, // línia de base de la ruta de dalt a l'esquerra
   fade: 8, // fotogrames de fos entre talls de pantalla

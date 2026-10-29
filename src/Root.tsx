@@ -6,6 +6,7 @@ import {Video} from './Video';
 import type {RenderPlan} from './types';
 import {Reel, reelMetadata, type ReelProps} from './unimatx/Reel';
 import {DemoRapida, demoMetadata} from './demo/DemoRapida';
+import {DemoPro, demoProMetadata, type DemoProProps} from './demo/DemoPro';
 import {LAUNCH} from '../brand/unimatx';
 import {LLANCAMENT_DURATION, Llancament} from './llancament/Llancament';
 import {BOOM_DURATION, Boom} from './llancament/boom/Boom';
@@ -50,6 +51,8 @@ export const Root: React.FC = () => (
   />
   {/* Demo de pantalla amb ritme (projectes/demo-escoles): --public-dir=projectes/demo-escoles/remotion */}
   <Composition id="DemoRapida" component={DemoRapida} width={1920} height={1080} fps={30} durationInFrames={1} defaultProps={{data: null}} calculateMetadata={demoMetadata} />
+  {/* Demo amb marc, càmera amb fons canviat i rètols: --public-dir=projectes/demo-escoles/remotion-pro --props='{"variant":"fosc"}' */}
+  <Composition id="DemoPro" component={DemoPro} width={1920} height={1080} fps={30} durationInFrames={1} defaultProps={{variant: 'fosc', data: null} as DemoProProps} calculateMetadata={demoProMetadata} />
   {/* Vídeo de presentació d'UniMatx (launch-video-kit): --public-dir=projectes/unimatx-llancament/remotion */}
   <Composition id="UniLlancament" component={Llancament} width={LAUNCH.width} height={LAUNCH.height} fps={LAUNCH.fps} durationInFrames={LLANCAMENT_DURATION} />
   {/* Versió «BOOM» (v2) del mateix vídeo: ganxo, silenci, entrada amb cop, preu i contrast */}

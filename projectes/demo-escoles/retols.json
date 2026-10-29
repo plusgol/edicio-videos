@@ -1,0 +1,9 @@
+{
+  "_": "Rètols de la demo amb marc (DemoPro). Temps en segons de sortida, presos de les paraules dites (remotion-pro/dades.json → words).",
+  "name": {"from": 0.4, "to": 5.6, "title": "Xavier Ayats", "sub": "Creador d'UniMatx"},
+  "login": {"from": 15.2, "to": 34.6, "title": "Com s'hi entra", "steps": [["unimatx.cat", 15.6], ["Compte", 18.6], ["Codi al correu", 22.9], ["El meu centre", 26.67]]},
+  "informes": {"from": 51.6, "to": 61.8, "title": "Tres informes", "items": [["Curt", "20–25 p.", 52.73], ["Normal", "unes 50 p.", 55.37], ["Extens", "de 70 a més de 100 p.", 56.7]]},
+  "fases": {"from": 187.2, "to": 262.0, "title": "El test té 6 fases", "items": [["RIASEC", 187.7], ["Casos pràctics", 211.3], ["La realitat del grau", 219.4], ["Sortides professionals", 239.9], ["Un torn a la feina", 245.57], ["Les teves propostes", 254.97]]},
+  "chapters": [["Com s'hi entra", 0], ["Espai del centre", 25.07], ["L'informe", 62.3], ["El test", 118.6], ["Les 6 fases", 186.53], ["El resultat", 297.63], ["Catàleg gratuït", 372.4]],
+  "email": {"from": 418.13, "label": "Voleu provar-ho al vostre centre?", "mail": "xavier@unimatx.cat"}
+}

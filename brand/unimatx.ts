@@ -149,3 +149,37 @@ export const BOOM = {
   duck: {base: 0.85, under: 0.3, ramp: 6, pad: 4},
   sfx: 0.45,
 } as const;
+
+// Demo per a centres «amb marc» (composició DemoPro, projectes/demo-escoles/remotion-pro): la pantalla dins una
+// finestra, la càmera a dalt a la dreta (on era la de l'OBS), una franja de baix per als rètols i fosos als talls.
+export const DEMO_PRO = {
+  win: {x: 160, y: 150, w: 1600, bar: 44, radius: 16},
+  chrome: 111, // files de la barra del navegador a la gravació (a 1920 d'ample), que es tapen amb una barra neta
+  screenH: 1014,
+  cam: {x: 1420, y: 40, w: 460, h: 259, radius: 18},
+  strip: 1013, // centre vertical de la franja de baix (rètols)
+  crumb: 96, // línia de base de la ruta de dalt a l'esquerra
+  fade: 8, // fotogrames de fos entre talls de pantalla
+  faceFade: 10, // fotogrames de fos entre clips de cara
+  enter: 10,
+  variants: {
+    fosc: {
+      canvas: 'radial-gradient(1200px 700px at 18% 0%, #2A2366 0%, #0D0B1F 62%)',
+      bar: '#1A1733', barText: '#A49FCB', winBorder: 'rgba(255,255,255,0.08)', camBorder: 'rgba(255,255,255,0.16)',
+      text: '#FFFFFF', sub: '#A49FCB', accent: '#11EE92', chip: 'rgba(255,255,255,0.08)', chipLine: 'rgba(255,255,255,0.14)', chipOn: '#11EE92', chipOnText: '#0D2A1C',
+      shadow: '0 30px 80px rgba(0,0,0,0.55)',
+    },
+    marca: {
+      canvas: 'linear-gradient(120deg, #2E1772 0%, #4A33B0 45%, #2F5FD6 100%)',
+      bar: '#FFFFFF', barText: '#5E6672', winBorder: 'rgba(255,255,255,0.35)', camBorder: '#FFFFFF',
+      text: '#FFFFFF', sub: 'rgba(255,255,255,0.75)', accent: '#11EE92', chip: 'rgba(255,255,255,0.14)', chipLine: 'rgba(255,255,255,0.28)', chipOn: '#FFFFFF', chipOnText: '#252B2F',
+      shadow: '0 30px 80px rgba(16,8,60,0.5)',
+    },
+    clar: {
+      canvas: 'linear-gradient(180deg, #F4F6FA 0%, #E6EAF2 100%)',
+      bar: '#FFFFFF', barText: '#5E6672', winBorder: '#D6DBE5', camBorder: '#FFFFFF',
+      text: '#252B2F', sub: '#5E6672', accent: '#116EEE', chip: '#FFFFFF', chipLine: '#D6DBE5', chipOn: '#116EEE', chipOnText: '#FFFFFF',
+      shadow: '0 24px 60px rgba(30,40,80,0.18)',
+    },
+  },
+} as const;

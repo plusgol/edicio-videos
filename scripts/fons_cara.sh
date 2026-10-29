@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Posa la cara retallada (alfa de retall_fons.py) sobre el fons de cada variant de la demo amb marc.
-# Ús: scripts/fons_cara.sh projectes/demo-escoles
+# Ús: scripts/fons_cara.sh projectes/demo-escoles [variants] — p. ex. «clar»; CRF=12 per a la versió de màxima qualitat
 #   fosc   fons blau marí d'estudi (work/pro/fons-fosc.png)
 #   marca  fons gris clar d'estudi (work/pro/fons-marca.png)
 #   clar   el despatx de debò, desenfocat i una mica apagat
@@ -9,12 +9,15 @@ set -euo pipefail
 P="$1"
 C="$P/work/pro/cara.mp4"; A="$P/work/pro/alfa.mp4"; O="$P/remotion-pro"
 [ -f "$C" ] || C="$P/remotion-pro/cara.mp4"
-enc=(-c:v libx264 -crf 20 -preset medium -pix_fmt yuv420p -movflags +faststart)
+VS="${2:-fosc marca clar}"
+enc=(-c:v libx264 -crf "${CRF:-20}" -preset medium -pix_fmt yuv420p -g 30 -movflags +faststart)
 for V in fosc marca; do
+  [[ " $VS " == *" $V "* ]] || continue
   ffmpeg -nostdin -v error -y -i "$C" -i "$A" -loop 1 -i "$P/work/pro/fons-$V.png" -filter_complex \
     "[1:v]format=gray,gblur=sigma=0.8[a];[0:v][a]alphamerge[p];[2:v][p]overlay=shortest=1:format=auto" "${enc[@]}" "$O/cara-$V.mp4"
   echo "$O/cara-$V.mp4"
 done
+[[ " $VS " == *" clar "* ]] || exit 0
 ffmpeg -nostdin -v error -y -i "$C" -i "$A" -filter_complex \
   "[0:v]split[o][b];[b]gblur=sigma=20,eq=saturation=0.7:brightness=-0.05[bb];[1:v]format=gray,gblur=sigma=0.8[a];[o][a]alphamerge[p];[bb][p]overlay=format=auto" \
   "${enc[@]}" "$O/cara-clar.mp4"

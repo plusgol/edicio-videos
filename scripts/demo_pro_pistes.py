@@ -6,9 +6,11 @@ Llegeix cara.json (quins clips de cara cobreixen cada tros i amb quin desfasamen
 (d'on surt cada tros de pantalla a la gravació original) i edl.json (on era la càmera de l'OBS). Escriu a
 remotion-pro/ (la carpeta pública de la composició):
 
-  pantalla.mp4  cada tros de pantalla amb H segons de més a banda i banda (per fer fosos entre talls), la càmera
-                antiga tapada com a la versió sense cara, 1920 d'ample, 30 fps
-  cara.mp4      cada tros de cara, retallat al voltant de la cara (16:9, 960×540), també amb H segons de marge
+  pantalla.mp4  cada tros de pantalla amb H segons de més a banda i banda (per fer fosos entre talls), sense la barra
+                del navegador, amb la càmera antiga tapada i ja a la mida de la finestra de DemoPro (SCREEN_W d'ample),
+                perquè hi vagi píxel a píxel; poca compressió (CRF_SCREEN), 30 fps
+  work/pro/cara.mp4  cada tros de cara, retallat al voltant de la cara (16:9, 960×540), també amb H segons de marge
+                (només si encara no hi és: alfa.mp4 de retall_fons.py hi va lligat fotograma a fotograma)
   veu.wav       la veu ja muntada i normalitzada (la de out/demo-unimatx-escoles-amb-cara.mp4)
   dades.json    on va cada pla a la sortida i d'on es llegeix, en fotogrames, i els temps de les paraules
 """
@@ -19,6 +21,8 @@ from pathlib import Path
 
 FPS = 30
 H = 0.5  # segons de marge per als fosos
+SCREEN_W = 1600  # amplada de la finestra a DemoPro (brand/unimatx.ts → DEMO_PRO.win.w)
+CRF_SCREEN = 10  # gairebé sense pèrdua: el text de la pantalla és el que més es nota
 
 
 def run(cmd):
@@ -40,22 +44,26 @@ def main():
     edl = json.loads((root / 'edl.json').read_text())
     raw = root / edl['source']
 
-    # Pantalla: un tros per peça de l'EDL, amb marge, i la càmera antiga tapada (mateix filtre que talla_preses.py).
-    k = 1920 / 2880
+    # Pantalla: un tros per peça de l'EDL, amb marge. Es treu la barra del navegador (DemoPro hi posa una barra neta),
+    # es tapa la càmera antiga com a talla_preses.py i s'escala un sol cop, a la mida de la finestra.
+    rw, rh = (int(v) for v in subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=width,height',
+                                             '-of', 'csv=p=0', str(raw)], capture_output=True, text=True, check=True).stdout.split(','))
     c = edl['cover']
-    x, y, w, h, ch = (round(c[v] * k) for v in ('x', 'y', 'w', 'h', 'chrome'))
-    cover = (f"scale=1920:-2:flags=lanczos,fps={FPS},split=3[a][b][c];[b]crop=4:{ch}:{x - 8}:{y},scale={w}:{ch}:flags=neighbor,boxblur=4:1[t];"
-             f"[c]crop={w}:4:{x}:{y + h + 3},scale={w}:{h - ch}:flags=neighbor,boxblur=1:1:4:1[m];[a][t]overlay={x}:{y}[a1];[a1][m]overlay={x}:{y + ch},format=yuv420p[v]")
+    x, w, h, ch = c['x'], c['w'], c['h'], c['chrome']
+    sh = int(SCREEN_W * (rh - ch) / rw) // 2 * 2
+    crop_h = round(sh * rw / SCREEN_W)
+    cover = (f"fps={FPS},crop={rw}:{crop_h}:0:{ch},split=2[a][c];[c]crop={w}:4:{x}:{h - ch + 3},scale={w}:{h - ch}:flags=neighbor,"
+             f"boxblur=1:1:4:1[m];[a][m]overlay={x}:0,scale={SCREEN_W}:{sh}:flags=lanczos,format=yuv420p[v]")
     lst, fpos, pmap = [], 0, []
     for p in pieces:
         a, b = p['src']
         s0 = max(0.0, a - H)
         n = frames((b + H) - s0)
-        f = tmp / f"p{p['i']:02d}.mp4"
+        f = tmp / f"p{p['i']:02d}-{SCREEN_W}.mp4"
         if not f.exists():
             run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-ss', f'{s0:.3f}', '-i', str(raw), '-t', f'{n / FPS + 0.2:.3f}',
-                 '-filter_complex', cover, '-map', '[v]', '-frames:v', str(n), '-an', '-c:v', 'libx264', '-crf', '18',
-                 '-preset', 'medium', '-g', '30', str(f)])
+                 '-filter_complex', cover, '-map', '[v]', '-frames:v', str(n), '-an', '-c:v', 'libx264', '-crf', str(CRF_SCREEN),
+                 '-preset', 'slow', '-g', '30', str(f)])
         pmap.append({'i': p['i'], 'demo': [p['t0'], p['t1']], 'src': [a, b], 'file0': fpos, 'srcStart': s0})
         lst.append(f"file '{f.name}'")
         fpos += n
@@ -64,6 +72,7 @@ def main():
          '-movflags', '+faststart', str(out / 'pantalla.mp4')])
 
     # Sortida: els trossos de cara.json un darrere l'altre. Pla de pantalla = intersecció de cada tros amb cada peça.
+    make_faces = not (tmp / 'cara.mp4').exists()
     shots, faces, O = [], [], 0
     lst, fpos = [], 0
     for r_i, r in enumerate(cfg['runs']):
@@ -87,7 +96,7 @@ def main():
         c0 = max(0.0, r['v0'] - r['c'] - H)
         m = frames((r['v1'] - r['c'] + H) - c0)
         f = tmp / f"c{r_i:02d}.mp4"
-        if not f.exists():
+        if make_faces and not f.exists():
             run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-ss', f'{c0:.3f}', '-i', str(Path(cfg['clips']) / f"{r['clip']}.mov"),
                  '-t', f'{m / FPS + 0.2:.3f}', '-vf', f"fps={FPS},crop={cw}:{chh}:{cx - cw // 2}:{cy - chh // 2},scale=960:540,format=yuv420p",
                  '-frames:v', str(m), '-an', '-c:v', 'libx264', '-crf', '17', '-preset', 'medium', '-g', '30', str(f)])
@@ -96,9 +105,10 @@ def main():
         fpos += m
         r['out0'] = O
         O += n
-    (tmp / 'cara.txt').write_text('\n'.join(lst) + '\n')
-    run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', str(tmp / 'cara.txt'), '-c', 'copy',
-         '-movflags', '+faststart', str(out / 'cara.mp4')])
+    if make_faces:
+        (tmp / 'cara.txt').write_text('\n'.join(lst) + '\n')
+        run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', str(tmp / 'cara.txt'), '-c', 'copy',
+             '-movflags', '+faststart', str(tmp / 'cara.mp4')])
     run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', str(root / 'out' / cfg['output']), '-vn', '-ac', '2', '-ar', '48000',
          '-c:a', 'pcm_s16le', str(out / 'veu.wav')])
 

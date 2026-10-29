@@ -71,8 +71,8 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
   const v = P.variants[variant];
   const t = frame / fps;
   const W = P.win;
-  const contentH = Math.round((W.w * (P.screenH - P.chrome)) / 1920);
-  const k = W.w / 1920;
+  // La pantalla ja ve sense la barra del navegador i a la mida de la finestra (demo_pro_pistes.py): hi va píxel a píxel.
+  const contentH = Math.floor((W.w * (P.screenH - P.chrome)) / 1920 / 2) * 2;
 
   // Part on som (ruta de dalt).
   let ci = 0;
@@ -115,9 +115,7 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
           <div style={{marginLeft: 18, padding: '5px 16px', borderRadius: 8, background: v.chip, border: `1px solid ${v.chipLine}`, color: v.barText, fontSize: 15, fontWeight: 600}}>unimatx.cat</div>
         </div>
         <div style={{position: 'absolute', left: 0, top: W.bar, width: W.w, height: contentH, overflow: 'hidden'}}>
-          <div style={{position: 'absolute', left: 0, top: -P.chrome * k, width: W.w, height: P.screenH * k}}>
-            <Track items={data.shots} src="pantalla.mp4" fade={P.fade} cut={(a, b) => (a as Shot).piece !== (b as Shot).piece} style={{position: 'absolute', inset: 0, width: '100%', height: '100%'}} />
-          </div>
+          <Track items={data.shots} src="pantalla.mp4" fade={P.fade} cut={(a, b) => (a as Shot).piece !== (b as Shot).piece} style={{position: 'absolute', inset: 0, width: '100%', height: '100%'}} />
         </div>
       </div>
 
@@ -179,7 +177,7 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
         </div>
       </Strip>
 
-      <Audio src={staticFile('veu.m4a')} />
+      <Audio src={staticFile('veu.wav')} />
     </AbsoluteFill>
   );
 };

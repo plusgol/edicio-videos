@@ -10,6 +10,8 @@ import {UniMark, clamp} from '../unimatx/base';
 // surten de scripts/demo_pro_pistes.py (remotion-pro/dades.json, ja sense les pauses de pauses.json); els rètols, de
 // retols.json, en temps de la línia sencera.
 // --public-dir=projectes/demo-escoles/remotion-pro --props='{"variant":"fosc"}'
+// 4K: pistes amb escala 2 (demo_pro_pistes.py i fotos_fases.py) i render amb --scale=2 i TMPDIR=/dev/shm/...: amb el
+// perfil del navegador al disc de la sessió, Chrome rebutja els fotogrames grans de OffthreadVideo («Failed to fetch»).
 
 type Shot = {piece: number; from: number; dur: number; file: number; freeze?: boolean; jump?: boolean};
 type Face = {run: number; clip: string; from: number; dur: number; file: number};

@@ -161,6 +161,8 @@ export const DEMO_PRO = {
   crumb: 88, // centre de la ruta de dalt a l'esquerra
   fade: 8, // fotogrames de fos entre talls de pantalla
   faceFade: 10, // fotogrames de fos entre clips de cara
+  // Captures de preguntes de les fases que no n'ensenyen cap: entren apilades al mig de la finestra, que s'enfosqueix.
+  photo: {w: 960, radius: 14, enter: 12, exit: 10, step: {x: 30, y: 24, scale: 0.05}, rise: 60, tilt: 1.5, dim: 0.85},
   enter: 10,
   variants: {
     fosc: {

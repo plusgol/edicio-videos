@@ -1,5 +1,5 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Easing, Freeze, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {AbsoluteFill, Audio, Easing, Freeze, Img, OffthreadVideo, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
 import {DEMO_PRO as P} from '../../brand/unimatx';
 import R from '../../projectes/demo-escoles/retols.json';
 import {POP} from '../llancament/Ui';
@@ -52,6 +52,38 @@ const Strip: React.FC<{t: number; from: number; to: number; children: React.Reac
   return (
     <div style={{position: 'absolute', left: P.win.x, width: P.win.w, top: P.strip, transform: `translateY(calc(-50% + ${(1 - p) * 16}px))`, opacity: p, display: 'flex', justifyContent: align === 'left' ? 'flex-start' : 'center'}}>
       {children}
+    </div>
+  );
+};
+
+// Captures del test (retols.json → fotos): cada una entra pujant quan toca i les anteriors queden darrere, una mica
+// més petites i girades (la de davant, recta, perquè es llegeixi); mentrestant la pantalla s'esvaeix. Totes surten
+// juntes al final del grup.
+const Photos: React.FC<{t: number; group: (typeof R.fotos)[number]; v: (typeof P.variants)[Variant]; top: number; h: number}> = ({t, group, v, top, h}) => {
+  if (t < group.from - 0.1 || t > group.to + 0.6) return null;
+  const fps = 30;
+  const F = P.photo;
+  const out = 1 - ease((t - group.to) * fps, 0, F.exit);
+  const prog = group.items.map((it) => (t >= it.at ? ease((t - it.at) * fps, 0, F.enter) : 0));
+  return (
+    <div style={{position: 'absolute', left: P.win.x, top, width: P.win.w, height: h, zIndex: 3, opacity: out}}>
+      <div style={{position: 'absolute', inset: 0, background: v.canvas, opacity: Math.max(...prog) * F.dim, borderBottomLeftRadius: P.win.radius, borderBottomRightRadius: P.win.radius}} />
+      {group.items.map((it, i) => {
+        if (!prog[i]) return null;
+        const depth = prog.slice(i + 1).reduce((a, b) => a + b, 0);
+        const s = (1 - depth * F.step.scale) * (0.96 + 0.04 * prog[i]);
+        return (
+          <Img
+            key={it.file}
+            src={staticFile(`fotos/${it.file}`)}
+            style={{
+              position: 'absolute', left: '50%', top: '50%', width: F.w, borderRadius: F.radius, border: `1px solid ${v.winBorder}`, boxShadow: v.shadow,
+              opacity: prog[i], filter: `brightness(${1 - depth * 0.06})`,
+              transform: `translate(-50%, -50%) translate(${-depth * F.step.x}px, ${-depth * F.step.y + (1 - prog[i]) * F.rise}px) scale(${s}) rotate(${(i % 2 ? 1 : -1) * F.tilt * Math.min(depth, 1)}deg)`,
+            }}
+          />
+        );
+      })}
     </div>
   );
 };
@@ -124,6 +156,10 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
           <Track items={data.shots} src="pantalla.mp4" fade={P.fade} cut={(a, b) => (a as Shot).piece !== (b as Shot).piece || !!(b as Shot).jump} style={{position: 'absolute', inset: 0, width: '100%', height: '100%'}} />
         </div>
       </div>
+
+      {R.fotos.map((g) => (
+        <Photos key={g.fase} t={t} group={g} v={v} top={W.y + W.bar} h={contentH} />
+      ))}
 
       {/* càmera: exactament on era la de l'OBS, perquè no tapi res més de la gravació */}
       <div style={{position: 'absolute', left: P.cam.x, top: P.cam.y, width: P.cam.w, height: P.cam.h, borderRadius: P.cam.radius, overflow: 'hidden', boxSizing: 'border-box', border: `3px solid ${v.camBorder}`, boxShadow: v.shadow, background: '#000', zIndex: 5}}>

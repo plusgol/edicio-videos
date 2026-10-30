@@ -39,7 +39,7 @@ def main():
         wav = out_dir / f"vo-{lid}.wav"
         state = "ja existia"
         if (only is None or lid in only) and (force or not wav.exists() or lid not in meta):
-            d = tts(line.get("say", spoken(text)), cfg["voice"], root / "el")
+            d = tts(line.get("say", spoken(text)), cfg["voice"], root / "el", cfg.get("language", "ca"))
             a = decode(d["audio_base64"], cfg["speed"])
             loud = np.flatnonzero(np.abs(a) > 0.01)
             lead = max(0, loud[0] - int(0.02 * SR))

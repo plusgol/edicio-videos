@@ -34,12 +34,12 @@ def spoken(text: str) -> str:
     return text
 
 
-def tts(text: str, voice: str, cache: Path) -> dict:
-    key = hashlib.sha1(f"{MODEL}|{voice}|{text}".encode()).hexdigest()[:16]
+def tts(text: str, voice: str, cache: Path, lang: str = "ca") -> dict:
+    key = hashlib.sha1(f"{MODEL}|{voice}|{text}".encode() if lang == "ca" else f"{MODEL}|{voice}|{lang}|{text}".encode()).hexdigest()[:16]
     f = cache / f"{key}.json"
     if f.exists():
         return json.loads(f.read_text())
-    body = json.dumps({"text": text, "model_id": MODEL, "language_code": "ca"}).encode()
+    body = json.dumps({"text": text, "model_id": MODEL, "language_code": lang}).encode()
     req = urllib.request.Request(
         f"https://api.elevenlabs.io/v1/text-to-speech/{voice}/with-timestamps?output_format=mp3_44100_128",
         data=body, headers={"xi-api-key": os.environ["ELEVENLABS_API_KEY"], "Content-Type": "application/json"})

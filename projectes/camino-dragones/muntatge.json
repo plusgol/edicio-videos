@@ -1,0 +1,539 @@
+{
+ "fps": 30,
+ "beat": 15,
+ "durationInFrames": 1323,
+ "lines": [
+  {
+   "id": "01",
+   "text": "Se rumorea que hay miles de dragones por toda Cataluña.",
+   "from": 12,
+   "frames": 97,
+   "words": [
+    {
+     "text": "Se",
+     "f": 12
+    },
+    {
+     "text": "rumorea",
+     "f": 18
+    },
+    {
+     "text": "que",
+     "f": 34
+    },
+    {
+     "text": "hay",
+     "f": 39
+    },
+    {
+     "text": "miles",
+     "f": 46
+    },
+    {
+     "text": "de",
+     "f": 56
+    },
+    {
+     "text": "dragones",
+     "f": 58
+    },
+    {
+     "text": "por",
+     "f": 74
+    },
+    {
+     "text": "toda",
+     "f": 81
+    },
+    {
+     "text": "Cataluña.",
+     "f": 91
+    }
+   ]
+  },
+  {
+   "id": "02",
+   "text": "Camino de Dragones es una carrera de relevos de los Pirineos a Barcelona.",
+   "from": 120,
+   "frames": 125,
+   "words": [
+    {
+     "text": "Camino",
+     "f": 120
+    },
+    {
+     "text": "de",
+     "f": 132
+    },
+    {
+     "text": "Dragones",
+     "f": 137
+    },
+    {
+     "text": "es",
+     "f": 158
+    },
+    {
+     "text": "una",
+     "f": 162
+    },
+    {
+     "text": "carrera",
+     "f": 167
+    },
+    {
+     "text": "de",
+     "f": 181
+    },
+    {
+     "text": "relevos",
+     "f": 184
+    },
+    {
+     "text": "de",
+     "f": 196
+    },
+    {
+     "text": "los",
+     "f": 200
+    },
+    {
+     "text": "Pirineos",
+     "f": 203
+    },
+    {
+     "text": "a",
+     "f": 222
+    },
+    {
+     "text": "Barcelona.",
+     "f": 226
+    }
+   ]
+  },
+  {
+   "id": "03",
+   "text": "Equipos de doce corredores, trescientos kilómetros y treinta y dos tramos.",
+   "from": 255,
+   "frames": 143,
+   "words": [
+    {
+     "text": "Equipos",
+     "f": 255
+    },
+    {
+     "text": "de",
+     "f": 271
+    },
+    {
+     "text": "doce",
+     "f": 274
+    },
+    {
+     "text": "corredores,",
+     "f": 280
+    },
+    {
+     "text": "trescientos",
+     "f": 315
+    },
+    {
+     "text": "kilómetros",
+     "f": 332
+    },
+    {
+     "text": "y",
+     "f": 356
+    },
+    {
+     "text": "treinta",
+     "f": 361
+    },
+    {
+     "text": "y",
+     "f": 371
+    },
+    {
+     "text": "dos",
+     "f": 374
+    },
+    {
+     "text": "tramos.",
+     "f": 379
+    }
+   ]
+  },
+  {
+   "id": "04",
+   "text": "La salida, en Vallter dos mil, a casi dos mil metros de altitud.",
+   "from": 405,
+   "frames": 125,
+   "words": [
+    {
+     "text": "La",
+     "f": 405
+    },
+    {
+     "text": "salida,",
+     "f": 409
+    },
+    {
+     "text": "en",
+     "f": 434
+    },
+    {
+     "text": "Vallter",
+     "f": 439
+    },
+    {
+     "text": "dos",
+     "f": 449
+    },
+    {
+     "text": "mil,",
+     "f": 456
+    },
+    {
+     "text": "a",
+     "f": 473
+    },
+    {
+     "text": "casi",
+     "f": 480
+    },
+    {
+     "text": "dos",
+     "f": 488
+    },
+    {
+     "text": "mil",
+     "f": 494
+    },
+    {
+     "text": "metros",
+     "f": 501
+    },
+    {
+     "text": "de",
+     "f": 513
+    },
+    {
+     "text": "altitud.",
+     "f": 515
+    }
+   ]
+  },
+  {
+   "id": "05",
+   "text": "Y de ahí, relevo a relevo, por Camprodon y Olot,",
+   "from": 533,
+   "frames": 112,
+   "words": [
+    {
+     "text": "Y",
+     "f": 533
+    },
+    {
+     "text": "de",
+     "f": 535
+    },
+    {
+     "text": "ahí,",
+     "f": 538
+    },
+    {
+     "text": "relevo",
+     "f": 548
+    },
+    {
+     "text": "a",
+     "f": 564
+    },
+    {
+     "text": "relevo,",
+     "f": 567
+    },
+    {
+     "text": "por",
+     "f": 583
+    },
+    {
+     "text": "Camprodon",
+     "f": 597
+    },
+    {
+     "text": "y",
+     "f": 619
+    },
+    {
+     "text": "Olot,",
+     "f": 624
+    }
+   ]
+  },
+  {
+   "id": "06",
+   "text": "Susqueda, Sant Hilari y Arbúcies,",
+   "from": 647,
+   "frames": 84,
+   "words": [
+    {
+     "text": "Susqueda,",
+     "f": 647
+    },
+    {
+     "text": "Sant",
+     "f": 680
+    },
+    {
+     "text": "Hilari",
+     "f": 687
+    },
+    {
+     "text": "y",
+     "f": 703
+    },
+    {
+     "text": "Arbúcies,",
+     "f": 708
+    }
+   ]
+  },
+  {
+   "id": "07",
+   "text": "el Montnegre y el Corredor,",
+   "from": 733,
+   "frames": 62,
+   "words": [
+    {
+     "text": "el",
+     "f": 733
+    },
+    {
+     "text": "Montnegre",
+     "f": 737
+    },
+    {
+     "text": "y",
+     "f": 763
+    },
+    {
+     "text": "el",
+     "f": 768
+    },
+    {
+     "text": "Corredor,",
+     "f": 773
+    }
+   ]
+  },
+  {
+   "id": "08",
+   "text": "hasta cruzar Barcelona y llegar a la meta, en Sant Adrià de Besòs.",
+   "from": 797,
+   "frames": 156,
+   "words": [
+    {
+     "text": "hasta",
+     "f": 796
+    },
+    {
+     "text": "cruzar",
+     "f": 808
+    },
+    {
+     "text": "Barcelona",
+     "f": 821
+    },
+    {
+     "text": "y",
+     "f": 843
+    },
+    {
+     "text": "llegar",
+     "f": 851
+    },
+    {
+     "text": "a",
+     "f": 859
+    },
+    {
+     "text": "la",
+     "f": 861
+    },
+    {
+     "text": "meta,",
+     "f": 864
+    },
+    {
+     "text": "en",
+     "f": 883
+    },
+    {
+     "text": "Sant",
+     "f": 896
+    },
+    {
+     "text": "Adrià",
+     "f": 905
+    },
+    {
+     "text": "de",
+     "f": 916
+    },
+    {
+     "text": "Besòs.",
+     "f": 920
+    }
+   ]
+  },
+  {
+   "id": "09",
+   "text": "Más de ocho mil ochocientos metros de desnivel positivo.",
+   "from": 960,
+   "frames": 97,
+   "words": [
+    {
+     "text": "Más",
+     "f": 960
+    },
+    {
+     "text": "de",
+     "f": 966
+    },
+    {
+     "text": "ocho",
+     "f": 971
+    },
+    {
+     "text": "mil",
+     "f": 978
+    },
+    {
+     "text": "ochocientos",
+     "f": 988
+    },
+    {
+     "text": "metros",
+     "f": 1011
+    },
+    {
+     "text": "de",
+     "f": 1021
+    },
+    {
+     "text": "desnivel",
+     "f": 1024
+    },
+    {
+     "text": "positivo.",
+     "f": 1037
+    }
+   ]
+  },
+  {
+   "id": "10",
+   "text": "Doce y trece de junio de dos mil veintisiete.",
+   "from": 1062,
+   "frames": 74,
+   "words": [
+    {
+     "text": "Doce",
+     "f": 1062
+    },
+    {
+     "text": "y",
+     "f": 1072
+    },
+    {
+     "text": "trece",
+     "f": 1074
+    },
+    {
+     "text": "de",
+     "f": 1085
+    },
+    {
+     "text": "junio",
+     "f": 1090
+    },
+    {
+     "text": "de",
+     "f": 1100
+    },
+    {
+     "text": "dos",
+     "f": 1104
+    },
+    {
+     "text": "mil",
+     "f": 1109
+    },
+    {
+     "text": "veintisiete.",
+     "f": 1114
+    }
+   ]
+  },
+  {
+   "id": "11",
+   "text": "Inscripciones a partir del ocho de noviembre.",
+   "from": 1139,
+   "frames": 77,
+   "words": [
+    {
+     "text": "Inscripciones",
+     "f": 1137
+    },
+    {
+     "text": "a",
+     "f": 1163
+    },
+    {
+     "text": "partir",
+     "f": 1167
+    },
+    {
+     "text": "del",
+     "f": 1179
+    },
+    {
+     "text": "ocho",
+     "f": 1187
+    },
+    {
+     "text": "de",
+     "f": 1194
+    },
+    {
+     "text": "noviembre.",
+     "f": 1199
+    }
+   ]
+  },
+  {
+   "id": "12",
+   "text": "Un reto. Mil leyendas.",
+   "from": 1230,
+   "frames": 61,
+   "words": [
+    {
+     "text": "Un",
+     "f": 1230
+    },
+    {
+     "text": "reto.",
+     "f": 1234
+    },
+    {
+     "text": "Mil",
+     "f": 1259
+    },
+    {
+     "text": "leyendas.",
+     "f": 1268
+    }
+   ]
+  }
+ ]
+}

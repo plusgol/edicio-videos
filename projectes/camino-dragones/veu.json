@@ -1,0 +1,25 @@
+{
+  "_": "Locució del vídeo de Camino de Dragones (vertical, 30-45 s). Tot el que es diu surt de caminodedragones.es/es i /rutas (octubre de 2026). Els números van en lletres perquè la veu els llegeixi bé; en pantalla van en xifres.",
+  "voice": "nPczCjzI2devNBz1zQrb",
+  "language": "es",
+  "speed": 1.12,
+  "loudnorm": {
+    "I": -16,
+    "TP": -1.5,
+    "LRA": 11
+  },
+  "lines": [
+    {"id": "01", "text": "Se rumorea que hay miles de dragones por toda Cataluña."},
+    {"id": "02", "text": "Camino de Dragones es una carrera de relevos de los Pirineos a Barcelona."},
+    {"id": "03", "text": "Equipos de doce corredores, trescientos kilómetros y treinta y dos tramos."},
+    {"id": "04", "text": "La salida, en Vallter dos mil, a casi dos mil metros de altitud."},
+    {"id": "05", "text": "Y de ahí, relevo a relevo, por Camprodon y Olot,"},
+    {"id": "06", "text": "Susqueda, Sant Hilari y Arbúcies,"},
+    {"id": "07", "text": "el Montnegre y el Corredor,"},
+    {"id": "08", "text": "hasta cruzar Barcelona y llegar a la meta, en Sant Adrià de Besòs."},
+    {"id": "09", "text": "Más de ocho mil ochocientos metros de desnivel positivo."},
+    {"id": "10", "text": "Doce y trece de junio de dos mil veintisiete."},
+    {"id": "11", "text": "Inscripciones a partir del ocho de noviembre."},
+    {"id": "12", "text": "Un reto. Mil leyendas."}
+  ]
+}

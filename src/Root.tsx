@@ -10,6 +10,8 @@ import {DemoPro, demoProMetadata, type DemoProProps} from './demo/DemoPro';
 import {LAUNCH} from '../brand/unimatx';
 import {LLANCAMENT_DURATION, Llancament} from './llancament/Llancament';
 import {BOOM_DURATION, Boom} from './llancament/boom/Boom';
+import {CaminoDragones, cddMetadata, type CddProps} from './cdd/CaminoDragones';
+import {CDD} from '../brand/cdd';
 
 // El projecte es tria amb --public-dir=projectes/<nom>; el pla ve de work/render.json.
 export const Root: React.FC = () => (
@@ -57,5 +59,7 @@ export const Root: React.FC = () => (
   <Composition id="UniLlancament" component={Llancament} width={LAUNCH.width} height={LAUNCH.height} fps={LAUNCH.fps} durationInFrames={LLANCAMENT_DURATION} />
   {/* Versió «BOOM» (v2) del mateix vídeo: ganxo, silenci, entrada amb cop, preu i contrast */}
   <Composition id="UniLlancamentBoom" component={Boom} width={LAUNCH.width} height={LAUNCH.height} fps={LAUNCH.fps} durationInFrames={BOOM_DURATION} />
+  {/* Camino de Dragones: què és i la ruta animada, vertical: --public-dir=projectes/camino-dragones/remotion */}
+  <Composition id="CaminoDragones" component={CaminoDragones} width={CDD.width} height={CDD.height} fps={CDD.fps} durationInFrames={1} defaultProps={{map: null} as CddProps} calculateMetadata={cddMetadata} />
   </>
 );

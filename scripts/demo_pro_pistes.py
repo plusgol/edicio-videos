@@ -1,6 +1,7 @@
 """Pistes per a la demo per a centres «amb marc» (composició DemoPro de Remotion).
 
-Ús: python3 scripts/demo_pro_pistes.py projectes/demo-escoles
+Ús: python3 scripts/demo_pro_pistes.py projectes/demo-escoles [escala]
+    escala 2 per a la versió 4K (render amb --scale=2): la pantalla es fa al doble d'ample perquè hi vagi píxel a píxel
 
 Llegeix cara.json (quins clips de cara cobreixen cada tros i amb quin desfasament), work/trossos-sense-cara.json
 (d'on surt cada tros de pantalla a la gravació original), edl.json (on era la càmera de l'OBS) i pauses.json (les
@@ -55,6 +56,7 @@ def ripple(items, a, b):
 
 def main():
     root = Path(sys.argv[1])
+    sw = SCREEN_W * (int(sys.argv[2]) if len(sys.argv) > 2 else 1)
     out = root / 'remotion-pro'
     tmp = root / 'work' / 'pro'
     out.mkdir(exist_ok=True)
@@ -71,16 +73,16 @@ def main():
     c = edl['cover']
     x, w, h = c['x'], c['w'], c['h']
     top = c['chrome'] + TRIM_TOP
-    sh = int(SCREEN_W * (rh - top) / rw) // 2 * 2
-    crop_h = round(sh * rw / SCREEN_W)
+    sh = int(sw * (rh - top) / rw) // 2 * 2
+    crop_h = round(sh * rw / sw)
     cover = (f"fps={FPS},crop={rw}:{crop_h}:0:{top},split=2[a][c];[c]crop={w}:4:{x}:{h - top + 3},scale={w}:{h - top}:flags=neighbor,"
-             f"boxblur=1:1:4:1[m];[a][m]overlay={x}:0,scale={SCREEN_W}:{sh}:flags=lanczos,format=yuv420p[v]")
+             f"boxblur=1:1:4:1[m];[a][m]overlay={x}:0,scale={sw}:{sh}:flags=lanczos,format=yuv420p[v]")
     lst, fpos, pmap = [], 0, []
     for p in pieces:
         a, b = p['src']
         s0 = max(0.0, a - H)
         n = frames((b + H) - s0)
-        f = tmp / f"p{p['i']:02d}-{SCREEN_W}x{sh}.mp4"
+        f = tmp / f"p{p['i']:02d}-{sw}x{sh}.mp4"
         if not f.exists():
             run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-ss', f'{s0:.3f}', '-i', str(raw), '-t', f'{n / FPS + 0.2:.3f}',
                  '-filter_complex', cover, '-map', '[v]', '-frames:v', str(n), '-an', '-c:v', 'libx264', '-crf', str(CRF_SCREEN),
@@ -160,7 +162,7 @@ def main():
             if r['v0'] <= v < r['v1'] - r.get('hold', 0):
                 return round((r['out0'] + frames(v - r['v0'])) / FPS, 2)
         return None
-    data = {'fps': FPS, 'durationInFrames': O - sum(b - a for a, b in cuts), 'screen': {'w': SCREEN_W, 'h': sh}, 'cuts': cuts,
+    data = {'fps': FPS, 'durationInFrames': O - sum(b - a for a, b in cuts), 'screen': {'w': sw, 'h': sh}, 'cuts': cuts,
             'shots': shots, 'faces': faces, 'words': words,
             'pieceStart': {p['i']: demo_to_out(p['demo'][0] + 0.01) for p in pmap}}
     (out / 'dades.json').write_text(json.dumps(data, ensure_ascii=False))

@@ -108,8 +108,8 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
     if (t >= a / fps) t += (b - a) / fps;
   }
   const W = P.win;
-  // La pantalla ja ve sense la barra del navegador i a la mida de la finestra (demo_pro_pistes.py): hi va píxel a píxel.
-  const contentH = data.screen.h;
+  // La pantalla ja ve sense la barra del navegador i a la mida de la finestra (o al doble, per a 4K): hi va píxel a píxel.
+  const contentH = Math.round((data.screen.h * W.w) / data.screen.w);
 
   // Part on som (ruta de dalt).
   let ci = 0;

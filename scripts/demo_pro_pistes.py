@@ -3,17 +3,18 @@
 Ús: python3 scripts/demo_pro_pistes.py projectes/demo-escoles
 
 Llegeix cara.json (quins clips de cara cobreixen cada tros i amb quin desfasament), work/trossos-sense-cara.json
-(d'on surt cada tros de pantalla a la gravació original) i edl.json (on era la càmera de l'OBS). Escriu a
-remotion-pro/ (la carpeta pública de la composició):
+(d'on surt cada tros de pantalla a la gravació original), edl.json (on era la càmera de l'OBS) i pauses.json (les
+pauses que es treuen, en temps de la línia sencera). Escriu a remotion-pro/ (la carpeta pública de la composició):
 
   pantalla.mp4  cada tros de pantalla amb H segons de més a banda i banda (per fer fosos entre talls), sense la barra
                 del navegador, amb la càmera antiga tapada i ja a la mida de la finestra de DemoPro (SCREEN_W d'ample),
                 perquè hi vagi píxel a píxel; poca compressió (CRF_SCREEN), 30 fps
   work/pro/cara.mp4  cada tros de cara, retallat al voltant de la cara (16:9, 960×540), també amb H segons de marge
                 (només si encara no hi és: alfa.mp4 de retall_fons.py hi va lligat fotograma a fotograma)
-  veu.wav       la veu ja muntada i normalitzada (la de out/demo-unimatx-escoles-amb-cara.mp4)
-  dades.json    on va cada pla a la sortida i d'on es llegeix, en fotogrames, els temps de les paraules i la mida
-                de pantalla.mp4 (DemoPro la llegeix d'aquí)
+  veu.wav       la veu ja muntada i normalitzada (la de out/demo-unimatx-escoles-amb-cara.mp4), sense les pauses
+  dades.json    on va cada pla a la sortida i d'on es llegeix, en fotogrames (ja sense les pauses; «jump» marca un
+                pla que continua el mateix tros després d'un tall), les pauses tretes («cuts», en fotogrames de la
+                línia sencera), els temps de les paraules (línia sencera) i la mida de pantalla.mp4
 """
 import json
 import subprocess
@@ -33,6 +34,23 @@ def run(cmd):
 
 def frames(t):
     return round(t * FPS)
+
+
+def ripple(items, a, b):
+    """Treu els fotogrames [a, b) de la sortida: el que hi ha després es mou enrere i el pla tallat es parteix."""
+    out = []
+    for it in items:
+        s, e = it['from'], it['from'] + it['dur']
+        if e <= a:
+            out.append(it)
+        elif s >= b:
+            out.append({**it, 'from': s - (b - a)})
+        else:
+            if s < a:
+                out.append({**it, 'dur': a - s})
+            if e > b:
+                out.append({**it, 'from': a, 'dur': e - b, 'file': it['file'] + (0 if it.get('freeze') else b - s), 'jump': True})
+    return out
 
 
 def main():
@@ -112,8 +130,20 @@ def main():
         (tmp / 'cara.txt').write_text('\n'.join(lst) + '\n')
         run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', str(tmp / 'cara.txt'), '-c', 'copy',
              '-movflags', '+faststart', str(tmp / 'cara.mp4')])
-    run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', str(root / 'out' / cfg['output']), '-vn', '-ac', '2', '-ar', '48000',
-         '-c:a', 'pcm_s16le', str(out / 'veu.wav')])
+    # Pauses: es treuen de la pantalla, la cara i la veu (amb 5 ms de fos a cada unió, que cau en silenci).
+    cuts = sorted((frames(c['from']), frames(c['to'])) for c in json.loads((root / 'pauses.json').read_text())['cuts'])
+    for a, b in reversed(cuts):
+        shots, faces = ripple(shots, a, b), ripple(faces, a, b)
+    keep, prev = [], 0
+    for a, b in cuts:
+        keep.append((prev, a))
+        prev = b
+    keep.append((prev, O))
+    fc = ''.join(f"[0:a]atrim={s0 / FPS}:{s1 / FPS},asetpts=PTS-STARTPTS,afade=t=in:d=0.005,"
+                 f"afade=t=out:st={(s1 - s0) / FPS - 0.005}:d=0.005[k{i}];" for i, (s0, s1) in enumerate(keep))
+    fc += ''.join(f"[k{i}]" for i in range(len(keep))) + f"concat=n={len(keep)}:v=0:a=1[v]"
+    run(['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', str(root / 'out' / cfg['output']), '-filter_complex', fc, '-map', '[v]',
+         '-ac', '2', '-ar', '48000', '-c:a', 'pcm_s16le', str(out / 'veu.wav')])
 
     # Paraules dites, en temps de sortida (per sincronitzar els rètols amb la veu).
     words = []
@@ -130,10 +160,12 @@ def main():
             if r['v0'] <= v < r['v1'] - r.get('hold', 0):
                 return round((r['out0'] + frames(v - r['v0'])) / FPS, 2)
         return None
-    data = {'fps': FPS, 'durationInFrames': O, 'screen': {'w': SCREEN_W, 'h': sh}, 'shots': shots, 'faces': faces, 'words': words,
+    data = {'fps': FPS, 'durationInFrames': O - sum(b - a for a, b in cuts), 'screen': {'w': SCREEN_W, 'h': sh}, 'cuts': cuts,
+            'shots': shots, 'faces': faces, 'words': words,
             'pieceStart': {p['i']: demo_to_out(p['demo'][0] + 0.01) for p in pmap}}
     (out / 'dades.json').write_text(json.dumps(data, ensure_ascii=False))
-    print(len(shots), 'plans de pantalla,', len(faces), 'trossos de cara,', O, 'fotogrames')
+    print(len(shots), 'plans de pantalla,', len(faces), 'trossos de cara,', data['durationInFrames'], 'fotogrames;',
+          len(cuts), 'pauses tretes')
 
 
 if __name__ == '__main__':

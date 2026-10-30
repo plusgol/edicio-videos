@@ -6,13 +6,14 @@ import {POP} from '../llancament/Ui';
 import {UniMark, clamp} from '../unimatx/base';
 
 // Demo per a centres amb marc: la pantalla dins una finestra amb una barra neta, la càmera (amb el fons canviat) a
-// dalt a la dreta on era la de l'OBS, fosos curts als talls i quatre rètols a la franja de baix. Les pistes i els
-// plans surten de scripts/demo_pro_pistes.py (remotion-pro/dades.json); els rètols, de retols.json.
+// dalt a la dreta on era la de l'OBS, fosos curts als talls i rètols a la franja de baix. Les pistes i els plans
+// surten de scripts/demo_pro_pistes.py (remotion-pro/dades.json, ja sense les pauses de pauses.json); els rètols, de
+// retols.json, en temps de la línia sencera.
 // --public-dir=projectes/demo-escoles/remotion-pro --props='{"variant":"fosc"}'
 
-type Shot = {piece: number; from: number; dur: number; file: number; freeze?: boolean};
+type Shot = {piece: number; from: number; dur: number; file: number; freeze?: boolean; jump?: boolean};
 type Face = {run: number; clip: string; from: number; dur: number; file: number};
-export type ProData = {fps: number; durationInFrames: number; screen: {w: number; h: number}; shots: Shot[]; faces: Face[]};
+export type ProData = {fps: number; durationInFrames: number; screen: {w: number; h: number}; cuts: [number, number][]; shots: Shot[]; faces: Face[]};
 export type Variant = keyof typeof P.variants;
 export type DemoProProps = {variant: Variant; data: ProData | null};
 
@@ -69,7 +70,11 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
   const {fps} = useVideoConfig();
   if (!data) return null;
   const v = P.variants[variant];
-  const t = frame / fps;
+  // Temps de la línia sencera (el dels rètols): s'hi tornen a sumar les pauses tretes.
+  let t = frame / fps;
+  for (const [a, b] of data.cuts) {
+    if (t >= a / fps) t += (b - a) / fps;
+  }
   const W = P.win;
   // La pantalla ja ve sense la barra del navegador i a la mida de la finestra (demo_pro_pistes.py): hi va píxel a píxel.
   const contentH = data.screen.h;
@@ -91,7 +96,8 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
   };
   const login = stepAt(R.login.steps, 1);
   const inf = stepAt(R.informes.items, 2);
-  const fase = stepAt(R.fases.items, 1);
+  const fase = stepAt(R.fases.items.map((f) => [f.name, f.t]), 1);
+  const faseIn = fase < 0 ? 0 : ease((t - R.fases.items[fase].t + 0.15) * fps, 0, P.enter);
 
   return (
     <AbsoluteFill style={{background: v.canvas, fontFamily: POP, color: v.text}}>
@@ -115,7 +121,7 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
           <div style={{marginLeft: 18, padding: '5px 16px', borderRadius: 8, background: v.chip, border: `1px solid ${v.chipLine}`, color: v.barText, fontSize: 15, fontWeight: 600}}>unimatx.cat</div>
         </div>
         <div style={{position: 'absolute', left: 0, top: W.bar, width: W.w, height: contentH, overflow: 'hidden'}}>
-          <Track items={data.shots} src="pantalla.mp4" fade={P.fade} cut={(a, b) => (a as Shot).piece !== (b as Shot).piece} style={{position: 'absolute', inset: 0, width: '100%', height: '100%'}} />
+          <Track items={data.shots} src="pantalla.mp4" fade={P.fade} cut={(a, b) => (a as Shot).piece !== (b as Shot).piece || !!(b as Shot).jump} style={{position: 'absolute', inset: 0, width: '100%', height: '100%'}} />
         </div>
       </div>
 
@@ -158,11 +164,37 @@ export const DemoPro: React.FC<DemoProProps> = ({variant, data}) => {
         </div>
       </Strip>
       <Strip t={t} from={R.fases.from} to={R.fases.to}>
-        <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
-          <span style={{fontSize: 18, fontWeight: 700, color: v.sub, marginRight: 6, whiteSpace: 'nowrap'}}>{R.fases.title}</span>
-          {R.fases.items.map((s, i) => (
-            <Chip key={i} v={v} n={i + 1} on={i === fase} done={i < fase} small>
-              {s[0]}
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 12}}>
+          <div style={{display: 'flex', alignItems: 'center', gap: 10}}>
+            <span style={{fontSize: 18, fontWeight: 700, color: v.sub, marginRight: 6, whiteSpace: 'nowrap'}}>{R.fases.title}</span>
+            {R.fases.items.map((s, i) => (
+              <Chip key={i} v={v} n={i + 1} on={i === fase} done={i < fase} small>
+                {s.name}
+              </Chip>
+            ))}
+          </div>
+          {/* el tipus de preguntes de la fase, tal com el presenta el test */}
+          <div style={{height: 34, display: 'flex', alignItems: 'center', gap: 10, opacity: faseIn, transform: `translateY(${(1 - faseIn) * 8}px)`}}>
+            {fase >= 0 && (
+              <>
+                <span style={{fontSize: 17, fontWeight: 800, color: v.accent, whiteSpace: 'nowrap'}}>Fase {fase + 1}</span>
+                <span style={{fontSize: 22, fontWeight: 700, whiteSpace: 'nowrap', marginRight: 6}}>{R.fases.items[fase].q}</span>
+                {R.fases.items[fase].tags.map((tag) => (
+                  <span key={tag} style={{fontSize: 15, fontWeight: 600, color: v.sub, padding: '4px 12px', borderRadius: 999, border: `1px solid ${v.chipLine}`, whiteSpace: 'nowrap'}}>
+                    {tag}
+                  </span>
+                ))}
+              </>
+            )}
+          </div>
+        </div>
+      </Strip>
+      <Strip t={t} from={R.encaix.from} to={R.encaix.to}>
+        <div style={{display: 'flex', alignItems: 'center', gap: 12}}>
+          <span style={{fontSize: 18, fontWeight: 700, color: v.sub, marginRight: 8, whiteSpace: 'nowrap'}}>{R.encaix.title}</span>
+          {R.encaix.items.map((s, i) => (
+            <Chip key={i} v={v} n={i + 1} on={i === R.encaix.items.length - 1}>
+              {s[0]} <span style={{fontWeight: 800}}>· {s[1]}</span>
             </Chip>
           ))}
         </div>

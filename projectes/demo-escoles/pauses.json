@@ -1,0 +1,75 @@
+{
+ "_": "Pauses que es treuen de la demo amb marc (DemoPro). Temps en segons de la línia de temps sencera (la de cara.json i retols.json, abans de treure res). Els aplica scripts/demo_pro_pistes.py a la pantalla, la cara i la veu.",
+ "cuts": [
+  {
+   "from": 59.267,
+   "to": 62.033,
+   "reason": "Pausa de 3.2 s sense parlar a 0:59.1 (marcada a la revisió); se'n deixen 0,4 s"
+  },
+  {
+   "from": 101.933,
+   "to": 102.533,
+   "reason": "Pausa de 1.0 s sense parlar a 1:41.7; se'n deixen 0,4 s"
+  },
+  {
+   "from": 164.4,
+   "to": 165.167,
+   "reason": "Pausa de 1.2 s sense parlar a 2:44.2; se'n deixen 0,4 s"
+  },
+  {
+   "from": 203.367,
+   "to": 205.467,
+   "reason": "Pausa de 2.5 s sense parlar a 3:23.2 (marcada a la revisió); se'n deixen 0,4 s"
+  },
+  {
+   "from": 209.967,
+   "to": 211.067,
+   "reason": "Pausa de 1.5 s sense parlar a 3:29.8 (marcada a la revisió); se'n deixen 0,4 s"
+  },
+  {
+   "from": 234.3,
+   "to": 235.067,
+   "reason": "Pausa de 1.2 s sense parlar a 3:54.1; se'n deixen 0,4 s"
+  },
+  {
+   "from": 244.733,
+   "to": 245.333,
+   "reason": "Pausa de 1.0 s sense parlar a 4:04.5; se'n deixen 0,4 s"
+  },
+  {
+   "from": 248.333,
+   "to": 249.167,
+   "reason": "Pausa de 1.2 s sense parlar a 4:08.1; se'n deixen 0,4 s"
+  },
+  {
+   "from": 282.633,
+   "to": 284.2,
+   "reason": "Pausa de 2.0 s sense parlar a 4:42.4 (marcada a la revisió); se'n deixen 0,4 s"
+  },
+  {
+   "from": 297.167,
+   "to": 297.433,
+   "reason": "Pausa de 0.7 s sense parlar a 4:57.0 (marcada a la revisió); se'n deixen 0,4 s"
+  },
+  {
+   "from": 345.967,
+   "to": 346.8,
+   "reason": "Pausa de 1.2 s sense parlar a 5:45.8 (marcada a la revisió); se'n deixen 0,4 s"
+  },
+  {
+   "from": 362.5,
+   "to": 364.433,
+   "reason": "Pausa de 2.3 s sense parlar a 6:02.3 (marcada a la revisió); se'n deixen 0,4 s"
+  },
+  {
+   "from": 370.767,
+   "to": 372.367,
+   "reason": "Pausa de 2.0 s sense parlar a 6:10.6 (marcada a la revisió); se'n deixen 0,4 s"
+  },
+  {
+   "from": 377.867,
+   "to": 378.633,
+   "reason": "Pausa de 1.2 s sense parlar a 6:17.7; se'n deixen 0,4 s"
+  }
+ ]
+}

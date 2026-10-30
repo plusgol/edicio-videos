@@ -153,12 +153,12 @@ export const BOOM = {
 // Demo per a centres «amb marc» (composició DemoPro, projectes/demo-escoles/remotion-pro): la pantalla dins una
 // finestra, la càmera a dalt a la dreta (on era la de l'OBS), una franja de baix per als rètols i fosos als talls.
 export const DEMO_PRO = {
-  win: {x: 160, y: 150, w: 1600, bar: 44, radius: 16},
-  // Just on era la càmera de l'OBS a la gravació (edl.json cover), escalada a la finestra (x 1363–1760, y fins a 312)
+  win: {x: 160, y: 140, w: 1600, bar: 44, radius: 16},
+  // Just on era la càmera de l'OBS a la gravació (edl.json cover), escalada a la finestra (x 1363–1760, y fins a 302)
   // amb 7 px de marge: tapa el forat que ja no tenia la gravació i res més. Mides exteriors (vora inclosa).
-  cam: {x: 1356, y: 92, w: 404, h: 227, radius: 16},
-  strip: 1013, // centre vertical de la franja de baix (rètols)
-  crumb: 96, // línia de base de la ruta de dalt a l'esquerra
+  cam: {x: 1356, y: 82, w: 404, h: 227, radius: 16},
+  strip: 1001, // centre vertical de la franja de baix (rètols): entre la finestra (acaba a 922) i el peu
+  crumb: 88, // centre de la ruta de dalt a l'esquerra
   fade: 8, // fotogrames de fos entre talls de pantalla
   faceFade: 10, // fotogrames de fos entre clips de cara
   enter: 10,

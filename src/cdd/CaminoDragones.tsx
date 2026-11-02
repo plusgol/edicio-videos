@@ -202,7 +202,7 @@ export const CaminoDragones: React.FC<CddProps> = ({map}) => {
             </g>
           )}
           {/* llocs: surten quan la veu els diu i hi arriba la ruta */}
-          {D >= 0 && lbl(all[0][0], all[0][1], 'Vallter 2000', 'Salida · 1.993 m', ease(f, T.run + 4, T.run + 4 + C.label.in), 'start', true)}
+          {D >= 0 && lbl(all[0][0], all[0][1], 'Vallter 2000', 'Salida · 1.993 m', ease(f, T.run + 4, T.run + 4 + C.label.in) * (1 - ease(f, T.runEnd, T.fullAgain)), 'start', true)}
           {places.map((p, i) => {
             if (f < p.at - 2) return null;
             const [x, y] = at(p.km);
@@ -257,7 +257,7 @@ const Shade: React.FC<{f: number; from: number; to: number; level?: number}> = (
 const Legend: React.FC<{f: number}> = ({f}) => {
   const l = L('01');
   return (
-    <Block f={f} from={l.from} to={end('01') + 4} style={{top: 1380, padding: '0 90px'}}>
+    <Block f={f} from={l.from} to={end('01') + 4} style={{top: 1300, left: C.safe.x0, right: C.width - C.safe.x1}}>
       <div style={{fontFamily: WORK, fontWeight: 600, fontSize: 58, lineHeight: 1.18, textAlign: 'center', textShadow: '0 4px 24px rgba(0,0,0,0.8)'}}>
         {l.words.map((w, i) => (
           <span key={i} style={{opacity: ease(f, w.f - 2, w.f + 4), color: norm(w.text).startsWith('dragon') ? C.red : C.text}}>
@@ -322,7 +322,7 @@ const Hud: React.FC<{f: number; km: number; leg: number; alt: number; total: num
   return (
     <>
     <div style={{position: 'absolute', left: 0, right: 0, top: 0, height: C.hud.shade, opacity: p, background: `linear-gradient(${C.sea} 0%, ${C.sea}EE 55%, ${C.sea}00 100%)`}} />
-    <div style={{position: 'absolute', left: 60, right: 60, top: C.hud.top, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', opacity: p}}>
+    <div style={{position: 'absolute', left: C.safe.x0, right: C.width - C.safe.x1, top: C.hud.top, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', opacity: p}}>
       <div>
         <div style={{fontFamily: BAR, fontWeight: 700, fontSize: 34, color: C.sub, letterSpacing: 2}}>TRAMO</div>
         <div style={{fontFamily: BAR, fontWeight: 800, fontSize: 92, lineHeight: 0.9}}>

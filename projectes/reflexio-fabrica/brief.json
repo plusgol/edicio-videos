@@ -1,0 +1,20 @@
+{
+  "title": "Let the model cook",
+  "why": "Reel de text (PROMPT 08 de la guia de Damiano) amb la reflexió de l'usuari, paraula per paraula: «Use my exact words».",
+  "format": "vertical",
+  "language": "es",
+  "styles": ["kinetic", "editorial"],
+  "voice": null,
+  "screens": [
+    "*Let the model cook.*",
+    "No le digáis *«haz esto»*",
+    "y cuando no funcione bien, *«haz esto otro»*.",
+    "Directamente preguntadle: *«¿cómo hacemos esto?»*",
+    "Los modelos actuales están preparados para ser *100 %* autónomos.",
+    {"text": "Dadles esa autonomía y os daréis cuenta de que *no hay límites* ya.", "punch": true},
+    "Bonus points si finalmente le decís:",
+    "«convierte esto en una *pipeline automatizable*",
+    "para agilizar el proceso las próximas veces».",
+    {"text": "Y así es como os hacéis con una *factoría de vídeos* en cuestión de minutos.", "end": true}
+  ]
+}

@@ -12,6 +12,9 @@ import {LLANCAMENT_DURATION, Llancament} from './llancament/Llancament';
 import {BOOM_DURATION, Boom} from './llancament/boom/Boom';
 import {CaminoDragones, cddMetadata, type CddProps} from './cdd/CaminoDragones';
 import {CDD} from '../brand/cdd';
+import {MOV, Moviments, type MovProps} from './mg/Moviments';
+import {Fabrica, fabricaMetadata} from './fabrica/Fabrica';
+import type {FabricaProps} from './fabrica/types';
 
 // El projecte es tria amb --public-dir=projectes/<nom>; el pla ve de work/render.json.
 export const Root: React.FC = () => (
@@ -61,5 +64,9 @@ export const Root: React.FC = () => (
   <Composition id="UniLlancamentBoom" component={Boom} width={LAUNCH.width} height={LAUNCH.height} fps={LAUNCH.fps} durationInFrames={BOOM_DURATION} />
   {/* Camino de Dragones: què és i la ruta animada, vertical: --public-dir=projectes/camino-dragones/remotion */}
   <Composition id="CaminoDragones" component={CaminoDragones} width={CDD.width} height={CDD.height} fps={CDD.fps} durationInFrames={1} defaultProps={{map: null} as CddProps} calculateMetadata={cddMetadata} />
+  {/* Catàleg dels 10 moviments de motion graphics en qualsevol estil (src/mg, brand/mg.ts): --props='{"style":"pop"}' */}
+  <Composition id="MGMoviments" component={Moviments} width={MOV.width} height={MOV.height} fps={MOV.fps} durationInFrames={MOV.each * 10} defaultProps={{style: 'glass'} as MovProps} />
+  {/* Fàbrica de vídeos (scripts/fabrica/fabrica.py): --public-dir=projectes/<nom>/remotion --props='{"style":"kinetic"}' */}
+  <Composition id="Fabrica" component={Fabrica} width={1080} height={1920} fps={30} durationInFrames={1} defaultProps={{style: 'glass', qa: false, data: null, layout: null} as FabricaProps} calculateMetadata={fabricaMetadata} />
   </>
 );

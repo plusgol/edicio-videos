@@ -1,0 +1,17 @@
+{
+  "title": "UniMatx · demo per a centres",
+  "why": "Reel per portar els centres a unimatx.cat/demo. Tot surt de la pàgina de la demo (capítols i durada) i la captura és un fotograma real de la demo (l'informe «El teu top 3», minut 1:06).",
+  "format": "vertical",
+  "language": "ca",
+  "styles": ["unimatx", "kinetic"],
+  "voice": {"id": "FGY2WhTYpPnrIDTdsKH5", "speed": 1.08},
+  "pronounce": {"UniMatx": "Uni Match"},
+  "logo": "input/unimatx-mark.png",
+  "screens": [
+    {"text": "Com funciona *UniMatx* en un centre?", "label": "Per a centres educatius"},
+    "Ho veureu tot en *7* minuts.",
+    {"text": "Què hi veureu:", "items": ["Com s'hi entra", "L'espai del centre", "El test en sis fases", "El resultat de cada alumne"]},
+    {"text": "Cada alumne rep *el seu top 3*.", "count": false, "image": "input/informe-top3.png", "focus": {"x": 0.4, "y": 0.75, "zoom": 1.3}, "reframe": true},
+    {"text": "*unimatx.cat/demo*", "say": "Mireu-la a unimatx punt cat barra demo.", "sub": "Mireu la demo i escriviu-nos", "end": true}
+  ]
+}

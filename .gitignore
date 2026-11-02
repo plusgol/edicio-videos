@@ -16,3 +16,4 @@ projectes/*/*/el/
 projectes/*/el/
 projectes/*/remotion/
 projectes/*/remotion-*/
+!src/mg/sfx/*.wav
